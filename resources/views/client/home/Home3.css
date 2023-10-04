@@ -1,0 +1,151 @@
+.nav{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center; /* căn giữa theo chiều ngang */
+    align-items: center;
+
+}
+.info{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.info a {
+    padding: 30px 60px; /* Thay đổi giá trị để điều chỉnh khoảng cách */
+   text-decoration: none;
+   color: orange;
+}
+
+.navbar{
+    
+    background-color: rgba(230, 237, 244, 0.984);
+
+}
+.navbar>.container{
+    display: initial !important; /* hoặc display: unset; */ 
+}
+.logo{
+    display: flex; 
+    justify-content: center; /* căn giữa theo chiều ngang */
+    align-items: center;
+    height: 100%
+}
+.category{
+    display: flex;
+    gap: 20px; /* Điều chỉnh khoảng cách giữa các mục */
+}
+
+.category a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 30px; /* Thay đổi giá trị nếu cần */
+}
+
+
+.bestseller{
+    margin-top: 70px;
+}
+.banner {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center; /* căn giữa theo chiều ngang */
+    align-items: center;
+
+}
+.banner img{
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
+}
+.card{
+    width: 90%;
+    height: 90%;
+    border: 0px !important;
+    padding: 20px 0px;
+    border-radius: 15px;
+    position: relative;
+    
+}
+.card img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease
+}
+.card:hover img {
+    transform: scale(1.1); /* Điều chỉnh tỷ lệ phóng to (1.2 = 120%) */
+}
+
+.drink-name{
+    text-decoration: none;
+   color: rgb(0, 0, 0);
+    text-align: center; /* Căn giữa các dòng */ 
+
+}
+.review{
+    margin-top: 5px;
+    margin-bottom: 50px;
+}
+button.btnreview {
+    font-size: large;
+    background-color: rgb(127 145 74);
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    border: 0px;
+    width: 100%;
+    height: 30px;
+}
+
+.bgreview {
+    position: relative;
+    height: 100%;
+}
+
+
+.bgreview img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 5px;
+}
+
+
+
+
+footer{
+    background-color: rgba(0, 0, 0, 0.782);
+    color: white;
+    margin-top: 50px ;
+}
+.footerinfo{
+    padding-top: 50px;
+}
+.footerinfo p{
+    font-size: 13px;
+    margin: 0;
+}
+.footercat{
+    margin-bottom: 20px;
+    
+}
+.footercat b {
+    font-size: 20px;
+}
+
+.footerinfo a{
+    padding: 10px 0px;
+    text-decoration: none;
+   color: rgb(255, 255, 255);
+}
+footer .col-lg-12{
+    margin-top: 30px;
+}
+footer .col-lg-9{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
