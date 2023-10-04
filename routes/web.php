@@ -16,7 +16,6 @@ use App\Http\Controllers\Dashboard;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::prefix('/dashboard') ->group(function (){
+Route::prefix('admin/dashboard') ->group(function (){
     Route::get('/', [Dashboard::class, 'index']) -> name('dashboard.index');
-//    Route::get('/', [Dashboard::class, 'main']) -> name('dashboard.main');
 });
