@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +16,6 @@ use App\Http\Controllers\Dashboard;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::prefix('admin/dashboard') ->group(function (){
-    Route::get('/', [Dashboard::class, 'index']) -> name('dashboard.index');
+Route::prefix('admin') ->group(function (){
+    Route::get('/', [DashboardController::class, 'index']) -> name('dashboard.index');
 });
