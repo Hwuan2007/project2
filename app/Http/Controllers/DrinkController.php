@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Http\Requests\StoreCategoryRequest;
-use App\Http\Requests\UpdateCategoryRequest;
+use App\Models\Drink;
+use App\Http\Requests\StoreDrinkRequest;
+use App\Http\Requests\UpdateDrinkRequest;
 use Illuminate\Http\Response;
 
-class CategoryController extends Controller
+class DrinkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin/categories/index');
+        return view('admin/drink/index');
     }
 
     /**
@@ -26,16 +26,16 @@ class CategoryController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreCategoryRequest $request
+     * @param StoreDrinkRequest $request
      * @return Response
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(StoreDrinkRequest $request)
     {
         //
     }
@@ -43,10 +43,10 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Category $category
+     * @param Drink $drink
      * @return Response
      */
-    public function show(Category $category)
+    public function show(Drink $drink)
     {
         //
     }
@@ -54,10 +54,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Category $category
+     * @param Drink $drink
      * @return Response
      */
-    public function edit(Category $category)
+    public function edit(Drink $drink)
     {
         //
     }
@@ -65,11 +65,11 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateCategoryRequest $request
-     * @param Category $category
+     * @param UpdateDrinkRequest $request
+     * @param Drink $drink
      * @return Response
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(UpdateDrinkRequest $request, Drink $drink)
     {
         //
     }
@@ -77,10 +77,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Category $category
+     * @param Drink $drink
      * @return Response
      */
-    public function destroy(Category $category)
+    public function destroy(Drink $drink)
     {
         //
     }

@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" type="text/css" href="typeofdrink.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset ('css/admin/categories.css') }}" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -27,7 +27,7 @@
                     <div class="sidebar">
                         <div class="logo">
                             <h4>
-                                CoffeeShop <br />
+                                CoffeeShop <br>
                                 Management
                             </h4>
                         </div>
@@ -35,7 +35,7 @@
                         <div>
                             <ul class="choose">
                                 <li class="active">
-                                    <a href="">
+                                    <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
                                             Dashboard
@@ -43,40 +43,40 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('typeofdrink.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
-                                            menu
+                                            Menu
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('category.index') }}">
                                         <p>
                                             <i class="bx bx-menu-alt-left"></i>
-                                            danh mục
+                                            Danh mục
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('drink.index') }}">
                                         <p>
-                                            <i class="bx bxs-drink"></i> đồ uống
+                                            <i class="bx bxs-drink"></i> Đồ uống
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('user.index') }}">
                                         <p>
-                                            <i class="bx bx-user"></i> người
+                                            <i class="bx bx-user"></i> Người
                                             dùng
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('order.index') }}">
                                         <p>
-                                            <i class="bx bx-receipt"></i> đơn
+                                            <i class="bx bx-receipt"></i> Đơn
                                             hàng
                                         </p>
                                     </a>
@@ -98,9 +98,7 @@
                                     padding-bottom: 15px;
                                 "
                             >
-                                <a class="navbar-brand" href="#"
-                                    ><b>Danh Mục</b></a
-                                >
+                                <a class="navbar-brand" href="#"><b>Menu</b></a>
                                 <button
                                     class="navbar-toggler"
                                     type="button"
@@ -137,14 +135,14 @@
                                             <div class="card">
                                                 <div class="header">
                                                     <h4 class="title">
-                                                        Danh Sách Loại Đồ Uống
+                                                        Danh Sách Danh Mục
                                                     </h4>
                                                     <br />
                                                     <button class="add-btn">
                                                         <i
                                                             class="bx bxs-plus-circle"
                                                         ></i>
-                                                        Thêm Loại Đồ Uống
+                                                        Thêm Danh Mục
                                                     </button>
                                                     <br />
                                                 </div>
@@ -158,11 +156,7 @@
                                                             <tr>
                                                                 <th>ID</th>
                                                                 <th>
-                                                                    Tên Loại Đồ
-                                                                    Uống
-                                                                </th>
-                                                                <th>
-                                                                    Danh Mục
+                                                                    Tên Danh Mục
                                                                 </th>
                                                                 <th>Action</th>
                                                             </tr>
@@ -173,7 +167,6 @@
                                                                 <td>
                                                                     Dakota Rice
                                                                 </td>
-                                                                <td>cafe</td>
                                                                 <td>
                                                                     <button
                                                                         class="detail-btn"
@@ -198,7 +191,6 @@
                                                                     Minerva
                                                                     Hooper
                                                                 </td>
-                                                                <td>cafe</td>
                                                                 <td>
                                                                     <button
                                                                         class="detail-btn"
@@ -223,7 +215,6 @@
                                                                     Sage
                                                                     Rodriguez
                                                                 </td>
-                                                                <td>cafe</td>
                                                                 <td>
                                                                     <button
                                                                         class="detail-btn"
@@ -248,7 +239,6 @@
                                                                     Philip
                                                                     Chaney
                                                                 </td>
-                                                                <td>cafe</td>
                                                                 <td>
                                                                     <button
                                                                         class="detail-btn"
@@ -272,7 +262,6 @@
                                                                 <td>
                                                                     Doris Greene
                                                                 </td>
-                                                                <td>cafe</td>
                                                                 <td>
                                                                     <button
                                                                         class="detail-btn"
@@ -296,7 +285,6 @@
                                                                 <td>
                                                                     Mason Porter
                                                                 </td>
-                                                                <td>cafe</td>
                                                                 <td>
                                                                     <button
                                                                         class="detail-btn"

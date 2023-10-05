@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" type="text/css" href="categories2.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset ('css/admin/drink.css') }}" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -35,7 +35,7 @@
                         <div>
                             <ul class="choose">
                                 <li class="active">
-                                    <a href="#">
+                                    <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
                                             Dashboard
@@ -43,40 +43,40 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('typeofdrink.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
-                                            menu
+                                            Menu
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('category.index') }}">
                                         <p>
                                             <i class="bx bx-menu-alt-left"></i>
-                                            danh mục
+                                            Danh mục
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('drink.index') }}">
                                         <p>
-                                            <i class="bx bxs-drink"></i> đồ uống
+                                            <i class="bx bxs-drink"></i> Đồ uống
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('user.index') }}">
                                         <p>
-                                            <i class="bx bx-user"></i> người
+                                            <i class="bx bx-user"></i> Người
                                             dùng
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('order.index') }}">
                                         <p>
-                                            <i class="bx bx-receipt"></i> đơn
+                                            <i class="bx bx-receipt"></i> Đơn
                                             hàng
                                         </p>
                                     </a>
@@ -98,7 +98,9 @@
                                     padding-bottom: 15px;
                                 "
                             >
-                                <a class="navbar-brand" href="#"><b>Menu</b></a>
+                                <a class="navbar-brand" href="#"
+                                    ><b>Đồ Uống</b></a
+                                >
                                 <button
                                     class="navbar-toggler"
                                     type="button"
@@ -135,14 +137,14 @@
                                             <div class="card">
                                                 <div class="header">
                                                     <h4 class="title">
-                                                        Danh Sách Danh Mục
+                                                        Danh Sách Các Đồ Uống
                                                     </h4>
                                                     <br />
                                                     <button class="add-btn">
                                                         <i
                                                             class="bx bxs-plus-circle"
                                                         ></i>
-                                                        Thêm Danh Mục
+                                                        Thêm Đồ Uống
                                                     </button>
                                                     <br />
                                                 </div>
@@ -156,8 +158,12 @@
                                                             <tr>
                                                                 <th>ID</th>
                                                                 <th>
-                                                                    Tên Danh Mục
+                                                                    Tên Đồ Uống
                                                                 </th>
+                                                                <th>
+                                                                    Hình Ảnh
+                                                                </th>
+                                                                <th>Giá</th>
                                                                 <th>Action</th>
                                                             </tr>
                                                         </thead>
@@ -168,15 +174,19 @@
                                                                     Dakota Rice
                                                                 </td>
                                                                 <td>
+                                                                    <img
+                                                                        class="drink-img"
+                                                                        src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png"
+                                                                        alt="image"
+                                                                    />
+                                                                </td>
+                                                                <td>500000</td>
+                                                                <td>
                                                                     <button
                                                                         class="detail-btn"
                                                                     >
-                                                                        chi tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="edit-btn"
-                                                                    >
-                                                                        sửa
+                                                                        xem chi
+                                                                        tiết
                                                                     </button>
                                                                     <button
                                                                         class="del-btn"
@@ -192,15 +202,19 @@
                                                                     Hooper
                                                                 </td>
                                                                 <td>
+                                                                    <img
+                                                                        class="drink-img"
+                                                                        src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png"
+                                                                        alt="image"
+                                                                    />
+                                                                </td>
+                                                                <td>500000</td>
+                                                                <td>
                                                                     <button
                                                                         class="detail-btn"
                                                                     >
-                                                                        chi tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="edit-btn"
-                                                                    >
-                                                                        sửa
+                                                                        xem chi
+                                                                        tiết
                                                                     </button>
                                                                     <button
                                                                         class="del-btn"
@@ -216,15 +230,19 @@
                                                                     Rodriguez
                                                                 </td>
                                                                 <td>
+                                                                    <img
+                                                                        class="drink-img"
+                                                                        src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png"
+                                                                        alt="image"
+                                                                    />
+                                                                </td>
+                                                                <td>500000</td>
+                                                                <td>
                                                                     <button
                                                                         class="detail-btn"
                                                                     >
-                                                                        chi tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="edit-btn"
-                                                                    >
-                                                                        sửa
+                                                                        xem chi
+                                                                        tiết
                                                                     </button>
                                                                     <button
                                                                         class="del-btn"
@@ -240,15 +258,19 @@
                                                                     Chaney
                                                                 </td>
                                                                 <td>
+                                                                    <img
+                                                                        class="drink-img"
+                                                                        src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png"
+                                                                        alt="image"
+                                                                    />
+                                                                </td>
+                                                                <td>500000</td>
+                                                                <td>
                                                                     <button
                                                                         class="detail-btn"
                                                                     >
-                                                                        chi tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="edit-btn"
-                                                                    >
-                                                                        sửa
+                                                                        xem chi
+                                                                        tiết
                                                                     </button>
                                                                     <button
                                                                         class="del-btn"
@@ -263,15 +285,19 @@
                                                                     Doris Greene
                                                                 </td>
                                                                 <td>
+                                                                    <img
+                                                                        class="drink-img"
+                                                                        src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png"
+                                                                        alt="image"
+                                                                    />
+                                                                </td>
+                                                                <td>500000</td>
+                                                                <td>
                                                                     <button
                                                                         class="detail-btn"
                                                                     >
-                                                                        chi tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="edit-btn"
-                                                                    >
-                                                                        sửa
+                                                                        xem chi
+                                                                        tiết
                                                                     </button>
                                                                     <button
                                                                         class="del-btn"
@@ -286,15 +312,19 @@
                                                                     Mason Porter
                                                                 </td>
                                                                 <td>
+                                                                    <img
+                                                                        class="drink-img"
+                                                                        src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png"
+                                                                        alt="image"
+                                                                    />
+                                                                </td>
+                                                                <td>500000</td>
+                                                                <td>
                                                                     <button
                                                                         class="detail-btn"
                                                                     >
-                                                                        chi tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="edit-btn"
-                                                                    >
-                                                                        sửa
+                                                                        xem chi
+                                                                        tiết
                                                                     </button>
                                                                     <button
                                                                         class="del-btn"
