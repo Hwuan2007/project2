@@ -35,7 +35,7 @@
                         <div>
                             <ul class="choose">
 
-                                <li class="active">
+                                <li>
                                     <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
@@ -43,8 +43,8 @@
                                         </p>
                                     </a>
                                 </li>
-                                <li>
 
+                                <li class="active">
                                     <a href="{{ route('typeofdrink.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
@@ -52,8 +52,8 @@
                                         </p>
                                     </a>
                                 </li>
-
                                 <li>
+
                                     <a href="{{ route('category.index') }}">
                                         <p>
                                             <i class="bx bx-menu-alt-left"></i>
@@ -62,6 +62,7 @@
                                     </a>
                                 </li>
                                 <li>
+
                                     <a href="{{ route('drink.index') }}">
                                         <p>
                                             <i class="bx bxs-drink"></i> Đồ uống
@@ -148,7 +149,7 @@
                                                         <i
                                                             class="bx bxs-plus-circle"
                                                         ></i>
-                                                        Thêm Loại Đồ Uống
+                                                        <a href="{{ route('typeofdrink.create') }}">Thêm Loại Đồ Uống</a>
                                                     </button>
                                                     <br />
                                                 </div>
@@ -172,12 +173,17 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                        @foreach( $type_of_drink as $menu )
                                                             <tr>
-                                                                <td>1</td>
                                                                 <td>
-                                                                    Dakota Rice
+                                                                    {{ $menu -> type_id}}
                                                                 </td>
-                                                                <td>cafe</td>
+                                                                <td>
+                                                                    {{ $menu -> type_name}}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $menu -> category_name}}
+                                                                </td>
                                                                 <td>
                                                                     <button
                                                                         class="detail-btn"
@@ -196,129 +202,7 @@
                                                                     </button>
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>2</td>
-                                                                <td>
-                                                                    Minerva
-                                                                    Hooper
-                                                                </td>
-                                                                <td>cafe</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        chi tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="edit-btn"
-                                                                    >
-                                                                        sửa
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>3</td>
-                                                                <td>
-                                                                    Sage
-                                                                    Rodriguez
-                                                                </td>
-                                                                <td>cafe</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        chi tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="edit-btn"
-                                                                    >
-                                                                        sửa
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>4</td>
-                                                                <td>
-                                                                    Philip
-                                                                    Chaney
-                                                                </td>
-                                                                <td>cafe</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        chi tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="edit-btn"
-                                                                    >
-                                                                        sửa
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>5</td>
-                                                                <td>
-                                                                    Doris Greene
-                                                                </td>
-                                                                <td>cafe</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        chi tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="edit-btn"
-                                                                    >
-                                                                        sửa
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>6</td>
-                                                                <td>
-                                                                    Mason Porter
-                                                                </td>
-                                                                <td>cafe</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        chi tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="edit-btn"
-                                                                    >
-                                                                        sửa
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
+                                                        @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>

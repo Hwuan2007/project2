@@ -4,7 +4,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" type="text/css" href="{{ asset ('css/admin/add-typeofdrink.css') }}" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="../../../../../public/css/Admin/edit-typeofdrink.css"
+        />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -34,54 +38,49 @@
                         <hr />
                         <div>
                             <ul class="choose">
-
-                                <li class="active">
-                                    <a href="{{ route('dashboard.index') }}">
+                                <li>
+                                    <a href="../dashboard.html">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
                                             Dashboard
                                         </p>
                                     </a>
                                 </li>
-
                                 <li>
-                                    <a href="{{ route('typeofdrink.index') }}">
+                                    <a href="../categories.html">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
-                                            Menu
+                                            menu
                                         </p>
                                     </a>
                                 </li>
-                                <li>
-
-                                    <a href="{{ route('category.index') }}">
+                                <li class="active">
+                                    <a href="../typeofdrink.html">
                                         <p>
                                             <i class="bx bx-menu-alt-left"></i>
-                                            Danh mục
+                                            danh mục
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-
-                                    <a href="{{ route('drink.index') }}">
+                                    <a href="../drink.html">
                                         <p>
-                                            <i class="bx bxs-drink"></i> Đồ uống
+                                            <i class="bx bxs-drink"></i> đồ uống
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-
-                                    <a href="{{ route('user.index') }}">
+                                    <a href="../user.html">
                                         <p>
-                                            <i class="bx bx-user"></i> Người
+                                            <i class="bx bx-user"></i> người
                                             dùng
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('order.index') }}">
+                                    <a href="#">
                                         <p>
-                                            <i class="bx bx-receipt"></i> Đơn
+                                            <i class="bx bx-receipt"></i> đơn
                                             hàng
                                         </p>
                                     </a>
@@ -142,8 +141,7 @@
                                             <div class="card">
                                                 <div class="header">
                                                     <h4 class="title">
-                                                        Thêm Danh mục đồ uống
-                                                        mới
+                                                        chi tiết và sửa đổi Danh mục đồ uống: 
                                                     </h4>
                                                     <br />
                                                     <br />
@@ -156,15 +154,14 @@
                                                             <div
                                                                 class="col-md-6"
                                                             >
-                                                                <form action="{{ route('typeofdrink.store') }}" method="post">
-                                                                    @csrf
+                                                                <form action="">
                                                                     <div>
                                                                         Tên Danh
                                                                         mục:
                                                                         <input
                                                                             type="text"
                                                                             id="typeofdrink-name"
-                                                                            name="type_name"
+                                                                            name="typeofdrink-name"
                                                                             placeholder="Nhập tên Danh mục đồ uống"
                                                                             class="form-control"
                                                                         />
@@ -179,14 +176,40 @@
                                                                             menu</label
                                                                         >
                                                                         <select
-                                                                            name="categories_id"
+                                                                            name="cat_id"
                                                                             class="form-control"
                                                                         >
-                                                                            @foreach( $category as $categories)
-                                                                                <option name="categories_id" value="{{ $categories -> categories_id}}">
-                                                                                    {{ $categories -> categories_name }}
-                                                                                </option>
-                                                                            @endforeach
+                                                                            <option
+                                                                                value="option1"
+                                                                            >
+                                                                                Cà
+                                                                                Phê
+                                                                            </option>
+                                                                            <option
+                                                                                value="option2"
+                                                                            >
+                                                                                Trà
+                                                                            </option>
+                                                                            <option
+                                                                                value="option3"
+                                                                            >
+                                                                                Cloud
+                                                                            </option>
+                                                                            <option
+                                                                                value="option4"
+                                                                            >
+                                                                                Thức
+                                                                                Uống
+                                                                                Đá
+                                                                                Say
+                                                                            </option>
+                                                                            <option
+                                                                                value="option5"
+                                                                            >
+                                                                                Bánh
+                                                                                &
+                                                                                Snack
+                                                                            </option>
                                                                         </select>
                                                                     </div>
                                                                     <br />
@@ -197,7 +220,7 @@
                                                                         <button
                                                                             class="save-btn"
                                                                         >
-                                                                            Lưu
+                                                                            Cập Nhật
                                                                         </button>
                                                                         <button
                                                                             class="cancel-btn"
