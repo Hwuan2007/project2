@@ -29,7 +29,7 @@
                         <div class="category ">
                             <a href="#">Cà Phê</a>
                             <a href="#">Trà</a>
-                            <a href="#">Menu</a>
+                            <a href="{{ route('drink.index') }}">Menu</a>
                             <a href="#">Chuyện nhà</a>
                             <a href="#">Cửa hàng</a>
                             <a href="#">Tuyển dụng</a>
@@ -110,7 +110,7 @@
                             <div class="card" >
                                 <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
                                 <div class="card-body">
-                                    <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
+                                    <a href="{{ route('drink_detail.index') }}" class="drink-name"><b>Cà phê sữa đá</b></a>
                                     <p class="cost">29.000 đ</p>
                                 </div>
                             </div>
