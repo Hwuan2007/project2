@@ -17,6 +17,10 @@
     margin-bottom: 0;
     list-style: none;
 }
+.choose li.active a p {
+    color: #ea8025; /* Màu chữ khi mục có class active */
+}
+
 .choose ul {
     list-style-type: none;
     padding: 0;
