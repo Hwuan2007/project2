@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
-    <link rel="stylesheet" type="text/css" href="Home3.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/Home.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
@@ -33,7 +33,7 @@
                             <a href="#">Cửa hàng</a>
                             <a href="#">Tuyển dụng</a>
                         </div>
-                    </div>   
+                    </div>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
             </div>
-            
+
             <div class="carousel-inner">
                 <div class="carousel-item active">
                   <img src="https://file.hstatic.net/1000075078/file/nhomvui_web_moi_desktop_dda86a0464364f93acf2bd4b2366e334.jpg" alt="slide-1" class="d-block w-100">
@@ -59,13 +59,13 @@
                   <img src="https://file.hstatic.net/1000075078/file/chung_minh__web_moi__desktop_6fc4eeb6c24b419381de20b159b18723.jpg" alt="slide-3 " class="d-block w-100">
                 </div>
             </div>
-                   
+
             <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
                 <span class="carousel-control-next-icon"></span>
-            </button>  
+            </button>
         </div>
     </div>
 
@@ -85,7 +85,7 @@
                             <p class="cost">29.000 đ</p>
                         </div>
                       </div>
-                      
+
                 </div>
                 <div class="col-lg-3 col-md-8 col-sm-12" >
                     <div class="card" >
@@ -94,7 +94,7 @@
                             <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
                             <p class="cost">29.000 đ</p>
                         </div>
-                      </div>             
+                      </div>
                 </div>
                 <div class="col-lg-3 col-md-8 col-sm-12" >
                     <div class="card" >
@@ -103,8 +103,8 @@
                             <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
                             <p class="cost">29.000 đ</p>
                         </div>
-                      </div>             
-                </div> 
+                      </div>
+                </div>
                 <div class="col-lg-3 col-md-8 col-sm-12" >
                     <div class="card" >
                         <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
@@ -112,8 +112,8 @@
                             <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
                             <p class="cost">29.000 đ</p>
                         </div>
-                      </div>             
-                </div> 
+                      </div>
+                </div>
                 <div class="col-lg-3 col-md-8 col-sm-12" >
                     <div class="card" >
                         <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
@@ -121,8 +121,8 @@
                             <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
                             <p class="cost">29.000 đ</p>
                         </div>
-                      </div>             
-                </div> 
+                      </div>
+                </div>
                 <div class="col-lg-3 col-md-8 col-sm-12" >
                     <div class="card" >
                         <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
@@ -130,8 +130,8 @@
                             <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
                             <p class="cost">29.000 đ</p>
                         </div>
-                      </div>             
-                </div>    
+                      </div>
+                </div>
             </div>
         </div>
     </div>
@@ -150,11 +150,11 @@
                     </div>
                     </p>
                     <div class="col-lg-12 col-md-8 col-sm-12">
-                        <P>Được trồng trọt và chăm chút kỹ lưỡng, nuôi dưỡng từ thổ nhưỡng phì nhiêu, 
-                        nguồn nước mát lành, bao bọc bởi mây và sương cùng nền nhiệt độ mát mẻ quanh năm, 
-                        những búp trà ở Tây Bắc mập mạp và xanh mướt, hội tụ đầy đủ dưỡng chất, sinh khí, 
-                        và tinh hoa đất trời.Chính khí hậu đặc trưng cùng phương pháp canh tác của đồng bào 
-                        dân tộc nơi đây đã tạo ra Trà Xanh vị mộc dễ uống, dễ yêu, không thể trộn lẫn với 
+                        <P>Được trồng trọt và chăm chút kỹ lưỡng, nuôi dưỡng từ thổ nhưỡng phì nhiêu,
+                        nguồn nước mát lành, bao bọc bởi mây và sương cùng nền nhiệt độ mát mẻ quanh năm,
+                        những búp trà ở Tây Bắc mập mạp và xanh mướt, hội tụ đầy đủ dưỡng chất, sinh khí,
+                        và tinh hoa đất trời.Chính khí hậu đặc trưng cùng phương pháp canh tác của đồng bào
+                        dân tộc nơi đây đã tạo ra Trà Xanh vị mộc dễ uống, dễ yêu, không thể trộn lẫn với
                         ất kỳ vùng miền nào khác.</P>
                         <button type="button" class="btnreview">thử ngay</button>
                     </div>
@@ -173,10 +173,10 @@
                             </div>
                             <p>Về Chúng Tôi</p>
                             <p>Sản phẩm</p>
-                            <p>Khuyến mãi</p>   
-                            <p>Chuyện cà phê</p>    
-                            <p>Cửa Hàng</p>    
-                            <p>Tuyển dụng</p>    
+                            <p>Khuyến mãi</p>
+                            <p>Chuyện cà phê</p>
+                            <p>Cửa Hàng</p>
+                            <p>Tuyển dụng</p>
                         </div>
                         <div class="col-lg-3 col-md-8 col-sm-12">
                             <div class="footercat">
@@ -193,32 +193,32 @@
                             </div>
                             <p>Tầng 3-4 Hub Building</p>
                             <p>195/10E Điện Biên Phủ, P.15,</p>
-                            <p>Q.Bình Thạnh, TP.Hồ Chí Minh</p>   
+                            <p>Q.Bình Thạnh, TP.Hồ Chí Minh</p>
                         </div>
                         <div class="col-lg-3 col-md-8 col-sm-12">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 footer_col">
                             <hr>
-                    
+
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 footer_col">
                             <div class="">
                                 <p>Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN <br>
                                     Mã số DN: 0312867172 do sở kế hoạch và đầu tư tp. HCM cấp ngày 23/07/2014. Người đại diện: NGÔ NGUYÊN KHA <br>
-                                    Địa chỉ: 86-88 Cao Thắng, phường 04, quận 3, tp Hồ Chí Minh &nbsp; Điện thoại: (028) 7107 8079 &nbsp; Email: hi@thecoffeehouse.vn <br> 
+                                    Địa chỉ: 86-88 Cao Thắng, phường 04, quận 3, tp Hồ Chí Minh &nbsp; Điện thoại: (028) 7107 8079 &nbsp; Email: hi@thecoffeehouse.vn <br>
                                     © 2014-2022 Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN mọi quyền bảo lưu</p>
                             </div>
-                            
-                        </div> 
+
+                        </div>
                     </div>
-                </div>    
-            </div>  
+                </div>
+            </div>
         </div>
-            
+
     </footer>
-    
-        
-    
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 

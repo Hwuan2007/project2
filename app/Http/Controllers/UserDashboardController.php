@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\UserDashboard;
 use App\Http\Requests\StoreUserDashboardRequest;
 use App\Http\Requests\UpdateUserDashboardRequest;
+use Illuminate\Http\Response;
 
 class UserDashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -21,7 +22,7 @@ class UserDashboardController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -31,8 +32,8 @@ class UserDashboardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUserDashboardRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreUserDashboardRequest $request
+     * @return Response
      */
     public function store(StoreUserDashboardRequest $request)
     {
@@ -42,8 +43,8 @@ class UserDashboardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\UserDashboard  $userDashboard
-     * @return \Illuminate\Http\Response
+     * @param UserDashboard $userDashboard
+     * @return Response
      */
     public function show(UserDashboard $userDashboard)
     {
@@ -53,8 +54,8 @@ class UserDashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\UserDashboard  $userDashboard
-     * @return \Illuminate\Http\Response
+     * @param UserDashboard $userDashboard
+     * @return Response
      */
     public function edit(UserDashboard $userDashboard)
     {
@@ -64,9 +65,9 @@ class UserDashboardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateUserDashboardRequest  $request
-     * @param  \App\Models\UserDashboard  $userDashboard
-     * @return \Illuminate\Http\Response
+     * @param UpdateUserDashboardRequest $request
+     * @param UserDashboard $userDashboard
+     * @return Response
      */
     public function update(UpdateUserDashboardRequest $request, UserDashboard $userDashboard)
     {
@@ -76,8 +77,8 @@ class UserDashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\UserDashboard  $userDashboard
-     * @return \Illuminate\Http\Response
+     * @param UserDashboard $userDashboard
+     * @return Response
      */
     public function destroy(UserDashboard $userDashboard)
     {

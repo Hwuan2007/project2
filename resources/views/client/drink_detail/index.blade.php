@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
-    <link rel="stylesheet" type="text/css" href="drink_detail2.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/drink_detail.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('js/client/checkbox.js') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('js/client/thumbnail.js') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+          crossorigin="anonymous">
 </head>
 <body>
     <header class="header">
@@ -34,7 +39,7 @@
                             <a href="#">Cửa hàng</a>
                             <a href="#">Tuyển dụng</a>
                         </div>
-                    </div>   
+                    </div>
                 </div>
             </div>
         </div>
@@ -68,14 +73,14 @@
                                       <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png" alt="slide-2" class="d-block w-100">
                                     </div>
                                 </div>
-                                
-                                       
+
+
                                 <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon"></span>
                                 </button>
                                 <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
                                     <span class="carousel-control-next-icon"></span>
-                                </button>  
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -88,10 +93,10 @@
                         <br>
                         <div class="pick-size"> Chọn size (bắt buộc) </div><br>
                         <div class="pick-size-button">
-                            <button type="button" class="color-change-pick-size-button" ><i class='bx bx-coffee-togo'> Nhỏ + 0 đ </i></button> 
+                            <button type="button" class="color-change-pick-size-button" ><i class='bx bx-coffee-togo'> Nhỏ + 0 đ </i></button>
                             <button type="button" class="color-change-pick-size-button" ><i class='bx bx-coffee-togo'> Vừa + 10.000 đ </i></button>
                             <button type="button" class="color-change-pick-size-button" ><i class='bx bx-coffee-togo'> Lớn + 16.000 đ </i></button>
-                        </div> 
+                        </div>
                         <br>
                         <div class="pick-topping">Topping</div><br>
                         <div class="pick-topping-button">
@@ -110,7 +115,7 @@
                             <input type="checkbox" name="color" id="color5">
                             <label for="color5" class="color-change-pick-topping-button">Thạch Caffe  + 10.000 đ</label>
 
-                        </div>               
+                        </div>
                     <br>
                     <br>
                     <div class="order">
@@ -118,10 +123,10 @@
                     </div>
 
                     </div>
-                    
+
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
 
     </div>
@@ -141,7 +146,7 @@
         <hr>
         <div>
             <p style="font-size: 18px;"><b>Mô tả sản phẩm</b></p>
-            <p>Cà phê Đắk Lắk nguyên chất được pha phin truyền thống kết hợp với sữa đặc tạo nên hương vị đậm đà, 
+            <p>Cà phê Đắk Lắk nguyên chất được pha phin truyền thống kết hợp với sữa đặc tạo nên hương vị đậm đà,
                 hài hòa giữa vị ngọt đầu lưỡi và vị đắng thanh thoát nơi hậu vị.</p>
         </div>
         <hr>
@@ -219,10 +224,10 @@
                             </div>
                             <p>Về Chúng Tôi</p>
                             <p>Sản phẩm</p>
-                            <p>Khuyến mãi</p>   
-                            <p>Chuyện cà phê</p>    
-                            <p>Cửa Hàng</p>    
-                            <p>Tuyển dụng</p>    
+                            <p>Khuyến mãi</p>
+                            <p>Chuyện cà phê</p>
+                            <p>Cửa Hàng</p>
+                            <p>Tuyển dụng</p>
                         </div>
                         <div class="col-lg-3 col-md-8 col-sm-12">
                             <div class="footercat">
@@ -239,34 +244,34 @@
                             </div>
                             <p>Tầng 3-4 Hub Building</p>
                             <p>195/10E Điện Biên Phủ, P.15,</p>
-                            <p>Q.Bình Thạnh, TP.Hồ Chí Minh</p>   
+                            <p>Q.Bình Thạnh, TP.Hồ Chí Minh</p>
                         </div>
                         <div class="col-lg-3 col-md-8 col-sm-12">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 footer_col">
                             <hr>
-                    
+
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 footer_col">
                             <div class="">
                                 <p>Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN <br>
                                     Mã số DN: 0312867172 do sở kế hoạch và đầu tư tp. HCM cấp ngày 23/07/2014. Người đại diện: NGÔ NGUYÊN KHA <br>
-                                    Địa chỉ: 86-88 Cao Thắng, phường 04, quận 3, tp Hồ Chí Minh &nbsp; Điện thoại: (028) 7107 8079 &nbsp; Email: hi@thecoffeehouse.vn <br> 
+                                    Địa chỉ: 86-88 Cao Thắng, phường 04, quận 3, tp Hồ Chí Minh &nbsp; Điện thoại: (028) 7107 8079 &nbsp; Email: hi@thecoffeehouse.vn <br>
                                     © 2014-2022 Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN mọi quyền bảo lưu</p>
                             </div>
-                            
-                        </div> 
+
+                        </div>
                     </div>
-                </div>    
-            </div>  
+                </div>
+            </div>
         </div>
-            
+
     </footer>
-    
-        
-    
-    <script src="thumbnail.js"></script>
-    <script src="checkbox.js"></script>
+
+
+
+    <script src="../../../../public/js/client/thumbnail.js"></script>
+    <script src="../../../../public/js/client/checkbox.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>

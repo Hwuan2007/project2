@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserDashboard extends Model
+class DrinkClient extends Model
 {
     use HasFactory;
-
 }
