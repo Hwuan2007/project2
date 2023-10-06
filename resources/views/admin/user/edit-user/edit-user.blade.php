@@ -7,7 +7,7 @@
         <link
             rel="stylesheet"
             type="text/css"
-            href="../../../../../public/css/Admin/add-user.css"
+            href="../../../../../public/css/Admin/edit-user.css"
         />
         <link
             rel="stylesheet"
@@ -141,7 +141,7 @@
                                             <div class="card">
                                                 <div class="header">
                                                     <h4 class="title">
-                                                        Thêm Người dùng Mới
+                                                        Chi tiết và sửa đổi người dùng:
                                                     </h4>
                                                     <br />
                                                     <br />
@@ -257,7 +257,7 @@
                                                                     <button
                                                                         class="save-btn"
                                                                     >
-                                                                        Lưu
+                                                                        Cập Nhật
                                                                     </button>
                                                                     <button
                                                                         class="cancel-btn"
