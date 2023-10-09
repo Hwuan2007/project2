@@ -7,7 +7,7 @@
         <link
             rel="stylesheet"
             type="text/css"
-            href="../../../../../public/css/Admin/edit-categories.css"
+            href="{{ asset ('css/admin/add-categories.css') }}"
         />
         <link
             rel="stylesheet"
@@ -38,49 +38,54 @@
                         <hr />
                         <div>
                             <ul class="choose">
+
                                 <li>
-                                    <a href="../dashboard.html">
+                                    <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
                                             Dashboard
                                         </p>
                                     </a>
                                 </li>
-                                <li class="active">
-                                    <a href="../categories.html">
+
+                                <li>
+                                    <a href="{{ route('typeofdrink.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
-                                            menu
+                                            Menu
                                         </p>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="../typeofdrink.html">
+                                <li class="active">
+
+                                    <a href="{{ route('category.index') }}">
                                         <p>
                                             <i class="bx bx-menu-alt-left"></i>
-                                            danh mục
+                                            Danh mục
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="../drink.html">
+
+                                    <a href="{{ route('drink.index') }}">
                                         <p>
-                                            <i class="bx bxs-drink"></i> đồ uống
+                                            <i class="bx bxs-drink"></i> Đồ uống
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="../user.html">
+
+                                    <a href="{{ route('user.index') }}">
                                         <p>
-                                            <i class="bx bx-user"></i> người
+                                            <i class="bx bx-user"></i> Người
                                             dùng
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('order.index') }}">
                                         <p>
-                                            <i class="bx bx-receipt"></i> đơn
+                                            <i class="bx bx-receipt"></i> Đơn
                                             hàng
                                         </p>
                                     </a>
@@ -102,7 +107,7 @@
                                     padding-bottom: 15px;
                                 "
                             >
-                                <a class="navbar-brand" href="#"><b>Menu</b></a>
+                                <a class="navbar-brand" href="#"><b>Danh Mục</b></a>
                                 <button
                                     class="navbar-toggler"
                                     type="button"
@@ -139,7 +144,7 @@
                                             <div class="card">
                                                 <div class="header">
                                                     <h4 class="title">
-                                                        Sửa đổi Danh mục: 
+                                                        Sửa đổi Danh mục:
                                                     </h4>
                                                     <br />
                                                     <br />
@@ -152,18 +157,23 @@
                                                             <div
                                                                 class="col-md-6"
                                                             >
-                                                                <form action="">
+                                                                <form method="post" action="{{ route('category.update', $categories_id) }}">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    @foreach( $category as $categories)
                                                                     <div>
                                                                         Tên Danh
-                                                                        mục: ...
+                                                                        mục:
                                                                         <input
                                                                             type="text"
                                                                             id="cat-name"
-                                                                            name="cat-name"
+                                                                            name="categories_name"
                                                                             placeholder="Nhập tên Danh mục"
                                                                             class="form-control"
+                                                                            value="{{ $categories -> categories_name }}"
                                                                         />
                                                                     </div>
+                                                                    @endforeach
                                                                     <br />
 
                                                                     <div

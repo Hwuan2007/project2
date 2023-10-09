@@ -20,4 +20,22 @@ class Category extends Model
                 'categories_name' => $this->categories_name
             ]);
     }
+    public function edit(){
+        $category = DB::table('category')
+            ->where('categories_id', $this -> categories_id)
+            ->get();
+        return $category;
+    }
+    public function updateCategory(){
+        DB::table('category')
+            ->where('categories_id', $this -> categories_id)
+            ->update([
+                'categories_name' => $this -> categories_name
+            ]);
+    }
+    public function deleteCategory(){
+        DB::table('category')
+            ->where('categories_id', $this -> categories_id)
+            ->delete();
+    }
 }

@@ -34,6 +34,9 @@ Route::prefix('admin') ->group(function (){
     Route::get('/category', [CategoryController::class, 'index']) -> name('category.index');
     Route::get('/category/create', [CategoryController::class, 'create']) -> name('category.create');
     Route::post('/category/create', [CategoryController::class, 'store']) -> name('category.store');
+    Route::get('/category/{categories_id}/edit', [CategoryController::class, 'edit']) -> name('category.edit');
+    Route::put('/category/{categories_id}/edit', [CategoryController::class, 'update']) -> name('category.update');
+    Route::delete('/category/{categories_id}', [CategoryController::class, 'destroy']) -> name('category.destroy');
     // drink
     Route::get('/drink', [DrinkController::class, 'index']) -> name('drink.index');
     Route::get('/drink/create', [DrinkController::class, 'create']) -> name('drink.create');
