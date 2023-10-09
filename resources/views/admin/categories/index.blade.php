@@ -35,7 +35,7 @@
                         <div>
                             <ul class="choose">
 
-                                <li class="active">
+                                <li>
                                     <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
@@ -52,7 +52,7 @@
                                         </p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="active">
 
                                     <a href="{{ route('category.index') }}">
                                         <p>
