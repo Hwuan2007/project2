@@ -84,6 +84,16 @@
                             </div>
                         </div>
                     </div>
+                     <div class="container">
+                        <div id="thumbCarousel">
+                            <div data-target="#productCarousel" data-slide-to="0" class="thumb active">
+                                <img src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_65455a230ffb49499a455e3350e66158.png">
+                            </div>
+                            <div data-target="#productCarousel" data-slide-to="1" class="thumb">
+                                <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-6 col-md-4 col-sm-12" >
                     <div>
@@ -93,9 +103,9 @@
                         <br>
                         <div class="pick-size"> Chọn size (bắt buộc) </div><br>
                         <div class="pick-size-button">
-                            <button type="button" class="color-change-pick-size-button" ><i class='bx bx-coffee-togo'> Nhỏ + 0 đ </i></button>
-                            <button type="button" class="color-change-pick-size-button" ><i class='bx bx-coffee-togo'> Vừa + 10.000 đ </i></button>
-                            <button type="button" class="color-change-pick-size-button" ><i class='bx bx-coffee-togo'> Lớn + 16.000 đ </i></button>
+                            <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Nhỏ + 0 đ </i></button>
+                            <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Vừa + 10.000 đ </i></button>
+                            <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Lớn + 16.000 đ </i></button>
                         </div>
                         <br>
                         <div class="pick-topping">Topping</div><br>
@@ -130,16 +140,7 @@
         </div>
 
     </div>
-    <div class="container">
-        <div id="thumbCarousel">
-            <div data-target="#productCarousel" data-slide-to="0" class="thumb active">
-                <img src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_65455a230ffb49499a455e3350e66158.png">
-            </div>
-            <div data-target="#productCarousel" data-slide-to="1" class="thumb">
-                <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png">
-            </div>
-        </div>
-    </div>
+   
     <br>
 
     <div class="container">
@@ -268,8 +269,7 @@
 
     </footer>
 
-
-
+    <script src="../../../../public/js/client/changecolor.js"></script>
     <script src="../../../../public/js/client/thumbnail.js"></script>
     <script src="../../../../public/js/client/checkbox.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
