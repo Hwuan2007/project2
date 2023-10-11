@@ -146,7 +146,7 @@
                                                         <i
                                                             class="bx bxs-plus-circle"
                                                         ></i>
-                                                        Thêm Người Dùng Mới
+                                                        <a href="{{ route('user.create') }}">Thêm Người Dùng Mới</a>
                                                     </button>
                                                     <br />
                                                 </div>
@@ -169,15 +169,20 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                        @foreach( $staff as $user)
                                                             <tr>
-                                                                <td>1</td>
                                                                 <td>
-                                                                    Dakota Rice
+                                                                    {{ $user -> staff_id}}
                                                                 </td>
                                                                 <td>
-                                                                    abcde@gmail.com
+                                                                    {{ $user -> staff_name}}
                                                                 </td>
-                                                                <td>admmin</td>
+                                                                <td>
+                                                                    {{ $user -> staff_email}}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $user -> role_name}}
+                                                                </td>
                                                                 <td>
                                                                     <button
                                                                         class="detail-btn"
@@ -192,124 +197,7 @@
                                                                     </button>
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>2</td>
-                                                                <td>
-                                                                    Minerva
-                                                                    Hooper
-                                                                </td>
-                                                                <td>
-                                                                    abcde@gmail.com
-                                                                </td>
-                                                                <td>admmin</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        xem chi
-                                                                        tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>3</td>
-                                                                <td>
-                                                                    Sage
-                                                                    Rodriguez
-                                                                </td>
-                                                                <td>
-                                                                    abcde@gmail.com
-                                                                </td>
-                                                                <td>user</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        xem chi
-                                                                        tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>4</td>
-                                                                <td>
-                                                                    Philip
-                                                                    Chaney
-                                                                </td>
-                                                                <td>
-                                                                    abcde@gmail.com
-                                                                </td>
-                                                                <td>admmin</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        xem chi
-                                                                        tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>5</td>
-                                                                <td>
-                                                                    Doris Greene
-                                                                </td>
-                                                                <td>
-                                                                    abcde@gmail.com
-                                                                </td>
-                                                                <td>user</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        xem chi
-                                                                        tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>6</td>
-                                                                <td>
-                                                                    Mason Porter
-                                                                </td>
-                                                                <td>
-                                                                    abcde@gmail.com
-                                                                </td>
-                                                                <td>user</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        xem chi
-                                                                        tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
+                                                        @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>

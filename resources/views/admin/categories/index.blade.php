@@ -35,7 +35,7 @@
                         <div>
                             <ul class="choose">
 
-                                <li class="active">
+                                <li>
                                     <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
@@ -52,7 +52,7 @@
                                         </p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="active">
 
                                     <a href="{{ route('category.index') }}">
                                         <p>
@@ -103,7 +103,7 @@
                                     padding-bottom: 15px;
                                 "
                             >
-                                <a class="navbar-brand" href="#"><b>Menu</b></a>
+                                <a class="navbar-brand" href="#"><b>Danh Mục</b></a>
                                 <button
                                     class="navbar-toggler"
                                     type="button"
@@ -182,13 +182,13 @@
                                                                     <button
                                                                         class="edit-btn"
                                                                     >
-                                                                        sửa
+                                                                        <a href="{{ route('category.edit', $categories-> categories_id) }}">sửa</a>
                                                                     </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
+                                                                    <form method="post" action="{{ route('category.destroy', $categories->categories_id) }}">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button class="del-btn">Xóa</button>
+                                                                    </form>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
