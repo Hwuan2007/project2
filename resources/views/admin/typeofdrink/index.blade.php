@@ -45,7 +45,7 @@
                                 </li>
 
                                 <li class="active">
-                                    <a href="{{ route('typeofdrink.index') }}">
+                                    <a href="{{ route('menu.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
                                             Menu
@@ -149,7 +149,7 @@
                                                         <i
                                                             class="bx bxs-plus-circle"
                                                         ></i>
-                                                        <a href="{{ route('typeofdrink.create') }}">Thêm Loại Đồ Uống</a>
+                                                        <a href="{{ route('menu.create') }}">Thêm Loại Đồ Uống</a>
                                                     </button>
                                                     <br />
                                                 </div>
@@ -173,7 +173,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                        @foreach( $type_of_drink as $menu )
+                                                        @foreach( $menus as $menu )
                                                             <tr>
                                                                 <td>
                                                                     {{ $menu -> type_id}}
@@ -182,7 +182,7 @@
                                                                     {{ $menu -> type_name}}
                                                                 </td>
                                                                 <td>
-                                                                    {{ $menu -> category_name}}
+                                                                    {{ $menu -> category -> categories_name	}}
                                                                 </td>
                                                                 <td>
                                                                     <button
@@ -193,13 +193,13 @@
                                                                     <button
                                                                         class="edit-btn"
                                                                     >
-                                                                        sửa
+                                                                        <a href="{{ route('menu.edit',$menu) }}">sửa</a>
                                                                     </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
+                                                                    <form method="post" action="{{ route('menu.destroy', $menu) }}">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button class="del-btn">Xóa</button>
+                                                                    </form>
                                                                 </td>
                                                             </tr>
                                                         @endforeach

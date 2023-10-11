@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Redirect;
 
@@ -67,9 +68,15 @@ class CategoryController extends Controller
      * @param Category $category
      * @return Response
      */
-    public function edit(Category $category)
+    public function edit(Category $category, Request $request)
     {
-        //
+        $obj = new Category();
+        $obj -> categories_id = $request -> categories_id;
+        $category = $obj -> edit();
+        return view('admin/categories/edit-categories/edit', [
+            'category' => $category,
+            'categories_id' => $obj -> categories_id
+        ]);
     }
 
     /**
@@ -81,7 +88,11 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $obj = new Category();
+        $obj->categories_id = $request -> categories_id;
+        $obj->categories_name = $request -> categories_name;
+        $obj->updateCategory();
+        return Redirect::route('category.index');
     }
 
     /**
@@ -90,8 +101,11 @@ class CategoryController extends Controller
      * @param Category $category
      * @return Response
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category, Request $request)
     {
-        //
+        $obj = new Category();
+        $obj->categories_id = $request -> categories_id;
+        $obj->deleteCategory();
+        return Redirect::route('category.index');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\UserDashboard;
 use App\Http\Requests\StoreUserDashboardRequest;
 use App\Http\Requests\UpdateUserDashboardRequest;
@@ -16,7 +17,11 @@ class UserDashboardController extends Controller
      */
     public function index()
     {
-        return view('admin/user/index');
+        $obj = new UserDashboard();
+        $staff = $obj -> index();
+        return view('admin/user/index', [
+            'staff' => $staff
+        ]);
     }
 
     /**
@@ -26,7 +31,12 @@ class UserDashboardController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/user/add-user/create');
+//        $objBrand = new Brand();
+//        $brands = $objBrand -> index();
+//        return view('products.create', [
+//            'brands' => $brands
+//        ]);
     }
 
     /**

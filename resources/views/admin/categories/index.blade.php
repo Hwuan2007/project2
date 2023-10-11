@@ -35,7 +35,7 @@
                         <div>
                             <ul class="choose">
 
-                                <li class="active">
+                                <li>
                                     <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
@@ -45,14 +45,14 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('typeofdrink.index') }}">
+                                    <a href="{{ route('menu.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
                                             Menu
                                         </p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="active">
 
                                     <a href="{{ route('category.index') }}">
                                         <p>
@@ -103,7 +103,7 @@
                                     padding-bottom: 15px;
                                 "
                             >
-                                <a class="navbar-brand" href="#"><b>Menu</b></a>
+                                <a class="navbar-brand" href="#"><b>Danh Mục</b></a>
                                 <button
                                     class="navbar-toggler"
                                     type="button"
@@ -167,11 +167,11 @@
                                                         </thead>
 
                                                         <tbody>
-                                                        @foreach($category as $categories)
+                                                        @foreach($categories as $category)
                                                             <tr>
-                                                                <td>{{ $categories -> categories_id }}</td>
+                                                                <td>{{ $category -> categories_id }}</td>
                                                                 <td>
-                                                                    {{ $categories -> categories_name }}
+                                                                    {{ $category -> categories_name }}
                                                                 </td>
                                                                 <td>
                                                                     <button
@@ -182,13 +182,13 @@
                                                                     <button
                                                                         class="edit-btn"
                                                                     >
-                                                                        sửa
+                                                                        <a href="{{ route('category.edit', $category) }}">sửa</a>
                                                                     </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
+                                                                    <form method="post" action="{{ route('category.destroy', $category) }}">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button class="del-btn">Xóa</button>
+                                                                    </form>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
