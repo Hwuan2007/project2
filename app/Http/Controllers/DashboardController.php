@@ -20,7 +20,6 @@ class DashboardController extends Controller
      */
     public function create()
     {
-//        return view('brands.create');
     }
 
     /**
@@ -28,13 +27,6 @@ class DashboardController extends Controller
      */
     public function store(StoreBrandRequest $request)
     {
-//        $obj = new Brand();
-//
-//        $obj -> name = $request -> name;
-//        $obj -> country = $request -> country;
-//        $obj -> store();
-//
-//        return Redirect::route('brands.index');
     }
 
     /**
@@ -50,13 +42,6 @@ class DashboardController extends Controller
      */
     public function edit(Brand $brand, Request $request)
     {
-//        $obj = new Brand();
-//        $obj -> id = $request -> id;
-//        $brands = $obj -> edit();
-//        return view('brands.edit', [
-//            'brands' => $brands,
-//            'id' => $obj -> id
-//        ]);
     }
 
     /**
@@ -64,12 +49,7 @@ class DashboardController extends Controller
      */
     public function update(UpdateBrandRequest $request, Brand $brand)
     {
-//        $obj = new Brand();
-//        $obj->id = $request -> id;
-//        $obj->name = $request -> name;
-//        $obj->country = $request -> country;
-//        $obj->updateBrand();
-//        return Redirect::route('brands.index');
+
     }
 
     /**
@@ -77,9 +57,6 @@ class DashboardController extends Controller
      */
     public function destroy(Brand $brand, Request $request)
     {
-//        $obj = new Brand();
-//        $obj->id = $request -> id;
-//        $obj->deleteBrand();
-//        return Redirect::route('brands.index');
+
     }
 }

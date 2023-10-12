@@ -48,10 +48,16 @@ Route::prefix('admin') ->group(function (){
     Route::get('/user', [UserDashboardController::class, 'index']) -> name('user.index');
     Route::get('/user/create', [UserDashboardController::class, 'create']) -> name('user.create');
     Route::post('/user/create', [UserDashboardController::class, 'store']) -> name('user.store');
+    Route::get('/user/{user}/edit', [UserDashboardController::class, 'edit']) -> name('user.edit');
+    Route::put('/user/{user}/edit', [UserDashboardController::class, 'update']) -> name('user.update');
+    Route::delete('/user/{user}', [UserDashboardController::class, 'destroy']) -> name('user.destroy');
     // order
     Route::get('/order', [OrderController::class, 'index']) -> name('order.index');
     Route::get('/order/create', [OrderController::class, 'create']) -> name('order.create');
     Route::post('/order/create', [OrderController::class, 'store']) -> name('order.store');
+    Route::get('/order/{order}/edit', [OrderController::class, 'edit']) -> name('order.edit');
+    Route::put('/order/{order}/edit', [OrderController::class, 'update']) -> name('order.update');
+    Route::delete('/order/{order}', [OrderController::class, 'destroy']) -> name('order.destroy');
 });
 Route::prefix('client') ->group(function (){
     Route::get('/drink', [DrinkClientController::class, 'index']) -> name('drink.index');

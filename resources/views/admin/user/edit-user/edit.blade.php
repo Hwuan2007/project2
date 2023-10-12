@@ -7,7 +7,7 @@
         <link
             rel="stylesheet"
             type="text/css"
-            href="../../../../../public/css/Admin/edit-user.css"
+            href="{{ asset ('css/admin/edit-user.css') }}"
         />
         <link
             rel="stylesheet"

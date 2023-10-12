@@ -34,8 +34,8 @@
                         <hr />
                         <div>
                             <ul class="choose">
-                                <li>
-                                    <a href="#">
+                                <li class="active">
+                                    <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
                                             Dashboard
@@ -43,40 +43,41 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+
+                                    <a href="{{ route('menu.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
-                                            menu
+                                            Menu
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('category.index') }}">
                                         <p>
                                             <i class="bx bx-menu-alt-left"></i>
-                                            danh mục
+                                            Danh mục
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('drink.index') }}">
                                         <p>
-                                            <i class="bx bxs-drink"></i> đồ uống
+                                            <i class="bx bxs-drink"></i> Đồ uống
                                         </p>
                                     </a>
                                 </li>
-                                <li class="active">
-                                    <a href="#">
+                                <li>
+                                    <a href="{{ route('user.index') }}">
                                         <p>
-                                            <i class="bx bx-user"></i> người
+                                            <i class="bx bx-user"></i> Người
                                             dùng
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('order.index') }}">
                                         <p>
-                                            <i class="bx bx-receipt"></i> đơn
+                                            <i class="bx bx-receipt"></i> Đơn
                                             hàng
                                         </p>
                                     </a>

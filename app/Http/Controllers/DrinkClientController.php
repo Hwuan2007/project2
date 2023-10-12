@@ -15,7 +15,7 @@ class DrinkClientController extends Controller
      */
     public function index()
     {
-        return view('client/menu/index');
+
     }
 
     /**

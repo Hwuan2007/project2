@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Receipt;
 use App\Models\User;
 use App\Models\UserDashboard;
 use App\Http\Requests\StoreUserDashboardRequest;
 use App\Http\Requests\UpdateUserDashboardRequest;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Redirect;
 
 class UserDashboardController extends Controller
 {
@@ -17,26 +19,22 @@ class UserDashboardController extends Controller
      */
     public function index()
     {
-        $obj = new UserDashboard();
-        $staff = $obj -> index();
+        $user = UserDashboard::with('receipt') -> get();
         return view('admin/user/index', [
-            'staff' => $staff
+            'user' => $user
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
      */
     public function create()
     {
-        return view('admin/user/add-user/create');
-//        $objBrand = new Brand();
-//        $brands = $objBrand -> index();
-//        return view('products.create', [
-//            'brands' => $brands
-//        ]);
+        $receipts = Receipt::all();
+        return view('admin/user/add-user/create', [
+            'receipts' => $receipts
+        ]);
     }
 
     /**
@@ -47,7 +45,8 @@ class UserDashboardController extends Controller
      */
     public function store(StoreUserDashboardRequest $request)
     {
-        //
+        UserDashboard::create($request -> all());
+        return Redirect::route('user.index');
     }
 
     /**
@@ -69,7 +68,11 @@ class UserDashboardController extends Controller
      */
     public function edit(UserDashboard $userDashboard)
     {
-        //
+        $receipts = Receipt::all();
+        return view('user.edit', [
+            'userDashboard' => $userDashboard,
+            'receipts' => $receipts
+        ]);
     }
 
     /**
@@ -81,7 +84,8 @@ class UserDashboardController extends Controller
      */
     public function update(UpdateUserDashboardRequest $request, UserDashboard $userDashboard)
     {
-        //
+        $userDashboard -> update($request -> all());
+        return Redirect::route('user.index');
     }
 
     /**
@@ -92,6 +96,7 @@ class UserDashboardController extends Controller
      */
     public function destroy(UserDashboard $userDashboard)
     {
-        //
+        $userDashboard -> delete();
+        return Redirect::route('user.index');
     }
 }
