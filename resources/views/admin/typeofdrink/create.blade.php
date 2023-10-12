@@ -35,7 +35,7 @@
                         <div>
                             <ul class="choose">
 
-                                <li class="active">
+                                <li>
                                     <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
@@ -44,8 +44,8 @@
                                     </a>
                                 </li>
 
-                                <li>
-                                    <a href="{{ route('typeofdrink.index') }}">
+                                <li class="active">
+                                    <a href="{{ route('menu.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
                                             Menu
@@ -156,7 +156,7 @@
                                                             <div
                                                                 class="col-md-6"
                                                             >
-                                                                <form action="{{ route('typeofdrink.store') }}" method="post">
+                                                                <form action="{{ route('menu.store') }}" method="post">
                                                                     @csrf
                                                                     <div>
                                                                         Tên Danh

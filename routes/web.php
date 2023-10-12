@@ -27,16 +27,19 @@ use App\Http\Controllers\DrinkDetailController;
 Route::prefix('admin') ->group(function (){
     Route::get('/', [DashboardController::class, 'index']) -> name('dashboard.index');
     // type of drink
-    Route::get('/menu', [MenuController::class, 'index']) -> name('typeofdrink.index');
-    Route::get('/menu/create', [MenuController::class, 'create']) -> name('typeofdrink.create');
-    Route::post('/menu/create', [MenuController::class, 'store']) -> name('typeofdrink.store');
+    Route::get('/menu', [MenuController::class, 'index']) -> name('menu.index');
+    Route::get('/menu/create', [MenuController::class, 'create']) -> name('menu.create');
+    Route::post('/menu/create', [MenuController::class, 'store']) -> name('menu.store');
+    Route::get('/menu/{menu}/edit', [MenuController::class, 'edit']) -> name('menu.edit');
+    Route::put('/menu/{menu}/edit', [MenuController::class, 'update']) -> name('menu.update');
+    Route::delete('/menu/{menu}', [MenuController::class, 'destroy']) -> name('menu.destroy');
     // category
     Route::get('/category', [CategoryController::class, 'index']) -> name('category.index');
     Route::get('/category/create', [CategoryController::class, 'create']) -> name('category.create');
     Route::post('/category/create', [CategoryController::class, 'store']) -> name('category.store');
-    Route::get('/category/{categories_id}/edit', [CategoryController::class, 'edit']) -> name('category.edit');
-    Route::put('/category/{categories_id}/edit', [CategoryController::class, 'update']) -> name('category.update');
-    Route::delete('/category/{categories_id}', [CategoryController::class, 'destroy']) -> name('category.destroy');
+    Route::get('/category/{category}/edit', [CategoryController::class, 'edit']) -> name('category.edit');
+    Route::put('/category/{category}/edit', [CategoryController::class, 'update']) -> name('category.update');
+    Route::delete('/category/{category}', [CategoryController::class, 'destroy']) -> name('category.destroy');
     // drink
     Route::get('/drink', [DrinkController::class, 'index']) -> name('drink.index');
     Route::get('/drink/create', [DrinkController::class, 'create']) -> name('drink.create');
@@ -49,7 +52,6 @@ Route::prefix('admin') ->group(function (){
     Route::get('/order', [OrderController::class, 'index']) -> name('order.index');
     Route::get('/order/create', [OrderController::class, 'create']) -> name('order.create');
     Route::post('/order/create', [OrderController::class, 'store']) -> name('order.store');
-
 });
 Route::prefix('client') ->group(function (){
     Route::get('/drink', [DrinkClientController::class, 'index']) -> name('drink.index');

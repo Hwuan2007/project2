@@ -7,7 +7,7 @@
         <link
             rel="stylesheet"
             type="text/css"
-            href="../../../../../public/css/Admin/edit-typeofdrink.css"
+            href="{{ asset ('css/admin/edit-typeofdrink.css') }}"
         />
         <link
             rel="stylesheet"
@@ -38,49 +38,54 @@
                         <hr />
                         <div>
                             <ul class="choose">
+
                                 <li>
-                                    <a href="../dashboard.html">
+                                    <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
                                             Dashboard
                                         </p>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="../categories.html">
+
+                                <li class="active">
+                                    <a href="{{ route('menu.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
-                                            menu
+                                            Menu
                                         </p>
                                     </a>
                                 </li>
-                                <li class="active">
-                                    <a href="../typeofdrink.html">
+                                <li>
+
+                                    <a href="{{ route('category.index') }}">
                                         <p>
                                             <i class="bx bx-menu-alt-left"></i>
-                                            danh mục
+                                            Danh mục
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="../drink.html">
+
+                                    <a href="{{ route('drink.index') }}">
                                         <p>
-                                            <i class="bx bxs-drink"></i> đồ uống
+                                            <i class="bx bxs-drink"></i> Đồ uống
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="../user.html">
+
+                                    <a href="{{ route('user.index') }}">
                                         <p>
-                                            <i class="bx bx-user"></i> người
+                                            <i class="bx bx-user"></i> Người
                                             dùng
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('order.index') }}">
                                         <p>
-                                            <i class="bx bx-receipt"></i> đơn
+                                            <i class="bx bx-receipt"></i> Đơn
                                             hàng
                                         </p>
                                     </a>
@@ -141,7 +146,7 @@
                                             <div class="card">
                                                 <div class="header">
                                                     <h4 class="title">
-                                                        chi tiết và sửa đổi Danh mục đồ uống: 
+                                                        chi tiết và sửa đổi Danh mục đồ uống:
                                                     </h4>
                                                     <br />
                                                     <br />
@@ -154,16 +159,19 @@
                                                             <div
                                                                 class="col-md-6"
                                                             >
-                                                                <form action="">
+                                                                <form action="{{ route('menu.update', $menu) }}" method="post">
+                                                                    @csrf
+                                                                    @method('PUT')
                                                                     <div>
                                                                         Tên Danh
                                                                         mục:
                                                                         <input
                                                                             type="text"
                                                                             id="typeofdrink-name"
-                                                                            name="typeofdrink-name"
+                                                                            name="type-name"
                                                                             placeholder="Nhập tên Danh mục đồ uống"
                                                                             class="form-control"
+                                                                            value="{{ $menu -> type_name }}"
                                                                         />
                                                                     </div>
                                                                     <br />
@@ -179,49 +187,33 @@
                                                                             name="cat_id"
                                                                             class="form-control"
                                                                         >
-                                                                            <option
-                                                                                value="option1"
-                                                                            >
-                                                                                Cà
-                                                                                Phê
-                                                                            </option>
-                                                                            <option
-                                                                                value="option2"
-                                                                            >
-                                                                                Trà
-                                                                            </option>
-                                                                            <option
-                                                                                value="option3"
-                                                                            >
-                                                                                Cloud
-                                                                            </option>
-                                                                            <option
-                                                                                value="option4"
-                                                                            >
-                                                                                Thức
-                                                                                Uống
-                                                                                Đá
-                                                                                Say
-                                                                            </option>
-                                                                            <option
-                                                                                value="option5"
-                                                                            >
-                                                                                Bánh
-                                                                                &
-                                                                                Snack
-                                                                            </option>
+                                                                            @foreach( $category as $categories)
+                                                                                <option value="{{ $categories -> categories_id}}"
+                                                                                @if( $menu -> categories_id == $categories -> categories_id)
+                                                                                    {{ 'selected' }}
+                                                                                    @endif
+                                                                                >
+                                                                                    {{ $categories -> categories_name }}
+                                                                                </option>
+                                                                            @endforeach
+
                                                                         </select>
                                                                     </div>
                                                                     <br />
-
-                                                                    <div class="btn-chance">
-                                                                    <button class="save-btn">
-                                                                        <a href="">Cập Nhật</a>
-                                                                    </button>
-                                                                    <button class="cancel-btn">
-                                                                        <a href="">Hủy</a>
-                                                                    </button>
-                                                                </div>
+                                                                    <div
+                                                                        class="btn-chance"
+                                                                    >
+                                                                        <button
+                                                                            class="save-btn"
+                                                                        >
+                                                                            Cập Nhật
+                                                                        </button>
+                                                                        <button
+                                                                            class="cancel-btn"
+                                                                        >
+                                                                            <a href="{{ route('menu.index') }}">Hủy</a>
+                                                                        </button>
+                                                                    </div>
                                                                 </form>
                                                             </div>
                                                             <div

@@ -45,7 +45,7 @@
                                 </li>
                                 <li>
 
-                                    <a href="{{ route('typeofdrink.index') }}">
+                                    <a href="{{ route('menu.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
                                             Menu

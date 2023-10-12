@@ -45,7 +45,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('typeofdrink.index') }}">
+                                    <a href="{{ route('menu.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
                                             Menu
@@ -167,11 +167,11 @@
                                                         </thead>
 
                                                         <tbody>
-                                                        @foreach($category as $categories)
+                                                        @foreach($categories as $category)
                                                             <tr>
-                                                                <td>{{ $categories -> categories_id }}</td>
+                                                                <td>{{ $category -> categories_id }}</td>
                                                                 <td>
-                                                                    {{ $categories -> categories_name }}
+                                                                    {{ $category -> categories_name }}
                                                                 </td>
                                                                 <td>
                                                                     <button
@@ -182,9 +182,9 @@
                                                                     <button
                                                                         class="edit-btn"
                                                                     >
-                                                                        <a href="{{ route('category.edit', $categories-> categories_id) }}">sửa</a>
+                                                                        <a href="{{ route('category.edit', $category) }}">sửa</a>
                                                                     </button>
-                                                                    <form method="post" action="{{ route('category.destroy', $categories->categories_id) }}">
+                                                                    <form method="post" action="{{ route('category.destroy', $category) }}">
                                                                         @csrf
                                                                         @method('DELETE')
                                                                         <button class="del-btn">Xóa</button>

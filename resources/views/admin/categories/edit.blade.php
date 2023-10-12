@@ -49,7 +49,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('typeofdrink.index') }}">
+                                    <a href="{{ route('menu.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
                                             Menu
@@ -157,10 +157,9 @@
                                                             <div
                                                                 class="col-md-6"
                                                             >
-                                                                <form method="post" action="{{ route('category.update', $categories_id) }}">
+                                                                <form method="post" action="{{ route('category.update', $category) }}">
                                                                     @csrf
                                                                     @method('PUT')
-                                                                    @foreach( $category as $categories)
                                                                     <div>
                                                                         Tên Danh
                                                                         mục:
@@ -170,10 +169,9 @@
                                                                             name="categories_name"
                                                                             placeholder="Nhập tên Danh mục"
                                                                             class="form-control"
-                                                                            value="{{ $categories -> categories_name }}"
+                                                                            value="{{ $category -> categories_name }}"
                                                                         />
                                                                     </div>
-                                                                    @endforeach
                                                                     <br />
 
                                                                     <div class="btn-chance">
