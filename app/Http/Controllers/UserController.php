@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Receipt;
 use App\Models\User;
-use App\Models\UserDashboard;
+use App\Models\User;
 use App\Http\Requests\StoreUserDashboardRequest;
 use App\Http\Requests\UpdateUserDashboardRequest;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Redirect;
 
-class UserDashboardController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class UserDashboardController extends Controller
      */
     public function index()
     {
-        $user = UserDashboard::with('receipt') -> get();
+        $user = User::with('receipt') -> get();
         return view('admin/user/index', [
             'user' => $user
         ]);
@@ -45,17 +45,17 @@ class UserDashboardController extends Controller
      */
     public function store(StoreUserDashboardRequest $request)
     {
-        UserDashboard::create($request -> all());
+        User::create($request -> all());
         return Redirect::route('user.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param UserDashboard $userDashboard
+     * @param User $userDashboard
      * @return Response
      */
-    public function show(UserDashboard $userDashboard)
+    public function show(User $userDashboard)
     {
         //
     }
@@ -63,10 +63,10 @@ class UserDashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param UserDashboard $userDashboard
+     * @param User $userDashboard
      * @return Response
      */
-    public function edit(UserDashboard $userDashboard)
+    public function edit(User $userDashboard)
     {
         $receipts = Receipt::all();
         return view('user.edit', [
@@ -79,10 +79,10 @@ class UserDashboardController extends Controller
      * Update the specified resource in storage.
      *
      * @param UpdateUserDashboardRequest $request
-     * @param UserDashboard $userDashboard
+     * @param User $userDashboard
      * @return Response
      */
-    public function update(UpdateUserDashboardRequest $request, UserDashboard $userDashboard)
+    public function update(UpdateUserDashboardRequest $request, User $userDashboard)
     {
         $userDashboard -> update($request -> all());
         return Redirect::route('user.index');
@@ -91,10 +91,10 @@ class UserDashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param UserDashboard $userDashboard
+     * @param User $userDashboard
      * @return Response
      */
-    public function destroy(UserDashboard $userDashboard)
+    public function destroy(User $userDashboard)
     {
         $userDashboard -> delete();
         return Redirect::route('user.index');

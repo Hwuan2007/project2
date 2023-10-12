@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserDashboardsTable extends Migration
+class Receipt extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateUserDashboardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_dashboards', function (Blueprint $table) {
+        Schema::create('receipt', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('customer_id')->constrained('customer');
+            $table->foreignId('staff_id')->constrained('staff');
         });
     }
 
@@ -26,6 +27,6 @@ class CreateUserDashboardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_dashboards');
+        Schema::dropIfExists('receipt');
     }
 }

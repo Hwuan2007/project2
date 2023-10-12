@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\UserDashboard;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class UserDashboardPolicy
@@ -25,10 +25,10 @@ class UserDashboardPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\UserDashboard  $userDashboard
+     * @param  \App\Models\User  $userDashboard
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, UserDashboard $userDashboard)
+    public function view(User $user, User $userDashboard)
     {
         //
     }
@@ -48,10 +48,10 @@ class UserDashboardPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\UserDashboard  $userDashboard
+     * @param  \App\Models\User  $userDashboard
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, UserDashboard $userDashboard)
+    public function update(User $user, User $userDashboard)
     {
         //
     }
@@ -60,10 +60,10 @@ class UserDashboardPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\UserDashboard  $userDashboard
+     * @param  \App\Models\User  $userDashboard
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, UserDashboard $userDashboard)
+    public function delete(User $user, User $userDashboard)
     {
         //
     }
@@ -72,10 +72,10 @@ class UserDashboardPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\UserDashboard  $userDashboard
+     * @param  \App\Models\User  $userDashboard
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, UserDashboard $userDashboard)
+    public function restore(User $user, User $userDashboard)
     {
         //
     }
@@ -84,10 +84,10 @@ class UserDashboardPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\UserDashboard  $userDashboard
+     * @param  \App\Models\User  $userDashboard
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, UserDashboard $userDashboard)
+    public function forceDelete(User $user, User $userDashboard)
     {
         //
     }

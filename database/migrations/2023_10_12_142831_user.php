@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMenusTable extends Migration
+class User extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateMenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('staff', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('staff_name');
+            $table->integer('staff_phonenumber');
+            $table->string('staff_address');
+            $table->foreignId('role_id')->constrained('role');
         });
     }
 
@@ -26,6 +29,6 @@ class CreateMenusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('staff');
     }
 }

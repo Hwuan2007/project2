@@ -187,13 +187,13 @@
                                                                             name="cat_id"
                                                                             class="form-control"
                                                                         >
-                                                                            @foreach( $category as $categories)
-                                                                                <option value="{{ $categories -> categories_id}}"
-                                                                                @if( $menu -> categories_id == $categories -> categories_id)
+                                                                            @foreach( $categories as $category)
+                                                                                <option value="{{ $category -> categories_id}}"
+                                                                                @if( $menu -> categories_id == $category -> categories_id)
                                                                                     {{ 'selected' }}
                                                                                     @endif
                                                                                 >
-                                                                                    {{ $categories -> categories_name }}
+                                                                                    {{ $category -> categories_name }}
                                                                                 </option>
                                                                             @endforeach
 

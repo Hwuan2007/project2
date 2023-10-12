@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDrinkClientsTable extends Migration
+class Size extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateDrinkClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('drink_clients', function (Blueprint $table) {
+        Schema::create('size', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('size_name');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateDrinkClientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('drink_clients');
+        Schema::dropIfExists('size');
     }
 }

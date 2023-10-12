@@ -169,19 +169,19 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                        @foreach( $staff as $user)
+                                                        @foreach( $user as $users)
                                                             <tr>
                                                                 <td>
-                                                                    {{ $user -> staff_id}}
+                                                                    {{ $users -> staff_id}}
                                                                 </td>
                                                                 <td>
-                                                                    {{ $user -> staff_name}}
+                                                                    {{ $users -> staff_name}}
                                                                 </td>
                                                                 <td>
-                                                                    {{ $user -> staff_email}}
+                                                                    {{ $users -> staff_email}}
                                                                 </td>
                                                                 <td>
-                                                                    {{ $user -> role_name}}
+                                                                    {{ $users -> role_name}}
                                                                 </td>
                                                                 <td>
                                                                     <button

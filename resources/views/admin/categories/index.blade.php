@@ -167,7 +167,7 @@
                                                         </thead>
 
                                                         <tbody>
-                                                        @foreach($categories as $category)
+                                                        @foreach( $categories as $category)
                                                             <tr>
                                                                 <td>{{ $category -> categories_id }}</td>
                                                                 <td>

@@ -20,7 +20,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
         return view('admin/categories/index', [
-            '$categories' => $categories
+            'categories' => $categories
         ]);
     }
 
@@ -65,8 +65,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category, Request $request)
     {
-        return view('category.edit', [
-            '$category' => $category
+        return view('admin/categories/edit-categories/edit', [
+            'category' => $category
         ]);
     }
 

@@ -10,10 +10,11 @@ class Menu extends Model
 {
     use HasFactory;
     protected $table = 'type_of_drink';
+    protected $primaryKey = 'type_id';
     public $timestamps = false;
     protected $fillable = ['type_name', 'categories_id'];
 
     public function category(){
-        return $this -> belongsTo(Category::class);
+        return $this -> belongsTo(Category::class, 'categories_id');
     }
 }
