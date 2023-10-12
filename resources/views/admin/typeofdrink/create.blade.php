@@ -192,18 +192,9 @@
                                                                     <br />
 
                                                                     <div
-                                                                        class="btn-chance"
-                                                                    >
-                                                                        <button
-                                                                            class="save-btn"
-                                                                        >
-                                                                            Lưu
-                                                                        </button>
-                                                                        <button
-                                                                            class="cancel-btn"
-                                                                        >
-                                                                            Hủy
-                                                                        </button>
+                                                                        class="btn-chance">
+                                                                        <button class="save-btn"><a href="">Lưu</a></button>
+                                                                        <button cclass="cancel-btn"><a href="">Hủy</a></button>
                                                                     </div>
                                                                 </form>
                                                             </div>

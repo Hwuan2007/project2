@@ -4,7 +4,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" type="text/css" href="{{ asset ('css/admin/add-user.css') }}" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="../../../../../public/css/Admin/edit-user.css"
+        />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -137,7 +141,7 @@
                                             <div class="card">
                                                 <div class="header">
                                                     <h4 class="title">
-                                                        Thêm Đồ Uống Mới
+                                                        Chi tiết và sửa đổi người dùng:
                                                     </h4>
                                                     <br />
                                                     <br />
@@ -247,18 +251,12 @@
                                                                     </select>
                                                                 </div>
                                                                 <br />
-                                                                <div
-                                                                    class="btn-chance"
-                                                                >
-                                                                    <button
-                                                                        class="save-btn"
-                                                                    >
-                                                                        Lưu
+                                                                <div class="btn-chance">
+                                                                    <button class="save-btn">
+                                                                        <a href="">Cập Nhật</a>
                                                                     </button>
-                                                                    <button
-                                                                        class="cancel-btn"
-                                                                    >
-                                                                        Hủy
+                                                                    <button class="cancel-btn">
+                                                                        <a href="">Hủy</a>
                                                                     </button>
                                                                 </div>
                                                             </div>

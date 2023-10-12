@@ -87,6 +87,10 @@ table {
     height: max-content;
     color: white;
 }
+.card button a{
+    text-decoration: none;
+    color: white;
+}
 .add-btn{
     background-color:#7ac29a ;
 }

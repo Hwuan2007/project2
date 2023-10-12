@@ -4,7 +4,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" type="text/css" href="{{ asset ('css/admin/add-categories.css') }}" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{ asset ('css/admin/edit-categories.css') }}"
+        />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -35,7 +39,7 @@
                         <div>
                             <ul class="choose">
 
-                                <li class="active">
+                                <li>
                                     <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
@@ -52,7 +56,7 @@
                                         </p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="active">
 
                                     <a href="{{ route('category.index') }}">
                                         <p>
@@ -103,7 +107,7 @@
                                     padding-bottom: 15px;
                                 "
                             >
-                                <a class="navbar-brand" href="#"><b>Menu</b></a>
+                                <a class="navbar-brand" href="#"><b>Danh Mục</b></a>
                                 <button
                                     class="navbar-toggler"
                                     type="button"
@@ -140,10 +144,10 @@
                                             <div class="card">
                                                 <div class="header">
                                                     <h4 class="title">
-                                                        Thêm Danh mục
+                                                        Sửa đổi Danh mục:
                                                     </h4>
-                                                    <br>
-                                                    <br>
+                                                    <br />
+                                                    <br />
                                                 </div>
                                                 <div class="info-form">
                                                     <div
@@ -153,34 +157,33 @@
                                                             <div
                                                                 class="col-md-6"
                                                             >
-                                                                <form method="post" action="{{ route('category.store') }}">
+                                                                <form method="post" action="{{ route('category.update', $categories_id) }}">
                                                                     @csrf
+                                                                    @method('PUT')
+                                                                    @foreach( $category as $categories)
                                                                     <div>
-                                                                        Tên Danh mục:
+                                                                        Tên Danh
+                                                                        mục:
                                                                         <input
                                                                             type="text"
                                                                             id="cat-name"
                                                                             name="categories_name"
                                                                             placeholder="Nhập tên Danh mục"
                                                                             class="form-control"
+                                                                            value="{{ $categories -> categories_name }}"
                                                                         />
                                                                     </div>
-                                                                    <br>
+                                                                    @endforeach
+                                                                    <br />
 
-                                                                    <div
-                                                                        class="btn-chance"
-                                                                    >
-                                                                        <button
-                                                                            class="save-btn"
-                                                                        >
-                                                                            Lưu
-                                                                        </button>
-                                                                        <button
-                                                                            class="cancel-btn"
-                                                                        >
-                                                                            Hủy
-                                                                        </button>
-                                                                    </div>
+                                                                    <div class="btn-chance">
+                                                                    <button class="save-btn">
+                                                                        <a href="">Cập Nhật</a>
+                                                                    </button>
+                                                                    <button class="cancel-btn">
+                                                                        <a href="">Hủy</a>
+                                                                    </button>
+                                                                </div>
                                                                 </form>
                                                             </div>
                                                             <div

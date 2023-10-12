@@ -87,6 +87,10 @@ table {
     height: 30px;
     color: white;
 }
+.card button a{
+    text-decoration: none;
+    color: white;
+}
 .info-form{
     padding: 20px 10px;
 

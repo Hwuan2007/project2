@@ -4,11 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="../../../../../public/css/Admin/edit-typeofdrink.css"
-        />
+        <link rel="stylesheet" type="text/css" href="{{ asset ('css/admin/add-categories.css') }}" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -38,49 +34,54 @@
                         <hr />
                         <div>
                             <ul class="choose">
-                                <li>
-                                    <a href="../dashboard.html">
+
+                                <li class="active">
+                                    <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
                                             Dashboard
                                         </p>
                                     </a>
                                 </li>
+
                                 <li>
-                                    <a href="../categories.html">
+                                    <a href="{{ route('typeofdrink.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
-                                            menu
+                                            Menu
                                         </p>
                                     </a>
                                 </li>
-                                <li class="active">
-                                    <a href="../typeofdrink.html">
+                                <li>
+
+                                    <a href="{{ route('category.index') }}">
                                         <p>
                                             <i class="bx bx-menu-alt-left"></i>
-                                            danh mục
+                                            Danh mục
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="../drink.html">
+
+                                    <a href="{{ route('drink.index') }}">
                                         <p>
-                                            <i class="bx bxs-drink"></i> đồ uống
+                                            <i class="bx bxs-drink"></i> Đồ uống
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="../user.html">
+
+                                    <a href="{{ route('user.index') }}">
                                         <p>
-                                            <i class="bx bx-user"></i> người
+                                            <i class="bx bx-user"></i> Người
                                             dùng
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('order.index') }}">
                                         <p>
-                                            <i class="bx bx-receipt"></i> đơn
+                                            <i class="bx bx-receipt"></i> Đơn
                                             hàng
                                         </p>
                                     </a>
@@ -102,9 +103,7 @@
                                     padding-bottom: 15px;
                                 "
                             >
-                                <a class="navbar-brand" href="#"
-                                    ><b>Danh Mục</b></a
-                                >
+                                <a class="navbar-brand" href="#"><b>Menu</b></a>
                                 <button
                                     class="navbar-toggler"
                                     type="button"
@@ -141,10 +140,10 @@
                                             <div class="card">
                                                 <div class="header">
                                                     <h4 class="title">
-                                                        chi tiết và sửa đổi Danh mục đồ uống: 
+                                                        Thêm Danh mục
                                                     </h4>
-                                                    <br />
-                                                    <br />
+                                                    <br>
+                                                    <br>
                                                 </div>
                                                 <div class="info-form">
                                                     <div
@@ -154,79 +153,24 @@
                                                             <div
                                                                 class="col-md-6"
                                                             >
-                                                                <form action="">
+                                                                <form method="post" action="{{ route('category.store') }}">
+                                                                    @csrf
                                                                     <div>
-                                                                        Tên Danh
-                                                                        mục:
+                                                                        Tên Danh mục:
                                                                         <input
                                                                             type="text"
-                                                                            id="typeofdrink-name"
-                                                                            name="typeofdrink-name"
-                                                                            placeholder="Nhập tên Danh mục đồ uống"
+                                                                            id="cat-name"
+                                                                            name="categories_name"
+                                                                            placeholder="Nhập tên Danh mục"
                                                                             class="form-control"
                                                                         />
                                                                     </div>
-                                                                    <br />
-                                                                    <div
-                                                                        class="form-group"
-                                                                    >
-                                                                        <label
-                                                                            >Danh
-                                                                            mục
-                                                                            menu</label
-                                                                        >
-                                                                        <select
-                                                                            name="cat_id"
-                                                                            class="form-control"
-                                                                        >
-                                                                            <option
-                                                                                value="option1"
-                                                                            >
-                                                                                Cà
-                                                                                Phê
-                                                                            </option>
-                                                                            <option
-                                                                                value="option2"
-                                                                            >
-                                                                                Trà
-                                                                            </option>
-                                                                            <option
-                                                                                value="option3"
-                                                                            >
-                                                                                Cloud
-                                                                            </option>
-                                                                            <option
-                                                                                value="option4"
-                                                                            >
-                                                                                Thức
-                                                                                Uống
-                                                                                Đá
-                                                                                Say
-                                                                            </option>
-                                                                            <option
-                                                                                value="option5"
-                                                                            >
-                                                                                Bánh
-                                                                                &
-                                                                                Snack
-                                                                            </option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <br />
+                                                                    <br>
 
                                                                     <div
-                                                                        class="btn-chance"
-                                                                    >
-                                                                        <button
-                                                                            class="save-btn"
-                                                                        >
-                                                                            Cập Nhật
-                                                                        </button>
-                                                                        <button
-                                                                            class="cancel-btn"
-                                                                        >
-                                                                            Hủy
-                                                                        </button>
+                                                                        class="btn-chance">
+                                                                        <button class="save-btn"><a href="">Lưu</a></button>
+                                                                        <button cclass="cancel-btn"><a href="">Hủy</a></button>
                                                                     </div>
                                                                 </form>
                                                             </div>
