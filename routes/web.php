@@ -43,7 +43,7 @@ Route::prefix('admin') ->group(function (){
     // drink
     Route::get('/drink', [DrinkController::class, 'index']) -> name('drink.index');
     Route::get('/drink/create', [DrinkController::class, 'create']) -> name('drink.create');
-    Route::post('/drink//create', [DrinkController::class, 'store']) -> name('drink.store');
+    Route::post('/drink/create', [DrinkController::class, 'store']) -> name('drink.store');
     // user
     Route::get('/user', [UserController::class, 'index']) -> name('user.index');
     Route::get('/user/create', [UserController::class, 'create']) -> name('user.create');

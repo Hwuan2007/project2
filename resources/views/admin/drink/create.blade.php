@@ -157,9 +157,9 @@
                                                                     <label>Ảnh Đồ Uống:</label>
                                                                     <input accept="image/*" type='file' id="imgInp" name="drink-img[]" multiple />
                                                                 <div id="img-upload-container" class="mt-3"></div>
+                                                                </div>
                                                             </form>
                                                         </div>
-                                                    </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Giá:</label>

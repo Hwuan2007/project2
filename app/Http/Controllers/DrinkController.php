@@ -26,7 +26,7 @@ class DrinkController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/drink/create');
     }
 
     /**

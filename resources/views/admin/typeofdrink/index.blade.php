@@ -93,19 +93,16 @@
                 <div class="col-lg-10 col-md-4 col-sm-12">
                     <div class="main-panel">
                         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                            <div
-                                class="container-fluid"
-                                style="
+                            <div class="container-fluid" style="
                                     background-color: white;
                                     padding: 10px 0px;
                                     border-bottom: 2px solid
                                         rgba(222, 222, 222, 0.984);
                                     padding-bottom: 15px;
-                                "
-                            >
-                                <a class="navbar-brand" href="#"
-                                    ><b>Danh Mục</b></a
-                                >
+                                ">
+                                <a class="navbar-brand" href="#">
+                                    <b>Danh Mục</b>
+                                </a>
                                 <button
                                     class="navbar-toggler"
                                     type="button"
@@ -124,11 +121,9 @@
                                 >
                                     <ul class="navbar-nav">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"
-                                                ><i
-                                                    class="bx bxs-user-circle"
-                                                ></i
-                                            ></a>
+                                            <a class="nav-link" href="#">
+                                                <i class="bx bxs-user-circle"></i>
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -144,27 +139,22 @@
                                                     <h4 class="title">
                                                         Danh Sách Loại Đồ Uống
                                                     </h4>
-                                                    <br />
-                                                    <button class="add-btn">
-                                                        <i
-                                                            class="bx bxs-plus-circle"
-                                                        ></i>
-                                                        <a href="{{ route('menu.create') }}">Thêm Loại Đồ Uống</a>
-                                                    </button>
-                                                    <br />
+                                                    <br>
+                                                    <a href="{{ route('menu.create') }}">
+                                                        <button class="add-btn">
+                                                            <i class="bx bxs-plus-circle"></i>
+                                                            Thêm Loại Đồ Uống
+                                                        </button>
+                                                    </a>
+                                                    <br>
                                                 </div>
-                                                <div
-                                                    class="content table-responsive table-full-width"
-                                                >
-                                                    <table
-                                                        class="table table-striped"
-                                                    >
+                                                <div class="content table-responsive table-full-width">
+                                                    <table class="table table-striped">
                                                         <thead>
                                                             <tr>
                                                                 <th>ID</th>
                                                                 <th>
-                                                                    Tên Loại Đồ
-                                                                    Uống
+                                                                    Tên Loại Đồ Uống
                                                                 </th>
                                                                 <th>
                                                                     Danh Mục
@@ -185,15 +175,11 @@
                                                                     {{ $menu -> category -> categories_name	}}
                                                                 </td>
                                                                 <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
+                                                                    <button class="detail-btn">
                                                                         chi tiết
                                                                     </button>
                                                                     <a href="{{ route('menu.edit',$menu) }}">
-                                                                        <button
-                                                                            class="edit-btn"
-                                                                        >
+                                                                        <button class="edit-btn">
                                                                             sửa
                                                                         </button>
                                                                     </a>

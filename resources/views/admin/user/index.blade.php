@@ -188,10 +188,8 @@
                                                                 </td>
                                                                 <td>
 
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        <a href="{{ route('user.edit') , $user }}">xem chi tiết</a>
+                                                                    <button class="detail-btn">
+                                                                        <a href="{{ route('user.edit', $user)  }}">xem chi tiết</a>
                                                                     </button>
                                                                     <form method="post" action="{{ route('user.destroy', $user) }}">
                                                                         @csrf

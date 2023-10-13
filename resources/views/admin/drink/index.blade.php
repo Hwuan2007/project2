@@ -153,12 +153,8 @@
 
                                                     <br />
                                                 </div>
-                                                <div
-                                                    class="content table-responsive table-full-width"
-                                                >
-                                                    <table
-                                                        class="table table-striped"
-                                                    >
+                                                <div class="content table-responsive table-full-width">
+                                                    <table class="table table-striped">
                                                         <thead>
                                                             <tr>
                                                                 <th>ID</th>
@@ -173,6 +169,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                        @foreach( $menus as $menu )
                                                             <tr>
                                                                 <td>1</td>
                                                                 <td>
@@ -200,7 +197,7 @@
                                                                     </button>
                                                                 </td>
                                                             </tr>
-
+                                                        @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>
