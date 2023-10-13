@@ -176,7 +176,7 @@
                                                         @foreach( $menus as $menu )
                                                             <tr>
                                                                 <td>
-                                                                    {{ $menu -> type_id}}
+                                                                    {{ $menu -> id}}
                                                                 </td>
                                                                 <td>
                                                                     {{ $menu -> type_name}}

@@ -15,6 +15,9 @@ class User extends Migration
     {
         Schema::create('staff', function (Blueprint $table) {
             $table->id();
+            $table->string('staff_username');
+            $table->integer('staff_pasword');
+            $table->string('staff_email');
             $table->string('staff_name');
             $table->integer('staff_phonenumber');
             $table->string('staff_address');

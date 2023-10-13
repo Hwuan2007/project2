@@ -169,7 +169,7 @@
                                                         <tbody>
                                                         @foreach( $categories as $category)
                                                             <tr>
-                                                                <td>{{ $category -> categories_id }}</td>
+                                                                <td>{{ $category -> id }}</td>
                                                                 <td>
                                                                     {{ $category -> categories_name }}
                                                                 </td>

@@ -10,12 +10,12 @@ class User extends Model
 {
     use HasFactory;
     protected $table = 'staff';
-    protected $primaryKey = 'staff_id';
+    protected $primaryKey = 'id';
     public $timestamps = false;
-    protected $fillable = ['staff_id', 'staff_name', 'staff_phonenumber', 'staff_address','receipt_id'];
+    protected $fillable = ['staff_name', 'staff_phonenumber', 'staff_address','receipt_id'];
 
-    public function receipt(){
-        return $this -> hasMany(Receipt::class);
+    public function role(){
+        return $this -> belongsTo(Receipt::class);
     }
 
 }

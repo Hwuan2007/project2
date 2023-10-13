@@ -100,7 +100,7 @@
                                 "
                             >
                                 <a class="navbar-brand" href="#"
-                                    ><b>Đồ Uống</b></a
+                                    ><b>Người dùng</b></a
                                 >
                                 <button
                                     class="navbar-toggler"
@@ -138,7 +138,7 @@
                                             <div class="card">
                                                 <div class="header">
                                                     <h4 class="title">
-                                                        Thêm Đồ Uống Mới
+                                                        Thêm Người dùng Mới
                                                     </h4>
                                                     <br />
                                                     <br />
@@ -151,40 +151,43 @@
                                                             <div
                                                                 class="col-md-6"
                                                             >
-                                                                <div>
-                                                                    Email:
-                                                                    <input
-                                                                        type="text"
-                                                                        id="user-email"
-                                                                        name="user-email"
-                                                                        placeholder="Nhập Email"
-                                                                        class="form-control"
-                                                                    />
-                                                                </div>
-                                                                <br />
-                                                                <div>
-                                                                    Mật khẩu:
-                                                                    <input
-                                                                        type="text"
-                                                                        id="user-password"
-                                                                        name="user-password"
-                                                                        placeholder="Nhập Mật Khẩu"
-                                                                        class="form-control"
-                                                                    />
-                                                                </div>
-                                                                <br />
-                                                                <div>
-                                                                    Nhập lại Mật
-                                                                    khẩu:
-                                                                    <input
-                                                                        type="text"
-                                                                        id="user-re-password"
-                                                                        name="user-re-password"
-                                                                        placeholder="Nhập Lại Mật Khẩu"
-                                                                        class="form-control"
-                                                                    />
-                                                                </div>
-                                                                <br />
+                                                                <form action="{{ route('user.store') }}" method="post">
+                                                                    @csrf
+                                                                    <div>
+                                                                        Email:
+                                                                        <input
+                                                                            type="text"
+                                                                            id="user-email"
+                                                                            name="user_email"
+                                                                            placeholder="Nhập Email"
+                                                                            class="form-control"
+                                                                        />
+                                                                    </div>
+                                                                    <br />
+                                                                    <div>
+                                                                        Mật khẩu:
+                                                                        <input
+                                                                            type="text"
+                                                                            id="user-password"
+                                                                            name="staff_pasword"
+                                                                            placeholder="Nhập Mật Khẩu"
+                                                                            class="form-control"
+                                                                        />
+                                                                    </div>
+                                                                    <br />
+                                                                    <div>
+                                                                        Nhập lại Mật
+                                                                        khẩu:
+                                                                        <input
+                                                                            type="text"
+                                                                            id="user-re-password"
+                                                                            name="user-re-password"
+                                                                            placeholder="Nhập Lại Mật Khẩu"
+                                                                            class="form-control"
+                                                                        />
+                                                                    </div>
+                                                                    <br />
+                                                                </form>
                                                             </div>
 
                                                             <div

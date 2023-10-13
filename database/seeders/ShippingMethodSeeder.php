@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class DrinkClientSeeder extends Seeder
+class ShippingMethodSeeder extends Seeder
 {
     /**
      * Run the database seeds.

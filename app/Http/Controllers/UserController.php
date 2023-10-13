@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Receipt;
-use App\Models\User;
+use App\Models\Role;
 use App\Models\User;
 use App\Http\Requests\StoreUserDashboardRequest;
 use App\Http\Requests\UpdateUserDashboardRequest;
@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::with('receipt') -> get();
+        $user = User::with('role') -> get();
         return view('admin/user/index', [
             'user' => $user
         ]);
@@ -31,9 +31,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        $receipts = Receipt::all();
+        $roles = Role::all();
         return view('admin/user/add-user/create', [
-            'receipts' => $receipts
+            'roles' => $roles
         ]);
     }
 
@@ -68,10 +68,10 @@ class UserController extends Controller
      */
     public function edit(User $userDashboard)
     {
-        $receipts = Receipt::all();
-        return view('user.edit', [
+        $roles = Role::all();
+        return view('admin/user/edit-user/user.edit', [
             'userDashboard' => $userDashboard,
-            'receipts' => $receipts
+            'roles' => $roles
         ]);
     }
 

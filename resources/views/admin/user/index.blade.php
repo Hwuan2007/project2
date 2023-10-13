@@ -35,7 +35,7 @@
                         <div>
                             <ul class="choose">
 
-                                <li class="active">
+                                <li>
                                     <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
@@ -67,7 +67,7 @@
                                         </p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a href="{{ route('user.index') }}">
                                         <p>
                                             <i class="bx bx-user"></i> Người
@@ -142,12 +142,15 @@
                                                         Danh Sách Người Dùng
                                                     </h4>
                                                     <br />
-                                                    <button class="add-btn">
-                                                        <i
-                                                            class="bx bxs-plus-circle"
-                                                        ></i>
-                                                        <a href="{{ route('user.create') }}">Thêm Người Dùng Mới</a>
-                                                    </button>
+                                                    <a href="{{ route('user.create') }}">
+                                                        <button class="add-btn">
+                                                            <i
+                                                                class="bx bxs-plus-circle"
+                                                            ></i>
+                                                            Thêm Người Dùng Mới
+                                                        </button>
+                                                    </a>
+
                                                     <br />
                                                 </div>
                                                 <div
@@ -172,7 +175,7 @@
                                                         @foreach( $user as $users)
                                                             <tr>
                                                                 <td>
-                                                                    {{ $users -> staff_id}}
+                                                                    {{ $users -> id}}
                                                                 </td>
                                                                 <td>
                                                                     {{ $users -> staff_name}}
@@ -184,17 +187,19 @@
                                                                     {{ $users -> role_name}}
                                                                 </td>
                                                                 <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        xem chi
-                                                                        tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
+                                                                    <a href="{{ route('user.edit') }}">
+                                                                        <button
+                                                                            class="detail-btn"
+                                                                        >
+                                                                            xem chi tiết
+                                                                        </button>
+                                                                    </a>
+
+                                                                    <form method="post" action="{{ route('menu.destroy', $menu) }}">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button class="del-btn">Xóa</button>
+                                                                    </form>
                                                                 </td>
                                                             </tr>
                                                         @endforeach

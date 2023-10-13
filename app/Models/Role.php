@@ -4,17 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
-class Category extends Model
+class Role extends Model
 {
     use HasFactory;
-    protected $table = 'category';
+    protected $table = 'role';
     protected $primaryKey = 'id';
     public $timestamps = false;
-    protected $fillable = ['categories_name'];
-
-    public function menu(){
-        return $this -> hasMany(Menu::class);
+    public function role(){
+        return $this -> hasMany(Receipt::class);
     }
 }
