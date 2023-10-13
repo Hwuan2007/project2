@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DrinkClient;
-use App\Http\Requests\StoreDrinkClientRequest;
-use App\Http\Requests\UpdateDrinkClientRequest;
+use App\Models\Role;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreRoleRequest;
+use App\Http\Requests\UpdateRoleRequest;
 
-class DrinkClientController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,7 @@ class DrinkClientController extends Controller
      */
     public function index()
     {
-        return view('client/home/index');
+        //
     }
 
     /**
@@ -31,10 +32,10 @@ class DrinkClientController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreDrinkClientRequest  $request
+     * @param  \App\Http\Requests\StoreRoleRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDrinkClientRequest $request)
+    public function store(StoreRoleRequest $request)
     {
         //
     }
@@ -42,10 +43,10 @@ class DrinkClientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DrinkClient  $drinkClient
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(DrinkClient $drinkClient)
+    public function show(Role $role)
     {
         //
     }
@@ -53,10 +54,10 @@ class DrinkClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DrinkClient  $drinkClient
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(DrinkClient $drinkClient)
+    public function edit(Role $role)
     {
         //
     }
@@ -64,11 +65,11 @@ class DrinkClientController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateDrinkClientRequest  $request
-     * @param  \App\Models\DrinkClient  $drinkClient
+     * @param  \App\Http\Requests\UpdateRoleRequest  $request
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDrinkClientRequest $request, DrinkClient $drinkClient)
+    public function update(UpdateRoleRequest $request, Role $role)
     {
         //
     }
@@ -76,10 +77,10 @@ class DrinkClientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\DrinkClient  $drinkClient
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DrinkClient $drinkClient)
+    public function destroy(Role $role)
     {
         //
     }

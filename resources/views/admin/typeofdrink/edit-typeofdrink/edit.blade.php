@@ -167,8 +167,7 @@
                                                                         mục:
                                                                         <input
                                                                             type="text"
-                                                                            id="typeofdrink-name"
-                                                                            name="type-name"
+                                                                            name="type_name"
                                                                             placeholder="Nhập tên Danh mục đồ uống"
                                                                             class="form-control"
                                                                             value="{{ $menu -> type_name }}"
@@ -181,19 +180,18 @@
                                                                         <label
                                                                             >Danh
                                                                             mục
-                                                                            menu</label
-                                                                        >
+                                                                            menu</label>
                                                                         <select
-                                                                            name="cat_id"
+                                                                            name="categories_id"
                                                                             class="form-control"
                                                                         >
-                                                                            @foreach( $category as $categories)
-                                                                                <option value="{{ $categories -> categories_id}}"
-                                                                                @if( $menu -> categories_id == $categories -> categories_id)
+                                                                            @foreach( $categories as $category)
+                                                                                <option value="{{ $category -> id}}"
+                                                                                @if( $menu -> categories_id == $category -> id)
                                                                                     {{ 'selected' }}
                                                                                     @endif
                                                                                 >
-                                                                                    {{ $categories -> categories_name }}
+                                                                                    {{ $category -> categories_name }}
                                                                                 </option>
                                                                             @endforeach
 

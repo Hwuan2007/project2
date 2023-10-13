@@ -7,7 +7,7 @@
         <link
             rel="stylesheet"
             type="text/css"
-            href="../../../../../public/css/Admin/edit-user.css"
+            href="{{ asset ('css/admin/edit-user.css') }}"
         />
         <link
             rel="stylesheet"
@@ -37,50 +37,55 @@
                         </div>
                         <hr />
                         <div>
-                            <ul class="choose">
+                            <ul>
+
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
                                             Dashboard
                                         </p>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#">
+
+                                <li class="active">
+                                    <a href="{{ route('menu.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
-                                            menu
+                                            Menu
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+
+                                    <a href="{{ route('category.index') }}">
                                         <p>
                                             <i class="bx bx-menu-alt-left"></i>
-                                            danh mục
+                                            Danh mục
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+
+                                    <a href="{{ route('drink.index') }}">
                                         <p>
-                                            <i class="bx bxs-drink"></i> đồ uống
+                                            <i class="bx bxs-drink"></i> Đồ uống
                                         </p>
                                     </a>
                                 </li>
-                                <li class="active">
-                                    <a href="#">
+                                <li class="choose">
+
+                                    <a href="{{ route('user.index') }}">
                                         <p>
-                                            <i class="bx bx-user"></i> người
+                                            <i class="bx bx-user"></i> Người
                                             dùng
                                         </p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('order.index') }}">
                                         <p>
-                                            <i class="bx bx-receipt"></i> đơn
+                                            <i class="bx bx-receipt"></i> Đơn
                                             hàng
                                         </p>
                                     </a>
@@ -151,115 +156,123 @@
                                                         class="container-fluid"
                                                     >
                                                         <div class="row">
-                                                            <div
-                                                                class="col-md-6"
-                                                            >
-                                                                <div>
-                                                                    Email:
-                                                                    <input
-                                                                        type="text"
-                                                                        id="user-email"
-                                                                        name="user-email"
-                                                                        placeholder="Nhập Email"
-                                                                        class="form-control"
-                                                                    />
-                                                                </div>
-                                                                <br />
-                                                                <div>
-                                                                    Mật khẩu:
-                                                                    <input
-                                                                        type="text"
-                                                                        id="user-password"
-                                                                        name="user-password"
-                                                                        placeholder="Nhập Mật Khẩu"
-                                                                        class="form-control"
-                                                                    />
-                                                                </div>
-                                                                <br />
-                                                                <div>
-                                                                    Nhập lại Mật
-                                                                    khẩu:
-                                                                    <input
-                                                                        type="text"
-                                                                        id="user-re-password"
-                                                                        name="user-re-password"
-                                                                        placeholder="Nhập Lại Mật Khẩu"
-                                                                        class="form-control"
-                                                                    />
-                                                                </div>
-                                                                <br />
-                                                            </div>
-
-                                                            <div
-                                                                class="col-md-6"
-                                                            >
-                                                                <div>
-                                                                    Tên nnguời
-                                                                    dùng:
-                                                                    <input
-                                                                        type="text"
-                                                                        id="user-name"
-                                                                        name="user-name"
-                                                                        placeholder="Nhập Họ và Tên"
-                                                                        class="form-control"
-                                                                    />
-                                                                </div>
-                                                                <br />
-                                                                <div>
-                                                                    Số điện
-                                                                    thoại:
-                                                                    <input
-                                                                        type="text"
-                                                                        id="user-phonenumber"
-                                                                        name="user-phonenumber"
-                                                                        placeholder="Nhập Số Điện Thoại"
-                                                                        class="form-control"
-                                                                    />
-                                                                </div>
-                                                                <br />
-                                                                <div>
-                                                                    địa chỉ:
-                                                                    <input
-                                                                        type="text"
-                                                                        id="user-address"
-                                                                        name="user-address"
-                                                                        placeholder="Nhập Điạ Chỉ"
-                                                                        class="form-control"
-                                                                    />
-                                                                </div>
-                                                                <br />
+                                                            <form action="{{ route('edit.update', $user) }}" method="post">
                                                                 <div
-                                                                    class="form-group"
+                                                                    class="col-md-6"
                                                                 >
-                                                                    <label
-                                                                        >Quyền</label
-                                                                    >
-                                                                    <select
-                                                                        name="user-role"
-                                                                        class="form-control"
-                                                                    >
-                                                                        <option
-                                                                            value="role1"
-                                                                        >
-                                                                            admin
-                                                                        </option>
-                                                                        <option
-                                                                            value="role2"
-                                                                        >
-                                                                            member
-                                                                        </option>
-                                                                    </select>
+                                                                    <div>
+                                                                        Email:
+                                                                        <input
+                                                                            type="text"
+                                                                            id="user-email"
+                                                                            name="staff_email"
+                                                                            placeholder="Nhập Email"
+                                                                            class="form-control"
+                                                                        />
+                                                                    </div>
+                                                                    <br />
+                                                                    <div>
+                                                                        Mật khẩu:
+                                                                        <input
+                                                                            type="text"
+                                                                            id="user-password"
+                                                                            name="staff_pasword"
+                                                                            placeholder="Nhập Mật Khẩu"
+                                                                            class="form-control"
+                                                                        />
+                                                                    </div>
+                                                                    <br />
+                                                                    <div>
+                                                                        Nhập lại Mật
+                                                                        khẩu:
+                                                                        <input
+                                                                            type="text"
+                                                                            id="user-re-password"
+                                                                            name="user-re-password"
+                                                                            placeholder="Nhập Lại Mật Khẩu"
+                                                                            class="form-control"
+                                                                        />
+                                                                    </div>
+                                                                    <br />
                                                                 </div>
-                                                                <br />
-                                                                <div class="btn-chance">
-                                                                    <button class="save-btn">
-                                                                        <a href="">Cập Nhật</a>
-                                                                    </button>
-                                                                    <button class="cancel-btn">
-                                                                        <a href="">Hủy</a>
-                                                                    </button>
+
+                                                                <div
+                                                                    class="col-md-6"
+                                                                >
+                                                                    <div>
+                                                                        Tên nnguời
+                                                                        dùng:
+                                                                        <input
+                                                                            type="text"
+                                                                            id="user-name"
+                                                                            name="staff_username"
+                                                                            placeholder="Nhập Họ và Tên"
+                                                                            class="form-control"
+                                                                        />
+                                                                    </div>
+                                                                    <br />
+                                                                    <div>
+                                                                        Số điện
+                                                                        thoại:
+                                                                        <input
+                                                                            type="text"
+                                                                            id="user-phonenumber"
+                                                                            name="staff_phonenumber"
+                                                                            placeholder="Nhập Số Điện Thoại"
+                                                                            class="form-control"
+                                                                        />
+                                                                    </div>
+                                                                    <br />
+                                                                    <div>
+                                                                        địa chỉ:
+                                                                        <input
+                                                                            type="text"
+                                                                            id="user-address"
+                                                                            name="staff_address"
+                                                                            placeholder="Nhập Điạ Chỉ"
+                                                                            class="form-control"
+                                                                        />
+                                                                    </div>
+                                                                    <br />
+                                                                    <div
+                                                                        class="form-group"
+                                                                    >
+                                                                        <label
+                                                                            >Quyền</label
+                                                                        >
+                                                                        <select
+                                                                            name="user-role"
+                                                                            class="form-control"
+                                                                        >
+                                                                            <option
+                                                                                value="role1"
+                                                                            >
+                                                                                admin
+                                                                            </option>
+                                                                            <option
+                                                                                value="role2"
+                                                                            >
+                                                                                member
+                                                                            </option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <br />
+                                                                    <div
+                                                                        class="btn-chance"
+                                                                    >
+                                                                        <button
+                                                                            class="save-btn"
+                                                                        >
+                                                                            Cập Nhật
+                                                                        </button>
+                                                                        <button
+                                                                            class="cancel-btn"
+                                                                        >
+                                                                            Hủy
+                                                                        </button>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>

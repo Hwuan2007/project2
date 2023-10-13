@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\User;
-use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use App\Models\Receipt;
+use App\Models\User;
 
-class UserDashboardPolicy
+class ReceiptPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class UserDashboardPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $userDashboard
+     * @param  \App\Models\Receipt  $receipt
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, User $userDashboard)
+    public function view(User $user, Receipt $receipt)
     {
         //
     }
@@ -48,10 +48,10 @@ class UserDashboardPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $userDashboard
+     * @param  \App\Models\Receipt  $receipt
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, User $userDashboard)
+    public function update(User $user, Receipt $receipt)
     {
         //
     }
@@ -60,10 +60,10 @@ class UserDashboardPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $userDashboard
+     * @param  \App\Models\Receipt  $receipt
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, User $userDashboard)
+    public function delete(User $user, Receipt $receipt)
     {
         //
     }
@@ -72,10 +72,10 @@ class UserDashboardPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $userDashboard
+     * @param  \App\Models\Receipt  $receipt
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, User $userDashboard)
+    public function restore(User $user, Receipt $receipt)
     {
         //
     }
@@ -84,10 +84,10 @@ class UserDashboardPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $userDashboard
+     * @param  \App\Models\Receipt  $receipt
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, User $userDashboard)
+    public function forceDelete(User $user, Receipt $receipt)
     {
         //
     }

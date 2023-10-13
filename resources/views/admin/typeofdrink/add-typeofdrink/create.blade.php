@@ -182,9 +182,9 @@
                                                                             name="categories_id"
                                                                             class="form-control"
                                                                         >
-                                                                            @foreach( $category as $categories)
-                                                                                <option name="categories_id" value="{{ $categories -> categories_id}}">
-                                                                                    {{ $categories -> categories_name }}
+                                                                            @foreach( $categories as $category)
+                                                                                <option name="categories_id" value="{{ $category -> id}}">
+                                                                                    {{ $category -> categories_name }}
                                                                                 </option>
                                                                             @endforeach
                                                                         </select>

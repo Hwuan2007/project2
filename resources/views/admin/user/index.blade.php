@@ -35,7 +35,7 @@
                         <div>
                             <ul class="choose">
 
-                                <li class="active">
+                                <li>
                                     <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
@@ -45,7 +45,7 @@
                                 </li>
                                 <li>
 
-                                    <a href="{{ route('typeofdrink.index') }}">
+                                    <a href="{{ route('menu.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
                                             Menu
@@ -67,7 +67,7 @@
                                         </p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a href="{{ route('user.index') }}">
                                         <p>
                                             <i class="bx bx-user"></i> Người
@@ -137,12 +137,15 @@
                                                         Danh Sách Người Dùng
                                                     </h4>
                                                     <br />
-                                                    <button class="add-btn">
-                                                        <i
-                                                            class="bx bxs-plus-circle"
-                                                        ></i>
-                                                        <a href="{{ route('user.create') }}">Thêm Người Dùng Mới</a>
-                                                    </button>
+                                                    <a href="{{ route('user.create') }}">
+                                                        <button class="add-btn">
+                                                            <i
+                                                                class="bx bxs-plus-circle"
+                                                            ></i>
+                                                            Thêm Người Dùng Mới
+                                                        </button>
+                                                    </a>
+
                                                     <br />
                                                 </div>
                                                 <div class="content table-responsive table-full-width" >
@@ -160,32 +163,30 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                        @foreach( $staff as $user)
+                                                        @foreach( $users as $user)
                                                             <tr>
                                                                 <td>
-                                                                    {{ $user -> staff_id}}
+                                                                    {{ $user -> id}}
                                                                 </td>
                                                                 <td>
-                                                                    {{ $user -> staff_name}}
+                                                                    {{ $user -> staff_username}}
                                                                 </td>
                                                                 <td>
                                                                     {{ $user -> staff_email}}
                                                                 </td>
                                                                 <td>
-                                                                    {{ $user -> role_name}}
+                                                                    {{ $user -> role -> role_name}}
                                                                 </td>
                                                                 <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        xem chi
-                                                                        tiết
+
+                                                                    <button class="detail-btn">
+                                                                        <a href="{{ route('user.edit', $user)  }}">xem chi tiết</a>
                                                                     </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
+                                                                    <form method="post" action="{{ route('user.destroy', $user) }}">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button class="del-btn">Xóa</button>
+                                                                    </form>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
