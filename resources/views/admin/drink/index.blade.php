@@ -141,7 +141,7 @@
                                                         Danh Sách Các Đồ Uống
                                                     </h4>
                                                     <br /><a
-                                                        href="../add-drink.html"
+                                                        href="{{ route('drink.create') }}"
                                                     >
                                                         <button class="add-btn">
                                                             <i
@@ -200,144 +200,7 @@
                                                                     </button>
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>2</td>
-                                                                <td>
-                                                                    Minerva
-                                                                    Hooper
-                                                                </td>
-                                                                <td>
-                                                                    <img
-                                                                        class="drink-img"
-                                                                        src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png"
-                                                                        alt="image"
-                                                                    />
-                                                                </td>
-                                                                <td>500000</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        xem chi
-                                                                        tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>3</td>
-                                                                <td>
-                                                                    Sage
-                                                                    Rodriguez
-                                                                </td>
-                                                                <td>
-                                                                    <img
-                                                                        class="drink-img"
-                                                                        src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png"
-                                                                        alt="image"
-                                                                    />
-                                                                </td>
-                                                                <td>500000</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        xem chi
-                                                                        tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>4</td>
-                                                                <td>
-                                                                    Philip
-                                                                    Chaney
-                                                                </td>
-                                                                <td>
-                                                                    <img
-                                                                        class="drink-img"
-                                                                        src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png"
-                                                                        alt="image"
-                                                                    />
-                                                                </td>
-                                                                <td>500000</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        xem chi
-                                                                        tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>5</td>
-                                                                <td>
-                                                                    Doris Greene
-                                                                </td>
-                                                                <td>
-                                                                    <img
-                                                                        class="drink-img"
-                                                                        src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png"
-                                                                        alt="image"
-                                                                    />
-                                                                </td>
-                                                                <td>500000</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        xem chi
-                                                                        tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>6</td>
-                                                                <td>
-                                                                    Mason Porter
-                                                                </td>
-                                                                <td>
-                                                                    <img
-                                                                        class="drink-img"
-                                                                        src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png"
-                                                                        alt="image"
-                                                                    />
-                                                                </td>
-                                                                <td>500000</td>
-                                                                <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        xem chi
-                                                                        tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
+
                                                         </tbody>
                                                     </table>
                                                 </div>

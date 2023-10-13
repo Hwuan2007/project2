@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Receipt;
+use App\Models\Role;
 use App\Models\User;
-use App\Models\User;
-use App\Http\Requests\StoreUserDashboardRequest;
-use App\Http\Requests\UpdateUserDashboardRequest;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Redirect;
 
@@ -15,13 +15,12 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
      */
     public function index()
     {
-        $user = User::with('receipt') -> get();
+        $users = User::with('role') -> get();
         return view('admin/user/index', [
-            'user' => $user
+            'users' => $users
         ]);
     }
 
@@ -31,72 +30,58 @@ class UserController extends Controller
      */
     public function create()
     {
-        $receipts = Receipt::all();
+        $roles = Role::all();
         return view('admin/user/add-user/create', [
-            'receipts' => $receipts
+            'roles' => $roles
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreUserDashboardRequest $request
-     * @return Response
+     * @param StoreUserRequest $request
+     * @return RedirectResponse
      */
-    public function store(StoreUserDashboardRequest $request)
+    public function store(StoreUserRequest $request)
     {
         User::create($request -> all());
         return Redirect::route('user.index');
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param User $userDashboard
-     * @return Response
-     */
-    public function show(User $userDashboard)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
-     * @param User $userDashboard
-     * @return Response
+     * @param User $user
      */
-    public function edit(User $userDashboard)
+    public function edit(User $user)
     {
-        $receipts = Receipt::all();
-        return view('user.edit', [
-            'userDashboard' => $userDashboard,
-            'receipts' => $receipts
+        $roles = Role::all();
+        return view('admin/user/edit-user/edit', [
+            'user' => $user,
+            'roles' => $roles
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateUserDashboardRequest $request
-     * @param User $userDashboard
-     * @return Response
+     * @param UpdateUserRequest $request
+     * @param User $user
      */
-    public function update(UpdateUserDashboardRequest $request, User $userDashboard)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        $userDashboard -> update($request -> all());
+        $user -> update($request -> all());
         return Redirect::route('user.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param User $userDashboard
-     * @return Response
+     * @param User $user
      */
-    public function destroy(User $userDashboard)
+    public function destroy(User $user)
     {
-        $userDashboard -> delete();
+        $user -> delete();
         return Redirect::route('user.index');
     }
 }

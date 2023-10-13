@@ -176,7 +176,7 @@
                                                         @foreach( $menus as $menu )
                                                             <tr>
                                                                 <td>
-                                                                    {{ $menu -> type_id}}
+                                                                    {{ $menu -> id}}
                                                                 </td>
                                                                 <td>
                                                                     {{ $menu -> type_name}}
@@ -190,11 +190,13 @@
                                                                     >
                                                                         chi tiết
                                                                     </button>
-                                                                    <button
-                                                                        class="edit-btn"
-                                                                    >
-                                                                        <a href="{{ route('menu.edit',$menu) }}">sửa</a>
-                                                                    </button>
+                                                                    <a href="{{ route('menu.edit',$menu) }}">
+                                                                        <button
+                                                                            class="edit-btn"
+                                                                        >
+                                                                            sửa
+                                                                        </button>
+                                                                    </a>
                                                                     <form method="post" action="{{ route('menu.destroy', $menu) }}">
                                                                         @csrf
                                                                         @method('DELETE')

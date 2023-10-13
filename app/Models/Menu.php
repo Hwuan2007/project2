@@ -10,7 +10,7 @@ class Menu extends Model
 {
     use HasFactory;
     protected $table = 'type_of_drink';
-    protected $primaryKey = 'type_id';
+    protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = ['type_name', 'categories_id'];
 
