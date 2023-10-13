@@ -202,7 +202,7 @@
                                                                         <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato + Trân châu trắng)</p>
                                                                     </div>
                                                                     <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> 2 x Cà Phê sữa đá </h5> 
+                                                                        <h5 class="tch-order-card__title mb-0"> 3 x Cà Phê sữa đá </h5> 
                                                                         <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato)</p>
                                                                     </div>
                                                                 </div>

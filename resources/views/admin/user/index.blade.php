@@ -27,7 +27,7 @@
                     <div class="sidebar">
                         <div class="logo">
                             <h4>
-                                CoffeeShop <br />
+                                CoffeeShop <br>
                                 Management
                             </h4>
                         </div>
@@ -97,12 +97,8 @@
                                     padding: 10px 0px;
                                     border-bottom: 2px solid
                                         rgba(222, 222, 222, 0.984);
-                                    padding-bottom: 15px;
-                                "
-                            >
-                                <a class="navbar-brand" href="#"
-                                    ><b>Người Dùng</b></a
-                                >
+                                    padding-bottom: 15px;">
+                                <a class="navbar-brand" href="#"><b>Người Dùng</b></a>
                                 <button
                                     class="navbar-toggler"
                                     type="button"
@@ -110,8 +106,7 @@
                                     data-bs-target="#navbarNav"
                                     aria-controls="navbarNav"
                                     aria-expanded="false"
-                                    aria-label="Toggle navigation"
-                                >
+                                    aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <div
@@ -150,12 +145,8 @@
                                                     </button>
                                                     <br />
                                                 </div>
-                                                <div
-                                                    class="content table-responsive table-full-width"
-                                                >
-                                                    <table
-                                                        class="table table-striped"
-                                                    >
+                                                <div class="content table-responsive table-full-width" >
+                                                    <table class="table table-striped">
                                                         <thead>
                                                             <tr>
                                                                 <th>ID</th>

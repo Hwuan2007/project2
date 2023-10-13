@@ -46,15 +46,11 @@
 .drink-info{
     margin-bottom: 20px;
 }
-.previous{
-    color: rgb(150, 150, 150);
-    size: 15px;
-    margin-bottom: 30px;
-    margin-top: 30px;
+.name-drink-to-change{
+    padding: 30px 0px;
 }
-.previous a{
-    text-decoration: none;
-    color: black
+.name-drink-to-change b{
+    color: #ea8025;
 }
 
 .carousel {
