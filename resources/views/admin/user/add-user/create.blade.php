@@ -140,8 +140,8 @@
                                                     <h4 class="title">
                                                         Thêm Người dùng Mới
                                                     </h4>
-                                                    <br />
-                                                    <br />
+                                                    <br>
+                                                    <br>
                                                 </div>
                                                 <div class="info-form">
                                                     <div
@@ -218,16 +218,9 @@
                                                                     </div>
                                                                     <br />
                                                                     <div>
-                                                                        địa chỉ:
-                                                                        <input
-                                                                            type="text"
-                                                                            id="user-address"
-                                                                            name="staff_address"
-                                                                            placeholder="Nhập Điạ Chỉ"
-                                                                            class="form-control"
-                                                                        />
+                                                                        địa chỉ: <input type="text" id="user-address" name="staff_address" placeholder="Nhập Điạ Chỉ" class="form-control"/>
                                                                     </div>
-                                                                    <br />
+                                                                    <br>
                                                                     <div
                                                                         class="form-group"
                                                                     >
