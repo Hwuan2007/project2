@@ -137,7 +137,6 @@ table {
 .tch-order-card__title {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-
     font-size: var(--space-16);
     height: 24px;
     line-height: var(--space-24);

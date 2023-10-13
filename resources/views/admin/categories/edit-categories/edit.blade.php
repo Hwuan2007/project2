@@ -7,7 +7,7 @@
         <link
             rel="stylesheet"
             type="text/css"
-            href="{{ asset ('css/admin/add-categories.css') }}"
+            href="{{ asset ('css/admin/edit-categories.css') }}"
         />
         <link
             rel="stylesheet"
@@ -174,20 +174,14 @@
                                                                     </div>
                                                                     <br />
 
-                                                                    <div
-                                                                        class="btn-chance"
-                                                                    >
-                                                                        <button
-                                                                            class="save-btn"
-                                                                        >
-                                                                            Cập Nhật
-                                                                        </button>
-                                                                        <button
-                                                                            class="cancel-btn"
-                                                                        >
-                                                                            Hủy
-                                                                        </button>
-                                                                    </div>
+                                                                    <div class="btn-chance">
+                                                                    <button class="save-btn">
+                                                                        <a href="">Cập Nhật</a>
+                                                                    </button>
+                                                                    <button class="cancel-btn">
+                                                                        <a href="">Hủy</a>
+                                                                    </button>
+                                                                </div>
                                                                 </form>
                                                             </div>
                                                             <div

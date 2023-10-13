@@ -198,7 +198,6 @@
                                                                         </select>
                                                                     </div>
                                                                     <br />
-
                                                                     <div
                                                                         class="btn-chance"
                                                                     >
