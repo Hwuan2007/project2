@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Drink extends Model
 {
@@ -11,9 +12,10 @@ class Drink extends Model
     protected $table = 'drink';
     protected $primaryKey = 'id';
     public $timestamps = false;
-    protected $fillable = ['type_name', 'categories_id', 'categories_id', 'categories_id', 'categories_id'];
+    protected $fillable = ['drk_name', 'drk_img', 'drk_description','drk_price', 'type_id'];
 
-    public function category(){
-        return $this -> belongsTo(Category::class, 'categories_id');
+    public function menu()
+    {
+        return $this -> belongsTo(Menu::class, 'type_id');
     }
 }

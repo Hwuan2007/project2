@@ -165,23 +165,23 @@
                                                                         mục:
                                                                         <input
                                                                             type="text"
-                                                                            id="cat-name"
+                                                                            id="categories_name"
                                                                             name="categories_name"
                                                                             placeholder="Nhập tên Danh mục"
                                                                             class="form-control"
                                                                             value="{{ $category -> categories_name }}"
                                                                         />
                                                                     </div>
-                                                                    <br />
+                                                                    <br>
 
                                                                     <div class="btn-chance">
-                                                                    <button class="save-btn">
-                                                                        <a href="">Cập Nhật</a>
-                                                                    </button>
-                                                                    <button class="cancel-btn">
-                                                                        <a href="">Hủy</a>
-                                                                    </button>
-                                                                </div>
+                                                                        <button class="save-btn">
+                                                                            <a href="">Cập Nhật</a>
+                                                                        </button>
+                                                                        <button class="cancel-btn">
+                                                                            <a href="">Hủy</a>
+                                                                        </button>
+                                                                    </div>
                                                                 </form>
                                                             </div>
                                                             <div

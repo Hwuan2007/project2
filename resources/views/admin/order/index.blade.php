@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" type="text/css" href="../../../../public/css/Admin/order.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset ('css/admin/order.css') }}" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -35,7 +35,7 @@
                         <div>
                             <ul class="choose">
 
-                                <li class="active">
+                                <li>
                                     <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
@@ -45,7 +45,7 @@
                                 </li>
                                 <li>
 
-                                    <a href="{{ route('typeofdrink.index') }}">
+                                    <a href="{{ route('menu.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
                                             Menu
@@ -75,7 +75,7 @@
                                         </p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a href="{{ route('order.index') }}">
                                         <p>
                                             <i class="bx bx-receipt"></i> Đơn
@@ -100,8 +100,8 @@
                                     padding-bottom: 15px;
                                 "
                             >
-                                <a class="navbar-brand" href="#"
-                                    ><b>Người Dùng</b></a
+                                <a class="navbar-brand" href="#">
+                                    <b>Orders</b></a
                                 >
                                 <button
                                     class="navbar-toggler"
@@ -167,11 +167,11 @@
                                                                 <td>
                                                                 <div class="tch-order-card__content">
                                                                     <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> 1 x Trà Sữa Oolong BLao </h5> 
+                                                                        <h5 class="tch-order-card__title mb-0"> 1 x Trà Sữa Oolong BLao </h5>
                                                                         <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato + Trân châu trắng)</p>
                                                                     </div>
                                                                     <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> 2 x Cà Phê sữa đá </h5> 
+                                                                        <h5 class="tch-order-card__title mb-0"> 2 x Cà Phê sữa đá </h5>
                                                                         <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato)</p>
                                                                     </div>
                                                                 </div>
@@ -198,11 +198,11 @@
                                                                 <td>
                                                                 <div class="tch-order-card__content">
                                                                     <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> 1 x Trà Sữa Oolong BLao </h5> 
+                                                                        <h5 class="tch-order-card__title mb-0"> 1 x Trà Sữa Oolong BLao </h5>
                                                                         <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato + Trân châu trắng)</p>
                                                                     </div>
                                                                     <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> 3 x Cà Phê sữa đá </h5> 
+                                                                        <h5 class="tch-order-card__title mb-0"> 3 x Cà Phê sữa đá </h5>
                                                                         <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato)</p>
                                                                     </div>
                                                                 </div>
@@ -229,11 +229,11 @@
                                                                 <td>
                                                                 <div class="tch-order-card__content">
                                                                     <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> 1 x Trà Sữa Oolong BLao </h5> 
+                                                                        <h5 class="tch-order-card__title mb-0"> 1 x Trà Sữa Oolong BLao </h5>
                                                                         <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato + Trân châu trắng)</p>
                                                                     </div>
                                                                     <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> 2 x Cà Phê sữa đá </h5> 
+                                                                        <h5 class="tch-order-card__title mb-0"> 2 x Cà Phê sữa đá </h5>
                                                                         <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato)</p>
                                                                     </div>
                                                                 </div>
@@ -250,7 +250,7 @@
                                                                     </button>
                                                                 </td>
                                                                 <td>
-                                                                   <div class="check" style="color: #eb5e28;"><b>ĐÃ HỦY</b></div> 
+                                                                   <div class="check" style="color: #eb5e28;"><b>ĐÃ HỦY</b></div>
                                                                 </td>
                                                             </tr>
                                                         </tbody>

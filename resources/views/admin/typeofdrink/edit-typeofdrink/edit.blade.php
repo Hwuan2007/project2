@@ -173,18 +173,10 @@
                                                                             value="{{ $menu -> type_name }}"
                                                                         />
                                                                     </div>
-                                                                    <br />
-                                                                    <div
-                                                                        class="form-group"
-                                                                    >
-                                                                        <label
-                                                                            >Danh
-                                                                            mục
-                                                                            menu</label>
-                                                                        <select
-                                                                            name="categories_id"
-                                                                            class="form-control"
-                                                                        >
+                                                                    <br>
+                                                                    <div class="form-group">
+                                                                        <label>Danh mục menu</label>
+                                                                        <select name="categories_id" class="form-control">
                                                                             @foreach( $categories as $category)
                                                                                 <option value="{{ $category -> id}}"
                                                                                 @if( $menu -> categories_id == $category -> id)
@@ -194,21 +186,14 @@
                                                                                     {{ $category -> categories_name }}
                                                                                 </option>
                                                                             @endforeach
-
                                                                         </select>
                                                                     </div>
                                                                     <br />
-                                                                    <div
-                                                                        class="btn-chance"
-                                                                    >
-                                                                        <button
-                                                                            class="save-btn"
-                                                                        >
+                                                                    <div class="btn-chance">
+                                                                        <button class="save-btn">
                                                                             Cập Nhật
                                                                         </button>
-                                                                        <button
-                                                                            class="cancel-btn"
-                                                                        >
+                                                                        <button class="cancel-btn">
                                                                             <a href="{{ route('menu.index') }}">Hủy</a>
                                                                         </button>
                                                                     </div>

@@ -44,6 +44,9 @@ Route::prefix('admin') ->group(function (){
     Route::get('/drink', [DrinkController::class, 'index']) -> name('drink.index');
     Route::get('/drink/create', [DrinkController::class, 'create']) -> name('drink.create');
     Route::post('/drink/create', [DrinkController::class, 'store']) -> name('drink.store');
+    Route::get('/drink/{drink}/edit', [DrinkController::class, 'edit']) -> name('drink.edit');
+    Route::put('/drink/{drink}/edit', [DrinkController::class, 'update']) -> name('drink.update');
+    Route::delete('/drink/{drink}', [DrinkController::class, 'destroy']) -> name('drink.destroy');
     // user
     Route::get('/user', [UserController::class, 'index']) -> name('user.index');
     Route::get('/user/create', [UserController::class, 'create']) -> name('user.create');
@@ -57,7 +60,6 @@ Route::prefix('admin') ->group(function (){
     Route::post('/order/create', [OrderController::class, 'store']) -> name('order.store');
     Route::get('/order/{order}/edit', [OrderController::class, 'edit']) -> name('order.edit');
     Route::put('/order/{order}/edit', [OrderController::class, 'update']) -> name('order.update');
-    Route::delete('/order/{order}', [OrderController::class, 'destroy']) -> name('order.destroy');
 
 });
 Route::prefix('client') ->group(function (){

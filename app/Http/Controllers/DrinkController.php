@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Drink;
 use App\Http\Requests\StoreDrinkRequest;
 use App\Http\Requests\UpdateDrinkRequest;
+use App\Models\Menu;
 use Illuminate\Http\Response;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class DrinkController extends Controller
 {
@@ -16,7 +20,10 @@ class DrinkController extends Controller
      */
     public function index()
     {
-        return view('admin/drink/index');
+        $drinks = Drink::with('type_of_drink') -> get();
+        return view('admin/drink/index', [
+            'drinks' => $drinks
+        ]);
     }
 
     /**
@@ -26,7 +33,10 @@ class DrinkController extends Controller
      */
     public function create()
     {
-        return view('admin/drink/create');
+        $menus = Menu::all();
+        return view('admin/drink/add-drink/create', [
+            'menus' => $menus
+        ]);
     }
 
     /**
@@ -37,7 +47,18 @@ class DrinkController extends Controller
      */
     public function store(StoreDrinkRequest $request)
     {
-        //
+        $drk_img = $request -> file('drk_img') -> getClientOriginalName();
+        if (!Storage::exists('public/Admin/'.$drk_img)){
+            Storage::putFileAs('/public/Admin/', $request -> file('drk_img'), $drk_img);
+        }
+        $array = [];
+        $array = Arr::add($array, 'drk_name', $request -> drk_name);
+        $array = Arr::add($array, 'drk_img', $drk_img);
+        $array = Arr::add($array, 'drk_price', $request -> drk_price);
+        $array = Arr::add($array, 'type_id', $request -> type_id);
+        $array = Arr::add($array, 'drk_description', $request -> drk_description);
+        Drink::create($array);
+        return Redirect::route('drink.index');
     }
 
     /**
@@ -59,7 +80,11 @@ class DrinkController extends Controller
      */
     public function edit(Drink $drink)
     {
-        //
+        $menus = Menu::all();
+        return view('admin/drink/edit-drink/edit', [
+            'drink' => $drink,
+            'menus' => $menus
+        ]);
     }
 
     /**
@@ -71,7 +96,8 @@ class DrinkController extends Controller
      */
     public function update(UpdateDrinkRequest $request, Drink $drink)
     {
-        //
+        $drink -> update($request ->all());
+        return Redirect::route('drink.index');
     }
 
     /**
@@ -82,6 +108,7 @@ class DrinkController extends Controller
      */
     public function destroy(Drink $drink)
     {
-        //
+        $drink -> delete();
+        return Redirect::route('menu.index');
     }
 }

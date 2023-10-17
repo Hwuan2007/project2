@@ -37,7 +37,7 @@
                         </div>
                         <hr />
                         <div>
-                            <ul>
+                            <ul class="choose">
 
                                 <li>
                                     <a href="{{ route('dashboard.index') }}">
@@ -48,7 +48,7 @@
                                     </a>
                                 </li>
 
-                                <li class="active">
+                                <li>
                                     <a href="{{ route('menu.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
@@ -73,7 +73,7 @@
                                         </p>
                                     </a>
                                 </li>
-                                <li class="choose">
+                                <li class="active">
 
                                     <a href="{{ route('user.index') }}">
                                         <p>
@@ -108,7 +108,7 @@
                                 "
                             >
                                 <a class="navbar-brand" href="#"
-                                    ><b>Đồ Uống</b></a
+                                    ><b>Người Dùng</b></a
                                 >
                                 <button
                                     class="navbar-toggler"
@@ -156,7 +156,9 @@
                                                         class="container-fluid"
                                                     >
                                                         <div class="row">
-                                                            <form action="{{ route('edit.update', $user) }}" method="post">
+                                                            <form action="{{ route('user.update', $user) }}" method="post">
+                                                                @csrf
+                                                                @method('PUT')
                                                                 <div
                                                                     class="col-md-6"
                                                                 >
@@ -168,6 +170,7 @@
                                                                             name="staff_email"
                                                                             placeholder="Nhập Email"
                                                                             class="form-control"
+                                                                            value="{{ $user -> staff_username }}"
                                                                         />
                                                                     </div>
                                                                     <br />
@@ -179,6 +182,7 @@
                                                                             name="staff_pasword"
                                                                             placeholder="Nhập Mật Khẩu"
                                                                             class="form-control"
+                                                                            value="{{ $user -> staff_pasword }}"
                                                                         />
                                                                     </div>
                                                                     <br />
@@ -208,6 +212,7 @@
                                                                             name="staff_username"
                                                                             placeholder="Nhập Họ và Tên"
                                                                             class="form-control"
+                                                                            value="{{ $user -> staff_username }}"
                                                                         />
                                                                     </div>
                                                                     <br />
@@ -220,40 +225,34 @@
                                                                             name="staff_phonenumber"
                                                                             placeholder="Nhập Số Điện Thoại"
                                                                             class="form-control"
+                                                                            value="{{ $user -> staff_phonenumber }}"
                                                                         />
                                                                     </div>
                                                                     <br />
                                                                     <div>
-                                                                        địa chỉ:
+                                                                        Địa chỉ:
                                                                         <input
                                                                             type="text"
                                                                             id="user-address"
                                                                             name="staff_address"
                                                                             placeholder="Nhập Điạ Chỉ"
                                                                             class="form-control"
+                                                                            value="{{ $user -> staff_address }}"
                                                                         />
                                                                     </div>
                                                                     <br />
-                                                                    <div
-                                                                        class="form-group"
-                                                                    >
-                                                                        <label
-                                                                            >Quyền</label
-                                                                        >
-                                                                        <select
-                                                                            name="user-role"
-                                                                            class="form-control"
-                                                                        >
-                                                                            <option
-                                                                                value="role1"
-                                                                            >
-                                                                                admin
-                                                                            </option>
-                                                                            <option
-                                                                                value="role2"
-                                                                            >
-                                                                                member
-                                                                            </option>
+                                                                    <div class="form-group">
+                                                                        <label>Quyền</label>
+                                                                        <select name="role_id" class="form-control">
+                                                                            @foreach( $roles as $role)
+                                                                                <option value="{{ $role -> id}}"
+                                                                                @if( $user -> role_id == $role -> id)
+                                                                                    {{ 'selected' }}
+                                                                                    @endif
+                                                                                >
+                                                                                    {{ $role -> role_name }}
+                                                                                </option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
                                                                     <br />
