@@ -115,10 +115,10 @@ table {
 .add-btn:hover{
     background-color:#609879 ;
 }
-.del-btn{
+.back-btn{
     background-color:#eb5e28 ;
 }
-.del-btn:hover{
+.back-btn:hover{
     background-color:#c15226 ;
 }
 .accept-btn{
