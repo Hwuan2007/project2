@@ -177,7 +177,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <img
-                                                                        class=drk_img"
+                                                                        class="drk_img"
                                                                         src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
                                                                         alt="image"
                                                                         width="100px" height="100px"

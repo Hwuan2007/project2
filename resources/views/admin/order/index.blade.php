@@ -180,6 +180,9 @@
                                                                     147.000đ
                                                                 </td>
                                                                 <td>
+                                                                    <button class="detail-btn ">
+                                                                        <a href=""> chi tiết </a>
+                                                                    </button>
                                                                     <button class="accept-btn">
                                                                         <a href=""> duyệt đơn </a>
                                                                     </button>
@@ -211,6 +214,9 @@
                                                                     147.000đ
                                                                 </td>
                                                                 <td>
+                                                                    <button class="detail-btn ">
+                                                                        <a href=""> chi tiết </a>
+                                                                    </button>
                                                                     <button class="accept-btn">
                                                                         <a href=""> duyệt đơn </a>
                                                                     </button>
@@ -242,6 +248,9 @@
                                                                     147.000đ
                                                                 </td>
                                                                 <td>
+                                                                    <button class="detail-btn ">
+                                                                        <a href=""> chi tiết </a>
+                                                                    </button>
                                                                     <button class="accept-btn ">
                                                                         <a href=""> duyệt đơn </a>
                                                                     </button>
