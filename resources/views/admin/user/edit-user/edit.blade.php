@@ -36,7 +36,7 @@
                             </h4>
                         </div>
                         <hr />
-                        <div>
+                        <div class="choose">
                             <ul>
 
                                 <li>
@@ -156,7 +156,7 @@
                                                         class="container-fluid"
                                                     >
                                                         <div class="row">
-                                                            <form action="{{ route('edit.update', $user) }}" method="post">
+                                                            <form action="{{ route('user.update', $user) }}" method="post">
                                                                 <div
                                                                     class="col-md-6"
                                                                 >
