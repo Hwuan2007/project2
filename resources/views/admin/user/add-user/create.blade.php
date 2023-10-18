@@ -194,7 +194,7 @@
                                                                     class="col-md-6"
                                                                 >
                                                                     <div>
-                                                                        Tên nnguời
+                                                                        Tên nguời
                                                                         dùng:
                                                                         <input
                                                                             type="text"
@@ -218,7 +218,7 @@
                                                                     </div>
                                                                     <br />
                                                                     <div>
-                                                                        địa chỉ: <input type="text" id="user-address" name="staff_address" placeholder="Nhập Điạ Chỉ" class="form-control"/>
+                                                                        Địa chỉ: <input type="text" id="user-address" name="staff_address" placeholder="Nhập Điạ Chỉ" class="form-control"/>
                                                                     </div>
                                                                     <br>
                                                                     <div

@@ -35,7 +35,7 @@
                         <div>
                             <ul class="choose">
 
-                                <li class="active">
+                                <li>
                                     <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
@@ -52,7 +52,7 @@
                                         </p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="active">
 
                                     <a href="{{ route('category.index') }}">
                                         <p>
@@ -103,7 +103,7 @@
                                     padding-bottom: 15px;
                                 "
                             >
-                                <a class="navbar-brand" href="#"><b>Menu</b></a>
+                                <a class="navbar-brand" href="#"><b>Danh mục</b></a>
                                 <button
                                     class="navbar-toggler"
                                     type="button"
@@ -166,7 +166,6 @@
                                                                         />
                                                                     </div>
                                                                     <br>
-
                                                                     <div
                                                                         class="btn-chance">
                                                                         <button class="save-btn"><a href="">Lưu</a></button>

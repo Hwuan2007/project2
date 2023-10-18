@@ -153,12 +153,8 @@
 
                                                     <br />
                                                 </div>
-                                                <div
-                                                    class="content table-responsive table-full-width"
-                                                >
-                                                    <table
-                                                        class="table table-striped"
-                                                    >
+                                                <div class="content table-responsive table-full-width">
+                                                    <table class="table table-striped">
                                                         <thead>
                                                             <tr>
                                                                 <th>ID</th>
@@ -173,34 +169,35 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                        @foreach( $drinks as $drink )
                                                             <tr>
-                                                                <td>1</td>
+                                                                <td>{{ $drink -> id}}</td>
                                                                 <td>
-                                                                    Dakota Rice
+                                                                    {{ $drink -> drk_name}}
                                                                 </td>
                                                                 <td>
                                                                     <img
-                                                                        class="drink-img"
-                                                                        src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png"
+                                                                        class=drk_img"
+                                                                        src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
                                                                         alt="image"
+                                                                        width="100px" height="100px"
                                                                     />
                                                                 </td>
-                                                                <td>500000</td>
+                                                                <td> {{ $drink -> drk_price}}</td>
                                                                 <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
-                                                                        xem chi
-                                                                        tiết
-                                                                    </button>
-                                                                    <button
-                                                                        class="del-btn"
-                                                                    >
-                                                                        xóa
-                                                                    </button>
+                                                                    <a href="{{ route('drink.edit', $drink) }}">
+                                                                        <button class="detail-btn">
+                                                                            xem chi tiết
+                                                                        </button>
+                                                                    </a>
+                                                                    <form method="post" action="{{ route('drink.destroy', $drink) }}">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button class="del-btn">Xóa</button>
+                                                                    </form>
                                                                 </td>
                                                             </tr>
-
+                                                        @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>

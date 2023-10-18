@@ -174,14 +174,10 @@
                                                                     {{ $category -> categories_name }}
                                                                 </td>
                                                                 <td>
-                                                                    <button
-                                                                        class="detail-btn"
-                                                                    >
+                                                                    <button class="detail-btn">
                                                                         chi tiết
                                                                     </button>
-                                                                    <button
-                                                                        class="edit-btn"
-                                                                    >
+                                                                    <button class="edit-btn">
                                                                         <a href="{{ route('category.edit', $category) }}">sửa</a>
                                                                     </button>
                                                                     <form method="post" action="{{ route('category.destroy', $category) }}">
@@ -193,7 +189,6 @@
                                                             </tr>
                                                         @endforeach
                                                         </tbody>
-
                                                     </table>
                                                 </div>
                                             </div>
