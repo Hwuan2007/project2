@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>menu</title>
+    <title>Menu</title>
     <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/menu.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
@@ -16,7 +16,8 @@
                 <a  href="#"><i class="fa-solid fa-location-dot"></i> 150 cửa hàng khắp cả nước</a>
                 <a  href="#"><i class="fa-solid fa-phone"></i> Đặt hàng: 1800.6936</a>
             </nav>
-        </div></header>
+        </div>
+    </header>
         <div class="navbar">
             <div class="container">
                 <div class="row">
@@ -27,9 +28,9 @@
                     </div>
                     <div class="col-lg-9 col-md-8 col-sm-12" >
                         <div class="category ">
-                            <a href="#">Cà Phê</a>
+                            <a href="{{ route('all.index') }}">Cà Phê</a>
                             <a href="#">Trà</a>
-                            <a href="{{ route('drink.index') }}">Menu</a>
+                            <a href="{{ route('all.index') }}">Menu</a>
                             <a href="#">Chuyện nhà</a>
                             <a href="#">Cửa hàng</a>
                             <a href="#">Tuyển dụng</a>
@@ -38,9 +39,7 @@
                 </div>
             </div>
         </div>
-
         <br>
-
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-12" >
@@ -49,17 +48,19 @@
                         <li>
                             <div class="dropdown">
                                 <button class="dropbtn">
-                                    <a href="#"><i class='bx bxs-coffee-bean'></i> Tất Cả</a>
+                                    <a href="{{ route('all.index') }}"><i class='bx bxs-coffee-bean'></i> Tất Cả</a>
                                 </button>
                             </div>
                         </li>
                         <li>
                             <div class="dropdown">
-                                <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> Cà Phê</button>
+                                <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> Cà phê</button>
                                 <div class="dropdown-content">
-                                  <a href="#"></i>Cà Phê Việt Nam</a>
-                                  <a href="#"></i>Cà Phê Máy</a>
-                                  <a href="#"></i>Cold Brew</a>
+                                    @foreach( $drinks as $drink )
+                                        @if( $drink -> type_id = $menu -> id )
+                                            <a href="{{ route('CoffeeHighLight.index') }}">{{ $drink -> type_of_drink -> type_name }}</a>
+                                        @endif
+                                    @endforeach
                                 </div>
                             </div>
                         </li>
@@ -67,99 +68,28 @@
                             <div class="dropdown">
                                 <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> Trà</button>
                                 <div class="dropdown-content">
-                                  <a href="#"></i>Trà Trái Cây</a>
-                                  <a href="#"></i>Trà Sữa Macchiato</a>
+                                    <a href="{{ route('CoffeeHighLight.index') }}">Cà phê HighLight</a>
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> Cloud</button>
-                                <div class="dropdown-content">
-                                  <a href="#"></i>CloudTea</a>
-                                  <a href="#"></i>CloudFee</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn"><i class='bx bxs-coffee-bean' ></i> Thức uống đá xay</button>
-                                <div class="dropdown-content">
-                                  <a href="#"></i>Đá xay Frosty</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> Bánh & Snack</button>
-                                <div class="dropdown-content">
-                                  <a href="#"></i>Bánh mặn</a>
-                                  <a href="#"></i>Bánh ngọt</a>
-                                  <a href="#"></i>Snack</a>
-                                </div>
-                            </div>
-                        </li>
-
                     </ul>
                 </div>
             </div>
             <div class="col-lg-9 col-md-4 col-sm-12">
                 <div class="drink">
                     <div class="row">
-                        <div class="col-lg-4 col-md-8 col-sm-12" >
-                            <div class="card" >
-                                <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                                <div class="card-body">
-                                    <a href="{{ route('drink_detail.index') }}" class="drink-name"><b>Cà phê sữa đá</b></a>
-                                    <p class="cost">29.000 đ</p>
+                        @foreach( $drinks as $drink )
+                            <div class="col-lg-4 col-md-8 col-sm-12" >
+                                <div class="card" >
+                                    <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <a href="{{ route('drink_detail.index' , $drink) }}" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
+                                        <p class="cost">{{ $drink -> drk_price }} đ</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-8 col-sm-12" >
-                            <div class="card" >
-                                <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                                <div class="card-body">
-                                    <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                                    <p class="cost">29.000 đ</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-8 col-sm-12" >
-                            <div class="card" >
-                                <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                                <div class="card-body">
-                                    <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                                    <p class="cost">29.000 đ</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-8 col-sm-12" >
-                            <div class="card" >
-                                <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                                <div class="card-body">
-                                    <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                                    <p class="cost">29.000 đ</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-8 col-sm-12" >
-                            <div class="card" >
-                                <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                                <div class="card-body">
-                                    <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                                    <p class="cost">29.000 đ</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-8 col-sm-12" >
-                            <div class="card" >
-                                <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                                <div class="card-body">
-                                    <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                                    <p class="cost">29.000 đ</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -203,7 +133,6 @@
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 footer_col">
                             <hr>
-
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 footer_col">
                             <div class="">
@@ -212,14 +141,11 @@
                                     Địa chỉ: 86-88 Cao Thắng, phường 04, quận 3, tp Hồ Chí Minh &nbsp; Điện thoại: (028) 7107 8079 &nbsp; Email: hi@thecoffeehouse.vn <br>
                                     © 2014-2022 Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN mọi quyền bảo lưu</p>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </footer>
-
 </body>
 </html>

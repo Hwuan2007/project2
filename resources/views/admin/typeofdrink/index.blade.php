@@ -101,7 +101,7 @@
                                     padding-bottom: 15px;
                                 ">
                                 <a class="navbar-brand" href="#">
-                                    <b>Danh Mục</b>
+                                    <b>Menu</b>
                                 </a>
                                 <button
                                     class="navbar-toggler"
@@ -176,7 +176,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <button class="detail-btn">
-                                                                        chi tiết
+                                                                        <a href="{{ route('all.index') }}">chi tiết</a>
                                                                     </button>
                                                                     <a href="{{ route('menu.edit',$menu) }}">
                                                                         <button class="edit-btn">

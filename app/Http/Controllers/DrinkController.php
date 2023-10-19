@@ -20,7 +20,7 @@ class DrinkController extends Controller
      */
     public function index()
     {
-        $drinks = Drink::with('type_of_drink') -> get();
+        $drinks = Drink::with('menu') -> get();
         return view('admin/drink/index', [
             'drinks' => $drinks
         ]);
@@ -92,11 +92,24 @@ class DrinkController extends Controller
      *
      * @param UpdateDrinkRequest $request
      * @param Drink $drink
-     * @return Response
      */
     public function update(UpdateDrinkRequest $request, Drink $drink)
     {
-        $drink -> update($request ->all());
+        if ($request -> file('drk_img') != null){
+            $drk_img = $request -> file('drk_img') -> getClientOriginalName();
+        }else{
+            $drk_img = $drink -> drk_img;
+        }
+        if (!Storage::exists('public/Admin/'.$drk_img)){
+            Storage::putFileAs('/public/Admin/', $request -> file('drk_img'), $drk_img);
+        }
+        $array = [];
+        $array = Arr::add($array, 'drk_name', $request -> drk_name);
+        $array = Arr::add($array, 'drk_img', $drk_img);
+        $array = Arr::add($array, 'drk_price', $request -> drk_price);
+        $array = Arr::add($array, 'type_id', $request -> type_id);
+        $array = Arr::add($array, 'drk_description', $request -> drk_description);
+        $drink -> update($array);
         return Redirect::route('drink.index');
     }
 
@@ -109,6 +122,6 @@ class DrinkController extends Controller
     public function destroy(Drink $drink)
     {
         $drink -> delete();
-        return Redirect::route('menu.index');
+        return Redirect::route('drink.index');
     }
 }

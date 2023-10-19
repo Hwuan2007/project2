@@ -169,7 +169,7 @@
                                                                     <div
                                                                         class="btn-chance">
                                                                         <button class="save-btn"><a href="">Lưu</a></button>
-                                                                        <button cclass="cancel-btn"><a href="">Hủy</a></button>
+                                                                        <button class="cancel-btn"><a href="{{ route('category.index') }}">Hủy</a></button>
                                                                     </div>
                                                                 </form>
                                                             </div>

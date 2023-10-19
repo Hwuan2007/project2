@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>Drink Detail</title>
     <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/drink_detail.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset ('js/client/checkbox.js') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset ('js/client/thumbnail.js') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -32,9 +30,9 @@
                     </div>
                     <div class="col-lg-9 col-md-8 col-sm-12" style="margin-bottom: unset !important;">
                         <div class="category">
-                            <a href="#">Cà Phê</a>
-                            <a href="#">Trà</a>
-                            <a href="{{ route('drink.index') }}">Menu</a>
+                            <a href="{{ route('drinkmenu.index')}}">Cà Phê</a>
+                            <a href="{{ route('drinkmenu.index')}}">Trà</a>
+                            <a href="{{ route('drinkmenu.index')}}">Menu</a>
                             <a href="#">Chuyện nhà</a>
                             <a href="#">Cửa hàng</a>
                             <a href="#">Tuyển dụng</a>
@@ -98,51 +96,51 @@
                 <div class="col-lg-6 col-md-4 col-sm-12" >
                     <div>
                         <div class="drink-order">
-                        <div class="drink-name-detail"><b> Cà Phê Sữa Đá </b></div>
-                        <div class="drink-cost"><b> 45.000 đ </b></div>
-                        <br>
-                        <div class="pick-size"> Chọn size (bắt buộc) </div><br>
-                        <div class="pick-size-button">
-                            <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Nhỏ + 0 đ </i></button>
-                            <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Vừa + 10.000 đ </i></button>
-                            <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Lớn + 16.000 đ </i></button>
+                            <form action="{{ route('cart.index', $drink) }}" method="post">
+                                @csrf
+                                <div class="drink-name-detail"><b> {{ $drink -> drk_name }} </b></div>
+                                <div class="drink-cost"><b> 45.000 đ </b></div>
+                                <br>
+                                <div class="pick-size"> Chọn size (bắt buộc) </div><br>
+                                <div class="pick-size-button">
+                                    <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Nhỏ + 0 đ </i></button>
+                                    <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Vừa + 10.000 đ </i></button>
+                                    <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Lớn + 16.000 đ </i></button>
+                                </div>
+                                <br>
+                                <div class="pick-topping">Topping</div><br>
+                                <div class="pick-topping-button">
+                                    <input type="checkbox" name="color" id="color1">
+                                    <label for="color1" class="color-change-pick-topping-button">Kem Phô Mai Macchiato + 10.000 đ</label>
+
+                                    <input type="checkbox" name="color" id="color2">
+                                    <label for="color2" class="color-change-pick-topping-button">Hot Espresso  + 10.000 đ</label>
+
+                                    <input type="checkbox" name="color" id="color3">
+                                    <label for="color3" class="color-change-pick-topping-button">Trân Châu Trắng  + 10.000 đ</label>
+
+                                    <input type="checkbox" name="color" id="color4">
+                                    <label for="color4" class="color-change-pick-topping-button">Sốt Caramel + 10.000 đ</label>
+
+                                    <input type="checkbox" name="color" id="color5">
+                                    <label for="color5" class="color-change-pick-topping-button">Thạch Caffe  + 10.000 đ</label>
+
+                                </div>
+                                <br>
+                                <br>
+                                <div class="order">
+                                    <a href="">
+                                        <button type="button" id="btn-order"><i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> </button>
+                                    </a>
+                                </div>
+                            </form>
                         </div>
-                        <br>
-                        <div class="pick-topping">Topping</div><br>
-                        <div class="pick-topping-button">
-                            <input type="checkbox" name="color" id="color1">
-                            <label for="color1" class="color-change-pick-topping-button">Kem Phô Mai Macchiato + 10.000 đ</label>
-
-                            <input type="checkbox" name="color" id="color2">
-                            <label for="color2" class="color-change-pick-topping-button">hort Espresso  + 10.000 đ</label>
-
-                            <input type="checkbox" name="color" id="color3">
-                            <label for="color3" class="color-change-pick-topping-button">Trân Châu Trắng  + 10.000 đ</label>
-
-                            <input type="checkbox" name="color" id="color4">
-                            <label for="color4" class="color-change-pick-topping-button">Sốt Caramel + 10.000 đ</label>
-
-                            <input type="checkbox" name="color" id="color5">
-                            <label for="color5" class="color-change-pick-topping-button">Thạch Caffe  + 10.000 đ</label>
-
-                        </div>
-                    <br>
-                    <br>
-                    <div class="order">
-                        <button type="button" id="btn-order"><i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> </button>
-                    </div>
-
-                    </div>
-
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-   
     <br>
-
     <div class="container">
         <hr>
         <div>
@@ -152,7 +150,6 @@
         </div>
         <hr>
     </div>
-
     <div class="container">
         <br>
         <p style="font-size: 18px;"><b>Sản phẩm liên quan</b></p>
@@ -269,9 +266,9 @@
 
     </footer>
 
-    <script src="../../../../public/js/client/changecolor.js"></script>
-    <script src="../../../../public/js/client/thumbnail.js"></script>
-    <script src="../../../../public/js/client/checkbox.js"></script>
+    <script src="{{ asset ('js/client/changecolor.js') }}"></script>
+    <script src="{{ asset ('js/client/checkbox.js') }}"></script>
+    <script src="{{ asset ('js/client/thumbnail.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>

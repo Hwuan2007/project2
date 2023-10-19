@@ -170,6 +170,7 @@
                                                                             placeholder="Nhập tên Danh mục"
                                                                             class="form-control"
                                                                             value="{{ $category -> categories_name }}"
+                                                                            required
                                                                         />
                                                                     </div>
                                                                     <br>

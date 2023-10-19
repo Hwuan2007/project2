@@ -202,6 +202,7 @@
                                                                             name="staff_username"
                                                                             placeholder="Nhập Họ và Tên"
                                                                             class="form-control"
+                                                                            required
                                                                         />
                                                                     </div>
                                                                     <br />
@@ -214,11 +215,12 @@
                                                                             name="staff_phonenumber"
                                                                             placeholder="Nhập Số Điện Thoại"
                                                                             class="form-control"
+                                                                            required
                                                                         />
                                                                     </div>
                                                                     <br />
                                                                     <div>
-                                                                        Địa chỉ: <input type="text" id="user-address" name="staff_address" placeholder="Nhập Điạ Chỉ" class="form-control"/>
+                                                                        Địa chỉ: <input type="text" id="user-address" name="staff_address" placeholder="Nhập Điạ Chỉ" class="form-control" required/>
                                                                     </div>
                                                                     <br>
                                                                     <div
@@ -238,7 +240,7 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
-                                                                    <br />
+                                                                    <br>
                                                                     <div
                                                                         class="btn-chance"
                                                                     >

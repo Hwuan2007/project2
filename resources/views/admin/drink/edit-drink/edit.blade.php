@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" type="text/css" href="../../../../public/css/Admin/edit-drink.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset ('css/admin/edit-drink.css') }}" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -34,7 +34,7 @@
                         <hr />
                         <div>
                             <ul class="choose">
-                                <li class="active">
+                                <li>
                                     <a href="{{ route('dashboard.index') }}">
                                         <p>
                                             <i class="bx bxs-dashboard"></i>
@@ -43,7 +43,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('typeofdrink.index') }}">
+                                    <a href="{{ route('menu.index') }}">
                                         <p>
                                             <i class="bx bxs-food-menu"></i>
                                             Menu
@@ -58,7 +58,7 @@
                                         </p>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a href="{{ route('drink.index') }}">
                                         <p>
                                             <i class="bx bxs-drink"></i> Đồ uống
@@ -144,71 +144,66 @@
                                                 </div>
                                                 <div class="info-form">
                                                     <div class="container-fluid">
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <form action="">
-                                                                <div>
-                                                                     Tên Đồ Uống:
-                                                                    <input type="text" id="drink-name" name="drink-name" placeholder="Nhập tên đồ uống"
-                                                                    class="form-control">
+                                                        <div class="row">
+                                                            <form action="{{ route('drink.update', $drink) }}" method="post" enctype="multipart/form-data">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <div class="col-md-6">
+                                                                    <div>
+                                                                        Tên Đồ Uống:
+                                                                        <input type="text" id="drink-name" name="drk_name" placeholder="Nhập tên đồ uống"
+                                                                               class="form-control" value="{{ $drink -> drk_name }}">
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="form-group d-flex flex-column">
+                                                                        <label>Ảnh Đồ Uống:</label>
+                                                                        <input accept="image/*" type='file' id="imgInp" name="drk_img" multiple />
+                                                                        <br>
+                                                                        <img
+                                                                            class=drk_img"
+                                                                            src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
+                                                                            alt="image"
+                                                                            width="200px" height="200px"
+                                                                        />
+                                                                    </div>
                                                                 </div>
-                                                                <br>
-                                                                <div class="form-group d-flex flex-column">
-                                                                    <label>Ảnh Đồ Uống:</label>
-                                                                    <input accept="image/*" type='file' id="imgInp" name="drink-img[]" multiple />
-                                                                <div id="img-upload-container" class="mt-3"></div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label>Giá:</label>
+                                                                        <input value="{{ $drink -> drk_price }}" required name="drk_price" type="text" placeholder="Nhập giá tiền"
+                                                                               class="form-control">
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="form-group">
+                                                                        <label>Danh mục</label>
+                                                                        <select name="type_id" class="form-control">
+                                                                            @foreach( $menus as $menu )
+                                                                                <optgroup label="{{ $menu -> category -> categories_name }}">
+                                                                                    <option value="{{ $menu -> id}}"
+                                                                                        @if( $drink -> type_id == $menu -> id)
+                                                                                            {{ 'selected' }}
+                                                                                        @endif
+                                                                                    >
+                                                                                        {{ $menu -> type_name }}
+                                                                                    </option>
+                                                                                </optgroup>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="form-group">
+                                                                        <label>Mô tả:</label>
+                                                                        <textarea required name="drk_description" class="form-control" rows="3">{{ $drink -> drk_description }}</textarea>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="btn-chance">
+                                                                        <button class="save-btn"><a href="">Lưu</a></button>
+                                                                        <button class="cancel-btn"><a href="">Hủy</a></button>
+                                                                    </div>
+                                                                </div>
                                                             </form>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Giá:</label>
-                                                            <input value="" required name="drink-price" type="number" min="0" placeholder="Nhập giá tiền"
-                                                                class="form-control">
-                                                        </div>
-                                                        <br>
-                                                        <div class="form-group">
-                                                            <label>Danh mục</label>
-                                                            <select name="typeifdrink_id" class="form-control">
-                                                                <optgroup label="Cà Phê">
-                                                                    <option value="option1-1">Cà Phê Việt Nam</option>
-                                                                    <option value="option1-2">Cà Phê máy</option>
-                                                                    <option value="option1-2">Cold Brew</option>
-                                                                </optgroup>
-                                                                <optgroup label="Trà">
-                                                                    <option value="option2-1">Trà trái Cây</option>
-                                                                    <option value="option2-2">Trà sữa Macchiato</option>
-                                                                <optgroup label="Cloud">
-                                                                    <option value="option3-1">CloudTea</option>
-                                                                    <option value="option3-2">CloudeFee</option>
-                                                                <optgroup label="Thức uống đá say">
-                                                                    <option value="option4-1">Đá say Frosty</option>
-                                                                <optgroup label="Bánh & Snack">
-                                                                    <option value="option5-1">Bánh mặn</option>
-                                                                    <option value="option5-2">Bánh ngọt</option>
-                                                                    <option value="option5-2">Snack</option>
-                                                            </select>
-                                                        </div>
-                                                        <br>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="checkbox" name="drink_featured"
-                                                                id="drink_featured">
-                                                            <label class="form-check-label" for="drink_featured">Sản phẩm nổi bật</label>
-                                                        </div>
-                                                        <br>
-                                                        <div class="form-group">
-                                                            <label>Mô tả:</label>
-                                                            <textarea required name="drink_details" class="form-control" rows="3"></textarea>
-                                                        </div>
-                                                        <br>
-                                                        <div class="btn-chance">
-                                                            <button class="save-btn"><a href="">Lưu</a></button>
-                                                            <button class="cancel-btn"><a href="">Hủy</a></button>
-                                                        </div>
-                                                    </div>
-
-                                                    </div>
-                                                </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -220,6 +215,6 @@
                 </div>
             </div>
         </div>
-        <script src="../../../../public/js/admin/uploadimage.js"></script>
+        <script src="{{ asset ('js/admin/uploadimage.js') }}"></script>
     </body>
 </html>

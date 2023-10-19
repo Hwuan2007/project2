@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Drink;
 use App\Models\Home;
 use App\Http\Requests\StoreHomeRequest;
 use App\Http\Requests\UpdateHomeRequest;
+use App\Models\Menu;
 
 class HomeController extends Controller
 {
@@ -15,7 +17,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('client/home/index');
+        $menus = Menu::all();
+        $drinks = Drink::all();
+        return view('client/home/index', [
+            'menus' => $menus,
+            'drinks' => $drinks
+        ]);
     }
 
     /**

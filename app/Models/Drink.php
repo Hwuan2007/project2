@@ -18,4 +18,5 @@ class Drink extends Model
     {
         return $this -> belongsTo(Menu::class, 'type_id');
     }
+
 }

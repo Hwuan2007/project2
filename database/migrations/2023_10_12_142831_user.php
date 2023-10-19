@@ -16,9 +16,9 @@ class User extends Migration
         Schema::create('staff', function (Blueprint $table) {
             $table->id();
             $table->string('staff_username');
-            $table->integer('staff_pasword');
+            $table->string('staff_password');
             $table->string('staff_email');
-            $table->integer('staff_phonenumber');
+            $table->string('staff_phonenumber');
             $table->string('staff_address');
             $table->foreignId('role_id')->constrained('role');
         });

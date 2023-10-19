@@ -175,7 +175,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <button class="detail-btn">
-                                                                        chi tiết
+                                                                        <a href="{{ route('all.index') }}">chi tiết</a>
                                                                     </button>
                                                                     <button class="edit-btn">
                                                                         <a href="{{ route('category.edit', $category) }}">sửa</a>

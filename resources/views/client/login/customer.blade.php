@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../../../public/css/Client/login.css">
+    <link rel="stylesheet" href="{{ asset ('css/client/login.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
@@ -30,17 +30,18 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form action="{{ route('customer.loginProcess') }}" method="post">
+                @csrf
                 <h1>Đăng Nhập</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>nhập tài khoản của bạn</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <a href="#">quên mật khẩu?</a>
+                <span>Nhập tài khoản của bạn</span>
+                <input type="email" placeholder="Email" name="customer_email"/>
+                <input type="password" placeholder="Password" name="customer_password"/>
+                <a href="#">Quên mật khẩu?</a>
                 <button>Đăng Nhập</button>
             </form>
         </div>
@@ -54,12 +55,12 @@
                 <div class="overlay-panel overlay-right">
                     <h1>CoffeeShop</h1>
                     <p>Vui lòng nhập email và mật khẩu để đăng nhập tài khoản</p>
-                    <button class="ghost" id="signUp">Đằng Ký</button>
+                    <button class="ghost" id="signUp">Đăng Ký</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="../../../../public/js/client/signin.js"></script>
+    <script src= "{{ asset ('js/client/signin.js') }}"></script>
 </body>
 </html>

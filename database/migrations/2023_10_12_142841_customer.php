@@ -16,10 +16,9 @@ class Customer extends Migration
         Schema::create('customer', function (Blueprint $table) {
             $table->id();
             $table->string('customer_username');
-            $table->integer('customer_pasword');
+            $table->string('customer_password');
             $table->string('customer_email');
-            $table->string('customer_name');
-            $table->integer('customer_phonenumber');
+            $table->string('customer_phonenumber');
             $table->string('customer_address');
             $table->foreignId('role_id')->constrained('role');
         });

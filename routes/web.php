@@ -10,6 +10,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DrinkClientController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DrinkDetailController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DrinkMenuController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,10 +63,16 @@ Route::prefix('admin') ->group(function (){
     Route::post('/order/create', [OrderController::class, 'store']) -> name('order.store');
     Route::get('/order/{order}/edit', [OrderController::class, 'edit']) -> name('order.edit');
     Route::put('/order/{order}/edit', [OrderController::class, 'update']) -> name('order.update');
-
 });
 Route::prefix('client') ->group(function (){
-
     Route::get('/', [HomeController::class, 'index']) -> name('client.index');
-    Route::get('/drink_detail', [DrinkDetailController::class, 'index']) -> name('drink_detail.index');
+    // Menu
+    Route::get('/all', [DrinkMenuController::class, 'index']) -> name('all.index');
+    Route::get('/CoffeeHighLight', [DrinkMenuController::class, 'index']) -> name('CoffeeHighLight.index');
+    // Drink Detail
+    Route::get('/drink_detail/{drink}', [DrinkDetailController::class, 'index']) -> name('drink_detail.index');
+
+    Route::get('/drink_detail/{drink}/cart', [CartController::class, 'index']) -> name('cart.index');
 });
+Route::get('/login', [\App\Http\Controllers\CustomerController::class, 'login']) -> name('customer.login');
+Route::post('/login', [\App\Http\Controllers\CustomerController::class, 'loginProcess']) -> name('customer.loginProcess');

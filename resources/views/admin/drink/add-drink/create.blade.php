@@ -163,13 +163,12 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label>Giá:</label>
-                                                                        <input value="" required name="drk_price" type="number" min="0" placeholder="Nhập giá tiền"
-                                                                            class="form-control">
+                                                                        <input value="" name="drk_price" type="text" placeholder="Nhập giá tiền" class="form-control">
                                                                     </div>
                                                                     <br>
                                                                     <div class="form-group">
                                                                         <label>Danh mục</label>
-                                                                        <select name="type_id" class="form-control">
+                                                                        <select name="type_id" class="form-control" required>
                                                                             @foreach( $menus as $menu)
                                                                                 <optgroup name="categories_id" label="{{ $menu -> category -> categories_name }}">
                                                                                     <option value="{{ $menu -> id}}">
@@ -182,7 +181,7 @@
                                                                     <br>
                                                                     <div class="form-group">
                                                                         <label>Mô tả:</label>
-                                                                        <textarea required name="drk_description" class="form-control" rows="3"></textarea>
+                                                                        <textarea name="drk_description" class="form-control" rows="3"></textarea>
                                                                     </div>
                                                                     <br>
                                                                     <div class="btn-chance">

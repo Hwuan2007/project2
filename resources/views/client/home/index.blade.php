@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>Home</title>
 
     <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/Home.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -29,7 +29,7 @@
                         <div class="category">
                             <a href="#">Cà Phê</a>
                             <a href="#">Trà</a>
-                            <a href="{{ route('drink.index') }}">Menu</a>
+                            <a href="{{ route('drinkmenu.index') }}">Menu</a>
                             <a href="#">Chuyện nhà</a>
                             <a href="#">Cửa hàng</a>
                             <a href="#">Tuyển dụng</a>
@@ -184,10 +184,10 @@
                                 <div class="card-body">
                                     <p class="date" style="color: #19191995;">16/08/2023</p>
                                     <a href="#" class="blog-title"><b>NGƯỢC LÊN TÂY BẮC GÓI VỊ MỘC VỀ XUÔI</b></a>
-                                    <p class="blog-review" style="font-size: 15px;">Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa, 
+                                    <p class="blog-review" style="font-size: 15px;">Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa,
                                         muôn cung đường ngợp mùa hoa… đó là rẻo cao Tây Bắc luôn làm say lòng...</p>
                                 </div>
-                              </div>             
+                              </div>
                         </div>
                         <div class="col-lg-4 col-md-8 col-sm-12" >
                             <div class="card" >
@@ -195,10 +195,10 @@
                                 <div class="card-body">
                                     <p class="date"style="color: #19191995;">16/08/2023</p>
                                     <a href="#" class="blog-title"><b>NGƯỢC LÊN TÂY BẮC GÓI VỊ MỘC VỀ XUÔI</b></a>
-                                    <p class="blog-review" style="font-size: 15px;">Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa, 
+                                    <p class="blog-review" style="font-size: 15px;">Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa,
                                         muôn cung đường ngợp mùa hoa… đó là rẻo cao Tây Bắc luôn làm say lòng...</p>
                                 </div>
-                              </div>             
+                              </div>
                         </div>
                         <div class="col-lg-4 col-md-8 col-sm-12" >
                             <div class="card" >
@@ -206,10 +206,10 @@
                                 <div class="card-body">
                                     <p class="date" style="color: #19191995;">16/08/2023</p>
                                     <a href="#" class="blog-title"><b>NGƯỢC LÊN TÂY BẮC GÓI VỊ MỘC VỀ XUÔI</b></a>
-                                    <p class="blog-review" style="font-size: 15px;">Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa, 
+                                    <p class="blog-review" style="font-size: 15px;">Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa,
                                         muôn cung đường ngợp mùa hoa… đó là rẻo cao Tây Bắc luôn làm say lòng...</p>
                                 </div>
-                              </div>             
+                              </div>
                         </div>
                     </div>
                 </div>
@@ -226,10 +226,10 @@
                                 <div class="card-body">
                                     <p class="date" style="color: #19191995;">16/08/2023</p>
                                     <a href="#" class="blog-title"><b>NGƯỢC LÊN TÂY BẮC GÓI VỊ MỘC VỀ XUÔI</b></a>
-                                    <p class="blog-review" style="font-size: 15px;">Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa, 
+                                    <p class="blog-review" style="font-size: 15px;">Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa,
                                         muôn cung đường ngợp mùa hoa… đó là rẻo cao Tây Bắc luôn làm say lòng...</p>
                                 </div>
-                              </div>             
+                              </div>
                         </div>
                         <div class="col-lg-4 col-md-8 col-sm-12" >
                             <div class="card" >
@@ -237,10 +237,10 @@
                                 <div class="card-body">
                                     <p class="date"style="color: #19191995;">16/08/2023</p>
                                     <a href="#" class="blog-title"><b>NGƯỢC LÊN TÂY BẮC GÓI VỊ MỘC VỀ XUÔI</b></a>
-                                    <p class="blog-review" style="font-size: 15px;">Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa, 
+                                    <p class="blog-review" style="font-size: 15px;">Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa,
                                         muôn cung đường ngợp mùa hoa… đó là rẻo cao Tây Bắc luôn làm say lòng...</p>
                                 </div>
-                              </div>             
+                              </div>
                         </div>
                         <div class="col-lg-4 col-md-8 col-sm-12" >
                             <div class="card" >
@@ -248,14 +248,14 @@
                                 <div class="card-body">
                                     <p class="date" style="color: #19191995;">16/08/2023</p>
                                     <a href="#" class="blog-title"><b>NGƯỢC LÊN TÂY BẮC GÓI VỊ MỘC VỀ XUÔI</b></a>
-                                    <p class="blog-review" style="font-size: 15px;">Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa, 
+                                    <p class="blog-review" style="font-size: 15px;">Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa,
                                         muôn cung đường ngợp mùa hoa… đó là rẻo cao Tây Bắc luôn làm say lòng...</p>
                                 </div>
-                              </div>             
+                              </div>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
