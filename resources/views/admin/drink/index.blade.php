@@ -121,10 +121,13 @@
                                     <ul class="navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"
-                                                ><i
-                                                    class="bx bxs-user-circle"
-                                                ></i
-                                            ></a>
+                                                ><div class="dropdown">
+                                                    <button class="dropbtn"><i class="bx bxs-user-circle"></i></button>
+                                                    <div class="dropdown-content">
+                                                        <a href="">Đăng xuất</a>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
