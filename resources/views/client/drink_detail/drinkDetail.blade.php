@@ -30,9 +30,9 @@
                     </div>
                     <div class="col-lg-9 col-md-8 col-sm-12" style="margin-bottom: unset !important;">
                         <div class="category">
-                            <a href="{{ route('drinkmenu.index')}}">Cà Phê</a>
-                            <a href="{{ route('drinkmenu.index')}}">Trà</a>
-                            <a href="{{ route('drinkmenu.index')}}">Menu</a>
+                            <a href="{{ route('all.index')}}">Cà Phê</a>
+                            <a href="{{ route('all.index')}}">Trà</a>
+                            <a href="{{ route('all.index')}}">Menu</a>
                             <a href="#">Chuyện nhà</a>
                             <a href="#">Cửa hàng</a>
                             <a href="#">Tuyển dụng</a>
@@ -45,99 +45,99 @@
 
     <div class="container">
         <div class="previous">
-            <a href="{{ route('drink.index') }}"> Menu </a> / <a href="#"> Cà Phê </a> / Cà Phê Sữa Đá
+            <a href="{{ route('all.index') }}"> Menu </a> / <a href="#"> Cà Phê </a> / Cà Phê Sữa Đá
         </div>
     </div>
 
     <div class="container">
         <div class=" drink-info">
             <div class="row">
-                <div class="col-lg-6 col-md-4 col-sm-12" >
-                    <div class="drink-img">
-                        <div class="carousel">
-                            <!-- Carousel -->
-                            <div id="demo" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <!-- <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button> -->
-                                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1" class="active"></button>
-                                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2" class="active"></button>
-                                </div>
-
-                                <div class="carousel">
-                                    <div class="carousel-item active">
-                                      <img src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_65455a230ffb49499a455e3350e66158.png" alt="Image 1" class="d-block w-100">
+                <form action="{{ route('cart.index', $drink) }}" method="post">
+                    @csrf
+                    <div class="col-lg-6 col-md-4 col-sm-12" >
+                        <div class="drink-img">
+                            <div class="carousel">
+                                <!-- Carousel -->
+                                <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-indicators">
+                                        <!-- <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button> -->
+                                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1" class="active"></button>
+                                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2" class="active"></button>
                                     </div>
-                                    <div class="carousel-item">
-                                      <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png" alt="slide-2" class="d-block w-100">
+
+                                    <div class="carousel">
+                                        <div class="carousel-item active">
+                                          <img src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}" alt="Image 1" class="d-block w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                          <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png" alt="slide-2" class="d-block w-100">
+                                        </div>
                                     </div>
+
+
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon"></span>
+                                    </button>
                                 </div>
-
-
-                                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
+                            </div>
+                        </div>
+                         <div class="container">
+                            <div id="thumbCarousel">
+                                <div data-target="#productCarousel" data-slide-to="0" class="thumb active">
+                                    <img src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}">
+                                </div>
+                                <div data-target="#productCarousel" data-slide-to="1" class="thumb">
+                                    <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png">
+                                </div>
                             </div>
                         </div>
                     </div>
-                     <div class="container">
-                        <div id="thumbCarousel">
-                            <div data-target="#productCarousel" data-slide-to="0" class="thumb active">
-                                <img src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_65455a230ffb49499a455e3350e66158.png">
-                            </div>
-                            <div data-target="#productCarousel" data-slide-to="1" class="thumb">
-                                <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png">
+                    <div class="col-lg-6 col-md-4 col-sm-12" >
+                        <div>
+                            <div class="drink-order">
+
+                                    <div class="drink-name-detail"><b> {{ $drink -> drk_name }} </b></div>
+                                    <div class="drink-cost"><b> 45.000 đ </b></div>
+                                    <br>
+                                    <div class="pick-size"> Chọn size (bắt buộc) </div><br>
+                                    <div class="pick-size-button">
+                                        <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Nhỏ + 0 đ </i></button>
+                                        <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Vừa + 10.000 đ </i></button>
+                                        <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Lớn + 16.000 đ </i></button>
+                                    </div>
+                                    <br>
+                                    <div class="pick-topping">Topping</div><br>
+                                    <div class="pick-topping-button">
+                                        <input type="checkbox" name="color" id="color1">
+                                        <label for="color1" class="color-change-pick-topping-button">Kem Phô Mai Macchiato + 10.000 đ</label>
+
+                                        <input type="checkbox" name="color" id="color2">
+                                        <label for="color2" class="color-change-pick-topping-button">Hot Espresso  + 10.000 đ</label>
+
+                                        <input type="checkbox" name="color" id="color3">
+                                        <label for="color3" class="color-change-pick-topping-button">Trân Châu Trắng  + 10.000 đ</label>
+
+                                        <input type="checkbox" name="color" id="color4">
+                                        <label for="color4" class="color-change-pick-topping-button">Sốt Caramel + 10.000 đ</label>
+
+                                        <input type="checkbox" name="color" id="color5">
+                                        <label for="color5" class="color-change-pick-topping-button">Thạch Caffe  + 10.000 đ</label>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="order">
+                                        <a href="">
+                                            <button type="button" id="btn-order"><i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> </button>
+                                        </a>
+                                    </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-4 col-sm-12" >
-                    <div>
-                        <div class="drink-order">
-                            <form action="{{ route('cart.index', $drink) }}" method="post">
-                                @csrf
-                                <div class="drink-name-detail"><b> {{ $drink -> drk_name }} </b></div>
-                                <div class="drink-cost"><b> 45.000 đ </b></div>
-                                <br>
-                                <div class="pick-size"> Chọn size (bắt buộc) </div><br>
-                                <div class="pick-size-button">
-                                    <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Nhỏ + 0 đ </i></button>
-                                    <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Vừa + 10.000 đ </i></button>
-                                    <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Lớn + 16.000 đ </i></button>
-                                </div>
-                                <br>
-                                <div class="pick-topping">Topping</div><br>
-                                <div class="pick-topping-button">
-                                    <input type="checkbox" name="color" id="color1">
-                                    <label for="color1" class="color-change-pick-topping-button">Kem Phô Mai Macchiato + 10.000 đ</label>
-
-                                    <input type="checkbox" name="color" id="color2">
-                                    <label for="color2" class="color-change-pick-topping-button">Hot Espresso  + 10.000 đ</label>
-
-                                    <input type="checkbox" name="color" id="color3">
-                                    <label for="color3" class="color-change-pick-topping-button">Trân Châu Trắng  + 10.000 đ</label>
-
-                                    <input type="checkbox" name="color" id="color4">
-                                    <label for="color4" class="color-change-pick-topping-button">Sốt Caramel + 10.000 đ</label>
-
-                                    <input type="checkbox" name="color" id="color5">
-                                    <label for="color5" class="color-change-pick-topping-button">Thạch Caffe  + 10.000 đ</label>
-
-                                </div>
-                                <br>
-                                <br>
-                                <div class="order">
-                                    <a href="">
-                                        <button type="button" id="btn-order"><i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> </button>
-                                    </a>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
     <br>
@@ -145,8 +145,7 @@
         <hr>
         <div>
             <p style="font-size: 18px;"><b>Mô tả sản phẩm</b></p>
-            <p>Cà phê Đắk Lắk nguyên chất được pha phin truyền thống kết hợp với sữa đặc tạo nên hương vị đậm đà,
-                hài hòa giữa vị ngọt đầu lưỡi và vị đắng thanh thoát nơi hậu vị.</p>
+            <p>{{ $drink -> drk_description }}</p>
         </div>
         <hr>
     </div>

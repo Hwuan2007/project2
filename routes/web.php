@@ -70,7 +70,7 @@ Route::prefix('client') ->group(function (){
     Route::get('/all', [DrinkMenuController::class, 'index']) -> name('all.index');
     Route::get('/CoffeeHighLight', [DrinkMenuController::class, 'index']) -> name('CoffeeHighLight.index');
     // Drink Detail
-    Route::get('/drink_detail/{drink}', [DrinkDetailController::class, 'index']) -> name('drink_detail.index');
+    Route::get('/drink_detail/{drink}/drinkDetail', [DrinkController::class, 'drinkDetail']) -> name('drink_detail.drinkDetail');
 
     Route::get('/drink_detail/{drink}/cart', [CartController::class, 'index']) -> name('cart.index');
 });

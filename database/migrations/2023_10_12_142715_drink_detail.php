@@ -17,6 +17,7 @@ class DrinkDetail extends Migration
             $table->double('drk_price');
             $table->string('drk_description');
             $table->foreignId('size_id')->constrained('size');
+            $table->foreignId('topping_id')->constrained('topping');
             $table->foreignId('drk_id')->constrained('drink');
 
         });

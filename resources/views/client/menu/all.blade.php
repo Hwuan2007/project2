@@ -57,8 +57,8 @@
                                 <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> Cà phê</button>
                                 <div class="dropdown-content">
                                     @foreach( $drinks as $drink )
-                                        @if( $drink -> type_id = $menu -> id )
-                                            <a href="{{ route('CoffeeHighLight.index') }}">{{ $drink -> type_of_drink -> type_name }}</a>
+                                        @if( $drink -> type_id = 1 )
+                                            <a href="{{ route('CoffeeHighLight.index') }}">{{ $drink -> type_name }}</a>
                                         @endif
                                     @endforeach
                                 </div>
@@ -68,7 +68,7 @@
                             <div class="dropdown">
                                 <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> Trà</button>
                                 <div class="dropdown-content">
-                                    <a href="{{ route('CoffeeHighLight.index') }}">Cà phê HighLight</a>
+                                    <a href="{{ route('CoffeeHighLight.index') }}">Trà sữa chân châu</a>
                                 </div>
                             </div>
                         </li>
@@ -84,7 +84,7 @@
                                     <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
                                          alt="Card image">
                                     <div class="card-body">
-                                        <a href="{{ route('drink_detail.index' , $drink) }}" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
+                                        <a href="{{ route('drink_detail.drinkDetail' , $drink) }}" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
                                         <p class="cost">{{ $drink -> drk_price }} đ</p>
                                     </div>
                                 </div>

@@ -11,15 +11,5 @@ use App\Models\Menu;
 
 class DrinkDetailController extends Controller
 {
-    public function index()
-    {
-        $menus = Menu::all();
-        $drinks = Drink::all();
-        $categories = Category::all();
-        return view('client/drink_detail/index', [
-            'menus' => $menus,
-            'drinks' => $drinks,
-            'categories' => $categories
-        ]);
-    }
+
 }

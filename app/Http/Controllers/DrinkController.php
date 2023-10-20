@@ -124,4 +124,10 @@ class DrinkController extends Controller
         $drink -> delete();
         return Redirect::route('drink.index');
     }
+    public function drinkDetail(Drink $drink)
+    {
+        return view('client/drink_detail/drinkDetail', [
+            'drink' => $drink,
+        ]);
+    }
 }
