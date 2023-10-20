@@ -99,7 +99,7 @@
                                 "
                             >
                                 <a class="navbar-brand" href="#"
-                                    ><b>Đồ Uống</b></a
+                                    ><b>Menu</b></a
                                 >
                                 <button
                                     class="navbar-toggler"
@@ -152,18 +152,17 @@
                                                                     <div>
                                                                         Tên Đồ Uống:
                                                                         <input type="text" id="drink-name" name="drk_name" placeholder="Nhập tên đồ uống"
-                                                                               class="form-control" value="{{ $drink -> drk_name }}">
+                                                                               class="form-control" value="{{ $drink -> drk_name }}" required>
                                                                     </div>
                                                                     <br>
                                                                     <div class="form-group d-flex flex-column">
                                                                         <label>Ảnh Đồ Uống:</label>
-                                                                        <input accept="image/*" type='file' id="imgInp" name="drk_img" multiple />
+                                                                        <input accept="image/*" type='file' id="imgInp" name="drk_img" multiple required/>
                                                                         <br>
                                                                         <img
                                                                             class=drk_img"
                                                                             src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
                                                                             alt="image"
-                                                                            width="200px" height="200px"
                                                                         />
                                                                     </div>
                                                                 </div>

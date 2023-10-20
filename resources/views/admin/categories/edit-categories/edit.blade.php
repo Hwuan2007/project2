@@ -180,7 +180,7 @@
                                                                             <a href="">Cập Nhật</a>
                                                                         </button>
                                                                         <button class="cancel-btn">
-                                                                            <a href="">Hủy</a>
+                                                                            <a href="{{ route('category.index') }}">Hủy</a>
                                                                         </button>
                                                                     </div>
                                                                 </form>

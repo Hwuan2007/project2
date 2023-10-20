@@ -163,6 +163,7 @@
                                                                             name="categories_name"
                                                                             placeholder="Nhập tên Danh mục"
                                                                             class="form-control"
+                                                                            required
                                                                         />
                                                                     </div>
                                                                     <br>

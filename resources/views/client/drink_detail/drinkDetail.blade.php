@@ -100,7 +100,7 @@
                             <div class="drink-order">
 
                                     <div class="drink-name-detail"><b> {{ $drink -> drk_name }} </b></div>
-                                    <div class="drink-cost"><b> 45.000 đ </b></div>
+                                    <div class="drink-cost"><b> {{ $drink -> drk_price }} đ </b></div>
                                     <br>
                                     <div class="pick-size"> Chọn size (bắt buộc) </div><br>
                                     <div class="pick-size-button">
@@ -136,8 +136,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
     <br>

@@ -117,17 +117,11 @@ class DrinkController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Drink $drink
-     * @return Response
      */
     public function destroy(Drink $drink)
     {
         $drink -> delete();
         return Redirect::route('drink.index');
     }
-    public function drinkDetail(Drink $drink)
-    {
-        return view('client/drink_detail/drinkDetail', [
-            'drink' => $drink,
-        ]);
-    }
+
 }

@@ -7,7 +7,6 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\DrinkController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DrinkClientController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DrinkDetailController;
 use App\Http\Controllers\LoginController;
@@ -70,8 +69,8 @@ Route::prefix('client') ->group(function (){
     Route::get('/all', [DrinkMenuController::class, 'index']) -> name('all.index');
     Route::get('/CoffeeHighLight', [DrinkMenuController::class, 'index']) -> name('CoffeeHighLight.index');
     // Drink Detail
-    Route::get('/drink_detail/{drink}/drinkDetail', [DrinkController::class, 'drinkDetail']) -> name('drink_detail.drinkDetail');
-
+    Route::get('/drink_detail/{drink}/drinkDetail', [DrinkDetailController::class, 'drinkDetail']) -> name('drink_detail.drinkDetail');
+    //cart
     Route::get('/drink_detail/{drink}/cart', [CartController::class, 'index']) -> name('cart.index');
 });
 Route::get('/login', [\App\Http\Controllers\CustomerController::class, 'login']) -> name('customer.login');

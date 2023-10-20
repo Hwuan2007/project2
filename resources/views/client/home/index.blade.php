@@ -29,7 +29,7 @@
                         <div class="category">
                             <a href="#">Cà Phê</a>
                             <a href="#">Trà</a>
-                            <a href="{{ route('drinkmenu.index') }}">Menu</a>
+                            <a href="{{ route('all.index') }}">Menu</a>
                             <a href="#">Chuyện nhà</a>
                             <a href="#">Cửa hàng</a>
                             <a href="#">Tuyển dụng</a>
