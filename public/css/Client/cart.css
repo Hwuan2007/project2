@@ -15,7 +15,10 @@
    text-decoration: none;
    color: orange;
 }
-
+h3 a{
+    text-decoration: none;
+   color: rgb(0, 0, 0);
+}
 .dropbtn {
     background-color: rgba(230, 237, 244, 0.984);
     color: black;

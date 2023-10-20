@@ -9,7 +9,10 @@
     margin-top: 5px;
     margin-bottom: 5px;
 }
-
+h3 a{
+  text-decoration: none;
+ color: rgb(0, 0, 0);
+}
 .info a {
     padding: 30px 60px; /* Thay đổi giá trị để điều chỉnh khoảng cách */
    text-decoration: none;
