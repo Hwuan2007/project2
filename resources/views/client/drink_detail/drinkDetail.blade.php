@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drink Detail</title>
     <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/drink_detail.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -22,20 +23,28 @@
         </div>
         <div class="navbar">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-12" >
+            <div class="row">
+                    <div class="col-lg-2 col-md-4 col-sm-12" >
                         <div class="logo">
                             <h3>CoffeeShop</h3>
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-8 col-sm-12" style="margin-bottom: unset !important;">
+                    <div class="col-lg-9 col-md-8 col-sm-12" >
                         <div class="category">
-                            <a href="{{ route('all.index')}}">Cà Phê</a>
-                            <a href="{{ route('all.index')}}">Trà</a>
-                            <a href="{{ route('all.index')}}">Menu</a>
+                            <a href="#">Cà Phê</a>
+                            <a href="#">Trà</a>
+                            <a href="{{ route('all.index') }}">Menu</a>
                             <a href="#">Chuyện nhà</a>
                             <a href="#">Cửa hàng</a>
                             <a href="#">Tuyển dụng</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-md-4 col-sm-12" >
+                        <div class="dropdown">
+                            <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
+                                <div class="dropdown-content">
+                                    <a href="">Đăng xuất</a>
+                                </div>
                         </div>
                     </div>
                 </div>
