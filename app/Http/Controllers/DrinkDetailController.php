@@ -15,7 +15,9 @@ class DrinkDetailController extends Controller
 {
     public function drinkDetail(Drink $drink)
     {
-        $topping = topping::all();
+        $obj = new Drink();
+        $obj->id = $drink->id;
+        $topping = $obj -> getTopping();
         $size = Size::all();
         return view('client/drink_detail/drinkDetail', [
             'drink' => $drink,

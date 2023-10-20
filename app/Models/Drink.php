@@ -18,4 +18,18 @@ class Drink extends Model
     {
         return $this -> belongsTo(Menu::class, 'type_id');
     }
+
+    public function getTopping() {
+        return DB::table('drink')
+    ->join('drink_detail', 'drink.id', '=', 'drink_detail.drink_id')
+    ->join('topping', 'drink_detail.topping_id', '=', 'topping.id')
+    ->select('topping.*')
+    ->where('drink.id', '=', $this->id)
+    ->get();
+    }
 }
+
+// bang drink: id ,...
+// bang drdt: id, ...
+// bang topping: id, ...
+// join bang drink ...select ra cac cot trong bang topping where id cua bang drink bang id can tim

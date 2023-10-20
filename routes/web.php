@@ -69,7 +69,7 @@ Route::prefix('client') ->group(function (){
     Route::get('/all', [DrinkMenuController::class, 'index']) -> name('all.index');
     Route::get('/CoffeeHighLight', [DrinkMenuController::class, 'index']) -> name('CoffeeHighLight.index');
     // Drink Detail
-    Route::get('/drink_detail/{drink}/drinkDetail', [DrinkDetailController::class, 'drinkDetail']) -> name('drink_detail.drinkDetail');
+    Route::get('/drink_detail/drinkDetail/{drink}', [DrinkDetailController::class, 'drinkDetail']) -> name('drink_detail.drinkDetail');
     //cart
     Route::get('/drink_detail/{drink}/cart', [CartController::class, 'index']) -> name('cart.index');
 });
