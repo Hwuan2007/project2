@@ -16,13 +16,14 @@ class DrinkDetailController extends Controller
     public function drinkDetail(Drink $drink)
     {
         $obj = new Drink();
-        $obj->id = $drink->id;
-        $topping = $obj -> getTopping();
-        $size = Size::all();
+        $obj -> id = $drink -> id;
+        $obj -> getTopping();
+        $toppings = topping::all();
+        $sizes = Size::all();
         return view('client/drink_detail/drinkDetail', [
             'drink' => $drink,
-            'topping' => $topping,
-            'size' => $size,
+            'toppings' => $toppings,
+            'sizes' => $sizes,
         ]);
     }
 }

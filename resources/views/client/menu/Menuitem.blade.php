@@ -24,7 +24,7 @@
             <div class="row">
                     <div class="col-lg-2 col-md-4 col-sm-12" >
                         <div class="logo">
-                        <h3><a href="">CoffeeShop</a></h3>s
+                        <h3><a href="">CoffeeShop</a></h3>
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-8 col-sm-12" >
@@ -61,26 +61,21 @@
                                 </button>
                             </div>
                         </li>
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> Cà phê</button>
-                                <div class="dropdown-content">
-                                    <a href="{{ route('all.index') }}"></a>
+                        @foreach( $menus as $menu)
+                            <li>
+                                <div class="dropdown">
+                                    <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> {{ $menu -> category -> categories_name }} </button>
+                                    <div class="dropdown-content">
+                                        @foreach( $categories as $category )
+                                            @if( $menu -> categories_id = $category -> id)
+                                                <a href="{{ route('Menuitem.item', $menu) }}">{{ $menu -> type_name }}</a>
+                                                @break($menu)
+                                            @endif
+                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> Trà</button>
-                                <div class="dropdown-content">
-                                    @foreach( $categories as $category )
-                                        @if( $menu -> categories_id == $category -> id )
-                                            <a href="{{ route('all.index') }}">{{ $menu -> type_name }}</a>
-                                        @endif
-                                    @endforeach
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -88,16 +83,18 @@
                 <div class="drink">
                     <div class="row">
                         @foreach( $drinks as $drink )
-                            <div class="col-lg-4 col-md-8 col-sm-12" >
-                                <div class="card" >
-                                    <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
-                                         alt="Card image">
-                                    <div class="card-body">
-                                        <a href="{{ route('drink_detail.index' , $drink) }}" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
-                                        <p class="cost">{{ $drink -> drk_price }} đ</p>
+                            @if( $drink -> type_id = $menu -> id)
+                                <div class="col-lg-4 col-md-8 col-sm-12" >
+                                    <div class="card" >
+                                        <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <a href="" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
+                                            <p class="cost">{{ $drink -> drk_price }} đ</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                         @endforeach
                     </div>
                 </div>

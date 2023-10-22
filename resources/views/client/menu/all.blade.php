@@ -61,26 +61,21 @@
                                 </button>
                             </div>
                         </li>
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> Cà phê</button>
-                                <div class="dropdown-content">
-                                    @foreach( $drinks as $drink )
-                                        @if( $drink -> type_id = 1 )
-                                            <a href="{{ route('CoffeeHighLight.index') }}">{{ $drink -> type_name }}</a>
-                                        @endif
-                                    @endforeach
+                        @foreach( $menus as $menu)
+                            <li>
+                                <div class="dropdown">
+                                    <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> {{ $menu -> category -> categories_name }} </button>
+                                    <div class="dropdown-content">
+                                        @foreach( $categories as $category )
+                                            @if( $menu -> categories_id = $category -> id)
+                                                <a href="{{ route('Menuitem.item', $menu) }}">{{ $menu -> type_name }}</a>
+                                                @break($menu)
+                                            @endif
+                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> Trà</button>
-                                <div class="dropdown-content">
-                                    <a href="{{ route('CoffeeHighLight.index') }}">Trà sữa chân châu</a>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

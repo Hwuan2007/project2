@@ -92,15 +92,18 @@ class CustomerController extends Controller
     }
     public function loginProcess(Request $request){
         $account = $request -> only(['customer_email', 'customer_password']);
-        Auth::guard('customer') -> attempt($account);
-        if (Auth::guard('customer') -> attempt($account)){
-            $customer = Auth::guard('customer') ->user();
-            dd($customer);
-            Auth::guard('customer') -> login($customer);
-            session(['customer' => $customer]);
+        Auth::guard('customers') -> attempt($account);
+        if (Auth::guard('customers') -> attempt($account)){
+            $customers = Auth::guard('customers') ->user();
+            Auth::guard('customers') -> login($customers);
+            session(['customers' => $customers]);
             return Redirect::route('client.index');
         }else{
             return Redirect::back();
         }
+    }
+    public function logout(){
+        Auth::guard('customers') -> logout();
+        return Redirect::route('customer.login');
     }
 }
