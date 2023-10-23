@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-4 col-sm-12" >
                         <div class="logo">
-                            <h3><a href="">CoffeeShop</a></h3>
+                            <h3><a href="{{ route('client.index') }}">CoffeeShop</a></h3>
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-12" >
@@ -92,59 +92,71 @@
                 </div>
                 <div class="col-lg-3 col-md-8 col-sm-12" >
                     <div class="card" >
-                        <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
+                        <a href="#">
+                            <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
+                        </a>    
                         <div class="card-body">
                             <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
                             <p class="cost">29.000 đ</p>
                         </div>
-                      </div>
-
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-8 col-sm-12" >
                     <div class="card" >
-                        <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
+                        <a href="#">
+                            <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
+                        </a>    
                         <div class="card-body">
                             <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
                             <p class="cost">29.000 đ</p>
                         </div>
-                      </div>
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-8 col-sm-12" >
                     <div class="card" >
-                        <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
+                        <a href="#">
+                            <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
+                        </a>    
                         <div class="card-body">
                             <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
                             <p class="cost">29.000 đ</p>
                         </div>
-                      </div>
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-8 col-sm-12" >
                     <div class="card" >
-                        <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
+                        <a href="#">
+                            <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
+                        </a>    
                         <div class="card-body">
                             <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
                             <p class="cost">29.000 đ</p>
                         </div>
-                      </div>
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-8 col-sm-12" >
                     <div class="card" >
-                        <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
+                        <a href="#">
+                            <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
+                        </a>    
                         <div class="card-body">
                             <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
                             <p class="cost">29.000 đ</p>
                         </div>
-                      </div>
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-8 col-sm-12" >
                     <div class="card" >
-                        <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
+                        <a href="#">
+                            <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
+                        </a>    
                         <div class="card-body">
                             <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
                             <p class="cost">29.000 đ</p>
                         </div>
-                      </div>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </div>
