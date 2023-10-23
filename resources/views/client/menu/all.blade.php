@@ -24,7 +24,7 @@
             <div class="row">
                     <div class="col-lg-2 col-md-4 col-sm-12" >
                         <div class="logo">
-                            <h3><a href="">CoffeeShop</a></h3>
+                            <h3><a href="{{ route('client.index') }}">CoffeeShop</a></h3>
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-12" >
@@ -84,8 +84,10 @@
                         @foreach( $drinks as $drink )
                             <div class="col-lg-4 col-md-8 col-sm-12" >
                                 <div class="card" >
-                                    <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
+                                    <a href="">
+                                        <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
                                          alt="Card image">
+                                    </a>
                                     <div class="card-body">
                                         <a href="{{ route('drink_detail.drinkDetail' , $drink) }}" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
                                         <p class="cost">{{ $drink -> drk_price }} đ</p>

@@ -26,7 +26,7 @@
             <div class="row">
                     <div class="col-lg-2 col-md-4 col-sm-12" >
                         <div class="logo">
-                        <h3><a href="">CoffeeShop</a></h3>
+                        <h3><a href="{{ route('client.index') }}">CoffeeShop</a></h3>
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-8 col-sm-12" >
