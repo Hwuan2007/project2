@@ -44,15 +44,6 @@
                                     </a>
                                 </li>
                                 <li>
-
-                                    <a href="{{ route('menu.index') }}">
-                                        <p>
-                                            <i class="bx bxs-food-menu"></i>
-                                            Menu
-                                        </p>
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="{{ route('category.index') }}">
                                         <p>
                                             <i class="bx bx-menu-alt-left"></i>
@@ -142,7 +133,8 @@
                                 <div class="row">
                                     <div class="col-lg-3">
                                         <div class="card">
-                                            <div class="content">
+                                            <a href="{{ route('category.index') }}">
+                                                <div class="content">
                                                 <div class="row">
                                                     <div class="col-lg-5">
                                                         <div
@@ -169,10 +161,13 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            </a>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="card">
+                                            <a href="{{ route('drink.index') }}">
                                             <div class="content">
                                                 <div class="row">
                                                     <div class="col-lg-5">
@@ -200,11 +195,13 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="card">
-                                            <div class="content">
+                                            <a href="{{ route('user.index') }}">
+                                                <div class="content">
                                                 <div class="row">
                                                     <div class="col-lg-5">
                                                         <div
@@ -231,11 +228,13 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="card">
-                                            <div class="content">
+                                            <a href="{{ route('order.index') }}">
+                                                <div class="content">
                                                 <div class="row">
                                                     <div class="col-lg-5">
                                                         <div
@@ -262,6 +261,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            </a>
+                                            
                                         </div>
                                     </div>
                                 </div>
