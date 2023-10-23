@@ -119,12 +119,15 @@
                                     </div>
                                     <br>
                                     <div class="pick-topping">Topping</div><br>
-                                    @foreach( $toppings as $topping )
+                                    
                                         <div class="pick-topping-button">
+                                        @foreach( $toppings as $topping )
                                                 <input type="checkbox" name="color" id="color1">
                                                 <label for="color1" class="color-change-pick-topping-button">{{ $topping -> topping_name }} + 10.000 đ</label>
+                                        @endforeach
                                         </div>
-                                    @endforeach
+                                    
+                                    
                                     <br>
                                     <br>
                                     <div class="order">
