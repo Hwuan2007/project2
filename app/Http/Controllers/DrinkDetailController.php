@@ -24,17 +24,22 @@ class DrinkDetailController extends Controller
             'sizes' => $sizes,
         ]);
     }
-    public function saveDrink(StoreDrinkDetailRequest $request): \Illuminate\Http\RedirectResponse
+    public function saveDrink()
+    {
+        $toppings = topping::all();
+        $sizes = Size::all();
+        return view('admin/drink/add-drink/create', [
+            'toppings' => $toppings,
+            'sizes' => $sizes
+        ]);
+    }
+    public function addToCart(StoreDrinkDetailRequest $request)
     {
         $toppings = $request->input('topping');
         $sizes = $request ->input('size');
         foreach($toppings as $topping){
             DrinkDetail::create($topping,$sizes);
         }
-        return Redirect::route('cart.save');
-    }
-    public function addToCart()
-    {
         return view('client/cart/save');
     }
 }

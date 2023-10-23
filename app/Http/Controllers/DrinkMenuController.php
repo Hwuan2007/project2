@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Drink;
-use App\Models\Menu;
 
 class DrinkMenuController extends Controller
 {
     public function index()
     {
-        $drinks = Drink::with('menu') -> get();
+        $drinks = Drink::all();
         $categories = Category::all();
         return view('client/menu/all', [
             'drinks' => $drinks,
@@ -19,7 +18,7 @@ class DrinkMenuController extends Controller
     }
     public function item()
     {
-        $drinks = Drink::with('menu') -> get();
+        $drinks = Drink::all();
         $categories = Category::all();
         return view('client/menu/Menuitem', [
             'drinks' => $drinks,

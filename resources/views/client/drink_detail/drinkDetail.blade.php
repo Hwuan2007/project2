@@ -106,30 +106,30 @@
                     <div class="col-lg-6 col-md-4 col-sm-12" >
                         <div>
                             <div class="drink-order">
-                                    <div class="drink-name-detail"><b> {{ $drink -> drk_name }} </b></div>
-                                    <div class="drink-cost"><b> {{ $drink -> drk_price }} đ </b></div>
-                                    <br>
-                                    <div class="pick-size"> Chọn size (bắt buộc) </div><br>
-                                    <div class="pick-size-button">
-                                        @foreach( $sizes as $size )
-                                            <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> {{ $size -> size_name }}</i></button>
-                                        @endforeach
-                                    </div>
-                                    <br>
-                                    <div class="pick-topping">Topping</div><br>
-                                    @foreach( $toppings as $topping )
-                                        <div class="pick-topping-button">
-                                                <input type="checkbox" name="color" id="color1">
-                                                <label for="color1" class="color-change-pick-topping-button">{{ $topping -> topping_name }} + 10.000 đ</label>
-                                        </div>
+                                <div class="drink-name-detail"><b> {{ $drink -> drk_name }} </b></div>
+                                <div class="drink-cost"><b> {{ $drink -> drk_price }} đ </b></div>
+                                <br>
+                                <div class="pick-size"> Chọn size (bắt buộc) </div><br>
+                                <div class="pick-size-button">
+                                    @foreach( $sizes as $size )
+                                        <button name="size_id" type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> {{ $size -> size_name }}</i></button>
                                     @endforeach
-                                    <br>
-                                    <br>
-                                    <div class="order">
-                                        <a href="{{ route('cart.index', $drink) }}">
-                                            <button type="button" id="btn-order"><i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> </button>
-                                        </a>
+                                </div>
+                                <br>
+                                <div class="pick-topping">Topping</div><br>
+                                @foreach( $toppings as $topping )
+                                    <div class="pick-topping-button">
+                                        <input type="checkbox" name="topping_id" id="color1" value="{{ $topping -> topping_id }}">
+                                        <label for="color1" class="color-change-pick-topping-button">{{ $topping -> topping_name }} + 10.000 đ</label>
                                     </div>
+                                @endforeach
+                                <br>
+                                <br>
+                                <div class="order">
+                                    <a href="{{ route('cart.addToCart') }}">
+                                        <button type="button" id="btn-order"><i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> </button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

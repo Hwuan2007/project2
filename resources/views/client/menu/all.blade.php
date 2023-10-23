@@ -22,34 +22,33 @@
         <div class="navbar">
             <div class="container">
             <div class="row">
-                    <div class="col-lg-2 col-md-4 col-sm-12" >
-                        <div class="logo">
-                            <h3><a href="{{ route('client.index') }}">CoffeeShop</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-8 col-sm-12" >
-                        <div class="category">
-                            <a href="#">Cà Phê</a>
-                            <a href="#">Trà</a>
-                            <a href="{{ route('all.index') }}">Menu</a>
-                            <a href="#">Chuyện nhà</a>
-                            <a href="#">Cửa hàng</a>
-                            <a href="#">Tuyển dụng</a>
-                            <a href="{{ route('cart.save') }}">Cart</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 col-md-4 col-sm-12" >
-                        <div class="cart"><a href=""><i class='bx bxs-cart'></i></a></div>
-                    </div>
-                    <div class="col-lg-1 col-md-4 col-sm-12" >
-                        <div class="dropdown">
-                            <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
-                                <div class="dropdown-content">
-                                    <a href="">Đăng xuất</a>
-                                </div>
-                        </div>
+                <div class="col-lg-2 col-md-4 col-sm-12" >
+                    <div class="logo">
+                        <h3><a href="{{ route('client.index') }}">CoffeeShop</a></h3>
                     </div>
                 </div>
+                <div class="col-lg-8 col-md-8 col-sm-12" >
+                    <div class="category">
+                        <a href="#">Cà Phê</a>
+                        <a href="#">Trà</a>
+                        <a href="{{ route('all.index') }}">Menu</a>
+                        <a href="#">Chuyện nhà</a>
+                        <a href="#">Cửa hàng</a>
+                        <a href="#">Tuyển dụng</a>
+                    </div>
+                </div>
+                <div class="col-lg-1 col-md-4 col-sm-12" >
+                    <div class="cart"><a href=""><i class='bx bxs-cart'></i></a></div>
+                </div>
+                <div class="col-lg-1 col-md-4 col-sm-12" >
+                    <div class="dropdown">
+                        <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
+                            <div class="dropdown-content">
+                                <a href="">Đăng xuất</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
         </div>
         </div>
         <br>
@@ -65,14 +64,11 @@
                                 </button>
                             </div>
                         </li>
-                        @foreach( $menus as $menu)
+                        @foreach( $categories as $category)
                             <li>
-                                @foreach( $categories as $category )
-                                    @if( $menu -> categories_id = $category -> id)
-                                        <a href="{{ route('Menuitem.item', $menu) }}">{{ $menu -> type_name }}</a>
-                                        @break($menu)
-                                    @endif
-                                @endforeach
+                                <button class="dropbtn">
+                                    <a href="{{ route('Menuitem.item', $category) }}">{{ $category -> categories_name }}</a>
+                                </button>
                             </li>
                         @endforeach
                     </ul>
