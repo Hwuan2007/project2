@@ -35,6 +35,7 @@
                             <a href="#">Chuyện nhà</a>
                             <a href="#">Cửa hàng</a>
                             <a href="#">Tuyển dụng</a>
+                            <a href="{{ route('cart.save') }}">Cart</a>
                         </div>
                     </div>
                     <div class="col-lg-1 col-md-4 col-sm-12" >
@@ -66,17 +67,12 @@
                         </li>
                         @foreach( $menus as $menu)
                             <li>
-                                <div class="dropdown">
-                                    <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> {{ $menu -> category -> categories_name }} </button>
-                                    <div class="dropdown-content">
-                                        @foreach( $categories as $category )
-                                            @if( $menu -> categories_id = $category -> id)
-                                                <a href="{{ route('Menuitem.item', $menu) }}">{{ $menu -> type_name }}</a>
-                                                @break($menu)
-                                            @endif
-                                        @endforeach
-                                    </div>
-                                </div>
+                                @foreach( $categories as $category )
+                                    @if( $menu -> categories_id = $category -> id)
+                                        <a href="{{ route('Menuitem.item', $menu) }}">{{ $menu -> type_name }}</a>
+                                        @break($menu)
+                                    @endif
+                                @endforeach
                             </li>
                         @endforeach
                     </ul>

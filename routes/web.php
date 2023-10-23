@@ -29,13 +29,6 @@ use App\Http\Controllers\CustomerController;
 //});
 Route::prefix('admin') ->group(function (){
     Route::get('/', [DashboardController::class, 'index']) -> name('dashboard.index');
-    // type of drink
-    Route::get('/menu', [MenuController::class, 'index']) -> name('menu.index');
-    Route::get('/menu/create', [MenuController::class, 'create']) -> name('menu.create');
-    Route::post('/menu/create', [MenuController::class, 'store']) -> name('menu.store');
-    Route::get('/menu/{menu}/edit', [MenuController::class, 'edit']) -> name('menu.edit');
-    Route::put('/menu/{menu}/edit', [MenuController::class, 'update']) -> name('menu.update');
-    Route::delete('/menu/{menu}', [MenuController::class, 'destroy']) -> name('menu.destroy');
     // category
     Route::get('/category', [CategoryController::class, 'index']) -> name('category.index');
     Route::get('/category/create', [CategoryController::class, 'create']) -> name('category.create');
@@ -72,7 +65,8 @@ Route::prefix('client') ->group(function (){
     // Drink Detail
     Route::get('/drink_detail/drinkDetail/{drink}', [DrinkDetailController::class, 'drinkDetail']) -> name('drink_detail.drinkDetail');
     //cart
-    Route::get('/drink_detail/cart/{drink}', [CartController::class, 'index']) -> name('cart.index');
+    Route::post('/drink_detail/cart', [DrinkDetailController::class, 'saveDrink']) -> name('cart.saveDrink');
+    Route::post('/drink_detail/cart', [DrinkDetailController::class, 'addToCart']) -> name('cart.addToCart');
 });
 Route::get('/login', [CustomerController::class, 'login']) -> name('customer.login');
 Route::post('/login', [CustomerController::class, 'loginProcess']) -> name('customer.loginProcess');

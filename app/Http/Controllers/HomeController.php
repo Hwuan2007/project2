@@ -17,10 +17,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $menus = Menu::all();
         $drinks = Drink::all();
         return view('client/home/index', [
-            'menus' => $menus,
             'drinks' => $drinks
         ]);
     }

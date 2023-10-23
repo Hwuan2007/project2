@@ -11,24 +11,19 @@ class DrinkMenuController extends Controller
     public function index()
     {
         $drinks = Drink::with('menu') -> get();
-        $menus = Menu::with('category') -> get();
         $categories = Category::all();
         return view('client/menu/all', [
             'drinks' => $drinks,
-            'menus' => $menus,
             'categories' => $categories
         ]);
     }
-    public function item(Menu $menu)
+    public function item()
     {
         $drinks = Drink::with('menu') -> get();
-        $menus = Menu::with('category') -> get();
         $categories = Category::all();
         return view('client/menu/Menuitem', [
             'drinks' => $drinks,
-            'menus' => $menus,
             'categories' => $categories,
-            'menu' => $menu
         ]);
     }
 

@@ -170,17 +170,15 @@
                                                                     <br>
                                                                     <div class="form-group">
                                                                         <label>Danh mục</label>
-                                                                        <select name="type_id" class="form-control">
-                                                                            @foreach( $menus as $menu )
-                                                                                <optgroup label="{{ $menu -> category -> categories_name }}">
-                                                                                    <option value="{{ $menu -> id}}"
-                                                                                        @if( $drink -> type_id == $menu -> id)
-                                                                                            {{ 'selected' }}
-                                                                                        @endif
-                                                                                    >
-                                                                                        {{ $menu -> type_name }}
-                                                                                    </option>
-                                                                                </optgroup>
+                                                                        <select name="categories_id" class="form-control">
+                                                                            @foreach( $categories as $category )
+                                                                                <option value="{{ $category -> id}}"
+                                                                                    @if( $drink -> categories_id == $category -> id)
+                                                                                        {{ 'selected' }}
+                                                                                    @endif
+                                                                                >
+                                                                                    {{ $category -> categories_name }}
+                                                                                </option>
                                                                             @endforeach
                                                                         </select>
                                                                     </div>

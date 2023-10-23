@@ -14,12 +14,9 @@ class DrinkDetail extends Migration
     public function up()
     {
         Schema::create('drink_detail', function (Blueprint $table) {
-            $table->double('drk_price');
-            $table->string('drk_description');
             $table->foreignId('size_id')->constrained('size');
             $table->foreignId('topping_id')->constrained('topping');
             $table->foreignId('drk_id')->constrained('drink');
-
         });
     }
 

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Drink;
 use App\Http\Requests\StoreDrinkRequest;
 use App\Http\Requests\UpdateDrinkRequest;
-use App\Models\Menu;
 use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Redirect;
@@ -20,7 +20,7 @@ class DrinkController extends Controller
      */
     public function index()
     {
-        $drinks = Drink::with('menu') -> get();
+        $drinks = Drink::with('category') -> get();
         return view('admin/drink/index', [
             'drinks' => $drinks
         ]);
@@ -33,9 +33,9 @@ class DrinkController extends Controller
      */
     public function create()
     {
-        $menus = Menu::all();
+        $categories = Category::all();
         return view('admin/drink/add-drink/create', [
-            'menus' => $menus
+            'categories' => $categories
         ]);
     }
 
@@ -55,9 +55,10 @@ class DrinkController extends Controller
         $array = Arr::add($array, 'drk_name', $request -> drk_name);
         $array = Arr::add($array, 'drk_img', $drk_img);
         $array = Arr::add($array, 'drk_price', $request -> drk_price);
-        $array = Arr::add($array, 'type_id', $request -> type_id);
+        $array = Arr::add($array, 'categories_id', $request -> categories_id);
         $array = Arr::add($array, 'drk_description', $request -> drk_description);
         Drink::create($array);
+
         return Redirect::route('drink.index');
     }
 
@@ -80,10 +81,10 @@ class DrinkController extends Controller
      */
     public function edit(Drink $drink)
     {
-        $menus = Menu::all();
+        $categories = Category::all();
         return view('admin/drink/edit-drink/edit', [
             'drink' => $drink,
-            'menus' => $menus
+            'categories' => $categories
         ]);
     }
 
@@ -107,7 +108,7 @@ class DrinkController extends Controller
         $array = Arr::add($array, 'drk_name', $request -> drk_name);
         $array = Arr::add($array, 'drk_img', $drk_img);
         $array = Arr::add($array, 'drk_price', $request -> drk_price);
-        $array = Arr::add($array, 'type_id', $request -> type_id);
+        $array = Arr::add($array, 'categories_id', $request -> categories_id);
         $array = Arr::add($array, 'drk_description', $request -> drk_description);
         $drink -> update($array);
         return Redirect::route('drink.index');

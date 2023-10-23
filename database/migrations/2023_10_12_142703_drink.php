@@ -19,7 +19,7 @@ class Drink extends Migration
             $table->string('drk_description');
             $table->string('drk_img');
             $table->string('drk_price');
-            $table->foreignId('type_id')->constrained('type_of_drink');
+            $table->foreignId('categories_id') -> constrained('category');
         });
     }
 

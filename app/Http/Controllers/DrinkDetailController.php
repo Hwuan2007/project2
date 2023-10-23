@@ -10,14 +10,12 @@ use App\Http\Requests\UpdateDrinkDetailRequest;
 use App\Models\Menu;
 use App\Models\Size;
 use App\Models\topping;
+use Illuminate\Support\Facades\Redirect;
 
 class DrinkDetailController extends Controller
 {
     public function drinkDetail(Drink $drink)
     {
-        $obj = new Drink();
-        $obj -> id = $drink -> id;
-        $obj -> getTopping();
         $toppings = topping::all();
         $sizes = Size::all();
         return view('client/drink_detail/drinkDetail', [
@@ -25,5 +23,18 @@ class DrinkDetailController extends Controller
             'toppings' => $toppings,
             'sizes' => $sizes,
         ]);
+    }
+    public function saveDrink(StoreDrinkDetailRequest $request): \Illuminate\Http\RedirectResponse
+    {
+        $toppings = $request->input('topping');
+        $sizes = $request ->input('size');
+        foreach($toppings as $topping){
+            DrinkDetail::create($topping,$sizes);
+        }
+        return Redirect::route('cart.save');
+    }
+    public function addToCart()
+    {
+        return view('client/cart/save');
     }
 }

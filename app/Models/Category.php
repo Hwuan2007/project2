@@ -14,7 +14,7 @@ class Category extends Model
     public $timestamps = false;
     protected $fillable = ['categories_name'];
 
-    public function menu(){
-        return $this -> hasMany(Menu::class);
+    public function drink(){
+        return $this -> hasMany(Drink::class);
     }
 }

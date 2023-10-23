@@ -163,13 +163,11 @@
                                                                     <br>
                                                                     <div class="form-group">
                                                                         <label>Danh mục</label>
-                                                                        <select name="type_id" class="form-control" required>
-                                                                            @foreach( $menus as $menu)
-                                                                                <optgroup name="categories_id" label="{{ $menu -> category -> categories_name }}">
-                                                                                    <option value="{{ $menu -> id}}">
-                                                                                        {{ $menu -> type_name }}
-                                                                                    </option>
-                                                                                </optgroup>
+                                                                        <select name="categories_id" class="form-control" required>
+                                                                            @foreach( $categories as $category)
+                                                                                <option name="categories_id" value="{{ $category -> id}}">
+                                                                                    {{ $category -> categories_name }}
+                                                                                </option>
                                                                             @endforeach
                                                                         </select>
                                                                     </div>

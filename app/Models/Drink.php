@@ -12,19 +12,15 @@ class Drink extends Model
     protected $table = 'drink';
     protected $primaryKey = 'id';
     public $timestamps = false;
-    protected $fillable = ['drk_name', 'drk_img', 'drk_description','drk_price', 'type_id'];
-
-    public function menu()
+    protected $fillable = ['drk_name', 'drk_img', 'drk_description','drk_price', 'categories_id'];
+    public function drinkDetail()
     {
-        return $this -> belongsTo(Menu::class, 'type_id');
+        return $this -> hasMany(DrinkDetail::class);
+    }
+    public function category()
+    {
+        return $this -> belongsTo(Category::class);
     }
 
-    public function getTopping() {
-        return DB::table('drink')
-    ->join('drink_detail', 'drink.id', '=', 'drink_detail.drk_id')
-    ->join('topping', 'drink_detail.topping_id', '=', 'topping.id')
-    ->select('topping.*')
-    ->where('drink.id', '=', $this -> id)
-    ->get();
-    }
+
 }
