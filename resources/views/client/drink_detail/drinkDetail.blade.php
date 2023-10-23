@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drink Detail</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/drink_detai.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/drink_detaill.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
@@ -110,23 +110,28 @@
                                 <div class="drink-cost"><b> {{ $drink -> drk_price }} đ </b></div>
                                 <br>
                                 <div class="pick-size"> Chọn size (bắt buộc) </div><br>
-                                <!-- <div class="pick-size-button">
-                                    @foreach( $sizes as $size )
-                                        <button name="size_id" type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> {{ $size -> size_name }}</i></button>
-                                    @endforeach
-                                </div> -->
                                 <div class="pick-size-button">
+                                @foreach( $sizes as $size )
+                                <button name="size_id" type="button" class="color-change-pick-size-button" onclick="changeColor(this)">
+                                    <i class='bx bx-coffee-togo'> {{ $size->size_name }}</i>
+                                </button>
+                                @endforeach
+                                </div>
+                                <!-- <div class="pick-size-button">
                                     @foreach( $sizes as $size )
                                         <input type="checkbox" name="size_id" id="color1" value="">
                                         <label for="color1" class="color-change-pick-size-button"><i class='bx bx-coffee-togo'> {{ $size -> size_name }}</i> </label>
                                     @endforeach
-                                    </div>
+                                </div> -->
                                 <br>
                                 <div class="pick-topping">Topping</div><br>
                                     <div class="pick-topping-button">
-                                    @foreach( $toppings as $topping )
-                                        <input type="toppingcheckbox" name="topping_id" id="color1" value="{{ $topping -> topping_id }}">
-                                        <label for="color1" class="color-change-pick-topping-button">{{ $topping -> topping_name }} + 10.000 đ</label>
+                                    @foreach( $toppings as $index => $topping )
+                                    @php
+                                        $checkboxId = "color" . $index;
+                                    @endphp
+                                        <input type="checkbox" name="topping_id" id="{{ $checkboxId }}" value="{{ $topping -> topping_id }}">
+                                        <label for="{{ $checkboxId }}" class="color-change-pick-topping-button">{{ $topping -> topping_name }} + 10.000 đ</label>
                                     @endforeach
                                     </div>
                                 <br>

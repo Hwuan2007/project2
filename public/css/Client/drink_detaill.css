@@ -125,7 +125,7 @@ h3 a{
     margin-left: 20px;
 }
 
-/* .pick-size-button a{
+.pick-size-button a{
     text-decoration: none;
     color: black
 }
@@ -148,8 +148,8 @@ h3 a{
     background-color: #ea8025; 
     color: white;
     border-color: #ea8025;
-} */
-
+}
+/* 
 .color-change-pick-size-button{
     border: 1px solid #c8c8c8;
     border-radius: 5px;
@@ -165,12 +165,11 @@ h3 a{
     display: none;
   }
 .pick-size-button input[type="checkbox"]:checked + label {
-    background-color:  #ea8025; /* Màu nền khi được chọn */
-    color: #fff; /* Màu văn bản khi được chọn */
+    background-color:  #ea8025; 
+    color: #fff; 
     border-color: #ea8025;
     border-radius: 5px;
-    
-  }
+} */
 
 .color-change-pick-topping-button{
     border: 1px solid #c8c8c8;
