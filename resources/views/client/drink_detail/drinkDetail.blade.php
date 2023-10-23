@@ -26,10 +26,10 @@
             <div class="row">
                     <div class="col-lg-2 col-md-4 col-sm-12" >
                         <div class="logo">
-                        <h3><a href="">CoffeeShop</a></h3>
+                            <h3><a href="">CoffeeShop</a></h3>
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-8 col-sm-12" >
+                    <div class="col-lg-8 col-md-8 col-sm-12" >
                         <div class="category">
                             <a href="#">Cà Phê</a>
                             <a href="#">Trà</a>
@@ -40,6 +40,9 @@
                         </div>
                     </div>
                     <div class="col-lg-1 col-md-4 col-sm-12" >
+                        <div class="cart"><a href=""><i class='bx bxs-cart'></i></a></div>
+                    </div>
+                    <div class="col-lg-1 col-md-4 col-sm-12" >
                         <div class="dropdown">
                             <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
                                 <div class="dropdown-content">
@@ -48,7 +51,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </header>
 

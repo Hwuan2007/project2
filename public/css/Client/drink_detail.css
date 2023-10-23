@@ -18,6 +18,12 @@ h3 a{
    text-decoration: none;
    color: orange;
 }
+.cart a{
+    float: right;
+    color: black;
+    font-size: 35px;
+    text-decoration: none;
+}
 .dropbtn {
     background-color: rgba(230, 237, 244, 0.984);
     color: black;

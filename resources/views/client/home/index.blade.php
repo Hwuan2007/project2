@@ -26,7 +26,7 @@
                             <h3><a href="">CoffeeShop</a></h3>
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-8 col-sm-12" >
+                    <div class="col-lg-8 col-md-8 col-sm-12" >
                         <div class="category">
                             <a href="#">Cà Phê</a>
                             <a href="#">Trà</a>
@@ -35,6 +35,9 @@
                             <a href="#">Cửa hàng</a>
                             <a href="#">Tuyển dụng</a>
                         </div>
+                    </div>
+                    <div class="col-lg-1 col-md-4 col-sm-12" >
+                        <div class="cart"><a href=""><i class='bx bxs-cart'></i></a></div>
                     </div>
                     <div class="col-lg-1 col-md-4 col-sm-12" >
                         <div class="dropdown">
