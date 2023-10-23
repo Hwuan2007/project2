@@ -21,15 +21,10 @@ class Drink extends Model
 
     public function getTopping() {
         return DB::table('drink')
-    ->join('drink_detail', 'drink.id', '=', 'drink_detail.drink_id')
+    ->join('drink_detail', 'drink.id', '=', 'drink_detail.drk_id')
     ->join('topping', 'drink_detail.topping_id', '=', 'topping.id')
     ->select('topping.*')
-    ->where('drink.id', '=', $this->id)
+    ->where('drink.id', '=', $this -> id)
     ->get();
     }
 }
-
-// bang drink: id ,...
-// bang drdt: id, ...
-// bang topping: id, ...
-// join bang drink ...select ra cac cot trong bang topping where id cua bang drink bang id can tim

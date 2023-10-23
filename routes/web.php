@@ -12,6 +12,7 @@ use App\Http\Controllers\DrinkDetailController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DrinkMenuController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,11 +68,11 @@ Route::prefix('client') ->group(function (){
     Route::get('/', [HomeController::class, 'index']) -> name('client.index');
     // Menu
     Route::get('/all', [DrinkMenuController::class, 'index']) -> name('all.index');
-    Route::get('/CoffeeHighLight', [DrinkMenuController::class, 'index']) -> name('CoffeeHighLight.index');
+    Route::get('/Menuitem/{menu}', [DrinkMenuController::class, 'item']) -> name('Menuitem.item');
     // Drink Detail
     Route::get('/drink_detail/drinkDetail/{drink}', [DrinkDetailController::class, 'drinkDetail']) -> name('drink_detail.drinkDetail');
     //cart
-    Route::get('/drink_detail/{drink}/cart', [CartController::class, 'index']) -> name('cart.index');
+    Route::get('/drink_detail/cart/{drink}', [CartController::class, 'index']) -> name('cart.index');
 });
-Route::get('/login', [\App\Http\Controllers\CustomerController::class, 'login']) -> name('customer.login');
-Route::post('/login', [\App\Http\Controllers\CustomerController::class, 'loginProcess']) -> name('customer.loginProcess');
+Route::get('/login', [CustomerController::class, 'login']) -> name('customer.login');
+Route::post('/login', [CustomerController::class, 'loginProcess']) -> name('customer.loginProcess');

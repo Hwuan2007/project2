@@ -171,8 +171,8 @@
                                                                         Mật khẩu:
                                                                         <input
                                                                             type="text"
-                                                                            id="staff_pasword"
-                                                                            name="staff_pasword"
+                                                                            id="staff_password"
+                                                                            name="staff_password"
                                                                             placeholder="Nhập Mật Khẩu"
                                                                             class="form-control"
                                                                         />

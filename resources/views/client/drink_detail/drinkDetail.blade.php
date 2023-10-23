@@ -63,7 +63,6 @@
     <div class="container">
         <div class=" drink-info">
             <div class="row">
-                <form action="{{ route('cart.index', $drink) }}" method="post">
                     @csrf
                     <div class="col-lg-6 col-md-4 col-sm-12" >
                         <div class="drink-img">
@@ -109,45 +108,33 @@
                     <div class="col-lg-6 col-md-4 col-sm-12" >
                         <div>
                             <div class="drink-order">
-
                                     <div class="drink-name-detail"><b> {{ $drink -> drk_name }} </b></div>
                                     <div class="drink-cost"><b> {{ $drink -> drk_price }} đ </b></div>
                                     <br>
                                     <div class="pick-size"> Chọn size (bắt buộc) </div><br>
                                     <div class="pick-size-button">
-                                        <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Nhỏ + 0 đ </i></button>
-                                        <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Vừa + 10.000 đ </i></button>
-                                        <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> Lớn + 16.000 đ </i></button>
+                                        @foreach( $sizes as $size )
+                                            <button type="button" class="color-change-pick-size-button" onclick="changeColor(this)"><i class='bx bx-coffee-togo'> {{ $size -> size_name }}</i></button>
+                                        @endforeach
                                     </div>
                                     <br>
                                     <div class="pick-topping">Topping</div><br>
-                                    <div class="pick-topping-button">
-                                        <input type="checkbox" name="color" id="color1">
-                                        <label for="color1" class="color-change-pick-topping-button">Kem Phô Mai Macchiato + 10.000 đ</label>
-
-                                        <input type="checkbox" name="color" id="color2">
-                                        <label for="color2" class="color-change-pick-topping-button">Hot Espresso  + 10.000 đ</label>
-
-                                        <input type="checkbox" name="color" id="color3">
-                                        <label for="color3" class="color-change-pick-topping-button">Trân Châu Trắng  + 10.000 đ</label>
-
-                                        <input type="checkbox" name="color" id="color4">
-                                        <label for="color4" class="color-change-pick-topping-button">Sốt Caramel + 10.000 đ</label>
-
-                                        <input type="checkbox" name="color" id="color5">
-                                        <label for="color5" class="color-change-pick-topping-button">Thạch Caffe  + 10.000 đ</label>
-                                    </div>
+                                    @foreach( $toppings as $topping )
+                                        <div class="pick-topping-button">
+                                                <input type="checkbox" name="color" id="color1">
+                                                <label for="color1" class="color-change-pick-topping-button">{{ $topping -> topping_name }} + 10.000 đ</label>
+                                        </div>
+                                    @endforeach
                                     <br>
                                     <br>
                                     <div class="order">
-                                        <a href="">
+                                        <a href="{{ route('cart.index', $drink) }}">
                                             <button type="button" id="btn-order"><i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> </button>
                                         </a>
                                     </div>
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
         </div>
     </div>
