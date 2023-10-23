@@ -43,15 +43,6 @@
                                     </a>
                                 </li>
                                 <li>
-
-                                    <a href="{{ route('menu.index') }}">
-                                        <p>
-                                            <i class="bx bxs-food-menu"></i>
-                                            Menu
-                                        </p>
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="{{ route('category.index') }}">
                                         <p>
                                             <i class="bx bx-menu-alt-left"></i>

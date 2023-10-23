@@ -47,15 +47,6 @@
                                         </p>
                                     </a>
                                 </li>
-
-                                <li>
-                                    <a href="{{ route('menu.index') }}">
-                                        <p>
-                                            <i class="bx bxs-food-menu"></i>
-                                            Menu
-                                        </p>
-                                    </a>
-                                </li>
                                 <li class="active">
 
                                     <a href="{{ route('category.index') }}">
