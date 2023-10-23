@@ -49,7 +49,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
         <br>
     <div class="container">
@@ -64,21 +63,26 @@
                                 </button>
                             </div>
                         </li>
-                        @foreach( $menus as $menu)
-                            <li>
-                                <div class="dropdown">
-                                    <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> {{ $menu -> category -> categories_name }} </button>
-                                    <div class="dropdown-content">
-                                        @foreach( $categories as $category )
-                                            @if( $menu -> categories_id = $category -> id)
-                                                <a href="{{ route('Menuitem.item', $menu) }}">{{ $menu -> type_name }}</a>
-                                                @break($menu)
-                                            @endif
-                                        @endforeach
-                                    </div>
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> Cà phê</button>
+                                <div class="dropdown-content">
+                                    <a href="{{ route('all.index') }}"></a>
                                 </div>
-                            </li>
-                        @endforeach
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropbtn"><i class='bx bxs-coffee-bean'></i> Trà</button>
+                                <div class="dropdown-content">
+                                    @foreach( $categories as $category )
+                                        @if( $menu -> categories_id == $category -> id )
+                                            <a href="{{ route('all.index') }}">{{ $menu -> type_name }}</a>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -86,18 +90,16 @@
                 <div class="drink">
                     <div class="row">
                         @foreach( $drinks as $drink )
-                            @if( $drink -> type_id = $menu -> id)
-                                <div class="col-lg-4 col-md-8 col-sm-12" >
-                                    <div class="card" >
-                                        <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
-                                             alt="Card image">
-                                        <div class="card-body">
-                                            <a href="" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
-                                            <p class="cost">{{ $drink -> drk_price }} đ</p>
-                                        </div>
+                            <div class="col-lg-4 col-md-8 col-sm-12" >
+                                <div class="card" >
+                                    <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <a href="{{ route('drink_detail.index' , $drink) }}" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
+                                        <p class="cost">{{ $drink -> drk_price }} đ</p>
                                     </div>
                                 </div>
-                            @endif
+                            </div>
                         @endforeach
                     </div>
                 </div>
