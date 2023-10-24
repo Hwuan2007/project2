@@ -36,7 +36,7 @@ h3 a{
     position: relative;
     display: inline-block;
   }
-  
+
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
     display: none;
@@ -46,7 +46,7 @@ h3 a{
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 10;
   }
-  
+
   /* Links inside the dropdown */
   .dropdown-content a {
     color: black;
@@ -54,29 +54,29 @@ h3 a{
     text-decoration: none;
     display: block;
   }
-  
+
   /* Change color of dropdown links on hover */
   .dropdown-content a:hover {background-color: #f1f1f1}
-  
+
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {
     display: block;
   }
-  
+
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {
     background-color: rgba(230, 237, 244, 0.984);
   }
 .navbar{
-    
+
     background-color: rgba(230, 237, 244, 0.984);
     margin-bottom: 30px;
 }
 .navbar>.container{
-    display: initial !important; /* hoặc display: unset; */ 
+    display: initial !important; /* hoặc display: unset; */
 }
 .logo{
-    display: flex; 
+    display: flex;
     justify-content: center; /* căn giữa theo chiều ngang */
     align-items: center;
     height: 100%
@@ -132,7 +132,7 @@ h3 a{
 
 .pick-size-button i{
     text-decoration: none;
-    
+
 }
 .color-change-pick-size-button {
     border-radius: 5px;
@@ -145,7 +145,7 @@ h3 a{
     color: rgb(150, 150, 150);
 }
 .active{
-    background-color: #ea8025; 
+    background-color: #ea8025;
     color: white;
     border-color: #ea8025;
 } */
@@ -169,7 +169,7 @@ h3 a{
     color: #fff; /* Màu văn bản khi được chọn */
     border-color: #ea8025;
     border-radius: 5px;
-    
+
   }
 
 .color-change-pick-topping-button{
@@ -191,12 +191,12 @@ h3 a{
     color: #fff; /* Màu văn bản khi được chọn */
     border-color: #ea8025;
     border-radius: 5px;
-    
+
   }
 #btn-order{
     width: 100%;
     height: 40px;
-    background-color: #ea8025; 
+    background-color: #ea8025;
     color: white;
     border-color: #ea8025;
     border-radius: 5px;
@@ -232,7 +232,7 @@ h3 a{
     padding: 20px 0px;
     border-radius: 15px;
     position: relative;
-    
+
 }
 .card img{
     display: flex;
@@ -250,7 +250,7 @@ h3 a{
 
     text-decoration: none;
    color: rgb(0, 0, 0);
-    text-align: center; /* Căn giữa các dòng */ 
+    text-align: center; /* Căn giữa các dòng */
     font-size: 18px;
 }
 
@@ -271,7 +271,7 @@ footer{
 }
 .footercat{
     margin-bottom: 20px;
-    
+
 }
 .footercat b {
     font-size: 20px;

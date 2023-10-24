@@ -39,8 +39,8 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>Nhập tài khoản của bạn</span>
-                <input type="email" placeholder="Email" name="customer_email"/>
-                <input type="password" placeholder="Password" name="customer_password"/>
+                <input type="email" placeholder="Email" name="email"/>
+                <input type="password" placeholder="Password" name="password"/>
                 <a href="#">Quên mật khẩu?</a>
                 <button>Đăng Nhập</button>
             </form>

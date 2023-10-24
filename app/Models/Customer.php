@@ -13,5 +13,5 @@ class Customer extends Model implements \Illuminate\Contracts\Auth\Authenticatab
     protected $primaryKey = 'id';
     public $timestamps = false;
     use Authenticatable;
-    protected $fillable = ['customer_email','customer_password','customer_username', 'customer_phonenumber', 'customer_address','role_id'];
+    protected $fillable = ['email','password','customer_username', 'customer_phonenumber', 'customer_address','role_id'];
 }

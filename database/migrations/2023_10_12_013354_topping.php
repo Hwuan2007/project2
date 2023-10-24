@@ -26,6 +26,6 @@ class Topping extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('topping');
     }
 }

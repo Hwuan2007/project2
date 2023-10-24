@@ -12,4 +12,7 @@ class Size extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = ['size_name'];
+    public function drinkDetail(){
+        return $this -> hasMany(DrinkDetail::class);
+    }
 }

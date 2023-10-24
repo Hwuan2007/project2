@@ -12,4 +12,7 @@ class topping extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = ['topping_name'];
+    public function drinkDetail(){
+        return $this -> hasMany(DrinkDetail::class);
+    }
 }
