@@ -13,7 +13,9 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
     protected $primaryKey = 'id';
     public $timestamps = false;
     use Authenticatable;
+
     protected $fillable = ['email','password','username', 'staff_phonenumber', 'staff_address','role_id'];
+
 
     public function role(){
         return $this -> belongsTo(Role::class);

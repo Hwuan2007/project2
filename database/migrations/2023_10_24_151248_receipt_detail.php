@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DrinkDetail extends Migration
+class ReceiptDetail extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class DrinkDetail extends Migration
      */
     public function up()
     {
-        Schema::create('drink_detail', function (Blueprint $table) {
-            $table->foreignId('size_id')->constrained('size');
-            $table->foreignId('topping_id')->constrained('topping');
-            $table->foreignId('drk_id')->constrained('drink');
+        Schema::create('receipt_detail', function (Blueprint $table) {
+            $table->id();
+            $table->string('receipt_price');
+            $table->string('receipt_note');
+            $table->integer('receipt_amount');
         });
     }
 
@@ -27,6 +28,6 @@ class DrinkDetail extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('drink_detail');
+        Schema::dropIfExists('receipt_detail');
     }
 }

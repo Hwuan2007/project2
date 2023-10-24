@@ -16,6 +16,7 @@ class Size extends Migration
         Schema::create('size', function (Blueprint $table) {
             $table->id();
             $table->string('size_name');
+            $table->string('size_price');
         });
     }
 
