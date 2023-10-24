@@ -15,7 +15,7 @@ class DrinkDetail extends Migration
     {
         Schema::create('drink_detail', function (Blueprint $table) {
             $table->foreignId('size_id')->constrained('size');
-            $table->foreignId('topping_id')->constrained('topping');
+            $table->string('topping');
             $table->foreignId('drk_id')->constrained('drink');
         });
     }

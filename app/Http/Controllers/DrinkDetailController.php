@@ -9,26 +9,27 @@ use App\Http\Requests\StoreDrinkDetailRequest;
 use App\Models\Size;
 use App\Models\topping;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class DrinkDetailController extends Controller
 {
     public function drinkDetail(Drink $drink)
     {
-        $toppings = DrinkDetail::with('topping') -> get();
-        $sizes = DrinkDetail::with('size') -> get();
+        $sizes = Size::all();
         return view('client/drink_detail/drinkDetail', [
             'drink' => $drink,
-            'toppings' => $toppings,
             'sizes' => $sizes,
         ]);
     }
-    public function store(Request $request): \Illuminate\Http\RedirectResponse
+    public function store(Request $request, Drink $drink): \Illuminate\Http\RedirectResponse
     {
-        $data = new DrinkDetail();
-        $data -> topping = $request -> topping_id;
-//        $data -> topping = implode(',', $checkbox_data);
-
+        $array = [];
+        $array = Arr::add($array, 'size_id', $request -> size_id);
+        $array = Arr::add($array, 'topping', join(",", $request -> topping));
+        $array = Arr::add($array, 'drk_id', $request -> drink -> id);
+        DrinkDetail::create($array);
         return Redirect::route('cart.addToCart');
     }
     public function addToCart()

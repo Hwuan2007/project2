@@ -11,25 +11,21 @@ class DrinkDetail extends Model
     use HasFactory;
     protected $table = 'drink_detail';
     public $timestamps = false;
-    protected $fillable = ['size_id','topping_id', 'drk_id'];
+    protected $fillable = ['size_id','topping', 'drk_id'];
 
     public function drink(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this -> belongsTo(Drink::class,  'drk_id');
     }
-    public function topping(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this -> belongsTo(topping::class, 'topping_id');
-    }
     public function size(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this -> belongsTo(Size::class, 'size_id');
     }
-    public function getTopping() {
+    public function getSize() {
         return DB::table('drink')
             ->join('drink_detail', 'drink.id', '=', 'drink_detail.drk_id')
-            ->join('topping', 'drink_detail.topping_id', '=', 'topping.id')
-            ->select('topping.*')
+            ->join('size', 'drink_detail.size_id', '=', 'size.id')
+            ->select('drink.*', 'size.size_name', 'drink_detail.topping')
             ->where('drink.id', '=', $this -> id)
             ->get();
     }

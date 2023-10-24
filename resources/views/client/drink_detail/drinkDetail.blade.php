@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drink Detail</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/drink_detai.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/drink_detail.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
@@ -104,8 +104,9 @@
                 </div>
                 <div class="col-lg-6 col-md-4 col-sm-12" >
                     <div>
-                        <form action="{{ route('cart.addToCart') }}" method="post">
+                        <form action="{{ route('cart.store', $drink) }}" method="post">
                             @csrf
+                            @method('PUT')
                             <div class="drink-order">
                                 <div class="drink-name-detail"><b> {{ $drink -> drk_name }} </b></div>
                                 <div class="drink-cost"><b> {{ $drink -> drk_price }} đ </b></div>
@@ -113,17 +114,23 @@
                                 <div class="pick-size"> Chọn size (bắt buộc) </div><br>
                                 <div class="pick-size-button">
                                     @foreach( $sizes as $size )
-                                        <input type="checkbox" name="size[]" id="color{{ $size -> id }}" value="{{ $size -> id }}">
-                                        <label for="color{{ $size -> id }}" class="color-change-pick-size-button"><i class='bx bx-coffee-togo'> {{ $size -> size_name }}</i> </label>
+                                        <input type="radio" name="size_id" id="color{{ $size -> id }}" value="{{ $size -> id }}">
+                                        <label for="color{{ $size -> id }}" class="color-change-pick-size-button active"><i class='bx bx-coffee-togo'> {{ $size -> size_name }}</i> </label>
                                     @endforeach
                                 </div>
                                 <br>
                                 <div class="pick-topping">Topping</div><br>
                                 <div class="pick-topping-button">
-                                    @foreach( $toppings as $topping )
-                                        <input type="checkbox" name="topping[]" id="topping{{ $topping -> id }}" value="{{ $topping -> id }}">
-                                        <label for="topping{{ $topping -> id }}" class="color-change-pick-topping-button">{{ $topping -> topping_name }} + 10.000 đ</label>
-                                    @endforeach
+                                    <input type="checkbox" name="topping[]" id="topping" value="Kem Phô Mai Macchiato">
+                                    <label for="topping" class="color-change-pick-topping-button"> Kem Phô Mai Macchiato + 10.000 đ</label>
+                                    <input type="checkbox" name="topping[]" id="topping1" value="Shot Espresso">
+                                    <label for="topping1" class="color-change-pick-topping-button"> Shot Espresso+ 10.000 đ</label>
+                                    <input type="checkbox" name="topping[]" id="topping2" value="Trân Trâu Trắng">
+                                    <label for="topping2" class="color-change-pick-topping-button"> Trân Trâu Trắng + 10.000 đ</label>
+                                    <input type="checkbox" name="topping[]" id="topping3" value="Sốt Caramel">
+                                    <label for="topping3" class="color-change-pick-topping-button"> Sốt Caramel + 10.000 đ</label>
+                                    <input type="checkbox" name="topping[]" id="topping4" value="Thạch Cà Phê">
+                                    <label for="topping4" class="color-change-pick-topping-button"> Thạch Cà Phê+ 10.000 đ</label>
                                 </div>
                                 <br>
                                 <br>

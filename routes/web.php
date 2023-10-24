@@ -62,7 +62,7 @@ Route::middleware('checkLoginCustomer') -> prefix('client') ->group(function (){
     // Drink Detail
     Route::get('/drink_detail/{drink}', [DrinkDetailController::class, 'drinkDetail']) -> name('drink_detail.drinkDetail');
     //cart
-    Route::post('/drink_detail/cart', [DrinkDetailController::class, 'store']) -> name('cart.store');
+    Route::put('/drink_detail/cart/{drink}', [DrinkDetailController::class, 'store']) -> name('cart.store');
     Route::get('/drink_detail/cart/addToCart', [DrinkDetailController::class, 'addToCart']) -> name('cart.addToCart');
 });
 // login
