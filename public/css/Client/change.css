@@ -23,7 +23,11 @@ h3 a{
     color: black;
     font-size: 35px;
     text-decoration: none;
-}
+    transition: .5s;
+  }
+  .cart a:hover{
+    color: #ea8025;
+  }
 .dropbtn {
     background-color: rgba(230, 237, 244, 0.984);
     color: black;
@@ -85,13 +89,17 @@ h3 a{
     display: flex;
     gap: 20px; /* Điều chỉnh khoảng cách giữa các mục */
 }
-
 .category a {
     text-decoration: none;
     color: rgb(0, 0, 0);
     text-align: center;
     font-size: 18px;
     padding: 10px 30px; /* Thay đổi giá trị nếu cần */
+    transition: .5s;
+}
+.category a:hover{
+  color: #ea8025;
+
 }
 
 .drink-info{

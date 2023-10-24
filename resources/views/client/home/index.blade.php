@@ -90,73 +90,19 @@
                         <img src="https://file.hstatic.net/1000075078/file/banner_app_2_c3dea7cad7cb4fad94f162ea6ccd388b.jpg" alt="bannner " class="d-block w-100">
                     </div>
                 </div>
+                @foreach($drinks as $drink)
                 <div class="col-lg-3 col-md-8 col-sm-12" >
                     <div class="card" >
-                        <a href="#">
-                            <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
+                        <a href="{{ route('drink_detail.drinkDetail', $drink) }}">
+                            <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}" alt="Card image">
                         </a>    
                         <div class="card-body">
-                            <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                            <p class="cost">29.000 đ</p>
+                            <a href="#" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
+                            <p class="cost">{{ $drink -> drk_price }} đ</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-8 col-sm-12" >
-                    <div class="card" >
-                        <a href="#">
-                            <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                        </a>    
-                        <div class="card-body">
-                            <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                            <p class="cost">29.000 đ</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-8 col-sm-12" >
-                    <div class="card" >
-                        <a href="#">
-                            <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                        </a>    
-                        <div class="card-body">
-                            <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                            <p class="cost">29.000 đ</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-8 col-sm-12" >
-                    <div class="card" >
-                        <a href="#">
-                            <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                        </a>    
-                        <div class="card-body">
-                            <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                            <p class="cost">29.000 đ</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-8 col-sm-12" >
-                    <div class="card" >
-                        <a href="#">
-                            <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                        </a>    
-                        <div class="card-body">
-                            <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                            <p class="cost">29.000 đ</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-8 col-sm-12" >
-                    <div class="card" >
-                        <a href="#">
-                            <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                        </a>    
-                        <div class="card-body">
-                            <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                            <p class="cost">29.000 đ</p>
-                        </div>
-                    </div>
-                </div>
-                
+                @endforeach
             </div>
         </div>
     </div>

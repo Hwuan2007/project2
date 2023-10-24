@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/menuu.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
@@ -58,16 +58,20 @@
                 <div class="sidebar_menu">
                     <ul>
                         <li>
-                            <div class="dropdown">
-                                <button class="dropbtn">
-                                    <a href="{{ route('all.index') }}"><i class='bx bxs-coffee-bean'></i> Tất Cả</a>
+                            <div class="menu">
+                                <button class="menu_title">
+                                    <a href="{{ route('all.index') }}">
+                                        <i class='bx bxs-coffee-bean'></i> Tất Cả
+                                    </a>
                                 </button>
                             </div>
                         </li>
                         @foreach( $categories as $category)
                             <li>
-                                <button class="dropbtn">
-                                    <a href="{{ route('Menuitem.item', $category) }}">{{ $category -> categories_name }}</a>
+                                <button class="menu_title">
+                                    <a href="{{ route('Menuitem.item', $category) }}">
+                                        <i class='bx bxs-coffee-bean'></i> {{ $category -> categories_name }}
+                                    </a>
                                 </button>
                             </li>
                         @endforeach
@@ -80,7 +84,7 @@
                         @foreach( $drinks as $drink )
                             <div class="col-lg-4 col-md-8 col-sm-12" >
                                 <div class="card" >
-                                    <a href="">
+                                    <a href="{{ route('drink_detail.drinkDetail' , $drink) }}">
                                         <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
                                          alt="Card image">
                                     </a>

@@ -56,19 +56,23 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-12" >
-                <div class="sidebar_menu">
+            <div class="sidebar_menu">
                     <ul>
                         <li>
-                            <div class="dropdown">
-                                <button class="dropbtn">
-                                    <a href="{{ route('all.index') }}"><i class='bx bxs-coffee-bean'></i> Tất Cả</a>
+                            <div class="menu">
+                                <button class="menu_title">
+                                    <a href="{{ route('all.index') }}">
+                                        <i class='bx bxs-coffee-bean'></i> Tất Cả
+                                    </a>
                                 </button>
                             </div>
                         </li>
                         @foreach( $categories as $category)
                             <li>
-                                <button class="dropbtn">
-                                    <a href="{{ route('Menuitem.item', $category) }}">{{ $category -> categories_name }}</a>
+                                <button class="menu_title">
+                                    <a href="{{ route('Menuitem.item', $category) }}">
+                                        <i class='bx bxs-coffee-bean'></i> {{ $category -> categories_name }}
+                                    </a>
                                 </button>
                             </li>
                         @endforeach

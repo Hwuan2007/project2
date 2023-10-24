@@ -12,6 +12,7 @@ use App\Models\Size;
 use App\Models\topping;
 use Illuminate\Support\Facades\Redirect;
 
+
 class DrinkDetailController extends Controller
 {
     public function drinkDetail(Drink $drink)
@@ -23,23 +24,5 @@ class DrinkDetailController extends Controller
             'toppings' => $toppings,
             'sizes' => $sizes,
         ]);
-    }
-    public function saveDrink()
-    {
-        $toppings = topping::all();
-        $sizes = Size::all();
-        return view('admin/drink/add-drink/create', [
-            'toppings' => $toppings,
-            'sizes' => $sizes
-        ]);
-    }
-    public function addToCart(StoreDrinkDetailRequest $request)
-    {
-        $toppings = $request->input('topping');
-        $sizes = $request ->input('size');
-        foreach($toppings as $topping){
-            DrinkDetail::create($topping,$sizes);
-        }
-        return view('client/cart/save');
     }
 }

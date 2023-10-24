@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
@@ -62,8 +63,8 @@ Route::prefix('client') ->group(function (){
     // Drink Detail
     Route::get('/drink_detail/{drink}', [DrinkDetailController::class, 'drinkDetail']) -> name('drink_detail.drinkDetail');
     //cart
-    Route::get('/drink_detail/cart', [DrinkDetailController::class, 'saveDrink']) -> name('cart.saveDrink');
-    Route::post('/drink_detail/cart', [DrinkDetailController::class, 'addToCart']) -> name('cart.addToCart');
+    Route::get('/drink_detail/cart', [CartController::class, 'index']) -> name('cart.index');
+    Route::put('add-to-cart/{drink}', [CartController::class, 'addToCart']) -> name('cart.addToCart');
 });
 Route::get('/login', [CustomerController::class, 'login']) -> name('customer.login');
 Route::post('/login', [CustomerController::class, 'loginProcess']) -> name('customer.loginProcess');

@@ -11,5 +11,18 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
 
+    public function index() {
+        return view('client/drink_detail/saveDrink');
+    }
+
+    public function addToCart(StoreDrinkDetailRequest $request, DrinkDetail $drink_detail)
+    {
+        $toppings = $request->input('topping');
+        $sizes = $request ->input('size');
+        // foreach($toppings as $topping){
+        //     DrinkDetail::create($topping,$sizes);
+        // }
+        redirect()->route('cart.index');
+    }
 
 }

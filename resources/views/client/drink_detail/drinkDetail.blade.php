@@ -54,8 +54,7 @@
 
     <div class="container">
         <div class="previous">
-            <a href="{{ route('all.index') }}"> Menu </a> / <a href="#"> Cà Phê </a> / Cà Phê Sữa Đá
-        </div>
+            <a href="{{ route('all.index') }}"> Menu </a> / <a href="#"> Cà Phê </a> / {{ $drink -> drk_name }}
     </div>
 
     <div class="container">
@@ -137,11 +136,13 @@
                                 <br>
                                 <br>
                                 <div class="order">
-                                    <a href="{{ route('cart.addToCart') }}">
-                                        <button type="button" id="btn-order">
+                                    <form method="POST" action="{{ route('cart.addToCart', $drink) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" id="btn-order">
                                             <i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> 
                                         </button>
-                                    </a>
+                                    </form>
                                 </div>
                                 
                             </div>
