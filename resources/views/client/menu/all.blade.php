@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="col-lg-1 col-md-4 col-sm-12" >
-                    <div class="cart"><a href=""><i class='bx bxs-cart'></i></a></div>
+                    <div class="cart"><a href="{{ route('cart.viewCart') }}"><i class='bx bxs-cart'></i></a></div>
                 </div>
                 <div class="col-lg-1 col-md-4 col-sm-12" >
                     <div class="dropdown">

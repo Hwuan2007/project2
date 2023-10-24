@@ -114,7 +114,7 @@
                                 <div class="pick-size"> Chọn size (bắt buộc) </div><br>
                                 <div class="pick-size-button">
                                     @foreach( $sizes as $size )
-                                        <input type="radio" name="size_id" id="color{{ $size -> id }}" value="{{ $size -> id }}">
+                                        <input type="radio" name="size_id" id="color{{ $size -> id }}" value="{{ $size -> name }}">
                                         <label for="color{{ $size -> id }}" class="color-change-pick-size-button active"><i class='bx bx-coffee-togo'> {{ $size -> size_name }}</i> </label>
                                     @endforeach
                                 </div>

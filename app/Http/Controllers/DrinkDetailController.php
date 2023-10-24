@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class DrinkDetailController extends Controller
 {
@@ -25,15 +26,31 @@ class DrinkDetailController extends Controller
     }
     public function store(Request $request, Drink $drink): \Illuminate\Http\RedirectResponse
     {
-        $array = [];
-        $array = Arr::add($array, 'size_id', $request -> size_id);
-        $array = Arr::add($array, 'topping', join(",", $request -> topping));
-        $array = Arr::add($array, 'drk_id', $request -> drink -> id);
-        DrinkDetail::create($array);
-        return Redirect::route('cart.addToCart');
-    }
-    public function addToCart()
-    {
-        return view('client/cart/addToCart');
+
+        if (Session::exists('cart')){
+            $cart = Session::get('cart');
+            if (isset($cart[$drink->id])){
+                $cart[$drink->id]['quantity']++;
+            } else {
+                $cart = Arr::add($cart, $drink -> id, [
+                    'drk_name' => $drink -> drk_name,
+                    'drk_price' => $drink -> drk_price,
+                    'size_id' => $request -> size_id,
+                    'topping' => join(",", $request -> topping),
+                    'quantity' => 1
+                ]);
+            }
+        } else{
+            $cart = array();
+            $cart = Arr::add($cart, $drink -> id, [
+                'drk_name' => $drink -> drk_name,
+                'drk_price' => $drink -> drk_price,
+                'size_id' => $request -> size_id,
+                'topping' => join(", ", $request -> topping),
+                'quantity' => 1
+            ]);
+        }
+        Session::put(['cart' => $cart]);
+        return Redirect::route('cart.viewCart');
     }
 }

@@ -62,8 +62,9 @@ Route::middleware('checkLoginCustomer') -> prefix('client') ->group(function (){
     // Drink Detail
     Route::get('/drink_detail/{drink}', [DrinkDetailController::class, 'drinkDetail']) -> name('drink_detail.drinkDetail');
     //cart
-    Route::put('/drink_detail/cart/{drink}', [DrinkDetailController::class, 'store']) -> name('cart.store');
-    Route::get('/drink_detail/cart/addToCart', [DrinkDetailController::class, 'addToCart']) -> name('cart.addToCart');
+    Route::put('/drink_detail/{drink}', [DrinkDetailController::class, 'store']) -> name('cart.store');
+    Route::get('/drink_detail/cart/viewCart', [\App\Http\Controllers\CartController::class, 'viewCart']) -> name('cart.viewCart');
+    Route::get('/drink_detail/cart/deleteCart/{id}', [\App\Http\Controllers\CartController::class, 'deleteCart']) -> name('cart.deleteCart');
 });
 // login
 Route::get('/login-customer', [CustomerController::class, 'login']) -> name('customer.login');
