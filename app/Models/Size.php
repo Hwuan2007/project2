@@ -11,7 +11,7 @@ class Size extends Model
     protected $table = 'size';
     protected $primaryKey = 'id';
     public $timestamps = false;
-    protected $fillable = ['size_name'];
+    protected $fillable = ['size_name', 'size_price'];
     public function drinkDetail(){
         return $this -> hasMany(DrinkDetail::class);
     }

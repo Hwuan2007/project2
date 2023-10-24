@@ -115,8 +115,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="drinkincart">
-                                                                    <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
-                                                                        @foreach(\Illuminate\Support\Facades\Session::get('cart') as $drk_id => $drink)
+                                                                    @foreach(\Illuminate\Support\Facades\Session::get('cart') as $drk_id => $drink)
+                                                                        <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
                                                                             <div class="tch-order-card__left d-flex">
                                                                                 <span class="tch-order-card__icon d-flex align-items-center">
                                                                                     <a href="" id="edit"><i aria-hidden="true" class="fa fa-pen"></i></a>
@@ -124,7 +124,7 @@
                                                                                 <div class="tch-order-card__content">
                                                                                     <h5 class="tch-order-card__title mb-0"> {{ $drink['quantity'] }} x {{ $drink['drk_name'] }}</h5>
                                                                                     <p class="tch-order-card__description mb-0"> {{ $drink['size_id'] }}</p>
-                                                                                    <p data-v-68143206="" class="tch-order-card__description mb-0">{{ $drink['topping'] }}</p>
+                                                                                    <p data-v-68143206="" class="tch-order-card__description mb-0">{{ $drink['topping_id'] }}</p>
                                                                                     <!---->
                                                                                     <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
                                                                                 </div>
@@ -132,8 +132,8 @@
                                                                             <div class="tch-order-card__right">
                                                                                 <p class="tch-order-card__price mb-0">{{ $drink['drk_price'] }}</p>
                                                                             </div>
-                                                                        @endforeach
-                                                                    </div>
+                                                                        </div>
+                                                                    @endforeach
                                                                 </div>
                                                             </div>
                                                             <br>
