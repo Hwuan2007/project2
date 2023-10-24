@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drink Detail</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/drink_detaill.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/drink_detail.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
@@ -60,70 +60,66 @@
     <div class="container">
         <div class=" drink-info">
             <div class="row">
-                    @csrf
-                    <div class="col-lg-6 col-md-4 col-sm-12" >
-                        <div class="drink-img">
-                            <div class="carousel">
-                                <!-- Carousel -->
-                                <div id="demo" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-indicators">
-                                        <!-- <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button> -->
-                                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1" class="active"></button>
-                                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2" class="active"></button>
+                <div class="col-lg-6 col-md-4 col-sm-12" >
+                    <div class="drink-img">
+                        <div class="carousel">
+                            <!-- Carousel -->
+                            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <!-- <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button> -->
+                                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1" class="active"></button>
+                                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2" class="active"></button>
+                                </div>
+
+                                <div class="carousel">
+                                    <div class="carousel-item active">
+                                      <img src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}" alt="Image 1" class="d-block w-100">
                                     </div>
-
-                                    <div class="carousel">
-                                        <div class="carousel-item active">
-                                          <img src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}" alt="Image 1" class="d-block w-100">
-                                        </div>
-                                        <div class="carousel-item">
-                                          <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png" alt="slide-2" class="d-block w-100">
-                                        </div>
+                                    <div class="carousel-item">
+                                      <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png" alt="slide-2" class="d-block w-100">
                                     </div>
+                                </div>
 
 
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="container">
-                            <div id="thumbCarousel">
-                                <div data-target="#productCarousel" data-slide-to="0" class="thumb active">
-                                    <img src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}">
-                                </div>
-                                <div data-target="#productCarousel" data-slide-to="1" class="thumb">
-                                    <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png">
-                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon"></span>
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-4 col-sm-12" >
-                        <div>
+                     <div class="container">
+                        <div id="thumbCarousel">
+                            <div data-target="#productCarousel" data-slide-to="0" class="thumb active">
+                                <img src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}">
+                            </div>
+                            <div data-target="#productCarousel" data-slide-to="1" class="thumb">
+                                <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-4 col-sm-12" >
+                    <div>
+                        <form action="{{ route('cart.store', $drink) }}" method="post">
+                            @csrf
+                            @method('PUT')
                             <div class="drink-order">
                                 <div class="drink-name-detail"><b> {{ $drink -> drk_name }} </b></div>
                                 <div class="drink-cost"><b> {{ $drink -> drk_price }} đ </b></div>
                                 <br>
                                 <div class="pick-size"> Chọn size (bắt buộc) </div><br>
                                 <div class="pick-size-button">
-                                @foreach( $sizes as $size )
-                                <button name="size_id" type="button" class="color-change-pick-size-button" onclick="changeColor(this)">
-                                    <i class='bx bx-coffee-togo'> {{ $size->size_name }}</i>
-                                </button>
-                                @endforeach
-                                </div>
-                                <!-- <div class="pick-size-button">
                                     @foreach( $sizes as $size )
-                                        <input type="checkbox" name="size_id" id="color1" value="">
-                                        <label for="color1" class="color-change-pick-size-button"><i class='bx bx-coffee-togo'> {{ $size -> size_name }}</i> </label>
+                                        <input type="radio" name="size_id" id="color{{ $size -> id }}" value="{{ $size -> name }}">
+                                        <label for="color{{ $size -> id }}" class="color-change-pick-size-button active"><i class='bx bx-coffee-togo'> {{ $size -> size_name }}</i> </label>
                                     @endforeach
-                                </div> -->
+                                </div>
                                 <br>
                                 <div class="pick-topping">Topping</div><br>
+<!-- <<<<<<< HEAD
                                     <div class="pick-topping-button">
                                     @foreach( $toppings as $index => $topping )
                                     @php
@@ -143,11 +139,27 @@
                                             <i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> 
                                         </button>
                                     </form>
+======= -->
+                                <div class="pick-topping-button">
+                                    <input type="checkbox" name="topping[]" id="topping" value="Kem Phô Mai Macchiato">
+                                    <label for="topping" class="color-change-pick-topping-button"> Kem Phô Mai Macchiato + 10.000 đ</label>
+                                    <input type="checkbox" name="topping[]" id="topping1" value="Shot Espresso">
+                                    <label for="topping1" class="color-change-pick-topping-button"> Shot Espresso+ 10.000 đ</label>
+                                    <input type="checkbox" name="topping[]" id="topping2" value="Trân Trâu Trắng">
+                                    <label for="topping2" class="color-change-pick-topping-button"> Trân Trâu Trắng + 10.000 đ</label>
+                                    <input type="checkbox" name="topping[]" id="topping3" value="Sốt Caramel">
+                                    <label for="topping3" class="color-change-pick-topping-button"> Sốt Caramel + 10.000 đ</label>
+                                    <input type="checkbox" name="topping[]" id="topping4" value="Thạch Cà Phê">
+                                    <label for="topping4" class="color-change-pick-topping-button"> Thạch Cà Phê+ 10.000 đ</label>
+<!-- >>>>>>> ef9ef73ed0cb837b5d58855497eb8900e0f2f814 -->
                                 </div>
-                                
+                                <br>
+                                <br>
+                                <button id="btn-order" class="save-btn"><i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
+                </div>
             </div>
         </div>
     </div>

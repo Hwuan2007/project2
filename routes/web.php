@@ -55,7 +55,7 @@ Route::prefix('admin') ->group(function (){
     Route::get('/order/{order}/edit', [OrderController::class, 'edit']) -> name('order.edit');
     Route::put('/order/{order}/edit', [OrderController::class, 'update']) -> name('order.update');
 });
-Route::prefix('client') ->group(function (){
+Route::middleware('checkLoginCustomer') -> prefix('client') ->group(function (){
     Route::get('/', [HomeController::class, 'index']) -> name('client.index');
     // Menu
     Route::get('/all', [DrinkMenuController::class, 'index']) -> name('all.index');
@@ -63,8 +63,15 @@ Route::prefix('client') ->group(function (){
     // Drink Detail
     Route::get('/drink_detail/{drink}', [DrinkDetailController::class, 'drinkDetail']) -> name('drink_detail.drinkDetail');
     //cart
-    Route::get('/drink_detail/cart', [CartController::class, 'index']) -> name('cart.index');
-    Route::put('add-to-cart/{drink}', [CartController::class, 'addToCart']) -> name('cart.addToCart');
+// <<<<<<< HEAD
+//     Route::get('/drink_detail/cart', [CartController::class, 'index']) -> name('cart.index');
+//     Route::put('add-to-cart/{drink}', [CartController::class, 'addToCart']) -> name('cart.addToCart');
+// =======
+    Route::put('/drink_detail/{drink}', [DrinkDetailController::class, 'store']) -> name('cart.store');
+    Route::get('/drink_detail/cart/viewCart', [\App\Http\Controllers\CartController::class, 'viewCart']) -> name('cart.viewCart');
+    Route::get('/drink_detail/cart/deleteCart/{id}', [\App\Http\Controllers\CartController::class, 'deleteCart']) -> name('cart.deleteCart');
+// >>>>>>> ef9ef73ed0cb837b5d58855497eb8900e0f2f814
 });
-Route::get('/login', [CustomerController::class, 'login']) -> name('customer.login');
-Route::post('/login', [CustomerController::class, 'loginProcess']) -> name('customer.loginProcess');
+// login
+Route::get('/login-customer', [CustomerController::class, 'login']) -> name('customer.login');
+Route::post('/login-customer', [CustomerController::class, 'loginProcess']) -> name('customer.loginProcess');

@@ -63,41 +63,37 @@
                     </span>
                 </h2>
             </div>
-                <div class="receipt">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-4 col-sm-12" >
-                            <div class="receipt-form">
-                                <div class="title">
-                                    <a href="" class="no-reload">Giao Hàng</a>
+            <div class="receipt">
+                <div class="row">
+                    <div class="col-lg-6 col-md-4 col-sm-12" >
+                        <div class="receipt-form">
+                            <div class="title">
+                                <a href="" class="no-reload">Giao Hàng</a>
+                            </div>
+                            <br>
+                            <br>
+                                <div>
+                                    <input type="text" id="adress" name="adress" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;"/>
                                 </div>
                                 <br>
+                                <div>
+                                    <input type="text" id="name" name="name" placeholder="Nhập tên người nhận" class="form-control" style="width: 450px;"/>
+                                </div>
                                 <br>
-                                <form method="post" action="">
-                                    <div>
-                                        <input type="text" id="adress" name="adress" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;"/>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <input type="text" id="name" name="name" placeholder="Nhập tên người nhận" class="form-control" style="width: 450px;"/>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <input type="text" id="phonenumber" name="phonenumber" placeholder="Nhập số điện thoại" class="form-control" style="width: 450px;"/>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <input type="text" id="note" name="note" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;"/>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <input type="checkbox" name="checkbox" id="checkbox">
-                                        <label for="checkbox" class="checkbox"> Đồng ý với các điều khoản và điều kiện mua hàng của The Coffee House</label>
-                                    </div>
-                                </form>
-                            </div>
+                                <div>
+                                    <input type="text" id="phonenumber" name="phonenumber" placeholder="Nhập số điện thoại" class="form-control" style="width: 450px;"/>
+                                </div>
+                                <br>
+                                <div>
+                                    <input type="text" id="note" name="note" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;"/>
+                                </div>
+                                <br>
+                                <div>
+                                    <input type="checkbox" name="checkbox" id="checkbox">
+                                    <label for="checkbox" class="checkbox"> Đồng ý với các điều khoản và điều kiện mua hàng của The Coffee House</label>
+                                </div>
                         </div>
                     </div>
-
                     <div class="col-lg-6 col-md-4 col-sm-12" >
                         <div class="receipt-main">
                             <div class="content">
@@ -105,7 +101,6 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="card">
-
                                                 <div
                                                     class="content table-responsive table-full-width"
                                                 >
@@ -121,21 +116,23 @@
                                                                 </div>
                                                                 <div class="drinkincart">
                                                                     <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
-                                                                        <div class="tch-order-card__left d-flex">
-                                                                            <span class="tch-order-card__icon d-flex align-items-center">
-                                                                                <a href="" id="edit"><i aria-hidden="true" class="fa fa-pen"></i></a>
-                                                                            </span>
-                                                                            <div class="tch-order-card__content">
-                                                                                <h5 class="tch-order-card__title mb-0"> 1 x Trà Sữa Oolong BLao</h5>
-                                                                                <p class="tch-order-card__description mb-0"> Lớn</p>
-                                                                                <p data-v-68143206="" class="tch-order-card__description mb-0">Kem Phô Mai Macchiato</p>
-                                                                                <!---->
-                                                                                <p class="tch-order-delete-item"><a href="" id="delete">Xóa</a></p>
+                                                                        @foreach(\Illuminate\Support\Facades\Session::get('cart') as $drk_id => $drink)
+                                                                            <div class="tch-order-card__left d-flex">
+                                                                                <span class="tch-order-card__icon d-flex align-items-center">
+                                                                                    <a href="" id="edit"><i aria-hidden="true" class="fa fa-pen"></i></a>
+                                                                                </span>
+                                                                                <div class="tch-order-card__content">
+                                                                                    <h5 class="tch-order-card__title mb-0"> {{ $drink['quantity'] }} x {{ $drink['drk_name'] }}</h5>
+                                                                                    <p class="tch-order-card__description mb-0"> {{ $drink['size_id'] }}</p>
+                                                                                    <p data-v-68143206="" class="tch-order-card__description mb-0">{{ $drink['topping'] }}</p>
+                                                                                    <!---->
+                                                                                    <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="tch-order-card__right">
-                                                                            <p class="tch-order-card__price mb-0">49.000đ</p>
-                                                                        </div>
+                                                                            <div class="tch-order-card__right">
+                                                                                <p class="tch-order-card__price mb-0">{{ $drink['drk_price'] }}</p>
+                                                                            </div>
+                                                                        @endforeach
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -201,14 +198,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
     <br>
-
-
     <footer>
         <div class="footer">
             <div class="container">
