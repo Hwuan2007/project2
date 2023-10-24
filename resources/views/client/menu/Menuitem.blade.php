@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/menuu.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
@@ -45,7 +45,7 @@
                     <div class="dropdown">
                         <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
                             <div class="dropdown-content">
-                                <a href="">Đăng xuất</a>
+                                <a href="{{route('login.logout')}}">Đăng xuất</a>
                             </div>
                     </div>
                 </div>

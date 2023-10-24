@@ -43,7 +43,7 @@
                         <div class="dropdown">
                             <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
                                 <div class="dropdown-content">
-                                    <a href="">Đăng xuất</a>
+                                    <a href="{{route('login.logout')}}">Đăng xuất</a>
                                 </div>
                         </div>
                     </div>
@@ -119,27 +119,7 @@
                                 </div>
                                 <br>
                                 <div class="pick-topping">Topping</div><br>
-<!-- <<<<<<< HEAD
-                                    <div class="pick-topping-button">
-                                    @foreach( $toppings as $index => $topping )
-                                    @php
-                                        $checkboxId = "color" . $index;
-                                    @endphp
-                                        <input type="checkbox" name="topping_id" id="{{ $checkboxId }}" value="{{ $topping -> topping_id }}">
-                                        <label for="{{ $checkboxId }}" class="color-change-pick-topping-button">{{ $topping -> topping_name }} + 10.000 đ</label>
-                                    @endforeach
-                                    </div>
-                                <br>
-                                <br>
-                                <div class="order">
-                                    <form method="POST" action="{{ route('cart.addToCart', $drink) }}">
-                                        @csrf
-                                        @method('PUT')
-                                        <button type="submit" id="btn-order">
-                                            <i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> 
-                                        </button>
-                                    </form>
-======= -->
+
                                 <div class="pick-topping-button">
                                     <input type="checkbox" name="topping[]" id="topping" value="Kem Phô Mai Macchiato">
                                     <label for="topping" class="color-change-pick-topping-button"> Kem Phô Mai Macchiato + 10.000 đ</label>
@@ -151,11 +131,12 @@
                                     <label for="topping3" class="color-change-pick-topping-button"> Sốt Caramel + 10.000 đ</label>
                                     <input type="checkbox" name="topping[]" id="topping4" value="Thạch Cà Phê">
                                     <label for="topping4" class="color-change-pick-topping-button"> Thạch Cà Phê+ 10.000 đ</label>
-<!-- >>>>>>> ef9ef73ed0cb837b5d58855497eb8900e0f2f814 -->
+
                                 </div>
                                 <br>
                                 <br>
                                 <button id="btn-order" class="save-btn"><i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> </button>
+                            </div>
                             </div>
                         </form>
                     </div>

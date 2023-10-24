@@ -93,6 +93,7 @@ class CustomerController extends Controller
     public function loginProcess(Request $request): \Illuminate\Http\RedirectResponse
     {
         $account = $request -> only(['email', 'password']);
+        dd($account);
         Auth::guard('customers') -> attempt($account);
         if (Auth::guard('customers') -> attempt($account)){
             $customers = Auth::guard('customers') ->user();

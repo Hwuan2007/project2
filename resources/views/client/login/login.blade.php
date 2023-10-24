@@ -31,7 +31,7 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="{{ route('customer.loginProcess') }}" method="post">
+            <form action="{{route('login.checkLogin')}}" method="post">
                 @csrf
                 <h1>Đăng Nhập</h1>
                 <div class="social-container">

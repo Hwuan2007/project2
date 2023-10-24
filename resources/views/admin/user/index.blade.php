@@ -111,7 +111,7 @@
                                                 ><div class="dropdown">
                                                     <button class="dropbtn"><i class="bx bxs-user-circle"></i></button>
                                                     <div class="dropdown-content">
-                                                        <a href="">Đăng xuất</a>
+                                                        <a href="{{route('login.logout')}}">Đăng xuất</a>
                                                     </div>
                                                 </div>
                                             </a>
@@ -163,10 +163,10 @@
                                                                     {{ $user -> id}}
                                                                 </td>
                                                                 <td>
-                                                                    {{ $user -> staff_username}}
+                                                                    {{ $user -> username}}
                                                                 </td>
                                                                 <td>
-                                                                    {{ $user -> staff_email}}
+                                                                    {{ $user -> email}}
                                                                 </td>
                                                                 <td>
                                                                     {{ $user -> role -> role_name}}

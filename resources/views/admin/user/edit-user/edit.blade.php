@@ -123,7 +123,7 @@
                                                 ><div class="dropdown">
                                                     <button class="dropbtn"><i class="bx bxs-user-circle"></i></button>
                                                     <div class="dropdown-content">
-                                                        <a href="">Đăng xuất</a>
+                                                        <a href="{{route('login.logout')}}">Đăng xuất</a>
                                                     </div>
                                                 </div>
                                             </a>
@@ -161,10 +161,10 @@
                                                                         <input
                                                                             type="text"
                                                                             id="user-email"
-                                                                            name="staff_email"
+                                                                            name="email"
                                                                             placeholder="Nhập Email"
                                                                             class="form-control"
-                                                                            value="{{ $user -> staff_username }}"
+                                                                            value="{{ $user -> username }}"
                                                                         />
                                                                     </div>
                                                                     <br />
@@ -173,10 +173,10 @@
                                                                         <input
                                                                             type="text"
                                                                             id="user-password"
-                                                                            name="staff_pasword"
+                                                                            name="password"
                                                                             placeholder="Nhập Mật Khẩu"
                                                                             class="form-control"
-                                                                            value="{{ $user -> staff_pasword }}"
+                                                                            value="{{ $user -> password }}"
                                                                         />
                                                                     </div>
                                                                     <br />
@@ -203,10 +203,10 @@
                                                                         <input
                                                                             type="text"
                                                                             id="user-name"
-                                                                            name="staff_username"
+                                                                            name="username"
                                                                             placeholder="Nhập Họ và Tên"
                                                                             class="form-control"
-                                                                            value="{{ $user -> staff_username }}"
+                                                                            value="{{ $user -> username }}"
                                                                         />
                                                                     </div>
                                                                     <br />

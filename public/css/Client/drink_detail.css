@@ -170,10 +170,10 @@ h3 a{
     cursor: pointer;
     color: rgb(150, 150, 150);
 }
-.pick-size-button input[type="checkbox"] {
+.pick-size-button input[type="radio"] {
     display: none;
   }
-.pick-size-button input[type="checkbox"]:checked + label {
+.pick-size-button input[type="radio"]:checked + label {
     background-color:  #ea8025; /* Màu nền khi được chọn */
     color: #fff; /* Màu văn bản khi được chọn */
     border-color: #ea8025;

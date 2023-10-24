@@ -31,6 +31,8 @@
                                 CoffeeShop <br>
                                 Management
                             </h4>
+                            <!-- <a href="{{route('login.login')}}">login</a>
+                            <a href="{{route('login.logout')}}">logout</a> -->
                         </div>
                         <hr />
                         <div>
@@ -116,7 +118,7 @@
                                                 ><div class="dropdown">
                                                     <button class="dropbtn"><i class="bx bxs-user-circle"></i></button>
                                                     <div class="dropdown-content">
-                                                        <a href="">Đăng xuất</a>
+                                                        <a href="{{route('login.logout')}}">Đăng xuất</a>
                                                     </div>
                                                 </div>
                                             </a>

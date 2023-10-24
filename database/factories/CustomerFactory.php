@@ -15,12 +15,12 @@ class CustomerFactory extends Factory
     public function definition()
     {
         return [
-            'customer_username' => $this -> faker -> name,
-            'email' => $this -> faker -> email,
-            'password' => bcrypt('123456'),
-            'customer_address' => $this -> faker -> address,
-            'customer_phonenumber' => $this -> faker -> e164PhoneNumber(),
-            'role_id' => $this -> faker -> randomElement(DB::table('role') -> pluck('id')),
+            // 'customer_username' => $this -> faker -> name,
+            // 'email' => $this -> faker -> email,
+            // 'password' => bcrypt('123456'),
+            // 'customer_address' => $this -> faker -> address,
+            // 'customer_phonenumber' => $this -> faker -> e164PhoneNumber(),
+            // 'role_id' => $this -> faker -> randomElement(DB::table('role') -> pluck('id')),
         ];
     }
 }

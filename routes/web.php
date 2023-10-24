@@ -11,6 +11,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DrinkDetailController;
 use App\Http\Controllers\DrinkMenuController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,7 +57,7 @@ Route::prefix('admin') ->group(function (){
     Route::get('/order/{order}/edit', [OrderController::class, 'edit']) -> name('order.edit');
     Route::put('/order/{order}/edit', [OrderController::class, 'update']) -> name('order.update');
 });
-Route::middleware('checkLoginCustomer') -> prefix('client') ->group(function (){
+Route::prefix('client') ->group(function (){
     Route::get('/', [HomeController::class, 'index']) -> name('client.index');
     // Menu
     Route::get('/all', [DrinkMenuController::class, 'index']) -> name('all.index');
@@ -73,5 +75,7 @@ Route::middleware('checkLoginCustomer') -> prefix('client') ->group(function (){
 // >>>>>>> ef9ef73ed0cb837b5d58855497eb8900e0f2f814
 });
 // login
-Route::get('/login-customer', [CustomerController::class, 'login']) -> name('customer.login');
-Route::post('/login-customer', [CustomerController::class, 'loginProcess']) -> name('customer.loginProcess');
+Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login.login');
+Route::post('/checkLogin', [\App\Http\Controllers\LoginController::class, 'checkLogin'])->name('login.checkLogin');
+Route::get('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('login.logout');
+

@@ -115,7 +115,7 @@
                                                 ><div class="dropdown">
                                                     <button class="dropbtn"><i class="bx bxs-user-circle"></i></button>
                                                     <div class="dropdown-content">
-                                                        <a href="">Đăng xuất</a>
+                                                        <a href="{{route('login.logout')}}">Đăng xuất</a>
                                                     </div>
                                                 </div>
                                             </a>
@@ -152,7 +152,7 @@
                                                                         <input
                                                                             type="text"
                                                                             id="user-email"
-                                                                            name="staff_email"
+                                                                            name="email"
                                                                             placeholder="Nhập Email"
                                                                             class="form-control"
                                                                         />
@@ -162,8 +162,8 @@
                                                                         Mật khẩu:
                                                                         <input
                                                                             type="text"
-                                                                            id="staff_password"
-                                                                            name="staff_password"
+                                                                            id="password"
+                                                                            name="password"
                                                                             placeholder="Nhập Mật Khẩu"
                                                                             class="form-control"
                                                                         />
@@ -193,7 +193,7 @@
                                                                         <input
                                                                             type="text"
                                                                             id="user-name"
-                                                                            name="staff_username"
+                                                                            name="username"
                                                                             placeholder="Nhập Họ và Tên"
                                                                             class="form-control"
                                                                             required
