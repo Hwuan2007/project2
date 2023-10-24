@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <div class="container" id="container">
+    <div class="container" id="container" style="height: 70%;">
         <div class="form-container sign-up-container">
             <form action="#">
                 <h1>Tạo Tài Khoản</h1>
@@ -24,8 +24,9 @@
                 <input type="text" placeholder="Name" />
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Password" />
-                <input type="phonenumber" placeholder="phonenumber" />
-                <input type="address" placeholder="address" />
+                <input type="repassword" placeholder="Repassword" />
+                <input type="phonenumber" placeholder="Phonenumber" />
+                <input type="address" placeholder="Address" />
                 <button>Đăng Ký</button>
             </form>
         </div>
