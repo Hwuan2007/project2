@@ -21,10 +21,23 @@ class StoreCategoryRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'categories_name' => 'required|max:20',
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'required' => ':attribute đang trống',
+            'max' => ':attribute không được quá :max ký tự',
+        ];
+    }
+    public function attributes(): array
+    {
+        return [
+            'categories_name' => 'Danh mục'
         ];
     }
 }

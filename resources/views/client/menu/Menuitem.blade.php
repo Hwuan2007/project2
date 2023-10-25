@@ -20,42 +20,42 @@
         </div>
         <div class="navbar">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-2 col-md-4 col-sm-12" >
-                        <div class="logo">
-                            <h3><a href="{{ route('client.index') }}">CoffeeShop</a></h3>
-                        </div>
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-12" >
+                    <div class="logo">
+                        <h3><a href="{{ route('client.index') }}">CoffeeShop</a></h3>
                     </div>
-                    <div class="col-lg-8 col-md-8 col-sm-12" >
-                        <div class="category">
-                            <a href="#">Cà Phê</a>
-                            <a href="#">Trà</a>
-                            <a href="{{ route('all.index') }}">Menu</a>
-                            <a href="#">Chuyện nhà</a>
-                            <a href="#">Cửa hàng</a>
-                            <a href="#">Tuyển dụng</a>
-                        </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12" >
+                    <div class="category">
+                        <a href="#">Cà Phê</a>
+                        <a href="#">Trà</a>
+                        <a href="{{ route('all.index') }}">Menu</a>
+                        <a href="#">Chuyện nhà</a>
+                        <a href="#">Cửa hàng</a>
+                        <a href="#">Tuyển dụng</a>
                     </div>
-                    <div class="col-lg-1 col-md-4 col-sm-12" >
-                        <div class="cart"><a href=""><i class='bx bxs-cart'></i></a></div>
-                    </div>
-                    <div class="col-lg-1 col-md-4 col-sm-12" >
-                        <div class="dropdown">
-                            <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
-                                <div class="dropdown-content">
-                                    <a href="{{route('login.logout')}}">Đăng xuất</a>
-                                </div>
-                        </div>
+                </div>
+                <div class="col-lg-1 col-md-4 col-sm-12" >
+                    <div class="cart"><a href=""><i class='bx bxs-cart'></i></a></div>
+                </div>
+                <div class="col-lg-1 col-md-4 col-sm-12" >
+                    <div class="dropdown">
+                        <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
+                            <div class="dropdown-content">
+                                <a href="{{route('login.logout')}}">Đăng xuất</a>
+                            </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </header>
         <br>
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-12" >
-            <div class="sidebar_menu">
+                <div class="sidebar_menu">
                     <ul>
                         <li>
                             <div class="menu">
@@ -84,9 +84,9 @@
                         @foreach( $drinks as $drink )
                             <div class="col-lg-4 col-md-8 col-sm-12" >
                                 <div class="card" >
-                                    <a href="">
+                                    <a href="{{ route('drink_detail.drinkDetail' , $drink) }}">
                                         <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
-                                         alt="Card image">
+                                             alt="Card image">
                                     </a>
                                     <div class="card-body">
                                         <a href="{{ route('drink_detail.drinkDetail' , $drink) }}" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>

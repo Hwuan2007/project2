@@ -104,7 +104,7 @@
                                 >
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
-                        <div
+                                <div
                                     class="collapse navbar-collapse justify-content-end"
                                     id="navbarNav"
                                     style="margin-right: 50px"
@@ -139,8 +139,8 @@
                                                 </div>
                                                 <div class="info-form">
                                                     <div class="container-fluid">
-                                                        <div class="row">
-                                                            <form action="{{ route('drink.store') }}" method="post" enctype="multipart/form-data">
+                                                        <form action="{{ route('drink.store') }}" method="post" enctype="multipart/form-data">
+                                                            <div class="row">
                                                                 @csrf
                                                                 <div class="col-md-6">
                                                                     <div>
@@ -148,18 +148,27 @@
                                                                         <input type="text" id="drink-name" name="drk_name" placeholder="Nhập tên đồ uống"
                                                                         class="form-control">
                                                                     </div>
+                                                                    @if( $errors -> has('drk_name'))
+                                                                        <span style="color: red;">{{ $errors -> first('drk_name') }}</span>
+                                                                    @endif
                                                                     <br>
                                                                     <div class="form-group d-flex flex-column">
                                                                         <label>Ảnh Đồ Uống:</label>
                                                                         <input type='file' id="imgInp" name="drk_img" multiple />
-                                                                    <div id="img-upload-container" class="mt-3"></div>
+                                                                        <div id="img-upload-container" class="mt-3"></div>
                                                                     </div>
+                                                                    @if( $errors -> has('drk_img'))
+                                                                        <span style="color: red;">{{ $errors -> first('drk_img') }}</span>
+                                                                    @endif
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label>Giá:</label>
                                                                         <input value="" name="drk_price" type="text" placeholder="Nhập giá tiền" class="form-control">
                                                                     </div>
+                                                                    @if( $errors -> has('drk_price'))
+                                                                        <span style="color: red;">{{ $errors -> first('drk_price') }}</span>
+                                                                    @endif
                                                                     <br>
                                                                     <div class="form-group">
                                                                         <label>Danh mục</label>
@@ -171,19 +180,25 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
+                                                                    @if( $errors -> has('categories_id'))
+                                                                        <span style="color: red;">{{ $errors -> first('categories_id') }}</span>
+                                                                    @endif
                                                                     <br>
                                                                     <div class="form-group">
                                                                         <label>Mô tả:</label>
                                                                         <textarea name="drk_description" class="form-control" rows="3"></textarea>
                                                                     </div>
+                                                                    @if( $errors -> has('drk_description'))
+                                                                        <span style="color: red;">{{ $errors -> first('drk_description') }}</span>
+                                                                    @endif
                                                                     <br>
                                                                     <div class="btn-chance">
                                                                         <button class="save-btn">Lưu</button>
                                                                         <button class="cancel-btn">Hủy</button>
                                                                     </div>
                                                                 </div>
-                                                            </form>
-                                                        </div>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>

@@ -163,12 +163,14 @@
                                                                             name="categories_name"
                                                                             placeholder="Nhập tên Danh mục"
                                                                             class="form-control"
-                                                                            value="{{ $category -> categories_name }}"
-                                                                            required
+                                                                            value="{{ $category -> categories_name }}"\
                                                                         />
                                                                     </div>
+                                                                    @if( $errors -> has('categories_name'))
+                                                                        <span style="color: red;">{{ $errors -> first('categories_name') }}</span>
+                                                                    @endif
                                                                     <br>
-
+                                                                    <br>
                                                                     <div class="btn-chance">
                                                                         <button class="save-btn">
                                                                             <a href="">Cập Nhật</a>

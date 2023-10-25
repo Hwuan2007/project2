@@ -17,4 +17,7 @@ class Category extends Model
     public function drink(){
         return $this -> hasMany(Drink::class);
     }
+    public function drinkmenu(){
+        return $this -> hasMany(DrinkMenu::class);
+    }
 }

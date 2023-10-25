@@ -149,6 +149,7 @@
                                                             >
                                                                 <form method="post" action="{{ route('category.store') }}">
                                                                     @csrf
+
                                                                     <div>
                                                                         Tên Danh mục:
                                                                         <input
@@ -157,9 +158,12 @@
                                                                             name="categories_name"
                                                                             placeholder="Nhập tên Danh mục"
                                                                             class="form-control"
-                                                                            required
                                                                         />
                                                                     </div>
+                                                                    @if( $errors -> has('categories_name'))
+                                                                        <span style="color: red;">{{ $errors -> first('categories_name') }}</span>
+                                                                    @endif
+                                                                    <br>
                                                                     <br>
                                                                     <div
                                                                         class="btn-chance">
