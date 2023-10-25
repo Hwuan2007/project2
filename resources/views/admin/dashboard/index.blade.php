@@ -159,12 +159,12 @@
                                                 <div class="footer">
                                                     <hr />
                                                     <div class="total">
-                                                        ... Danh mục
+                                                      {{ $categories }} Danh mục
                                                     </div>
                                                 </div>
                                             </div>
                                             </a>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -193,7 +193,7 @@
                                                 <div class="footer">
                                                     <hr />
                                                     <div class="total">
-                                                        ... Loại
+                                                        {{ $drinks }} Loại
                                                     </div>
                                                 </div>
                                             </div>
@@ -226,7 +226,7 @@
                                                 <div class="footer">
                                                     <hr />
                                                     <div class="total">
-                                                        ... Người dùng
+                                                        {{ $users }} Người dùng
                                                     </div>
                                                 </div>
                                             </div>
@@ -264,7 +264,7 @@
                                                 </div>
                                             </div>
                                             </a>
-                                            
+
                                         </div>
                                     </div>
                                 </div>

@@ -28,8 +28,8 @@
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-12" >
                         <div class="category">
-                            <a href="#">Cà Phê</a>
-                            <a href="#">Trà</a>
+                            <a href="{{ route('all.index') }}">Cà Phê</a>
+                            <a href="{{ route('all.index') }}">Trà</a>
                             <a href="{{ route('all.index') }}">Menu</a>
                             <a href="#">Chuyện nhà</a>
                             <a href="#">Cửa hàng</a>
@@ -95,7 +95,7 @@
                     <div class="card" >
                         <a href="{{ route('drink_detail.drinkDetail', $drink) }}">
                             <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}" alt="Card image">
-                        </a>    
+                        </a>
                         <div class="card-body">
                             <a href="#" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
                             <p class="cost">{{ $drink -> drk_price }} đ</p>

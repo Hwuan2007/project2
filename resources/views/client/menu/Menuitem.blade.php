@@ -28,8 +28,8 @@
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12" >
                     <div class="category">
-                        <a href="#">Cà Phê</a>
-                        <a href="#">Trà</a>
+                        <a href="{{ route('all.index') }}">Cà Phê</a>
+                        <a href="{{ route('all.index') }}">Trà</a>
                         <a href="{{ route('all.index') }}">Menu</a>
                         <a href="#">Chuyện nhà</a>
                         <a href="#">Cửa hàng</a>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="col-lg-1 col-md-4 col-sm-12" >
-                    <div class="cart"><a href=""><i class='bx bxs-cart'></i></a></div>
+                    <div class="cart"><a href="{{ route('cart.viewCart') }}"><i class='bx bxs-cart'></i></a></div>
                 </div>
                 <div class="col-lg-1 col-md-4 col-sm-12" >
                     <div class="dropdown">

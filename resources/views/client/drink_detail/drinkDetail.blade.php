@@ -32,8 +32,8 @@
                     </div>
                     <div class="col-lg-9 col-md-8 col-sm-12" >
                         <div class="category">
-                            <a href="#">Cà Phê</a>
-                            <a href="#">Trà</a>
+                            <a href="{{ route('all.index') }}">Cà Phê</a>
+                            <a href="{{ route('all.index') }}">Trà</a>
                             <a href="{{ route('all.index') }}">Menu</a>
                             <a href="#">Chuyện nhà</a>
                             <a href="#">Cửa hàng</a>
@@ -41,11 +41,14 @@
                         </div>
                     </div>
                     <div class="col-lg-1 col-md-4 col-sm-12" >
+                        <div class="cart"><a href="{{ route('cart.viewCart') }}"><i class='bx bxs-cart'></i></a></div>
+                    </div>
+                    <div class="col-lg-1 col-md-4 col-sm-12" >
                         <div class="dropdown">
                             <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
-                                <div class="dropdown-content">
-                                    <a href="">Đăng xuất</a>
-                                </div>
+                            <div class="dropdown-content">
+                                <a href="{{route('login.logout')}}">Đăng xuất</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -53,7 +56,7 @@
         </div>
     <div class="container">
         <div class="previous">
-            <a href="{{ route('all.index') }}"> Menu </a> / <a href="#"> Cà Phê </a> / {{ $drink -> drk_name }}
+            <a href="{{ route('all.index') }}"> Menu </a> / <span> @foreach( $categories as $category ) {{ $category -> categories_name }} @endforeach </span> / {{ $drink -> drk_name }}
         </div>
 
         <div class="container">
@@ -107,11 +110,15 @@
                                 @method('PUT')
                                 <div class="drink-order">
                                     <div class="drink-name-detail"><b> {{ $drink -> drk_name }} </b></div>
+
                                     <div class="drink-cost"><b> {{ $drink -> drk_price }} đ </b></div>
                                     <br>
                                     <div class="pick-size"> Chọn size (bắt buộc) </div><br>
                                     <div class="pick-size-button">
                                         @foreach( $sizes as $size )
+                                            @php $price = $drink -> drk_price @endphp
+                                            @php $sizePrice = $size -> size_price @endphp
+                                            @php $newSizePrice = $price + $sizePrice @endphp
                                             <input type="radio" name="size_id" id="color{{ $size -> id }}" value="{{ $size -> size_name }}">
                                             <label for="color{{ $size -> id }}" class="color-change-pick-size-button active"><i class='bx bx-coffee-togo'> {{ $size -> size_name }} + {{ $size -> size_price }} đ</i> </label>
                                         @endforeach
@@ -147,59 +154,17 @@
             <br>
             <p style="font-size: 18px;"><b>Sản phẩm liên quan</b></p>
             <div class="row">
-                <div class="col-lg-2 col-md-8 col-sm-12" >
-                    <div class="card" >
-                        <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                        <div class="card-body">
-                            <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                            <p class="cost">29.000 đ</p>
+                @foreach( $drinks as $drink_id )
+                    <div class="col-lg-2 col-md-8 col-sm-12" >
+                        <div class="card" >
+                            <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink_id -> drk_img) }}" alt="Card image">
+                            <div class="card-body">
+                                <a href="{{ route('drink_detail.drinkDetail' , $drink) }}" class="drink-name"><b>{{ $drink_id -> drk_name }}</b></a>
+                                <p class="cost">{{ $drink_id -> drk_price }} đ</p>
+                            </div>
                         </div>
-                      </div>
-                </div>
-                <div class="col-lg-2 col-md-8 col-sm-12" >
-                    <div class="card" >
-                        <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                        <div class="card-body">
-                            <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                            <p class="cost">29.000 đ</p>
-                        </div>
-                      </div>
-                </div><div class="col-lg-2 col-md-8 col-sm-12" >
-                    <div class="card" >
-                        <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                        <div class="card-body">
-                            <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                            <p class="cost">29.000 đ</p>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-lg-2 col-md-8 col-sm-12" >
-                    <div class="card" >
-                        <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                        <div class="card-body">
-                            <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                            <p class="cost">29.000 đ</p>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-lg-2 col-md-8 col-sm-12" >
-                    <div class="card" >
-                        <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                        <div class="card-body">
-                            <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                            <p class="cost">29.000 đ</p>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-lg-2 col-md-8 col-sm-12" >
-                    <div class="card" >
-                        <img class="card-img-top" src="https://product.hstatic.net/1000075078/product/1669736835_ca-phe-sua-da_61103101093945f39c1ce09c6efdc62f_large.png" alt="Card image">
-                        <div class="card-body">
-                            <a href="#" class="drink-name"><b>Cà phê sữa đá</b></a>
-                            <p class="cost">29.000 đ</p>
-                        </div>
-                      </div>
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

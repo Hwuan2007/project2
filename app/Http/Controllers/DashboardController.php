@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Drink;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -12,7 +15,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin/dashboard/index');
+        $categories = Category::all() -> count();
+        $drinks = Drink::all() -> count();
+        $users = User::all() -> count();
+        return view('admin/dashboard/index', [
+            'categories' => $categories,
+            'drinks' => $drinks,
+            'users' => $users,
+        ]);
     }
 
     /**

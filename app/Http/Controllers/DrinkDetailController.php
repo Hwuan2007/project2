@@ -21,11 +21,16 @@ class DrinkDetailController extends Controller
     {
         $sizes = Size::all();
         $toppings = topping::all();
+        $drinks = Drink::all() -> where('categories_id', '=', $drink -> categories_id);
+        $categories = Category::all() -> where('id', '=', $drink -> categories_id);
         return view('client/drink_detail/drinkDetail', [
             'drink' => $drink,
+            'drinks' => $drinks,
             'sizes' => $sizes,
-            'toppings' => $toppings
+            'toppings' => $toppings,
+            'categories' => $categories,
         ]);
+
     }
     public function store(Request $request, Drink $drink): \Illuminate\Http\RedirectResponse
     {
@@ -53,6 +58,7 @@ class DrinkDetailController extends Controller
             ]);
         }
         Session::put(['cart' => $cart]);
+        $data = Session::all();
         return Redirect::route('cart.viewCart');
     }
 

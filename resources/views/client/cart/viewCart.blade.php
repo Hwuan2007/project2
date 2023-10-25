@@ -31,8 +31,8 @@
                     </div>
                     <div class="col-lg-9 col-md-8 col-sm-12" >
                         <div class="category">
-                            <a href="#">Cà Phê</a>
-                            <a href="#">Trà</a>
+                            <a href="{{ route('all.index') }}">Cà Phê</a>
+                            <a href="{{ route('all.index') }}">Trà</a>
                             <a href="{{ route('all.index') }}">Menu</a>
                             <a href="#">Chuyện nhà</a>
                             <a href="#">Cửa hàng</a>
@@ -40,11 +40,14 @@
                         </div>
                     </div>
                     <div class="col-lg-1 col-md-4 col-sm-12" >
+                        <div class="cart"><a href="{{ route('cart.viewCart') }}"><i class='bx bxs-cart'></i> {{ count((array) session('cart')) }}</a></div>
+                    </div>
+                    <div class="col-lg-1 col-md-4 col-sm-12" >
                         <div class="dropdown">
                             <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
-                                <div class="dropdown-content">
-                                    <a href="{{route('login.logout')}}">Đăng xuất</a>
-                                </div>
+                            <div class="dropdown-content">
+                                <a href="{{route('login.logout')}}">Đăng xuất</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -101,12 +104,8 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="card">
-                                                <div
-                                                    class="content table-responsive table-full-width"
-                                                >
-                                                    <table
-                                                        class="table "
-                                                    >
+                                                <div class="content table-responsive table-full-width">
+                                                    <table class="table">
                                                         <div>
                                                             <div class="container">
                                                                 <div>
@@ -115,25 +114,28 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="drinkincart">
-                                                                    @foreach(\Illuminate\Support\Facades\Session::get('cart') as $drk_id => $drink)
-                                                                        <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
-                                                                            <div class="tch-order-card__left d-flex">
+                                                                    @if( session('cart') )
+                                                                        @foreach( session('cart') as $drk_id => $drink )
+                                                                            <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
+                                                                                <div class="tch-order-card__left d-flex">
                                                                                 <span class="tch-order-card__icon d-flex align-items-center">
                                                                                     <a href="" id="edit"><i aria-hidden="true" class="fa fa-pen"></i></a>
                                                                                 </span>
-                                                                                <div class="tch-order-card__content">
-                                                                                    <h5 class="tch-order-card__title mb-0"> {{ $drink['quantity'] }} x {{ $drink['drk_name'] }}</h5>
-                                                                                    <p class="tch-order-card__description mb-0"> {{ $drink['size_id'] }}</p>
-                                                                                    <p data-v-68143206="" class="tch-order-card__description mb-0">{{ $drink['topping_id'] }}</p>
-                                                                                    <!---->
-                                                                                    <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
+                                                                                    <div class="tch-order-card__content">
+                                                                                        <h5 class="tch-order-card__title mb-0"> {{ $drink['quantity'] }} x {{ $drink['drk_name'] }}</h5>
+                                                                                        <p class="tch-order-card__description mb-0"> {{ $drink['size_id'] }}</p>
+                                                                                        <p data-v-68143206="" class="tch-order-card__description mb-0">{{ $drink['topping_id'] }}</p>
+                                                                                        <!---->
+                                                                                        <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="tch-order-card__right">
+                                                                                    <p class="tch-order-card__price mb-0">{{ $drink['drk_price'] }}</p>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="tch-order-card__right">
-                                                                                <p class="tch-order-card__price mb-0">{{ $drink['drk_price'] }}</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    @endforeach
+                                                                        @endforeach
+                                                                    @endif
+
                                                                 </div>
                                                             </div>
                                                             <br>
@@ -149,7 +151,11 @@
                                                                         <p  class="tch-order-card__text mb-0">Thành tiền</p>
                                                                     </div>
                                                                     <div class="tch-order-card__right mb-0">
-                                                                        <p  class="tch-order-card__price mb-0">147.000đ</p>
+                                                                        @php $total = 0 @endphp
+                                                                        @foreach((array) session('cart') as $drink => $details)
+                                                                            @php $total += $details['drk_price'] * $details['quantity'] @endphp
+                                                                        @endforeach
+                                                                        <p  class="tch-order-card__price mb-0">{{ $total }} đ</p>
                                                                     </div>
                                                                 </div>
                                                                 <hr>
@@ -158,28 +164,22 @@
                                                                         <p  class="tch-order-card__text mb-0">Phí giao hàng</p>
                                                                     </div>
                                                                     <div class="tch-order-card__right mb-0">
-                                                                        <p  class="tch-order-card__price mb-0">18.000đ</p>
+                                                                        @php $discount = 18000 @endphp
+                                                                        @php $finalTotal = $total @endphp
+                                                                        @php $finalTotal = $total + $discount @endphp
+                                                                        <p  class="tch-order-card__price mb-0">18.000 đ</p>
                                                                     </div>
                                                                 </div>
-                                                                <br>
-                                                                <div class="tch-order-card tch-order-card--border d-flex align-items-center justify-content-between">
-                                                                    <div div class="tch-order-card__left d-flex">
-                                                                        <p  class="tch-order-card__text mb-0">Bạn có mã Freeship trong mục Ưu đãi</p>
-                                                                    </div>
-                                                                    <div class="tch-order-card__right mb-0">
-                                                                        <p  class="tch-order-card__price mb-0" style="text-decoration-line: line-through; color:rgba(150,150,150)">0đ</p>
-                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
                                                     </table>
                                                 </div>
                                                 <div class="footer-receipt" >
                                                     <div class="container">
                                                         <div class="tch-checkout-box tch-checkout-box--list-submited d-flex justify-content-between w-100 position-static">
                                                             <div class="tch-tottal-card__content">
-                                                                <p class="tch-total-card__title mb-0"> thành tiền</p>
-                                                                <p class="tch-total-card__description mb-0"><b>165.000đ</b></p>
+                                                                <p class="tch-total-card__title mb-0"> Thành tiền</p>
+                                                                <p class="tch-total-card__description mb-0"><b>{{ $finalTotal }} đ</b></p>
                                                             </div>
                                                             <div class="tch-total-card__right mb-0">
                                                                 <button  type="button" id="buy">
@@ -255,7 +255,6 @@
         </div>
 
     </footer>
-
     <script src="{{ asset ('js/client/no-reload.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
