@@ -44,8 +44,8 @@
                             <a href="{{ route('cart.viewCart') }}">
                                 <i class='bx bxs-cart'></i>
                                 <span class="badge" style="border-radius: 100%;padding: 1.5px 5px;font-size: 16px; ">
-                                        {{ count((array) session('cart')) }}
-                                    </span>
+                                    {{ count((array) session('cart')) }}
+                                </span>
                             </a>
                         </div>
                     </div>
@@ -69,21 +69,25 @@
                 <h2  class="text-center tch-checkout-title tch-checkout-title-custom mb-0">
                     <span class="icon mr-3"><i aria-hidden="true" class="fa fa-file" style="color: #f3bb45;"></i>
                     </span>
-                    <span class="text"> Xác nhận đơn hàng
+                    <span class="text">
+                        Xác nhận đơn hàng
                     </span>
                 </h2>
             </div>
             <div class="receipt">
-                <div class="row">
-                    <div class="col-lg-6 col-md-4 col-sm-12" >
-                        <div class="receipt-form">
-                            <div class="title">
-                                <a href="" class="no-reload">Giao Hàng</a>
-                            </div>
-                            <br>
-                            <br>
+                <form action="{{ route('cart.storeCart') }}" method="post">
+                    @csrf
+                    @method('PUT')
+                    <div class="row">
+                        <div class="col-lg-6 col-md-4 col-sm-12" >
+                            <div class="receipt-form">
+                                <div class="title">
+                                    <a href="" class="no-reload">Giao Hàng</a>
+                                </div>
+                                <br>
+                                <br>
                                 <div>
-                                    <input type="text" id="adress" name="adress" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;"/>
+                                    <input type="text" id="address" name="address" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;"/>
                                 </div>
                                 <br>
                                 <div>
@@ -102,96 +106,97 @@
                                     <input type="checkbox" name="checkbox" id="checkbox">
                                     <label for="checkbox" class="checkbox"> Đồng ý với các điều khoản và điều kiện mua hàng của The Coffee House</label>
                                 </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-4 col-sm-12" >
-                        <div class="receipt-main">
-                            <div class="content">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="card">
-                                                <div class="content table-responsive table-full-width">
-                                                    <table class="table">
-                                                        <div>
-                                                            <div class="container">
-                                                                <div>
-                                                                    <div class="title">
-                                                                        <a href="" class="no-reload">Đơn hàng đã đặt </a>
+                        <div class="col-lg-6 col-md-4 col-sm-12" >
+                            <div class="receipt-main">
+                                <div class="content">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="content table-responsive table-full-width">
+                                                        <table class="table">
+                                                            <div>
+                                                                <div class="container">
+                                                                    <div>
+                                                                        <div class="title">
+                                                                            <a href="" class="no-reload">Đơn hàng đã đặt </a>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="drinkincart">
-                                                                    @if( session('cart') )
-                                                                        @foreach( session('cart') as $drk_id => $drink )
-                                                                            <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
-                                                                                <div class="tch-order-card__left d-flex">
+                                                                    <div class="drinkincart">
+                                                                        @if( session('cart') )
+                                                                            @foreach( session('cart') as $drk_id => $drink )
+                                                                                <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
+                                                                                    <div class="tch-order-card__left d-flex">
                                                                                 <span class="tch-order-card__icon d-flex align-items-center">
                                                                                     <a href="" id="edit"><i aria-hidden="true" class="fa fa-pen"></i></a>
                                                                                 </span>
-                                                                                    <div class="tch-order-card__content">
-                                                                                        <h5 class="tch-order-card__title mb-0"> {{ $drink['quantity'] }} x {{ $drink['drk_name'] }}</h5>
-                                                                                        <p class="tch-order-card__description mb-0"> {{ $drink['size_id'] }}</p>
-                                                                                        <p data-v-68143206="" class="tch-order-card__description mb-0">{{ $drink['topping_id'] }}</p>
-                                                                                        <!---->
-                                                                                        <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
+                                                                                        <div class="tch-order-card__content">
+                                                                                            <h5 class="tch-order-card__title mb-0"> {{ $drink['quantity'] }} x {{ $drink['drk_name'] }}</h5>
+                                                                                            <p class="tch-order-card__description mb-0"> {{ $drink['size_id'] }}</p>
+                                                                                            <p data-v-68143206="" class="tch-order-card__description mb-0">{{ $drink['topping_id'] }}</p>
+                                                                                            <!---->
+                                                                                            <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="tch-order-card__right">
+                                                                                        <p class="tch-order-card__price mb-0">{{ $drink['drk_price'] }} đ</p>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="tch-order-card__right">
-                                                                                    <p class="tch-order-card__price mb-0">{{ $drink['drk_price'] }} <đ></đ></p>
-                                                                                </div>
-                                                                            </div>
-                                                                        @endforeach
-                                                                    @endif
+                                                                            @endforeach
+                                                                        @endif
 
-                                                                </div>
-                                                            </div>
-                                                            <br>
-                                                            <div>
-                                                                <div class="title">
-                                                                    <a href="" class="no-reload">Tổng Cộng </a>
-                                                                </div>
-                                                            </div>
-                                                            <br>
-                                                            <div class="container">
-                                                                <div class="tch-order-card tch-order-card--border d-flex align-items-center justify-content-between">
-                                                                    <div class="tch-order-card__left d-flex">
-                                                                        <p  class="tch-order-card__text mb-0">Thành tiền</p>
-                                                                    </div>
-                                                                    <div class="tch-order-card__right mb-0">
-                                                                        @php $total = 0 @endphp
-                                                                        @foreach((array) session('cart') as $drink => $details)
-                                                                            @php $total += $details['drk_price'] * $details['quantity'] @endphp
-                                                                        @endforeach
-                                                                        <p  class="tch-order-card__price mb-0">{{ $total }} đ</p>
                                                                     </div>
                                                                 </div>
-                                                                <hr>
-                                                                <div class="tch-order-card tch-order-card--border d-flex align-items-center justify-content-between">
-                                                                    <div div class="tch-order-card__left d-flex">
-                                                                        <p  class="tch-order-card__text mb-0">Phí giao hàng</p>
-                                                                    </div>
-                                                                    <div class="tch-order-card__right mb-0">
-                                                                        @php $discount = 18000 @endphp
-                                                                        @php $finalTotal = $total @endphp
-                                                                        @php $finalTotal = $total + $discount @endphp
-                                                                        <p  class="tch-order-card__price mb-0">18.000 đ</p>
+                                                                <br>
+                                                                <div>
+                                                                    <div class="title">
+                                                                        <a href="" class="no-reload">Tổng Cộng </a>
                                                                     </div>
                                                                 </div>
+                                                                <br>
+                                                                <div class="container">
+                                                                    <div class="tch-order-card tch-order-card--border d-flex align-items-center justify-content-between">
+                                                                        <div class="tch-order-card__left d-flex">
+                                                                            <p  class="tch-order-card__text mb-0">Thành tiền</p>
+                                                                        </div>
+                                                                        <div class="tch-order-card__right mb-0">
+                                                                            @php $total = 0 @endphp
+                                                                            @foreach((array) session('cart') as $drink => $details)
+                                                                                @php $total += $details['drk_price'] * $details['quantity'] @endphp
+                                                                            @endforeach
+                                                                            <p  class="tch-order-card__price mb-0">{{ $total }} đ</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="tch-order-card tch-order-card--border d-flex align-items-center justify-content-between">
+                                                                        <div div class="tch-order-card__left d-flex">
+                                                                            <p  class="tch-order-card__text mb-0">Phí giao hàng</p>
+                                                                        </div>
+                                                                        <div class="tch-order-card__right mb-0">
+                                                                            @php $discount = 18000 @endphp
+                                                                            @php $finalTotal = $total @endphp
+                                                                            @php $finalTotal = $total + $discount @endphp
+                                                                            <p  class="tch-order-card__price mb-0">18.000 đ</p>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                    </table>
-                                                </div>
-                                                <div class="footer-receipt" >
-                                                    <div class="container">
-                                                        <div class="tch-checkout-box tch-checkout-box--list-submited d-flex justify-content-between w-100 position-static">
-                                                            <div class="tch-tottal-card__content">
-                                                                <p class="tch-total-card__title mb-0"> Thành tiền</p>
-                                                                <p class="tch-total-card__description mb-0"><b>{{ $finalTotal }} đ</b></p>
-                                                            </div>
-                                                            <div class="tch-total-card__right mb-0">
-                                                                <button  type="button" id="buy">
-                                                                    Đặt hàng
-                                                                </button>
+                                                        </table>
+                                                    </div>
+                                                    <div class="footer-receipt" >
+                                                        <div class="container">
+                                                            <div class="tch-checkout-box tch-checkout-box--list-submited d-flex justify-content-between w-100 position-static">
+                                                                <div class="tch-tottal-card__content">
+                                                                    <p class="tch-total-card__title mb-0"> Thành tiền</p>
+                                                                    <p class="tch-total-card__description mb-0"><b>{{ $finalTotal }} đ</b></p>
+                                                                </div>
+                                                                <div class="tch-total-card__right mb-0">
+                                                                    <button id="buy">
+                                                                        Đặt hàng
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -203,7 +208,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

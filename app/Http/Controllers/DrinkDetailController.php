@@ -40,6 +40,7 @@ class DrinkDetailController extends Controller
                 $cart[$drink->id]['quantity']++;
             } else {
                 $cart = Arr::add($cart, $drink -> id, [
+                    'id' => $drink -> id,
                     'drk_name' => $drink -> drk_name,
                     'drk_price' => $drink -> drk_price,
                     'size_id' => $request -> size_id,
@@ -50,6 +51,7 @@ class DrinkDetailController extends Controller
         } else{
             $cart = array();
             $cart = Arr::add($cart, $drink -> id, [
+                'id' => $drink -> id,
                 'drk_name' => $drink -> drk_name,
                 'drk_price' => $drink -> drk_price,
                 'size_id' => $request -> size_id,

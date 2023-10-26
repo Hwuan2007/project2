@@ -154,109 +154,47 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
+                                                        @if( session('cart') )
+                                                            @foreach( session('cart') as $drk_id => $cartInfo)
+                                                                <tr>
+                                                                    <td>
+                                                                       {{ $cartInfo['id'] }}
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="tch-order-card__content">
+                                                                            <div class="tch-order-card__content">
+                                                                                <h5 class="tch-order-card__title mb-0"> 1 x Trà Sữa Oolong BLao </h5>
+                                                                                <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato + Trân châu trắng)</p>
+                                                                            </div>
+                                                                            <div class="tch-order-card__content">
+                                                                                <h5 class="tch-order-card__title mb-0"> 2 x Cà Phê sữa đá </h5>
+                                                                                <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato)</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        147.000đ
+                                                                    </td>
+                                                                    <td>
+                                                                        <button class="detail-btn ">
+                                                                            <a href=""> chi tiết </a>
+                                                                        </button>
+                                                                        <button class="accept-btn">
+                                                                            <a href=""> duyệt đơn </a>
+                                                                        </button>
+                                                                        <button class="del-btn">
+                                                                            <a href=""> hủy</a>
+                                                                        </button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="check" style="color: #f3bb45;"><b>CHỜ XÁC NHẬN</b></div>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        @endif
 
-                                                                <td>
-                                                                    1
-                                                                </td>
-                                                                <td>
-                                                                <div class="tch-order-card__content">
-                                                                    <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> 1 x Trà Sữa Oolong BLao </h5>
-                                                                        <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato + Trân châu trắng)</p>
-                                                                    </div>
-                                                                    <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> 2 x Cà Phê sữa đá </h5>
-                                                                        <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato)</p>
-                                                                    </div>
-                                                                </div>
-                                                                </td>
-                                                                <td>
-                                                                    147.000đ
-                                                                </td>
-                                                                <td>
-                                                                    <button class="detail-btn ">
-                                                                        <a href=""> chi tiết </a>
-                                                                    </button>
-                                                                    <button class="accept-btn">
-                                                                        <a href=""> duyệt đơn </a>
-                                                                    </button>
-                                                                    <button class="del-btn">
-                                                                        <a href=""> hủy</a>
-                                                                    </button>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="check" style="color: #7ac29a;"><b>ĐÃ XÁC NHẬN</b></div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    1
-                                                                </td>
-                                                                <td>
-                                                                <div class="tch-order-card__content">
-                                                                    <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> 1 x Trà Sữa Oolong BLao </h5>
-                                                                        <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato + Trân châu trắng)</p>
-                                                                    </div>
-                                                                    <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> 3 x Cà Phê sữa đá </h5>
-                                                                        <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato)</p>
-                                                                    </div>
-                                                                </div>
-                                                                </td>
-                                                                <td>
-                                                                    147.000đ
-                                                                </td>
-                                                                <td>
-                                                                    <button class="detail-btn ">
-                                                                        <a href=""> chi tiết </a>
-                                                                    </button>
-                                                                    <button class="accept-btn">
-                                                                        <a href=""> duyệt đơn </a>
-                                                                    </button>
-                                                                    <button class="del-btn">
-                                                                        <a href=""> hủy</a>
-                                                                    </button>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="check" style="color: #f3bb45;"><b>CHỜ XÁC NHẬN</b></div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    1
-                                                                </td>
-                                                                <td>
-                                                                <div class="tch-order-card__content">
-                                                                    <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> 1 x Trà Sữa Oolong BLao </h5>
-                                                                        <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato + Trân châu trắng)</p>
-                                                                    </div>
-                                                                    <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> 2 x Cà Phê sữa đá </h5>
-                                                                        <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato)</p>
-                                                                    </div>
-                                                                </div>
-                                                                </td>
-                                                                <td>
-                                                                    147.000đ
-                                                                </td>
-                                                                <td>
-                                                                    <button class="detail-btn ">
-                                                                        <a href=""> chi tiết </a>
-                                                                    </button>
-                                                                    <button class="accept-btn ">
-                                                                        <a href=""> duyệt đơn </a>
-                                                                    </button>
-                                                                    <button class="del-btn">
-                                                                        <a href=""> hủy</a>
-                                                                    </button>
-                                                                </td>
-                                                                <td>
-                                                                   <div class="check" style="color: #eb5e28;"><b>ĐÃ HỦY</b></div>
-                                                                </td>
-                                                            </tr>
+                                                        <div class="check" style="color: #7ac29a;"><b>ĐÃ XÁC NHẬN</b></div>
+                                                        <div class="check" style="color: #eb5e28;"><b>ĐÃ HỦY</b></div>
                                                         </tbody>
                                                     </table>
                                                 </div>
