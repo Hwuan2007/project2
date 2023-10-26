@@ -16,6 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $cart = Session::all();
         return view('admin/order/index');
     }
 

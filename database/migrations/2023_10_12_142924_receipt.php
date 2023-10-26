@@ -15,8 +15,7 @@ class Receipt extends Migration
     {
         Schema::create('receipt', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')->constrained('customer');
-            $table->foreignId('staff_id')->constrained('staff');
+            $table->foreignId('user_id')->constrained('user');
         });
     }
 

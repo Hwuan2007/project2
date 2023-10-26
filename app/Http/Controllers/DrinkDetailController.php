@@ -58,7 +58,6 @@ class DrinkDetailController extends Controller
             ]);
         }
         Session::put(['cart' => $cart]);
-        $data = Session::all();
         return Redirect::route('cart.viewCart');
     }
 

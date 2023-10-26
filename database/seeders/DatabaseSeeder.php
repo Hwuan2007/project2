@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Customer;
-use Database\Factories\StaffFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this -> call(Staff::class);
+        $this -> call(User::class);
+        $this -> call(Size::class);
+        $this -> call(ToppingSeeder::class);
     }
 }

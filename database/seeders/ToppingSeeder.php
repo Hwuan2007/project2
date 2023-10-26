@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\topping;
 use Illuminate\Database\Seeder;
 
 class ToppingSeeder extends Seeder
@@ -13,6 +14,6 @@ class ToppingSeeder extends Seeder
      */
     public function run()
     {
-        //
+        topping::factory() -> create();
     }
 }

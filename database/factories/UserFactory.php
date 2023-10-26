@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
 
@@ -11,16 +12,17 @@ class UserFactory extends Factory
      * Define the model's default state.
      *
      * @return array
+     * @throws Exception
      */
     public function definition()
     {
         return [
-            'staff_username' => $this -> faker -> name,
-            'staff_email' => $this -> faker -> email,
-            'staff_password' => bcrypt('123456'),
-            'staff_address' => $this -> faker -> address,
-            'staff_phonenumber' => $this -> faker -> e164PhoneNumber(),
+            'username' => $this->faker->name,
+            'email' => $this->faker->email,
+            'password' => bcrypt('123456'),
             'role_id' => $this -> faker -> randomElement(DB::table('role') -> pluck('id')),
+            'user_phonenumber' => '012345789',
+            'user_address' => 'hanoi'
         ];
     }
 }

@@ -29,7 +29,7 @@
                         <h3><a href="{{ route('client.index') }}">CoffeeShop</a></h3>
                         </div>
                     </div>
-                    <div class="col-lg-8 col-md-8 col-sm-12" >
+                    <div class="col-lg-9 col-md-8 col-sm-12" >
                         <div class="category">
                             <a href="{{ route('all.index') }}">Cà Phê</a>
                             <a href="{{ route('all.index') }}">Trà</a>
@@ -40,14 +40,7 @@
                         </div>
                     </div>
                     <div class="col-lg-1 col-md-4 col-sm-12" >
-                        <div class="cart">
-                            <a href="{{ route('cart.viewCart') }}">
-                                <i class='bx bxs-cart'></i> 
-                                 <span class="badge" style="border-radius: 100%;padding: 1.5px 5px;font-size: 16px; ">
-                                    {{ count((array) session('cart')) }}
-                                </span>
-                            </a>
-                        </div>
+                        <div class="cart"><a href="{{ route('cart.viewCart') }}"><i class='bx bxs-cart'></i> {{ count((array) session('cart')) }}</a></div>
                     </div>
                     <div class="col-lg-1 col-md-4 col-sm-12" >
                         <div class="dropdown">
@@ -58,7 +51,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </header>
@@ -138,7 +130,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="tch-order-card__right">
-                                                                                    <p class="tch-order-card__price mb-0">{{ $drink['drk_price'] }}</p>
+                                                                                    <p class="tch-order-card__price mb-0">{{ $drink['drk_price'] }} <đ></đ></p>
                                                                                 </div>
                                                                             </div>
                                                                         @endforeach
