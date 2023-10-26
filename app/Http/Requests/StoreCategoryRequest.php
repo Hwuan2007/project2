@@ -24,7 +24,7 @@ class StoreCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'categories_name' => 'required|max:20',
+            'categories_name' => 'required|max:20|unique:category,categories_name',
         ];
     }
     public function messages(): array
@@ -32,6 +32,7 @@ class StoreCategoryRequest extends FormRequest
         return [
             'required' => ':attribute đang trống',
             'max' => ':attribute không được quá :max ký tự',
+            'unique' => ':attribute đã trùng',
         ];
     }
     public function attributes(): array

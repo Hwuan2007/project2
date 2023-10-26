@@ -91,7 +91,7 @@
                                 "
                             >
                                 <a class="navbar-brand" href="#"
-                                    ><b>Menu</b></a
+                                    ><b>Đồ uống</b></a
                                 >
                                 <button
                                     class="navbar-toggler"
@@ -104,7 +104,7 @@
                                 >
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
-                        <div
+                                 <div
                                     class="collapse navbar-collapse justify-content-end"
                                     id="navbarNav"
                                     style="margin-right: 50px"
@@ -139,20 +139,23 @@
                                                 </div>
                                                 <div class="info-form">
                                                     <div class="container-fluid">
-                                                        <div class="row">
-                                                            <form action="{{ route('drink.update', $drink) }}" method="post" enctype="multipart/form-data">
-                                                                @csrf
-                                                                @method('PUT')
+                                                        <form action="{{ route('drink.update', $drink) }}" method="post" enctype="multipart/form-data">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div>
                                                                         Tên Đồ Uống:
                                                                         <input type="text" id="drink-name" name="drk_name" placeholder="Nhập tên đồ uống"
-                                                                               class="form-control" value="{{ $drink -> drk_name }}" required>
+                                                                               class="form-control" value="{{ $drink -> drk_name }}">
                                                                     </div>
+                                                                    @if( $errors -> has('drk_name'))
+                                                                        <span style="color: red;">{{ $errors -> first('drk_name') }}</span>
+                                                                    @endif
                                                                     <br>
                                                                     <div class="form-group d-flex flex-column">
                                                                         <label>Ảnh Đồ Uống:</label>
-                                                                        <input accept="image/*" type='file' id="imgInp" name="drk_img" multiple required/>
+                                                                        <input accept="image/*" type='file' id="imgInp" name="drk_img" multiple/>
                                                                         <br>
                                                                         <img
                                                                             class=drk_img"
@@ -160,13 +163,19 @@
                                                                             alt="image"
                                                                         />
                                                                     </div>
+                                                                    @if( $errors -> has('drk_img'))
+                                                                        <span style="color: red;">{{ $errors -> first('drk_img') }}</span>
+                                                                    @endif
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label>Giá:</label>
-                                                                        <input value="{{ $drink -> drk_price }}" required name="drk_price" type="text" placeholder="Nhập giá tiền"
+                                                                        <input value="{{ $drink -> drk_price }}" name="drk_price" type="text" placeholder="Nhập giá tiền"
                                                                                class="form-control">
                                                                     </div>
+                                                                    @if( $errors -> has('drk_price'))
+                                                                        <span style="color: red;">{{ $errors -> first('drk_price') }}</span>
+                                                                    @endif
                                                                     <br>
                                                                     <div class="form-group">
                                                                         <label>Danh mục</label>
@@ -182,19 +191,25 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
+                                                                    @if( $errors -> has('categories_id'))
+                                                                        <span style="color: red;">{{ $errors -> first('categories_id') }}</span>
+                                                                    @endif
                                                                     <br>
                                                                     <div class="form-group">
                                                                         <label>Mô tả:</label>
-                                                                        <textarea required name="drk_description" class="form-control" rows="3">{{ $drink -> drk_description }}</textarea>
+                                                                        <textarea name="drk_description" class="form-control" rows="3">{{ $drink -> drk_description }}</textarea>
                                                                     </div>
+                                                                    @if( $errors -> has('drk_description'))
+                                                                        <span style="color: red;">{{ $errors -> first('drk_description') }}</span>
+                                                                    @endif
                                                                     <br>
                                                                     <div class="btn-chance">
                                                                         <button class="save-btn"><a href="">Lưu</a></button>
                                                                         <button class="cancel-btn"><a href="">Hủy</a></button>
                                                                     </div>
                                                                 </div>
-                                                            </form>
-                                                        </div>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>

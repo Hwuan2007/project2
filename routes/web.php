@@ -6,11 +6,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DrinkController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DrinkDetailController;
 use App\Http\Controllers\DrinkMenuController;
-use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 
 /*
@@ -24,9 +23,6 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 Route::prefix('admin') ->group(function (){
     Route::get('/', [DashboardController::class, 'index']) -> name('dashboard.index');
     // category
@@ -64,13 +60,13 @@ Route::prefix('client') ->group(function (){
     Route::get('/Menuitem/{category}', [DrinkMenuController::class, 'item']) -> name('Menuitem.item');
     // Drink Detail
     Route::get('/drink_detail/{drink}', [DrinkDetailController::class, 'drinkDetail']) -> name('drink_detail.drinkDetail');
-    //cart
     Route::put('/drink_detail/{drink}', [DrinkDetailController::class, 'store']) -> name('cart.store');
-    Route::get('/drink_detail/cart/viewCart', [\App\Http\Controllers\CartController::class, 'viewCart']) -> name('cart.viewCart');
-    Route::get('/drink_detail/cart/deleteCart/{id}', [\App\Http\Controllers\CartController::class, 'deleteCart']) -> name('cart.deleteCart');
+    //cart
+    Route::get('/drink_detail/cart/viewCart', [CartController::class, 'viewCart']) -> name('cart.viewCart');
+    Route::get('/drink_detail/cart/deleteCart/{id}', [CartController::class, 'deleteCart']) -> name('cart.deleteCart');
+    Route::put('/drink_detail/cart/storeCart', [CartController::class, 'storeCart']) -> name('cart.storeCart');
 });
 // login
-Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login.login');
-Route::post('/checkLogin', [\App\Http\Controllers\LoginController::class, 'checkLogin'])->name('login.checkLogin');
-Route::get('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('login.logout');
-
+Route::get('/login', [LoginController::class, 'login'])->name('login.login');
+Route::post('/checkLogin', [LoginController::class, 'checkLogin'])->name('login.checkLogin');
+Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');

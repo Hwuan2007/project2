@@ -24,7 +24,7 @@ class StoreDrinkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'drk_name' => 'required|max:50',
+            'drk_name' => 'required|max:50|unique:drink,drk_name',
             'drk_img' => 'required|image',
             'drk_price' => 'required|numeric',
             'drk_description' => 'required|max:255',
@@ -38,6 +38,7 @@ class StoreDrinkRequest extends FormRequest
             'max' => ':attribute không được quá :max ký tự',
             'numeric' => ':attribute phải là số',
             'image' => ':attribute phải là dạng ảnh và phải có đuôi là: jpg, jpeg, png, bmp, gif, svg, hoặc webp',
+            'unique' => ':attribute đã trùng',
         ];
     }
     public function attributes(): array

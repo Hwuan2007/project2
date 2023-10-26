@@ -15,24 +15,22 @@ class LoginController extends Controller
     }
     public function checkLogin(Request $request){
         $account = $request->only('email', 'password');
-        
-        if (Auth::guard('staff')->attempt($account)){
-            $employee = Auth::guard('staff')->user();
-            Auth::guard('staff')->login($employee);
-            Session::put('staff', $employee);
+
+        if (Auth::guard('user')->attempt($account)){
+            $employee = Auth::guard('user')->user();
+            Auth::guard('user')->login($employee);
+            Session::put('user', $employee);
             if($employee->role_id == 1){
                 return redirect()->route('dashboard.index');
             }else{
                 return redirect()->route('client.index');
             }
-            
         }else{
-           
             return redirect()->route('login.login');
         }
     }
     public function logout(){
-        Session::forget('staff');
+        Session::forget('user');
         return redirect()->route('login.login');
     }
 }

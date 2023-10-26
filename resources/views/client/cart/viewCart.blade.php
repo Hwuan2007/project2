@@ -42,10 +42,10 @@
                     <div class="col-lg-1 col-md-4 col-sm-12" >
                         <div class="cart">
                             <a href="{{ route('cart.viewCart') }}">
-                                <i class='bx bxs-cart'></i> 
-                                 <span class="badge" style="border-radius: 100%;padding: 1.5px 5px;font-size: 16px; ">
-                                    {{ count((array) session('cart')) }}
-                                </span>
+                                <i class='bx bxs-cart'></i>
+                                <span class="badge" style="border-radius: 100%;padding: 1.5px 5px;font-size: 16px; ">
+                                        {{ count((array) session('cart')) }}
+                                    </span>
                             </a>
                         </div>
                     </div>
@@ -58,7 +58,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </header>
@@ -138,7 +137,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="tch-order-card__right">
-                                                                                    <p class="tch-order-card__price mb-0">{{ $drink['drk_price'] }}</p>
+                                                                                    <p class="tch-order-card__price mb-0">{{ $drink['drk_price'] }} <đ></đ></p>
                                                                                 </div>
                                                                             </div>
                                                                         @endforeach
@@ -155,7 +154,7 @@
                                                             <br>
                                                             <div class="container">
                                                                 <div class="tch-order-card tch-order-card--border d-flex align-items-center justify-content-between">
-                                                                    <div div class="tch-order-card__left d-flex">
+                                                                    <div class="tch-order-card__left d-flex">
                                                                         <p  class="tch-order-card__text mb-0">Thành tiền</p>
                                                                     </div>
                                                                     <div class="tch-order-card__right mb-0">
