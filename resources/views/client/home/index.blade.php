@@ -106,7 +106,7 @@
                             <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}" alt="Card image">
                         </a>
                         <div class="card-body">
-                            <a href="#" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
+                            <a href="{{ route('drink_detail.drinkDetail', $drink) }}" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
                             <p class="cost">{{ $drink -> drk_price }} đ</p>
                         </div>
                     </div>

@@ -154,16 +154,18 @@
             <br>
             <p style="font-size: 18px;"><b>Sản phẩm liên quan</b></p>
             <div class="row">
-                @foreach( $drinks as $drink_id )
-                    <div class="col-lg-2 col-md-8 col-sm-12" >
-                        <div class="card" >
-                            <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink_id -> drk_img) }}" alt="Card image">
-                            <div class="card-body">
-                                <a href="{{ route('drink_detail.drinkDetail' , $drink) }}" class="drink-name"><b>{{ $drink_id -> drk_name }}</b></a>
-                                <p class="cost">{{ $drink_id -> drk_price }} đ</p>
-                            </div>
+            @foreach($drinks as $drink)
+                <div class="col-lg-2 col-md-8 col-sm-12" >
+                    <div class="card" >
+                        <a href="{{ route('drink_detail.drinkDetail', $drink) }}">
+                            <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}" alt="Card image">
+                        </a>
+                        <div class="card-body">
+                            <a href="{{ route('drink_detail.drinkDetail', $drink) }}" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
+                            <p class="cost">{{ $drink -> drk_price }} đ</p>
                         </div>
                     </div>
+                </div>
                 @endforeach
             </div>
         </div>
