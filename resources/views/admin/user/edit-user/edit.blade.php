@@ -149,8 +149,9 @@
                                                     <div
                                                         class="container-fluid"
                                                     >
+                                                    <form action="{{ route('user.update', $user) }}" method="post">
                                                         <div class="row">
-                                                            <form action="{{ route('user.update', $user) }}" method="post">
+                                                            
                                                                 @csrf
                                                                 @method('PUT')
                                                                 <div
@@ -236,6 +237,7 @@
                                                                         <span style="color: red;">{{ $errors -> first('user_phonenumber') }}</span>
                                                                     @endif
                                                                     <br />
+                                                                    
                                                                     <div>
                                                                         Địa chỉ:
                                                                         <input
@@ -280,7 +282,9 @@
                                                                         </button>
                                                                     </div>
                                                                 </div>
+                                                                
                                                             </form>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                 </div>
