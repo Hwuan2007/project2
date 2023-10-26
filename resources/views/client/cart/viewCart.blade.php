@@ -29,7 +29,7 @@
                         <h3><a href="{{ route('client.index') }}">CoffeeShop</a></h3>
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-8 col-sm-12" >
+                    <div class="col-lg-8 col-md-8 col-sm-12" >
                         <div class="category">
                             <a href="{{ route('all.index') }}">Cà Phê</a>
                             <a href="{{ route('all.index') }}">Trà</a>
@@ -40,7 +40,14 @@
                         </div>
                     </div>
                     <div class="col-lg-1 col-md-4 col-sm-12" >
-                        <div class="cart"><a href="{{ route('cart.viewCart') }}"><i class='bx bxs-cart'></i> {{ count((array) session('cart')) }}</a></div>
+                        <div class="cart">
+                            <a href="{{ route('cart.viewCart') }}">
+                                <i class='bx bxs-cart'></i>
+                                <span class="badge" style="border-radius: 100%;padding: 1.5px 5px;font-size: 16px; ">
+                                        {{ count((array) session('cart')) }}
+                                    </span>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-lg-1 col-md-4 col-sm-12" >
                         <div class="dropdown">
@@ -147,7 +154,7 @@
                                                             <br>
                                                             <div class="container">
                                                                 <div class="tch-order-card tch-order-card--border d-flex align-items-center justify-content-between">
-                                                                    <div div class="tch-order-card__left d-flex">
+                                                                    <div class="tch-order-card__left d-flex">
                                                                         <p  class="tch-order-card__text mb-0">Thành tiền</p>
                                                                     </div>
                                                                     <div class="tch-order-card__right mb-0">

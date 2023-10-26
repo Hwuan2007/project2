@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DrinkDetailController;
 use App\Http\Controllers\DrinkMenuController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +67,6 @@ Route::prefix('client') ->group(function (){
     Route::put('/drink_detail/cart/storeCart', [CartController::class, 'storeCart']) -> name('cart.storeCart');
 });
 // login
-Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login.login');
-Route::post('/checkLogin', [\App\Http\Controllers\LoginController::class, 'checkLogin'])->name('login.checkLogin');
-Route::get('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('login.logout');
+Route::get('/login', [LoginController::class, 'login'])->name('login.login');
+Route::post('/checkLogin', [LoginController::class, 'checkLogin'])->name('login.checkLogin');
+Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');

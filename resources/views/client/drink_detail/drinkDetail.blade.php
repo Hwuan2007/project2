@@ -43,7 +43,7 @@
                     <div class="col-lg-1 col-md-4 col-sm-12" >
                         <div class="cart">
                             <a href="{{ route('cart.viewCart') }}">
-                                <i class='bx bxs-cart'></i> 
+                                <i class='bx bxs-cart'></i>
                                  <span class="badge" style="border-radius: 100%;padding: 1.5px 5px;font-size: 16px; ">
                                     {{ count((array) session('cart')) }}
                                 </span>
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
             </div>
         </div>
@@ -120,14 +120,11 @@
                                 <div class="drink-order">
                                     <div class="drink-name-detail"><b> {{ $drink -> drk_name }} </b></div>
 
-                                    <div class="drink-cost"><b> {{ $drink -> drk_price }} đ </b></div>
+                                    <div id="price" class="drink-cost"><b> {{ $drink -> drk_price }} đ </b></div>
                                     <br>
                                     <div class="pick-size"> Chọn size (bắt buộc) </div><br>
                                     <div class="pick-size-button">
                                         @foreach( $sizes as $size )
-                                            @php $price = $drink -> drk_price @endphp
-                                            @php $sizePrice = $size -> size_price @endphp
-                                            @php $newSizePrice = $price + $sizePrice @endphp
                                             <input type="radio" name="size_id" id="color{{ $size -> id }}" value="{{ $size -> size_name }}">
                                             <label for="color{{ $size -> id }}" class="color-change-pick-size-button active"><i class='bx bx-coffee-togo'> {{ $size -> size_name }} + {{ $size -> size_price }} đ</i> </label>
                                         @endforeach
@@ -136,7 +133,7 @@
                                     <div class="pick-topping">Topping</div><br>
                                         <div class="pick-topping-button">
                                             @foreach( $toppings as $topping )
-                                                <input type="checkbox" name="topping_id[]" id="topping{{ $topping -> id }}" value="{{ $topping -> topping_name }}">
+                                                <input type="checkbox" name="topping_id[]" id="topping{{ $topping -> id }}" data-price="{{ $topping -> topping_price }}" value="{{ $topping -> topping_name }}">
                                                 <label for="topping{{ $topping -> id }}" class="color-change-pick-topping-button"> {{ $topping -> topping_name }} + {{ $topping -> topping_price }} đ</label>
                                             @endforeach
                                         </div>
@@ -232,7 +229,26 @@
     <script src="{{ asset ('js/client/changecolor.js') }}"></script>
     <script src="{{ asset ('js/client/checkbox.js') }}"></script>
     <script src="{{ asset ('js/client/thumbnail.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('input[type=radio][name=size_id]').change(function() {
+                var size = $(this).val();
+                var price = 0;
 
+                // Update price based on size
+                if (size === 'Nhỏ') {
+                    price =  0;
+                } else if (size === 'Vừa') {
+                    price = 6000;
+                } else if (size === 'Lớn') {
+                    price = 10000;
+                }
+                // Update price on page
+                $('#price').text({{ $drink -> drk_price }} + price );
+            });
+        });
+    </script>
 </body>
 </html>
