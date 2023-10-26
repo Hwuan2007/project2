@@ -18,8 +18,22 @@ h3 a{
    text-decoration: none;
    color: orange;
 }
+.cart {
+    position: relative;
+    display: inline-block;
+    margin-left: 40px;
+}
+.badge {
+    position: absolute;
+    top: 0px; /* Điều chỉnh vị trí top để đặt badge theo ý muốn */
+    right: -8px; /* Điều chỉnh vị trí right để đặt badge theo ý muốn */
+    background-color: #FF0000; /* Màu nền của badge */
+    font-size: 10px;
+    color: #FFFFFF; /* Màu sắc chữ trong badge */
+    border-radius: 100%; /* Làm cho badge tròn */
+    padding: 5px 10px; /* Điều chỉnh kích thước của badge */
+}
 .cart a{
-    float: right;
     color: black;
     font-size: 35px;
     text-decoration: none;

@@ -20,10 +20,10 @@
         </div>
         <div class="navbar">
             <div class="container">
-                <div class="row">
+            <div class="row">
                     <div class="col-lg-2 col-md-4 col-sm-12" >
                         <div class="logo">
-                            <h3><a href="{{ route('client.index') }}">CoffeeShop</a></h3>
+                        <h3><a href="{{ route('client.index') }}">CoffeeShop</a></h3>
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-12" >
@@ -37,17 +37,26 @@
                         </div>
                     </div>
                     <div class="col-lg-1 col-md-4 col-sm-12" >
-                        <div class="cart"><a href=""><i class='bx bxs-cart'></i></a></div>
+                        <div class="cart">
+                            <a href="{{ route('cart.viewCart') }}">
+                                <i class='bx bxs-cart'></i> 
+                                 <span class="badge" style="border-radius: 100%;padding: 1.5px 5px;font-size: 16px; ">
+                                    {{ count((array) session('cart')) }}
+                                </span>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-lg-1 col-md-4 col-sm-12" >
                         <div class="dropdown">
                             <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
-                                <div class="dropdown-content">
-                                    <a href="{{route('login.logout')}}">Đăng xuất</a>
-                                </div>
+                            <div class="dropdown-content">
+                                <a href="{{route('login.logout')}}">Đăng xuất</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+                
+            </div>
             </div>
         </div>
     </header>

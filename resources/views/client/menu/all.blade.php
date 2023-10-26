@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/menuu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/menu.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
@@ -21,10 +21,10 @@
     </header>
         <div class="navbar">
             <div class="container">
-                <div class="row">
+            <div class="row">
                     <div class="col-lg-2 col-md-4 col-sm-12" >
                         <div class="logo">
-                            <h3><a href="{{ route('client.index') }}">CoffeeShop</a></h3>
+                        <h3><a href="{{ route('client.index') }}">CoffeeShop</a></h3>
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-12" >
@@ -38,17 +38,26 @@
                         </div>
                     </div>
                     <div class="col-lg-1 col-md-4 col-sm-12" >
-                        <div class="cart"><a href="{{ route('cart.viewCart') }}"><i class='bx bxs-cart'></i></a></div>
+                        <div class="cart">
+                            <a href="{{ route('cart.viewCart') }}">
+                                <i class='bx bxs-cart'></i> 
+                                 <span class="badge" style="border-radius: 100%;padding: 1.5px 5px;font-size: 16px; ">
+                                    {{ count((array) session('cart')) }}
+                                </span>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-lg-1 col-md-4 col-sm-12" >
                         <div class="dropdown">
                             <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
-                                <div class="dropdown-content">
-                                    <a href="{{route('login.logout')}}">Đăng xuất</a>
-                                </div>
+                            <div class="dropdown-content">
+                                <a href="{{route('login.logout')}}">Đăng xuất</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+                
+            </div>
             </div>
         </div>
         <br>
