@@ -157,17 +157,23 @@
                                                                             class="form-control"
                                                                         />
                                                                     </div>
-                                                                    <br />
+                                                                    @if( $errors -> has('email'))
+                                                                        <span style="color: red;">{{ $errors -> first('email') }}</span>
+                                                                    @endif
+                                                                    <br>
                                                                     <div>
                                                                         Mật khẩu:
                                                                         <input
                                                                             type="text"
                                                                             id="password"
-                                                                            name="password"
+                                                                            name="password_confirmation"
                                                                             placeholder="Nhập Mật Khẩu"
                                                                             class="form-control"
                                                                         />
                                                                     </div>
+                                                                    @if( $errors -> has('password_confirmation'))
+                                                                        <span style="color: red;">{{ $errors -> first('password_confirmation') }}</span>
+                                                                    @endif
                                                                     <br />
                                                                     <div>
                                                                         Nhập lại Mật
@@ -175,18 +181,17 @@
                                                                         <input
                                                                             type="text"
                                                                             id="user-re-password"
-                                                                            name="user-re-password"
+                                                                            name="password"
                                                                             placeholder="Nhập Lại Mật Khẩu"
                                                                             class="form-control"
                                                                         />
                                                                     </div>
+                                                                    @if( $errors -> has('password'))
+                                                                        <span style="color: red;">{{ $errors -> first('password') }}</span>
+                                                                    @endif
                                                                     <br />
-
                                                                 </div>
-
-                                                                <div
-                                                                    class="col-md-6"
-                                                                >
+                                                                <div class="col-md-6">
                                                                     <div>
                                                                         Tên nguời
                                                                         dùng:
@@ -196,9 +201,11 @@
                                                                             name="username"
                                                                             placeholder="Nhập Họ và Tên"
                                                                             class="form-control"
-                                                                            required
                                                                         />
                                                                     </div>
+                                                                    @if( $errors -> has('username'))
+                                                                        <span style="color: red;">{{ $errors -> first('username') }}</span>
+                                                                    @endif
                                                                     <br />
                                                                     <div>
                                                                         Số điện
@@ -206,16 +213,21 @@
                                                                         <input
                                                                             type="text"
                                                                             id="user-phonenumber"
-                                                                            name="staff_phonenumber"
+                                                                            name="user_phonenumber"
                                                                             placeholder="Nhập Số Điện Thoại"
                                                                             class="form-control"
-                                                                            required
                                                                         />
                                                                     </div>
+                                                                    @if( $errors -> has('user_phonenumber'))
+                                                                        <span style="color: red;">{{ $errors -> first('user_phonenumber') }}</span>
+                                                                    @endif
                                                                     <br />
                                                                     <div>
-                                                                        Địa chỉ: <input type="text" id="user-address" name="staff_address" placeholder="Nhập Điạ Chỉ" class="form-control" required/>
+                                                                        Địa chỉ: <input type="text" id="user-address" name="user_address" placeholder="Nhập Điạ Chỉ" class="form-control"/>
                                                                     </div>
+                                                                    @if( $errors -> has('user_address'))
+                                                                        <span style="color: red;">{{ $errors -> first('user_address') }}</span>
+                                                                    @endif
                                                                     <br>
                                                                     <div
                                                                         class="form-group"
@@ -234,23 +246,19 @@
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
+                                                                    @if( $errors -> has('role_id'))
+                                                                        <span style="color: red;">{{ $errors -> first('role_id') }}</span>
+                                                                    @endif
                                                                     <br>
-                                                                    <div
-                                                                        class="btn-chance"
-                                                                    >
-                                                                        <button
-                                                                            class="save-btn"
-                                                                        >
+                                                                    <div class="btn-chance">
+                                                                        <button class="save-btn">
                                                                             Lưu
                                                                         </button>
-                                                                        <a href="{{ route('user.index') }}">
-                                                                            <button
-                                                                                class="cancel-btn"
-                                                                            >
+                                                                        <button class="cancel-btn">
+                                                                            <a href="{{ route('user.index') }}">
                                                                                 Hủy
-                                                                            </button>
-                                                                        </a>
-
+                                                                            </a>
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
