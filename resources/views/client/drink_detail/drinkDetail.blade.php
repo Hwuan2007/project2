@@ -125,7 +125,7 @@
                                     <div class="pick-size"> Chọn size (bắt buộc) </div><br>
                                     <div class="pick-size-button">
                                         @foreach( $sizes as $size )
-                                            <input type="radio" name="size_id" id="color{{ $size -> id }}" value="{{ $size -> size_name }}">
+                                            <input type="radio" name="size_id" id="color{{ $size -> id }}" value="{{ $size -> size_name }}" onclick="updatePrice(this)">
                                             <label for="color{{ $size -> id }}" class="color-change-pick-size-button active"><i class='bx bx-coffee-togo'> {{ $size -> size_name }} + {{ $size -> size_price }} đ</i> </label>
                                         @endforeach
                                     </div>
@@ -229,26 +229,6 @@
     <script src="{{ asset ('js/client/changecolor.js') }}"></script>
     <script src="{{ asset ('js/client/checkbox.js') }}"></script>
     <script src="{{ asset ('js/client/thumbnail.js') }}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function() {
-            $('input[type=radio][name=size_id]').change(function() {
-                var size = $(this).val();
-                var price = 0;
-
-                // Update price based on size
-                if (size === 'Nhỏ') {
-                    price =  0;
-                } else if (size === 'Vừa') {
-                    price = 6000;
-                } else if (size === 'Lớn') {
-                    price = 10000;
-                }
-                // Update price on page
-                $('#price').text({{ $drink -> drk_price }} + price );
-            });
-        });
-    </script>
 </body>
 </html>

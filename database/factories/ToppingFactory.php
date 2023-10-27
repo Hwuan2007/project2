@@ -14,14 +14,8 @@ class ToppingFactory extends Factory
     public function definition()
     {
         return [
-            'topping_name' => 'Kem Phô Mai Macchiato',
-//            'Shot Espresso',
-//            'Trân châu trắng',
-//            'Sốt Caramel',
-            'topping_price' => '10000',
-//            '10000',
-//            '10000',
-//            '10000'
+            'topping_name' => $this->faker ->randomElement(['Shot Espresso', 'Shot Espresso', 'Sốt Caramel','Trân châu trắng']),
+            'topping_price' => $this->faker ->randomElement([10000,10000,10000,10000]),
         ];
     }
 }

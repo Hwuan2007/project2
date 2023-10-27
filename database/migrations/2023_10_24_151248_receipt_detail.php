@@ -14,10 +14,12 @@ class ReceiptDetail extends Migration
     public function up()
     {
         Schema::create('receipt_detail', function (Blueprint $table) {
-            $table->id();
-            $table->string('receipt_price');
-            $table->string('receipt_note');
-            $table->integer('receipt_amount');
+            $table->integer('quantity');
+            $table->string('price');
+            $table->string('size_name');
+            $table->string('topping_name');
+            $table->string('drink_name');
+            $table->foreignId('receipt_id') ->constrained('receipt');
         });
     }
 

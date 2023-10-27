@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\shipping_method;
+use App\Models\ReceiptDetail;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Storeshipping_methodRequest;
-use App\Http\Requests\Updateshipping_methodRequest;
+use App\Http\Requests\StoreReceiptDetailRequest;
+use App\Http\Requests\UpdateReceiptDetailRequest;
 
-class ShippingMethodController extends Controller
+class ReceiptDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class ShippingMethodController extends Controller
      */
     public function index()
     {
-        $shipping_methods = shipping_method::all();
+        //
     }
 
     /**
@@ -32,10 +32,10 @@ class ShippingMethodController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Storeshipping_methodRequest  $request
+     * @param  \App\Http\Requests\StoreReceiptDetailRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Storeshipping_methodRequest $request)
+    public function store(StoreReceiptDetailRequest $request)
     {
         //
     }
@@ -43,10 +43,10 @@ class ShippingMethodController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\shipping_method  $shipping_method
+     * @param  \App\Models\ReceiptDetail  $receiptDetail
      * @return \Illuminate\Http\Response
      */
-    public function show(shipping_method $shipping_method)
+    public function show(ReceiptDetail $receiptDetail)
     {
         //
     }
@@ -54,10 +54,10 @@ class ShippingMethodController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\shipping_method  $shipping_method
+     * @param  \App\Models\ReceiptDetail  $receiptDetail
      * @return \Illuminate\Http\Response
      */
-    public function edit(shipping_method $shipping_method)
+    public function edit(ReceiptDetail $receiptDetail)
     {
         //
     }
@@ -65,11 +65,11 @@ class ShippingMethodController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Updateshipping_methodRequest  $request
-     * @param  \App\Models\shipping_method  $shipping_method
+     * @param  \App\Http\Requests\UpdateReceiptDetailRequest  $request
+     * @param  \App\Models\ReceiptDetail  $receiptDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Updateshipping_methodRequest $request, shipping_method $shipping_method)
+    public function update(UpdateReceiptDetailRequest $request, ReceiptDetail $receiptDetail)
     {
         //
     }
@@ -77,10 +77,10 @@ class ShippingMethodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\shipping_method  $shipping_method
+     * @param  \App\Models\ReceiptDetail  $receiptDetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(shipping_method $shipping_method)
+    public function destroy(ReceiptDetail $receiptDetail)
     {
         //
     }

@@ -154,44 +154,40 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                        @if( session('cart') )
-                                                            @foreach( session('cart') as $drk_id => $cartInfo)
-                                                                <tr>
-                                                                    <td>
-                                                                       {{ $cartInfo['id'] }}
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="tch-order-card__content">
+                                                        @foreach( $receipts as $receipt)
+                                                            <tr>
+                                                                <td>
+                                                                   {{ $receipt -> id}}
+                                                                </td>
+                                                                <td>
+                                                                    @foreach($receipt_details as $receipt_detail)
                                                                             <div class="tch-order-card__content">
-                                                                                <h5 class="tch-order-card__title mb-0"> 1 x Trà Sữa Oolong BLao </h5>
-                                                                                <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato + Trân châu trắng)</p>
+                                                                                <div class="tch-order-card__content">
+                                                                                    <h5 class="tch-order-card__title mb-0"> {{ $receipt_detail -> quantity }} x {{ $receipt_detail -> drink_name }} </h5>
+                                                                                    <p class="tch-order-card__description mb-0"> ({{ $receipt_detail -> size_name }}; {{ $receipt_detail -> topping_name }}</p>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="tch-order-card__content">
-                                                                                <h5 class="tch-order-card__title mb-0"> 2 x Cà Phê sữa đá </h5>
-                                                                                <p class="tch-order-card__description mb-0"> (Lớn; Kem Phô Mai Macchiato)</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        147.000đ
-                                                                    </td>
-                                                                    <td>
-                                                                        <button class="detail-btn ">
-                                                                            <a href=""> chi tiết </a>
-                                                                        </button>
-                                                                        <button class="accept-btn">
-                                                                            <a href=""> duyệt đơn </a>
-                                                                        </button>
-                                                                        <button class="del-btn">
-                                                                            <a href=""> hủy</a>
-                                                                        </button>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="check" style="color: #f3bb45;"><b>CHỜ XÁC NHẬN</b></div>
-                                                                    </td>
-                                                                </tr>
-                                                            @endforeach
-                                                        @endif
+                                                                    @endforeach
+                                                                </td>
+                                                                <td>
+                                                                    147.000đ
+                                                                </td>
+                                                                <td>
+                                                                    <button class="detail-btn ">
+                                                                        <a href=""> chi tiết </a>
+                                                                    </button>
+                                                                    <button class="accept-btn">
+                                                                        <a href=""> duyệt đơn </a>
+                                                                    </button>
+                                                                    <button class="del-btn">
+                                                                        <a href=""> hủy</a>
+                                                                    </button>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="check" style="color: #f3bb45;"><b>CHỜ XÁC NHẬN</b></div>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
 
                                                         <div class="check" style="color: #7ac29a;"><b>ĐÃ XÁC NHẬN</b></div>
                                                         <div class="check" style="color: #eb5e28;"><b>ĐÃ HỦY</b></div>

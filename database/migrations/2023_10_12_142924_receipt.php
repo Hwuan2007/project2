@@ -15,7 +15,10 @@ class Receipt extends Migration
     {
         Schema::create('receipt', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('user');
+            $table->integer('total_price');
+            $table->text('note')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained('user');
+            $table->foreignId('shipping_id')->constrained('shipping_method');
         });
     }
 

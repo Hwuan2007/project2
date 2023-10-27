@@ -77,7 +77,6 @@
             <div class="receipt">
                 <form action="{{ route('cart.storeCart') }}" method="post">
                     @csrf
-                    @method('PUT')
                     <div class="row">
                         <div class="col-lg-6 col-md-4 col-sm-12" >
                             <div class="receipt-form">
@@ -87,19 +86,32 @@
                                 <br>
                                 <br>
                                 <div>
-                                    <input type="text" id="address" name="address" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;"/>
+                                    <input type="text" id="address" name="user_address" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;"/>
                                 </div>
                                 <br>
                                 <div>
-                                    <input type="text" id="name" name="name" placeholder="Nhập tên người nhận" class="form-control" style="width: 450px;"/>
+                                    <input type="text" id="name" name="username" placeholder="Nhập tên người nhận" class="form-control" style="width: 450px;"/>
                                 </div>
                                 <br>
                                 <div>
-                                    <input type="text" id="phonenumber" name="phonenumber" placeholder="Nhập số điện thoại" class="form-control" style="width: 450px;"/>
+                                    <input type="text" id="phonenumber" name="user_phonenumber" placeholder="Nhập số điện thoại" class="form-control" style="width: 450px;"/>
                                 </div>
                                 <br>
                                 <div>
                                     <input type="text" id="note" name="note" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;"/>
+                                </div>
+                                <br>
+                                <div>
+                                    <select name="shipping_id" class="form-control">
+                                        @foreach( $shipping_methods as $shipping_method)
+                                            <option name="shipping_id" value="{{ $shipping_method -> id}}">
+                                                {{ $shipping_method -> shipping_name }} -> {{ $shipping_method -> shipping_status }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div>
+                                    <input type="hidden" id="role" name="role_id" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="2"/>
                                 </div>
                                 <br>
                                 <div>
@@ -166,7 +178,7 @@
                                                                             @foreach((array) session('cart') as $drink => $details)
                                                                                 @php $total += $details['drk_price'] * $details['quantity'] @endphp
                                                                             @endforeach
-                                                                            <p  class="tch-order-card__price mb-0">{{ $total }} đ</p>
+                                                                            <p class="tch-order-card__price mb-0">{{ $total }} đ</p>
                                                                         </div>
                                                                     </div>
                                                                     <hr>
@@ -190,7 +202,7 @@
                                                             <div class="tch-checkout-box tch-checkout-box--list-submited d-flex justify-content-between w-100 position-static">
                                                                 <div class="tch-tottal-card__content">
                                                                     <p class="tch-total-card__title mb-0"> Thành tiền</p>
-                                                                    <p class="tch-total-card__description mb-0"><b>{{ $finalTotal }} đ</b></p>
+                                                                    <p name="final-total" class="tch-total-card__description mb-0"><b>{{ $finalTotal }} đ</b></p>
                                                                 </div>
                                                                 <div class="tch-total-card__right mb-0">
                                                                     <button id="buy">

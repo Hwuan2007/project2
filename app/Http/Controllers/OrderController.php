@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\Receipt;
+use App\Models\ReceiptDetail;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
@@ -12,12 +17,16 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
-
-        return view('admin/order/index');
+        $receipts = Receipt::all();
+        $receipt_details = ReceiptDetail::all();
+        return view('admin/order/index', [
+            'receipt_details' => $receipt_details,
+            'receipts' => $receipts
+        ]);
     }
 
     /**

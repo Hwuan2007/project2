@@ -17,8 +17,6 @@ class ShippingMethod extends Migration
             $table->id();
             $table->string('shipping_name');
             $table->string('shipping_status');
-            $table->string('shipping_customerInfo');
-            $table->foreignId('receipt_id')->constrained('receipt');
         });
     }
 

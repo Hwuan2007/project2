@@ -34,13 +34,14 @@ class DrinkDetailController extends Controller
     }
     public function store(Request $request, Drink $drink): \Illuminate\Http\RedirectResponse
     {
+        $cart_id = $drink -> id;
         if (Session::exists('cart')){
             $cart = Session::get('cart');
-            if (isset($cart[$drink->id])){
-                $cart[$drink->id]['quantity']++;
+            if (isset($cart[$cart_id])){
+                $cart[$cart_id]['quantity']++;
             } else {
-                $cart = Arr::add($cart, $drink -> id, [
-                    'id' => $drink -> id,
+                $cart = Arr::add($cart, $cart_id, [
+                    'id' => $cart_id,
                     'drk_name' => $drink -> drk_name,
                     'drk_price' => $drink -> drk_price,
                     'size_id' => $request -> size_id,
@@ -50,8 +51,8 @@ class DrinkDetailController extends Controller
             }
         } else{
             $cart = array();
-            $cart = Arr::add($cart, $drink -> id, [
-                'id' => $drink -> id,
+            $cart = Arr::add($cart, $cart_id, [
+                'id' => $cart_id,
                 'drk_name' => $drink -> drk_name,
                 'drk_price' => $drink -> drk_price,
                 'size_id' => $request -> size_id,
