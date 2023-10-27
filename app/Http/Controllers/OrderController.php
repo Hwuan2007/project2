@@ -7,6 +7,7 @@ use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Receipt;
 use App\Models\ReceiptDetail;
+use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -22,9 +23,7 @@ class OrderController extends Controller
     public function index()
     {
         $receipts = Receipt::all();
-        $receipt_details = ReceiptDetail::all();
         return view('admin/order/index', [
-            'receipt_details' => $receipt_details,
             'receipts' => $receipts
         ]);
     }
@@ -93,5 +92,13 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+    public function detail(ReceiptDetail $receiptDetail){
+        User::all();
+        $receipt = Receipt::all();
+        return view('admin/order/order_details/detail',[
+            'receipt' => $receipt,
+            'receiptDetail' => $receiptDetail
+        ]);
     }
 }

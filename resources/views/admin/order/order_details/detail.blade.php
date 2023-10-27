@@ -7,7 +7,7 @@
         <link
             rel="stylesheet"
             type="text/css"
-            href="../../../../../public/css/Admin/order_detail.css"
+            href="{{ asset ('css/admin/order_detail.css') }}"
         />
         <link
             rel="stylesheet"
@@ -150,14 +150,11 @@
                                                         <p><b>Địa chỉ nhận hàng:</b> số 10 Ngọc Lâm, Long Biên, Hà Nội</p>
                                                         <p><b>Ghi chú đơn hàng:</b> Chúc một ngày tốt lành</p>
                                                         <hr>
-                                                        <p><b>Ngày mua:</b> 18/10/2023</p>
-                                                        <p><b>trạng thái:</b> <b class="check" style="color: #f3bb45;">CHỜ XÁC NHẬN</b></p>
+                                                        <p><b>Trạng thái:</b> <b class="check" style="color: #f3bb45;">CHỜ XÁC NHẬN</b></p>
                                                     </div>
                                                 </div>
-                                                <div
-                                                    class="content table-responsive table-full-width"
-                                                >
-                                                    <table class="table"></table>
+                                                <div class="content table-responsive table-full-width">
+                                                    <table class="table">
                                                         <div class="container">
                                                             <div class="card">
                                                                 <div
@@ -357,27 +354,29 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                            <div class="total">
-                                                                <div>
-                                                                   <div>
-                                                                        <b>Tổng tiền sản phẩm:</b> 207.000đ
-                                                                    </div>
-                                                                    <div>
-                                                                        <b>Phí giao hàng:</b> 18.000đ
-                                                                    </div>
-                                                                <hr>
-                                                                    <div>
-                                                                        <b>Tổng tiền:</b> 225.000đ
-                                                                    </div>
+                                                        <div class="total">
+                                                            <div>
+                                                               <div>
+                                                                    <b>Tổng tiền sản phẩm:</b> 207.000đ
                                                                 </div>
-                                                                <br>
-                                                                <div >
-                                                                    <button class="back-btn">
-                                                                        <a href="">Trở lại</a>
-                                                                    </button>
+                                                                <div>
+                                                                    <b>Phí giao hàng:</b> 18.000đ
+                                                                </div>
+                                                            <hr>
+                                                                <div>
+                                                                    <b>Tổng tiền:</b> 225.000đ
                                                                 </div>
                                                             </div>
                                                             <br>
+                                                            <div >
+                                                                <a href="{{ route('order.index') }}">
+                                                                    <button class="back-btn">
+                                                                        Trở lại
+                                                                    </button>
+                                                                </a>
+                                                            </div>
+                                                            <br>
+                                                        </div>
                                                     </table>
                                                 </div>
                                             </div>

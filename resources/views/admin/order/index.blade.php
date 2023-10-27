@@ -155,26 +155,27 @@
                                                         </thead>
                                                         <tbody>
                                                         @foreach( $receipts as $receipt)
+                                                            @php $receipt_details = App\Models\ReceiptDetail::all()-> where('receipt_id', '=', $receipt -> id); @endphp
                                                             <tr>
                                                                 <td>
                                                                    {{ $receipt -> id}}
                                                                 </td>
                                                                 <td>
                                                                     @foreach($receipt_details as $receipt_detail)
-                                                                            <div class="tch-order-card__content">
-                                                                                <div class="tch-order-card__content">
-                                                                                    <h5 class="tch-order-card__title mb-0"> {{ $receipt_detail -> quantity }} x {{ $receipt_detail -> drink_name }} </h5>
-                                                                                    <p class="tch-order-card__description mb-0"> ({{ $receipt_detail -> size_name }}; {{ $receipt_detail -> topping_name }}</p>
-                                                                                </div>
-                                                                            </div>
+                                                                    <div class="tch-order-card__content">
+                                                                        <div class="tch-order-card__content">
+                                                                            <h5 class="tch-order-card__title mb-0"> {{ $receipt_detail -> quantity }} x {{ $receipt_detail -> drink_name }} </h5>
+                                                                            <p class="tch-order-card__description mb-0"> ({{ $receipt_detail -> size_name }}; {{ $receipt_detail -> topping_name }}</p>
+                                                                        </div>
+                                                                    </div>
                                                                     @endforeach
                                                                 </td>
                                                                 <td>
-                                                                    147.000đ
+                                                                    {{ $receipt_detail -> price }} đ
                                                                 </td>
                                                                 <td>
                                                                     <button class="detail-btn ">
-                                                                        <a href=""> chi tiết </a>
+                                                                        <a href=" {{ route('order.detail') }}"> chi tiết </a>
                                                                     </button>
                                                                     <button class="accept-btn">
                                                                         <a href=""> duyệt đơn </a>
@@ -189,8 +190,8 @@
                                                             </tr>
                                                         @endforeach
 
-                                                        <div class="check" style="color: #7ac29a;"><b>ĐÃ XÁC NHẬN</b></div>
-                                                        <div class="check" style="color: #eb5e28;"><b>ĐÃ HỦY</b></div>
+{{--                                                        <div class="check" style="color: #7ac29a;"><b>ĐÃ XÁC NHẬN</b></div>--}}
+{{--                                                        <div class="check" style="color: #eb5e28;"><b>ĐÃ HỦY</b></div>--}}
                                                         </tbody>
                                                     </table>
                                                 </div>
