@@ -24,11 +24,11 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email|unique:user,email',
-            'password' => 'required|max:10|confirmed',
+            'email' => 'required|email',
+            'password' => 'required|confirmed',
             'password_confirmation' => 'required',
             'username' => 'required|max:20',
-            'user_phonenumber' => 'required|numeric|unique:user,user_phonenumber',
+            'user_phonenumber' => 'required|numeric',
             'user_address' => 'required|max:11',
             'role_id' => 'required',
         ];

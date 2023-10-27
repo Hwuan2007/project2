@@ -151,7 +151,7 @@
                                                     >
                                                     <form action="{{ route('user.update', $user) }}" method="post">
                                                         <div class="row">
-                                                            
+
                                                                 @csrf
                                                                 @method('PUT')
                                                                 <div
@@ -177,14 +177,14 @@
                                                                         <input
                                                                             type="text"
                                                                             id="user-password"
-                                                                            name="confirm_password"
+                                                                            name="password_confirmation"
                                                                             placeholder="Nhập Mật Khẩu"
                                                                             class="form-control"
                                                                             value="{{ $user -> password }}"
                                                                         />
                                                                     </div>
-                                                                    @if( $errors -> has('confirm_password'))
-                                                                        <span style="color: red;">{{ $errors -> first('confirm_password') }}</span>
+                                                                    @if( $errors -> has('password_confirmation'))
+                                                                        <span style="color: red;">{{ $errors -> first('password_confirmation') }}</span>
                                                                     @endif
                                                                     <br>
                                                                     <div>
@@ -237,7 +237,7 @@
                                                                         <span style="color: red;">{{ $errors -> first('user_phonenumber') }}</span>
                                                                     @endif
                                                                     <br />
-                                                                    
+
                                                                     <div>
                                                                         Địa chỉ:
                                                                         <input
@@ -282,7 +282,7 @@
                                                                         </button>
                                                                     </div>
                                                                 </div>
-                                                                
+
                                                             </form>
                                                         </div>
                                                         </div>
