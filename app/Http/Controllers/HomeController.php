@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $drinks = Drink::all();
+        $drinks = Drink::take(10)->get();/*giới hạn hiển thị*/
         return view('client/home/index', [
             'drinks' => $drinks
         ]);

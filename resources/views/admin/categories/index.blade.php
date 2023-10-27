@@ -170,9 +170,7 @@
                                                                     {{ $category -> categories_name }}
                                                                 </td>
                                                                 <td>
-                                                                    <button class="detail-btn">
-                                                                        <a href="{{ route('all.index') }}">chi tiết</a>
-                                                                    </button>
+                                                                    
                                                                     <button class="edit-btn">
                                                                         <a href="{{ route('category.edit', $category) }}">sửa</a>
                                                                     </button>

@@ -76,32 +76,26 @@
                             <div class="carousel">
                                 <!-- Carousel -->
                                 <div id="demo" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-indicators">
-                                        <!-- <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button> -->
+                                    <!-- <div class="carousel-indicators">
                                         <button type="button" data-bs-target="#demo" data-bs-slide-to="1" class="active"></button>
                                         <button type="button" data-bs-target="#demo" data-bs-slide-to="2" class="active"></button>
-                                    </div>
+                                    </div> -->
 
                                     <div class="carousel">
                                         <div class="carousel-item active">
                                           <img src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}" alt="Image 1" class="d-block w-100">
                                         </div>
-                                        <div class="carousel-item">
-                                          <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png" alt="slide-2" class="d-block w-100">
-                                        </div>
                                     </div>
-
-
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                                    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon"></span>
                                     </button>
                                     <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon"></span>
+                                        <span class="carousel-control-next-icon"></span> -->
                                     </button>
                                 </div>
                             </div>
                         </div>
-                         <div class="container">
+                         <!-- <div class="container">
                             <div id="thumbCarousel">
                                 <div data-target="#productCarousel" data-slide-to="0" class="thumb active">
                                     <img src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}">
@@ -110,7 +104,7 @@
                                     <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-lg-6 col-md-4 col-sm-12" >
                         <div>
@@ -160,16 +154,18 @@
             <br>
             <p style="font-size: 18px;"><b>Sản phẩm liên quan</b></p>
             <div class="row">
-                @foreach( $drinks as $drink_id )
-                    <div class="col-lg-2 col-md-8 col-sm-12" >
-                        <div class="card" >
-                            <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink_id -> drk_img) }}" alt="Card image">
-                            <div class="card-body">
-                                <a href="{{ route('drink_detail.drinkDetail' , $drink) }}" class="drink-name"><b>{{ $drink_id -> drk_name }}</b></a>
-                                <p class="cost">{{ $drink_id -> drk_price }} đ</p>
-                            </div>
+            @foreach($drinks as $drink)
+                <div class="col-lg-2 col-md-8 col-sm-12" >
+                    <div class="card" >
+                        <a href="{{ route('drink_detail.drinkDetail', $drink) }}">
+                            <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}" alt="Card image">
+                        </a>
+                        <div class="card-body">
+                            <a href="{{ route('drink_detail.drinkDetail', $drink) }}" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
+                            <p class="cost">{{ $drink -> drk_price }} đ</p>
                         </div>
                     </div>
+                </div>
                 @endforeach
             </div>
         </div>
