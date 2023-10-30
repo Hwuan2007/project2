@@ -19,4 +19,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
     public function role(){
         return $this -> belongsTo(Role::class , 'role_id');
     }
+    public function receipt(){
+        return $this -> hasMany(Receipt::class);
+    }
 }

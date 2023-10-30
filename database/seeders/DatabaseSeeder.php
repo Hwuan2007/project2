@@ -15,6 +15,5 @@ class DatabaseSeeder extends Seeder
     {
         $this -> call(User::class);
         $this -> call(Size::class);
-        $this -> call(ToppingSeeder::class);
     }
 }

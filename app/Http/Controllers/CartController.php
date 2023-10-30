@@ -36,7 +36,6 @@ class CartController extends Controller
     }
     public function storeCart(Request $request){
         $user = $request->all();
-        $Carts = Session::get('cart');
         $user_id = User::create($user);
         $price = 0;
         foreach ((array) session('cart') as $drink => $details){
@@ -46,12 +45,15 @@ class CartController extends Controller
             'total_price' => $price,
             'user_id' => $user_id['id'],
             'note' =>  $user['note'],
-            'shipping_id' =>  $user['shipping_id']
+            'shipping_id' =>  $user['shipping_id'],
+            'receipt_status' =>  $user['receipt_status'],
         ]);
         foreach ((array) session('cart') as $drink => $details){
             $total_price = $price + 18000;
             DB::table('receipt_detail')->insert([
                 'receipt_id' => $order_id['id'],
+                'size_name' => $details['size_id'],
+                'drink_name' => $details['drk_name'],
                 'quantity' => $details['quantity'],
                 'price' => $total_price,
             ]);

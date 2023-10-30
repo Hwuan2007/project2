@@ -86,23 +86,23 @@
                                 <br>
                                 <br>
                                 <div>
-                                    <input type="text" id="address" name="user_address" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;"/>
+                                    <input type="text" id="address" name="user_address" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;" required/>
                                 </div>
                                 <br>
                                 <div>
-                                    <input type="text" id="name" name="username" placeholder="Nhập tên người nhận" class="form-control" style="width: 450px;"/>
+                                    <input type="text" id="name" name="username" placeholder="Nhập tên người nhận" class="form-control" style="width: 450px;" required/>
                                 </div>
                                 <br>
                                 <div>
-                                    <input type="text" id="phonenumber" name="user_phonenumber" placeholder="Nhập số điện thoại" class="form-control" style="width: 450px;"/>
+                                    <input type="text" id="phonenumber" name="user_phonenumber" placeholder="Nhập số điện thoại" class="form-control" style="width: 450px;" required/>
                                 </div>
                                 <br>
                                 <div>
-                                    <input type="text" id="note" name="note" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;"/>
+                                    <input type="text" id="note" name="note" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" required/>
                                 </div>
                                 <br>
                                 <div>
-                                    <select name="shipping_id" class="form-control">
+                                    <select name="shipping_id" class="form-control" required>
                                         @foreach( $shipping_methods as $shipping_method)
                                             <option name="shipping_id" value="{{ $shipping_method -> id}}">
                                                 {{ $shipping_method -> shipping_name }}-{{ $shipping_method -> shipping_status }}
@@ -141,9 +141,6 @@
                                                                             @foreach( session('cart') as $drk_id => $drink )
                                                                                 <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
                                                                                     <div class="tch-order-card__left d-flex">
-                                                                                <span class="tch-order-card__icon d-flex align-items-center">
-                                                                                    <a href="" id="edit"><i aria-hidden="true" class="fa fa-pen"></i></a>
-                                                                                </span>
                                                                                         <div class="tch-order-card__content">
                                                                                             <h5 class="tch-order-card__title mb-0"> {{ $drink['quantity'] }} x {{ $drink['drk_name'] }}</h5>
                                                                                             <p class="tch-order-card__description mb-0"> {{ $drink['size_id'] }}</p>
@@ -154,6 +151,9 @@
                                                                                     <div class="tch-order-card__right">
                                                                                         <p class="tch-order-card__price mb-0">{{ $drink['drk_price'] }} đ</p>
                                                                                     </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <input type="hidden" id="receipt_status" name="receipt_status" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="Đang chờ"/>
                                                                                 </div>
                                                                             @endforeach
                                                                         @endif

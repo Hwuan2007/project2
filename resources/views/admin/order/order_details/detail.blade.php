@@ -145,34 +145,28 @@
                                                     <h5 class="title"><b>Thông Tin Khách Hàng</b></h5>
                                                     <br>
                                                     <div class="container">
-                                                        <p><b>Tên Khách Hàng:</b> Nguyễn Văn A</p>
-                                                        <p><b>Số điện thoại:</b> 0342655149</p>
-                                                        <p><b>Địa chỉ nhận hàng:</b> số 10 Ngọc Lâm, Long Biên, Hà Nội</p>
-                                                        <p><b>Ghi chú đơn hàng:</b> Chúc một ngày tốt lành</p>
-                                                        <hr>
-                                                        <p><b>Trạng thái:</b> <b class="check" style="color: #f3bb45;">CHỜ XÁC NHẬN</b></p>
+                                                        @foreach( $users as $user )
+                                                            <p><b>Tên Khách Hàng:</b> {{ $user -> username }}</p>
+                                                            <p><b>Số điện thoại:</b> {{ $user -> user_phonenumber }}</p>
+                                                            <p><b>Địa chỉ nhận hàng:</b>  {{ $user -> user_address }}</p>
+                                                            <p><b>Ghi chú đơn hàng:</b>  {{ $receipt -> note }}</p>
+                                                            <hr>
+                                                            <p><b>Trạng thái:</b> <b class="check" style="color: #f3bb45;">{{ $receipt -> receipt_status }}</b></p>
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                                 <div class="content table-responsive table-full-width">
                                                     <table class="table">
                                                         <div class="container">
                                                             <div class="card">
-                                                                <div
-                                                                    class="header"
-                                                                >
-                                                                    <h4
-                                                                        class="title"
-                                                                    >
+                                                                <div class="header">
+                                                                    <h4 class="title">
                                                                         <b>Thông tin Sản Phẩm</b>
                                                                     </h4>
-                                                                    <br />
+                                                                    <br>
                                                                 </div>
-                                                                <div
-                                                                    class="content table-responsive table-full-width"
-                                                                >
-                                                                    <table
-                                                                        class="table"
-                                                                    >
+                                                                <div class="content table-responsive table-full-width">
+                                                                    <table class="table">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th>
@@ -180,83 +174,42 @@
                                                                                     Phẩm
                                                                                 </th>
                                                                                 <th>
-                                                                                    đơn giá
+                                                                                    Đơn giá
                                                                                 </th>
                                                                                 <th>
-                                                                                    số lượng
+                                                                                    Số lượng
                                                                                 </th>
                                                                                 <th>
-                                                                                    tổng tiền
+                                                                                    Tổng tiền
                                                                                 </th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td>
-                                                                                    <div
-                                                                                        class="tch-order-card__content"
-                                                                                    >
-                                                                                        <div
-                                                                                            class="tch-order-card__content"
-                                                                                        >
-                                                                                            <h5
-                                                                                                class="tch-order-card__title mb-0"
-                                                                                            >
+                                                                                    <div class="tch-order-card__content">
+                                                                                        <div class="tch-order-card__content">
+                                                                                            <h5 class="tch-order-card__title mb-0">
                                                                                                 Trà
                                                                                                 Sữa
                                                                                                 Oolong
                                                                                                 BLao
                                                                                             </h5>
                                                                                             <div class="container">
-                                                                                                <p
-                                                                                                class="tch-order-card__description mb-0"
-                                                                                            >
+                                                                                                <p class="tch-order-card__description mb-0">
                                                                                                 Size: <b>Lớn</b>
                                                                                             </p>
-                                                                                            <p
-                                                                                                class="tch-order-card__description mb-0"
-                                                                                            >
-                                                                                                Kem
-                                                                                                Phô
-                                                                                                Mai
-                                                                                                Macchiato
-                                                                                            </p>
-                                                                                            <p
-                                                                                                class="tch-order-card__description mb-0"
-                                                                                            >
-                                                                                                Trân
-                                                                                                châu
-                                                                                                trắng
-                                                                                            </p>
-
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <div
-                                                                                        class="tch-order-card__content"
-                                                                                    >
-                                                                                        <div
-                                                                                            class="tch-order-card__content"
-                                                                                        >
-                                                                                            <p
-                                                                                                class="tch-order-card__description mb-0" style="margin-left: 10px;">
+                                                                                    <div class="tch-order-card__content">
+                                                                                        <div class="tch-order-card__content">
+                                                                                            <p class="tch-order-card__description mb-0" style="margin-left: 10px;">
                                                                                                 39.000đ
                                                                                             </p>
-                                                                                                <p
-                                                                                                class="tch-order-card__description mb-0"
-                                                                                            >
-                                                                                                +10.000đ
-                                                                                            </p>
-                                                                                            <p
-                                                                                                class="tch-order-card__description mb-0"
-                                                                                            >
-                                                                                                +10.000đ
-                                                                                            </p>
-                                                                                            <p
-                                                                                                class="tch-order-card__description mb-0"
-                                                                                            >
+                                                                                                <p class="tch-order-card__description mb-0">
                                                                                                 +10.000đ
                                                                                             </p>
                                                                                         </div>
@@ -267,86 +220,6 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     69.000đ
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <div
-                                                                                        class="tch-order-card__content"
-                                                                                    >
-                                                                                        <div
-                                                                                            class="tch-order-card__content"
-                                                                                        >
-                                                                                            <h5
-                                                                                                class="tch-order-card__title mb-0"
-                                                                                            >
-                                                                                            Cà
-                                                                                            Phê
-                                                                                            sữa
-                                                                                            đá
-                                                                                            </h5>
-                                                                                            <div class="container">
-                                                                                                <p
-                                                                                                class="tch-order-card__description mb-0"
-                                                                                            >
-                                                                                                Size: <b>Lớn</b>
-                                                                                            </p>
-                                                                                            <p
-                                                                                                class="tch-order-card__description mb-0"
-                                                                                            >
-                                                                                                Kem
-                                                                                                Phô
-                                                                                                Mai
-                                                                                                Macchiato
-                                                                                            </p>
-                                                                                            <p
-                                                                                                class="tch-order-card__description mb-0"
-                                                                                            >
-                                                                                                Trân
-                                                                                                châu
-                                                                                                trắng
-                                                                                            </p>
-
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <div
-                                                                                        class="tch-order-card__content"
-                                                                                    >
-                                                                                        <div
-                                                                                            class="tch-order-card__content"
-                                                                                        >
-                                                                                            <p
-                                                                                                class="tch-order-card__description mb-0" style="margin-left: 10px;">
-                                                                                                39.000đ
-                                                                                            </p>
-                                                                                                <p
-                                                                                                class="tch-order-card__description mb-0"
-                                                                                            >
-                                                                                                +10.000đ
-                                                                                            </p>
-                                                                                            <p
-                                                                                                class="tch-order-card__description mb-0"
-                                                                                            >
-                                                                                                +10.000đ
-                                                                                            </p>
-                                                                                            <p
-                                                                                                class="tch-order-card__description mb-0"
-                                                                                            >
-                                                                                                +10.000đ
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </td>
-                                                                                <td>
-                                                                                    2
-                                                                                </td>
-                                                                                <td>
-                                                                                    138.000đ
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>

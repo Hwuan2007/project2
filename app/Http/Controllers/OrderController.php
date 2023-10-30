@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
@@ -93,12 +94,13 @@ class OrderController extends Controller
     {
         //
     }
-    public function detail(ReceiptDetail $receiptDetail){
-        User::all();
-        $receipt = Receipt::all();
+    public function detail(Receipt $receipt){
+        $receiptsDetails = ReceiptDetail::all()-> where('receipt_id', '=', $receipt -> id);
+        $users = User::all()-> where('id', '=', $receipt -> user_id);
         return view('admin/order/order_details/detail',[
             'receipt' => $receipt,
-            'receiptDetail' => $receiptDetail
+            'users' => $users,
+            'receiptsDetails' => $receiptsDetails
         ]);
     }
 }
