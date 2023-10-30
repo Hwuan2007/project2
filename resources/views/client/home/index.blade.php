@@ -107,7 +107,7 @@
                         </a>
                         <div class="card-body">
                             <a href="{{ route('drink_detail.drinkDetail', $drink) }}" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
-                            <p class="cost">{{ $drink -> drk_price }} đ</p>
+                            <p class="cost">{{ number_format($drink->drk_price, 0, ',', '.') }} đ</p>
                         </div>
                     </div>
                 </div>

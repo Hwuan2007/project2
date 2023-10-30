@@ -173,7 +173,8 @@
                                                                     @endforeach
                                                                 </td>
                                                                 <td>
-                                                                    {{ $receipt_detail -> price }} đ
+                                                                    {{ number_format($receipt_detail -> price, 0, ',', '.') }} đ
+                                                                    
                                                                 </td>
                                                                 <td>
                                                                     <button class="detail-btn ">

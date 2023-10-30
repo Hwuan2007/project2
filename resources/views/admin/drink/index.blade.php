@@ -178,7 +178,7 @@
                                                                         width="100px" height="100px"
                                                                     />
                                                                 </td>
-                                                                <td> {{ $drink -> drk_price}}</td>
+                                                                <td> {{ number_format($drink->drk_price, 0, ',', '.') }} đ</td>
                                                                 <td>
                                                                     <a href="{{ route('drink.edit', $drink) }}">
                                                                         <button class="detail-btn" style="display: inline-block;">
