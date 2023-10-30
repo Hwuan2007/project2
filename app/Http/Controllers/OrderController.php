@@ -103,4 +103,25 @@ class OrderController extends Controller
             'receiptsDetails' => $receiptsDetails
         ]);
     }
+    public function accept($id) {
+        $receipt = Receipt::find($id);
+        $receipt->receipt_status = 'ĐÃ XÁC NHẬN';
+        $receipt->save();
+        return back();
+   
+    }
+    
+    public function cancelAccept($id) {
+        $receipt = Receipt::find($id);
+        $receipt->receipt_status = 'Đang chờ';
+        $receipt->save();
+        return back();
+    }
+    
+    public function cancel($id) {
+        $receipt = Receipt::find($id);
+        $receipt->receipt_status = 'ĐÃ HỦY';
+        $receipt->save();
+        return back();
+    }
 }

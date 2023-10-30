@@ -173,10 +173,10 @@
                                                                 </td>
                                                                 <td>
 
-                                                                    <button class="detail-btn">
+                                                                    <button class="detail-btn" style="display: inline-block;">
                                                                         <a href="{{ route('user.edit', $user)  }}">xem chi tiết</a>
                                                                     </button>
-                                                                    <form method="post" action="{{ route('user.destroy', $user) }}">
+                                                                    <form method="post" action="{{ route('user.destroy', $user) }}" style="display: inline-block;">
                                                                         @csrf
                                                                         @method('DELETE')
                                                                         <button class="del-btn">Xóa</button>

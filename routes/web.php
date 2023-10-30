@@ -49,6 +49,10 @@ Route::prefix('admin') ->group(function () {
     // order
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
     Route::get('/order/detail/{receipt}', [OrderController::class, 'detail'])->name('order.detail');
+    Route::get('/order/accept/{receipt}', [OrderController::class, 'accept'])->name('order.accept');
+    Route::get('/order/cancel/{receipt}', [OrderController::class, 'cancel'])->name('order.cancel');
+    Route::get('/order/cancelAccept/{receipt}', [OrderController::class, 'cancelAccept'])->name('order.cancelAccept');
+    
 });
 Route::prefix('client') ->group(function (){
     Route::get('/', [HomeController::class, 'index']) -> name('client.index');

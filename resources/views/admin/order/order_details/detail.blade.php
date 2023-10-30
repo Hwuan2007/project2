@@ -151,12 +151,19 @@
                                                             <p><b>Địa chỉ nhận hàng:</b>  {{ $user -> user_address }}</p>
                                                             <p><b>Ghi chú đơn hàng:</b>  {{ $receipt -> note }}</p>
                                                             <hr>
-                                                            <p><b>Trạng thái:</b> <b class="check" style="color: #f3bb45;">{{ $receipt -> receipt_status }}</b></p>
+                                                            <p><b>Trạng thái:</b> 
+                                                                @if ($receipt->receipt_status == 'Đang chờ')
+                                                                    <span class="check" style="color: #f3bb45;"><b>{{ $receipt -> receipt_status }}</b></span>
+                                                                @elseif ($receipt->receipt_status == 'ĐÃ XÁC NHẬN')
+                                                                    <span class="check" style="color:  #7ac29a;"><b>{{ $receipt -> receipt_status }}</b></span>
+                                                                @elseif ($receipt->receipt_status == 'ĐÃ HỦY')
+                                                                    <span class="check" style="color: #eb5e28;"><b>{{ $receipt -> receipt_status }}</b></span>
+                                                                @endif
+                                                            </p>
                                                         @endforeach
                                                     </div>
                                                 </div>
                                                 <div class="content table-responsive table-full-width">
-                                                    <table class="table">
                                                         <div class="container">
                                                             <div class="card">
                                                                 <div class="header">
@@ -235,7 +242,7 @@
                                                                 <div>
                                                                     <b>Phí giao hàng:</b> 18.000đ
                                                                 </div>
-                                                            <hr>
+                                                                <hr>
                                                                 <div>
                                                                     <b>Tổng tiền:</b> 225.000đ
                                                                 </div>
@@ -250,7 +257,6 @@
                                                             </div>
                                                             <br>
                                                         </div>
-                                                    </table>
                                                 </div>
                                             </div>
                                         </div>

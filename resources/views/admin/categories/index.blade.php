@@ -170,14 +170,13 @@
                                                                     {{ $category -> categories_name }}
                                                                 </td>
                                                                 <td>
-                                                                    
-                                                                    <button class="edit-btn">
+                                                                    <button class="edit-btn" style="display: inline-block;">
                                                                         <a href="{{ route('category.edit', $category) }}">sửa</a>
                                                                     </button>
-                                                                    <form method="post" action="{{ route('category.destroy', $category) }}">
+                                                                    <form method="post" action="{{ route('category.destroy', $category) }}" style="display: inline-block;">
                                                                         @csrf
                                                                         @method('DELETE')
-                                                                        <button class="del-btn">Xóa</button>
+                                                                        <button class="del-btn" >Xóa</button>
                                                                     </form>
                                                                 </td>
                                                             </tr>

@@ -181,11 +181,11 @@
                                                                 <td> {{ $drink -> drk_price}}</td>
                                                                 <td>
                                                                     <a href="{{ route('drink.edit', $drink) }}">
-                                                                        <button class="detail-btn">
+                                                                        <button class="detail-btn" style="display: inline-block;">
                                                                             xem chi tiết
                                                                         </button>
                                                                     </a>
-                                                                    <form method="post" action="{{ route('drink.destroy', $drink) }}">
+                                                                    <form method="post" action="{{ route('drink.destroy', $drink) }}" style="display: inline-block;">
                                                                         @csrf
                                                                         @method('DELETE')
                                                                         <button class="del-btn">Xóa</button>
