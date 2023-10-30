@@ -17,7 +17,6 @@ class ReceiptDetail extends Migration
             $table->integer('quantity');
             $table->string('price');
             $table->string('size_name');
-            $table->string('topping_name');
             $table->string('drink_name');
             $table->foreignId('receipt_id') ->constrained('receipt');
         });

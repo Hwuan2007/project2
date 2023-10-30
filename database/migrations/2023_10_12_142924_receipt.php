@@ -19,6 +19,7 @@ class Receipt extends Migration
             $table->text('note')->nullable();
             $table->foreignId('user_id')->nullable()->constrained('user');
             $table->foreignId('shipping_id')->constrained('shipping_method');
+            $table->string( 'receipt_status');
         });
     }
 

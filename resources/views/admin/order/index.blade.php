@@ -165,7 +165,7 @@
                                                                     <div class="tch-order-card__content">
                                                                         <div class="tch-order-card__content">
                                                                             <h5 class="tch-order-card__title mb-0"> {{ $receipt_detail -> quantity }} x {{ $receipt_detail -> drink_name }} </h5>
-                                                                            <p class="tch-order-card__description mb-0"> ({{ $receipt_detail -> size_name }}; {{ $receipt_detail -> topping_name }}</p>
+                                                                            <p class="tch-order-card__description mb-0"> ({{ $receipt_detail -> size_name }})</p>
                                                                         </div>
                                                                     </div>
                                                                     @endforeach
@@ -175,7 +175,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <button class="detail-btn ">
-                                                                        <a href=" {{ route('order.detail') }}"> chi tiết </a>
+                                                                        <a href=" {{ route('order.detail' , $receipt_detail -> receipt_id) }}"> chi tiết </a>
                                                                     </button>
                                                                     <button class="accept-btn">
                                                                         <a href=""> duyệt đơn </a>
@@ -185,7 +185,7 @@
                                                                     </button>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="check" style="color: #f3bb45;"><b>CHỜ XÁC NHẬN</b></div>
+                                                                    <div class="check" style="color: #f3bb45;"><b>{{ $receipt -> receipt_status }}</b></div>
                                                                 </td>
                                                             </tr>
                                                         @endforeach

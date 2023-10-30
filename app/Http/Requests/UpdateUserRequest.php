@@ -27,7 +27,7 @@ class UpdateUserRequest extends FormRequest
             'email' => 'required|email',
             'password' => 'required|confirmed',
             'password_confirmation' => 'required',
-            'username' => 'required|max:20',
+            'username' => 'required|max:30',
             'user_phonenumber' => 'required|numeric',
             'user_address' => 'required|max:11',
             'role_id' => 'required',
