@@ -11,7 +11,7 @@ class DrinkDetail extends Model
     use HasFactory;
     protected $table = 'drink_detail';
     public $timestamps = false;
-    protected $fillable = ['size_id','topping_id', 'drk_id'];
+    protected $fillable = ['size_id', 'drk_id'];
 
     public function drink(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

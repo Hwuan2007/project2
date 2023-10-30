@@ -14,6 +14,6 @@ class ToppingSeeder extends Seeder
      */
     public function run()
     {
-        topping::factory() -> create();
+
     }
 }

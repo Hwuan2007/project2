@@ -105,7 +105,7 @@
                                     <select name="shipping_id" class="form-control">
                                         @foreach( $shipping_methods as $shipping_method)
                                             <option name="shipping_id" value="{{ $shipping_method -> id}}">
-                                                {{ $shipping_method -> shipping_name }} -> {{ $shipping_method -> shipping_status }}
+                                                {{ $shipping_method -> shipping_name }}-{{ $shipping_method -> shipping_status }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -147,7 +147,6 @@
                                                                                         <div class="tch-order-card__content">
                                                                                             <h5 class="tch-order-card__title mb-0"> {{ $drink['quantity'] }} x {{ $drink['drk_name'] }}</h5>
                                                                                             <p class="tch-order-card__description mb-0"> {{ $drink['size_id'] }}</p>
-                                                                                            <p data-v-68143206="" class="tch-order-card__description mb-0">{{ $drink['topping_id'] }}</p>
                                                                                             <!---->
                                                                                             <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
                                                                                         </div>

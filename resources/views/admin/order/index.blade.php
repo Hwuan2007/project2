@@ -165,7 +165,7 @@
                                                                     <div class="tch-order-card__content">
                                                                         <div class="tch-order-card__content">
                                                                             <h5 class="tch-order-card__title mb-0"> {{ $receipt_detail -> quantity }} x {{ $receipt_detail -> drink_name }} </h5>
-                                                                            <p class="tch-order-card__description mb-0"> ({{ $receipt_detail -> size_name }}; {{ $receipt_detail -> topping_name }}</p>
+                                                                            <p class="tch-order-card__description mb-0"> {{ $receipt_detail -> size_name }}; {{ $receipt_detail -> topping_name }}</p>
                                                                         </div>
                                                                     </div>
                                                                     @endforeach

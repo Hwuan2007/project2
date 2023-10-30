@@ -124,13 +124,7 @@
                                         @endforeach
                                     </div>
                                     <br>
-                                    <div class="pick-topping">Topping</div><br>
-                                        <div class="pick-topping-button">
-                                            @foreach( $toppings as $topping )
-                                                <input type="checkbox" name="topping_id[]" id="topping{{ $topping -> id }}" data-price="{{ $topping -> topping_price }}" value="{{ $topping -> topping_name }}">
-                                                <label for="topping{{ $topping -> id }}" class="color-change-pick-topping-button"> {{ $topping -> topping_name }} + {{ $topping -> topping_price }} đ</label>
-                                            @endforeach
-                                        </div>
+                                    
                                     <br>
                                     <br>
                                     <button id="btn-order" class="save-btn"><i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> </button>

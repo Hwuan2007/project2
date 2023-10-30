@@ -7,12 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class topping extends Model
 {
-    use HasFactory;
-    protected $table = 'topping';
-    protected $primaryKey = 'id';
-    public $timestamps = false;
-    protected $fillable = ['topping_name','topping_price'];
-    public function drinkDetail(){
-        return $this -> hasMany(DrinkDetail::class);
-    }
+   
 }

@@ -13,11 +13,7 @@ class Topping extends Migration
      */
     public function up()
     {
-        Schema::create('topping', function (Blueprint $table) {
-            $table->id();
-            $table->string('topping_name');
-            $table->string('topping_price');
-        });
+        
     }
 
     /**
@@ -27,6 +23,5 @@ class Topping extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topping');
     }
 }

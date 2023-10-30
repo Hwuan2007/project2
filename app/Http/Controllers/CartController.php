@@ -52,9 +52,6 @@ class CartController extends Controller
             $total_price = $price + 18000;
             DB::table('receipt_detail')->insert([
                 'receipt_id' => $order_id['id'],
-                'size_name' => $details['size_id'],
-                'topping_name' => $details['topping_id'],
-                'drink_name' => $details['drk_name'],
                 'quantity' => $details['quantity'],
                 'price' => $total_price,
             ]);
