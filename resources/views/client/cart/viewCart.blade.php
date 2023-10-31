@@ -152,11 +152,10 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="tch-order-card__right">
-                                                                                            <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }}</h5>
-                                                                                            <p class="tch-order-card__price mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }}</p>
+                                                                                            <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['size_price'], 0, ',', '.') }} đ</h5>
+                                                                                            <p class="tch-order-card__price mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }} đ</p>
                                                                                             <br>
                                                                                             <!---->
-
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>

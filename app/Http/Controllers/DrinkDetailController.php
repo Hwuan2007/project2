@@ -20,27 +20,31 @@ class DrinkDetailController extends Controller
     public function drinkDetail(Drink $drink)
     {
         $sizes = Size::all();
-        $drinkDetails = DB::table('size')
-            -> join('drink_detail', 'size.id' , '=', 'drink_detail.size_id')
-            -> select('size.*','drink_detail.*')
-            -> where('drk_id', $drink -> id)
-            -> get();
         $categories = Category::all() -> where('id', '=', $drink -> categories_id);
         $drink_categories = Drink::all() -> where('categories_id', '=', $drink -> categories_id);
         return view('client/drink_detail/drinkDetail', [
             'drink' => $drink,
             'sizes' => $sizes,
             'categories' => $categories,
-            'drinkDetails' => $drinkDetails,
             'drink_categories' => $drink_categories,
         ]);
 
     }
     public function store(Request $request, Drink $drink): \Illuminate\Http\RedirectResponse
     {
-        $drink_detail = DrinkDetail::all() -> where('drk_id', '=', $drink -> id);
-        dd($request);
+        DB::table('drink_detail') -> insert([
+            'size_id' => $request -> size_id,
+            'drk_id' => $drink -> id,
+        ]);
+        $drink_details = DrinkDetail::join('size', 'size.id', '=', 'drink_detail.size_id')
+            ->select('drink_detail.*',
+                'size.*')
+            ->where('drk_id', $drink->id)
+            ->where('size_id', $request -> size_id)
+            ->first();
+
         $cart_id = $drink -> id;
+
         if (Session::exists('cart')){
             $cart = Session::get('cart');
             if (isset($cart[$cart_id])){
@@ -50,6 +54,7 @@ class DrinkDetailController extends Controller
                     'id' => $cart_id,
                     'drk_name' => $drink -> drk_name,
                     'drk_price' => $drink -> drk_price,
+                    'size_price' => $drink_details -> size_price,
                     'size_id' => $request -> size_id,
                     'quantity' => 1
                 ]);
