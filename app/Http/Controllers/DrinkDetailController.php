@@ -39,7 +39,7 @@ class DrinkDetailController extends Controller
     public function store(Request $request, Drink $drink): \Illuminate\Http\RedirectResponse
     {
         $drink_detail = DrinkDetail::all() -> where('drk_id', '=', $drink -> id);
-        dd($request);
+        // dd($request);
         $cart_id = $drink -> id;
         if (Session::exists('cart')){
             $cart = Session::get('cart');
