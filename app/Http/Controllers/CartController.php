@@ -46,7 +46,7 @@ class CartController extends Controller
             'user_id' => $user_id['id'],
             'note' =>  $user['note'],
             'shipping_id' =>  $user['shipping_id'],
-            'receipt_status' =>  $user['receipt_status'],
+            'receipt_status' =>  $user['receipt_status']
         ]);
         foreach ((array) session('cart') as $drink => $details){
             $total_price = $price + 18000;
