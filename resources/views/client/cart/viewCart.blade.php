@@ -136,8 +136,8 @@
                                                                             <a href="" class="no-reload">Đơn hàng đã đặt </a>
                                                                         </div>
                                                                     </div>
-
-                                                                    <div class="drinkincart">
+                                                                    <div class="container">
+                                                                        <div class="drinkincart">
                                                                         @if( session('cart') )
                                                                             @foreach( session('cart') as $drk_id => $drink )
                                                                                 <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
@@ -153,7 +153,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="tch-order-card__right">
-                                                                                            <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['size_price'], 0, ',', '.') }} đ</h5>
+                                                                                            <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }} đ</h5>
                                                                                             <p class="tch-order-card__price mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }} đ</p>
                                                                                             <br>
                                                                                             <!---->
@@ -167,6 +167,8 @@
                                                                         @endif
 
                                                                     </div>
+                                                                    </div>
+                                                                    
                                                                     </div>
                                                                     
                                                                 </div>

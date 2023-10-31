@@ -276,4 +276,40 @@ footer .col-lg-9{
     display: inline-block;
 }
 
+.history-wrapper{
+    margin-bottom: 250px;
+}
+.searchform{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-product-note-item {
+    background: var(--white-1);
+    border: 1px solid var(--smoky-gray-4);
+    border-radius: var(--space-4);
+    display: flex;
+    height: var(--space-44);
+    margin-top: var(--space-20);
+}
+.searchform button {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    background-color: #E57905;
+    border-radius: 3px;
+    border: none;
+    padding: 10px 20px; /* Tùy chỉnh để điều chỉnh kích thước của nút */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Hiệu ứng hover nền nút */
+}
 
+.card-product-note-icon {
+    color: white;
+    font-size: 24px; /* Tùy chỉnh kích thước của biểu tượng */
+}
+
+.searchform button:hover {
+    background-color: rgb(197, 105, 6);
+}

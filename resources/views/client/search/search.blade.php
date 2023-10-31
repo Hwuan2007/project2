@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/search.css') }}">
+    <link rel="stylesheet" type="text/css" href="../../../../public/css/Client/search.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
@@ -64,176 +64,30 @@
 
 
     <div class="container">
-        <div class="receipt-info">
-            <div class="tch-checkout-header">
-                <h2  class="text-center tch-checkout-title tch-checkout-title-custom mb-0">
-                    <span class="icon mr-3"><i aria-hidden="true" class="fa fa-file" style="color: #f3bb45;"></i>
+        <div class="container-lg container-fluid">
+            <div class="history-wrapper">
+                <h1 class="text-center tch-tracking-title mb-0">
+                    <span class="icon mr-3"><i class='bx bx-history'style="color: #E57905;"></i>
                     </span>
-                    <span class="text">
-                        Xác nhận đơn hàng
-                    </span>
-                </h2>
-            </div>
-            <div class="receipt">
-                <form action="{{ route('cart.storeCart') }}" method="post">
-                    @csrf
-                    <div class="row">
-                        <div class="col-lg-6 col-md-4 col-sm-12" >
-                            <div class="receipt-form">
-                                <div class="title">
-                                    <a href="" class="no-reload">Giao Hàng</a>
-                                </div>
-                                <br>
-                                <br>
-                                <div>
-                                    <input type="text" id="address" name="user_address" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;" required/>
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="name" name="username" placeholder="Nhập tên người nhận" class="form-control" style="width: 450px;" required/>
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="phonenumber" name="user_phonenumber" placeholder="Nhập số điện thoại" class="form-control" style="width: 450px;" required/>
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="note" name="note" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" required/>
-                                </div>
-                                <br>
-                                <div>
-                                    <select name="shipping_id" class="form-control" required>
-                                        @foreach( $shipping_methods as $shipping_method)
-                                            <option name="shipping_id" value="{{ $shipping_method -> id}}">
-                                                {{ $shipping_method -> shipping_name }}-{{ $shipping_method -> shipping_status }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div>
-                                    <input type="hidden" id="role" name="role_id" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="2"/>
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="checkbox" name="checkbox" id="checkbox">
-                                    <label for="checkbox" class="checkbox"> Đồng ý với các điều khoản và điều kiện mua hàng của The Coffee House</label>
-                                </div>
-                            </div>
+                    <span class="text-title">Tra cứu đơn hàng</span>
+                </h1> 
+                <div>
+                    <div class="searchform">
+                        <div class="card-product-note-item">
+                        <input type="text" placeholder="Tra cứu đơn hàng theo số điện thoaị" class="form-control" style="width: 450px;" required/>
+                           <button>
+                                <i class="fa fa-search card-product-note-icon"></i>
+                           </button> 
+                        </div> 
+                        <div class="card-history">
+                            <ul dclass="card-history-list"></ul>
                         </div>
-                        <div class="col-lg-6 col-md-4 col-sm-12" >
-                            <div class="receipt-main">
-                                <div class="content">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="card">
-                                                    <div class="content table-responsive table-full-width">
-                                                        <table class="table">
-                                                            <div>
-                                                                <div>
-                                                                    <div>
-                                                                        <div class="title">
-                                                                            <a href="" class="no-reload">Đơn hàng đã đặt </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="container">
-                                                                    <div class="drinkincart">
-                                                                        @if( session('cart') )
-                                                                            @foreach( session('cart') as $drk_id => $drink )
-                                                                                <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
-                                                                                    <div class="tch-order-card__left d-flex">
-                                                                                        <span class="tch-order-card__icon d-flex align-items-center">
-                                                                                            <a href="" id="edit"><i aria-hidden="true" class="fa fa-pen"></i></a>
-                                                                                        </span>
-                                                                                        <div class="tch-order-card__content">
-                                                                                            <h5 class="tch-order-card__title mb-0"> {{ $drink['quantity'] }} x {{ $drink['drk_name'] }}</h5>
-                                                                                            <p class="tch-order-card__description mb-0"> {{ $drink['size_id'] }}</p>
-                                                                                            <!---->
-                                                                                            <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="tch-order-card__right">
-                                                                                            <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }}</h5>
-                                                                                            <p class="tch-order-card__price mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }}</p>
-                                                                                            <br>
-                                                                                            <!---->
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div>
-                                                                                    <input type="hidden" id="receipt_status" name="receipt_status" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="Đang chờ"/>
-                                                                                </div>
-                                                                            @endforeach
-                                                                        @endif
-
-                                                                    </div>
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <br>
-                                                                <div>
-                                                                    <div class="title">
-                                                                        <a href="" class="no-reload">Tổng Cộng </a>
-                                                                    </div>
-                                                                </div>
-                                                                <br>
-                                                                <div class="container">
-                                                                    <div class="tch-order-card tch-order-card--border d-flex align-items-center justify-content-between">
-                                                                        <div class="tch-order-card__left d-flex">
-                                                                            <p  class="tch-order-card__text mb-0">Thành tiền</p>
-                                                                        </div>
-                                                                        <div class="tch-order-card__right mb-0">
-                                                                            @php $total = 0 @endphp
-                                                                            @foreach((array) session('cart') as $drink => $details)
-                                                                                @php $total += $details['drk_price'] * $details['quantity'] @endphp
-                                                                            @endforeach
-                                                                            <p class="tch-order-card__price mb-0">{{ number_format($total, 0, ',', '.') }} đ</p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <hr>
-                                                                    <div class="tch-order-card tch-order-card--border d-flex align-items-center justify-content-between">
-                                                                        <div div class="tch-order-card__left d-flex">
-                                                                            <p  class="tch-order-card__text mb-0">Phí giao hàng</p>
-                                                                        </div>
-                                                                        <div class="tch-order-card__right mb-0">
-                                                                            @php $discount = 18000 @endphp
-                                                                            @php $finalTotal = $total @endphp
-                                                                            @php $finalTotal = $total + $discount @endphp
-                                                                            <p  class="tch-order-card__price mb-0">18.000 đ</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </table>
-                                                    </div>
-                                                    <div class="footer-receipt" >
-                                                        <div class="container">
-                                                            <div class="tch-checkout-box tch-checkout-box--list-submited d-flex justify-content-between w-100 position-static">
-                                                                <div class="tch-tottal-card__content">
-                                                                    <p class="tch-total-card__title mb-0"> Thành tiền</p>
-                                                                    <p name="final-total" class="tch-total-card__description mb-0"><b>{{ number_format($finalTotal, 0, ',', '.') }} đ</b></p>
-                                                                </div>
-                                                                <div class="tch-total-card__right mb-0">
-                                                                    <button id="buy">
-                                                                        Đặt hàng
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                    </div> 
+                </div> 
             </div>
-        </div>
+        </div>    
     </div>
+        
     <br>
     <footer>
         <div class="footer">
