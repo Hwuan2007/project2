@@ -65,7 +65,7 @@
         </div>
     <div class="container">
         <div class="previous">
-            <a href="{{ route('all.index') }}"> Menu </a> / <span> @foreach( $categories as $category ) {{ $category -> categories_name }} @endforeach </span> / {{ $drink -> drk_name }}
+            <a href="{{ route('all.index') }}"> Menu </a> / <span> @foreach( $categories as $category ) {{ $category -> categories_name }} @endforeach </span> / {{ $drink ->drk_name }}
         </div>
 
         <div class="container">
@@ -76,17 +76,35 @@
                             <div class="carousel">
                                 <!-- Carousel -->
                                 <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                                    <!-- <div class="carousel-indicators">
+                                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1" class="active"></button>
+                                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2" class="active"></button>
+                                    </div> -->
+
                                     <div class="carousel">
                                         <div class="carousel-item active">
                                           <img src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}" alt="Image 1" class="d-block w-100">
                                         </div>
                                     </div>
-                                   
+                                    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon"></span> -->
                                     </button>
                                 </div>
                             </div>
                         </div>
-                         
+                         <!-- <div class="container">
+                            <div id="thumbCarousel">
+                                <div data-target="#productCarousel" data-slide-to="0" class="thumb active">
+                                    <img src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}">
+                                </div>
+                                <div data-target="#productCarousel" data-slide-to="1" class="thumb">
+                                    <img src="https://product.hstatic.net/1000075078/product/1645963560_ca-phe-sua-da-min_a5596fa0948640fb9196524f815a754b.png">
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
                     <div class="col-lg-6 col-md-4 col-sm-12" >
                         <div>
@@ -94,15 +112,16 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="drink-order">
-                                    <div class="drink-name-detail"><b> {{ $drink -> drk_name }} </b></div>
-
-                                    <div id="price" class="drink-cost"><b> {{ number_format($drink->drk_price, 0, ',', '.') }} đ </b></div>
+                                    <div class="drink-name-detail"><b> {{ $drink  -> drk_name }} </b></div>
+                                    <div id="price" class="drink-cost"><b> {{ $drink -> drk_price }} đ </b></div>
                                     <br>
                                     <div class="pick-size"> Chọn size (bắt buộc) </div><br>
                                     <div class="pick-size-button">
                                         @foreach( $sizes as $size )
-                                            <input type="radio" name="size_id" id="color{{ $size -> id }}" value="{{ $size -> size_name }}" onclick="">
-                                            <label for="color{{ $size -> id }}" class="color-change-pick-size-button active"><i class='bx bx-coffee-togo'> {{ $size -> size_name }} + {{ $size -> size_price }} đ</i> </label>
+                                            <input type="radio" name="size_id" id="color{{ $size -> id }}" value="{{ $size -> id }}" onClick="updatePrice(this)">
+                                            <label for="color{{ $size -> id }}" class="color-change-pick-size-button active"><i class='bx bx-coffee-togo'>
+                                                    {{ $size -> size_name }} + {{ $size -> size_price }} đ</i>
+                                            </label>
                                         @endforeach
                                     </div>
                                     <br>
@@ -128,15 +147,15 @@
             <br>
             <p style="font-size: 18px;"><b>Sản phẩm liên quan</b></p>
             <div class="row">
-            @foreach($drinks as $drink)
+            @foreach( $drink_categories as $drink_category )
                 <div class="col-lg-2 col-md-8 col-sm-12" >
                     <div class="card" >
                         <a href="{{ route('drink_detail.drinkDetail', $drink) }}">
-                            <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}" alt="Card image">
+                            <img class="card-img-top" src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink_category -> drk_img) }}" alt="Card image">
                         </a>
                         <div class="card-body">
-                            <a href="{{ route('drink_detail.drinkDetail', $drink) }}" class="drink-name"><b>{{ $drink -> drk_name }}</b></a>
-                            <p class="cost">{{ number_format($drink->drk_price, 0, ',', '.') }} đ</p>
+                            <a href="{{ route('drink_detail.drinkDetail', $drink) }}" class="drink-name"><b>{{ $drink_category -> drk_name }}</b></a>
+                            <p class="cost">{{ $drink_category -> drk_price }} đ</p>
                         </div>
                     </div>
                 </div>
@@ -200,5 +219,17 @@
     <script src="{{ asset ('js/client/checkbox.js') }}"></script>
     <script src="{{ asset ('js/client/thumbnail.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script>
+        function updatePrice(e) {
+            let size = e.value;
+            let price = {{ $drink -> drk_price }};
+            @foreach( $sizes as $sizePrice )
+            if( size == "{{ $sizePrice -> id }}" ){
+                sum = price + {{ $sizePrice -> size_price }};
+            }
+            @endforeach
+            document.getElementById('price').innerHTML = '<b>' + sum + " đ";
+        }
+    </script>
 </body>
 </html>

@@ -151,7 +151,7 @@
                                                             <p><b>Địa chỉ nhận hàng:</b>  {{ $user -> user_address }}</p>
                                                             <p><b>Ghi chú đơn hàng:</b>  {{ $receipt -> note }}</p>
                                                             <hr>
-                                                            <p><b>Trạng thái:</b> 
+                                                            <p><b>Trạng thái:</b>
                                                                 @if ($receipt->receipt_status == 'Đang chờ')
                                                                     <span class="check" style="color: #f3bb45;"><b>{{ $receipt -> receipt_status }}</b></span>
                                                                 @elseif ($receipt->receipt_status == 'ĐÃ XÁC NHẬN')
@@ -194,21 +194,20 @@
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td>
+                                                                                    @foreach($receiptsDetails as $receiptsDetail)
                                                                                     <div class="tch-order-card__content">
                                                                                         <div class="tch-order-card__content">
-                                                                                            <h5 class="tch-order-card__title mb-0">
-                                                                                                Trà
-                                                                                                Sữa
-                                                                                                Oolong
-                                                                                                BLao
-                                                                                            </h5>
-                                                                                            <div class="container">
-                                                                                                <p class="tch-order-card__description mb-0">
-                                                                                                Size: <b>Lớn</b>
-                                                                                            </p>
+                                                                                                <h5 class="tch-order-card__title mb-0">
+                                                                                                    {{ $receiptsDetail -> drink_name }}
+                                                                                                </h5>
+                                                                                                <div class="container">
+                                                                                                    <p class="tch-order-card__description mb-0">
+                                                                                                        Size: <b>{{ $receiptsDetail -> size_name }}</b>
+                                                                                                    </p>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
+                                                                                    @endforeach
                                                                                 </td>
                                                                                 <td>
                                                                                     <div class="tch-order-card__content">

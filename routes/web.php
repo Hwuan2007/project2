@@ -52,7 +52,7 @@ Route::prefix('admin') ->group(function () {
     Route::get('/order/accept/{receipt}', [OrderController::class, 'accept'])->name('order.accept');
     Route::get('/order/cancel/{receipt}', [OrderController::class, 'cancel'])->name('order.cancel');
     Route::get('/order/cancelAccept/{receipt}', [OrderController::class, 'cancelAccept'])->name('order.cancelAccept');
-    
+
 });
 Route::prefix('client') ->group(function (){
     Route::get('/', [HomeController::class, 'index']) -> name('client.index');

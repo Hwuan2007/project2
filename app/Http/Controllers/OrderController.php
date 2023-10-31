@@ -96,7 +96,7 @@ class OrderController extends Controller
     }
     public function detail(Receipt $receipt){
         $receiptsDetails = ReceiptDetail::all()-> where('receipt_id', '=', $receipt -> id);
-        $users = User::all()-> where('id', '=', $receipt -> user_id);
+        $users = User::all() -> where('id', '=', $receipt -> user_id);
         return view('admin/order/order_details/detail',[
             'receipt' => $receipt,
             'users' => $users,
@@ -108,16 +108,16 @@ class OrderController extends Controller
         $receipt->receipt_status = 'ĐÃ XÁC NHẬN';
         $receipt->save();
         return back();
-   
+
     }
-    
+
     public function cancelAccept($id) {
         $receipt = Receipt::find($id);
         $receipt->receipt_status = 'Đang chờ';
         $receipt->save();
         return back();
     }
-    
+
     public function cancel($id) {
         $receipt = Receipt::find($id);
         $receipt->receipt_status = 'ĐÃ HỦY';

@@ -20,18 +20,26 @@ class DrinkDetailController extends Controller
     public function drinkDetail(Drink $drink)
     {
         $sizes = Size::all();
-        $drinks = Drink::all() -> where('categories_id', '=', $drink -> categories_id);
+        $drinkDetails = DB::table('size')
+            -> join('drink_detail', 'size.id' , '=', 'drink_detail.size_id')
+            -> select('size.*','drink_detail.*')
+            -> where('drk_id', $drink -> id)
+            -> get();
         $categories = Category::all() -> where('id', '=', $drink -> categories_id);
+        $drink_categories = Drink::all() -> where('categories_id', '=', $drink -> categories_id);
         return view('client/drink_detail/drinkDetail', [
             'drink' => $drink,
-            'drinks' => $drinks,
             'sizes' => $sizes,
             'categories' => $categories,
+            'drinkDetails' => $drinkDetails,
+            'drink_categories' => $drink_categories,
         ]);
 
     }
     public function store(Request $request, Drink $drink): \Illuminate\Http\RedirectResponse
     {
+        $drink_detail = DrinkDetail::all() -> where('drk_id', '=', $drink -> id);
+        dd($request);
         $cart_id = $drink -> id;
         if (Session::exists('cart')){
             $cart = Session::get('cart');
