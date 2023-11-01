@@ -194,38 +194,48 @@
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td>
-                                                                                    @foreach($receiptsDetails as $receiptsDetail)
-                                                                                    <div class="tch-order-card__content">
+                                                                                    @foreach( $receiptsDetails as $receiptsDetail )
                                                                                         <div class="tch-order-card__content">
+                                                                                            <div class="tch-order-card__content">
                                                                                                 <h5 class="tch-order-card__title mb-0">
                                                                                                     {{ $receiptsDetail -> drink_name }}
                                                                                                 </h5>
                                                                                                 <div class="container">
                                                                                                     <p class="tch-order-card__description mb-0">
-                                                                                                        Size: <b>{{ $receiptsDetail -> size_name }}</b>
+                                                                                                        @foreach( $sizes as $size )
+                                                                                                            @if( $size -> id == $receiptsDetail -> size_name)
+                                                                                                                Size: <b>{{ $size -> size_name }}</b>
+                                                                                                            @endif
+                                                                                                        @endforeach
                                                                                                     </p>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
-                                                                                    </div>
                                                                                     @endforeach
                                                                                 </td>
                                                                                 <td>
                                                                                     <div class="tch-order-card__content">
                                                                                         <div class="tch-order-card__content">
-                                                                                            <p class="tch-order-card__description mb-0" style="margin-left: 10px;">
-                                                                                                39.000đ
-                                                                                            </p>
-                                                                                                <p class="tch-order-card__description mb-0">
-                                                                                                +10.000đ
-                                                                                            </p>
+                                                                                            @foreach( $receiptsDetails as $receiptsDetail )
+                                                                                                <p class="tch-order-card__description mb-0" style="margin-left: 10px;">
+                                                                                                    {{ number_format($receipt -> total_price, 0, ',', '.') }} đ
+                                                                                                </p>
+                                                                                                @foreach( $sizes as $size )
+                                                                                                    @if( $size -> id == $receiptsDetail -> size_name)
+                                                                                                        <p class="tch-order-card__description mb-0">
+                                                                                                            {{ number_format($size -> size_price, 0, ',', '.') }} đ
+                                                                                                        </p>
+                                                                                                    @endif
+                                                                                                @endforeach
+                                                                                            @endforeach
                                                                                         </div>
                                                                                     </div>
                                                                                 </td>
                                                                                 <td>
-                                                                                    1
+                                                                                    {{$receiptsDetail -> quantity}}
                                                                                 </td>
                                                                                 <td>
-                                                                                    69.000đ
+                                                                                    {{ number_format($receiptsDetail -> price, 0, ',', '.') }} đ
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
@@ -236,14 +246,16 @@
                                                         <div class="total">
                                                             <div>
                                                                <div>
-                                                                    <b>Tổng tiền sản phẩm:</b> 207.000đ
+                                                                    <b>Tổng tiền sản phẩm:</b> {{ number_format($receiptsDetail -> price, 0, ',', '.') }} đ
                                                                 </div>
                                                                 <div>
+                                                                    @php $finalPrice = 0 @endphp
+                                                                    @php $finalPrice = $receiptsDetail -> price + 18000 @endphp
                                                                     <b>Phí giao hàng:</b> 18.000đ
                                                                 </div>
                                                                 <hr>
                                                                 <div>
-                                                                    <b>Tổng tiền:</b> 225.000đ
+                                                                    <b>Tổng tiền:</b> {{ number_format($finalPrice, 0, ',', '.') }} đ
                                                                 </div>
                                                             </div>
                                                             <br>
