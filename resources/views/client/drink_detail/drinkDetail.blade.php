@@ -113,7 +113,7 @@
                                 @method('PUT')
                                 <div class="drink-order">
                                     <div class="drink-name-detail"><b> {{ $drink  -> drk_name }} </b></div>
-                                    <div id="price" class="drink-cost"><b> {{ $drink -> drk_price }} đ </b></div>
+                                    <div id="price" class="drink-cost"><b>{{ number_format($drink -> drk_price , 0, ',', '.') }}  đ </b></div>
                                     <br>
                                     <div class="pick-size"> Chọn size (bắt buộc) </div><br>
                                     <div class="pick-size-button">
@@ -220,16 +220,19 @@
     <script src="{{ asset ('js/client/thumbnail.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script>
-        function updatePrice(e) {
-            let size = e.value;
-            let price = {{ $drink -> drk_price }};
-            @foreach( $sizes as $sizePrice )
-            if( size == "{{ $sizePrice -> id }}" ){
-                sum = price + {{ $sizePrice -> size_price }};
-            }
-            @endforeach
-            document.getElementById('price').innerHTML = '<b>' + sum + " đ";
+    function updatePrice(e) {
+        let size = e.value;
+        let price = {{ $drink->drk_price }};
+        @foreach( $sizes as $sizePrice )
+        if (size == "{{ $sizePrice->id }}") {
+            let newSizePrice = {{ $sizePrice->size_price }};
+            let sum = price + newSizePrice;
+            // Định dạng sum thành số nguyên
+            let formattedSum = sum.toLocaleString();
+            document.getElementById('price').innerHTML = '<b>' + formattedSum + ' đ</b>';
         }
-    </script>
+        @endforeach
+    }
+</script>
 </body>
 </html>

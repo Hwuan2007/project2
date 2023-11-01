@@ -146,7 +146,12 @@
                                                                                             <a href="" id="edit"><i aria-hidden="true" class="fa fa-pen"></i></a>
                                                                                         </span>
                                                                                         <div class="tch-order-card__content">
-                                                                                            <h5 class="tch-order-card__title mb-0"> {{ $drink['quantity'] }} x {{ $drink['drk_name'] }}</h5>
+                                                                                            <h5 class="tch-order-card__title mb-0">
+                                                                                            {{ $drink['drk_name'] }}
+                                                                                                x 
+                                                                                            <input type="number" id="quantityInput" value="{{ $drink['quantity'] }}" min="1"
+                                                                                             style="width: 30px; border: none; outline: none;">   
+                                                                                            </h5>
                                                                                             @foreach( $sizes as $size )
                                                                                                 @if( $size -> id == $drink['size_id'])
                                                                                                     <p class="tch-order-card__description mb-0"> {{ $size -> size_name }}</p>
@@ -192,7 +197,7 @@
                                                                         <div class="tch-order-card__right mb-0">
                                                                             @php $total = 0 @endphp
                                                                             @foreach((array) session('cart') as $drink => $details)
-                                                                                @php $total +=$details['size_price'] + $details['drk_price'] * $details['quantity'] @endphp
+                                                                                @php $total +=($details['size_price'] + $details['drk_price']) * $details['quantity'] @endphp
                                                                             @endforeach
                                                                             <p class="tch-order-card__price mb-0">{{ number_format($total, 0, ',', '.') }} đ</p>
                                                                         </div>
@@ -295,6 +300,7 @@
         </div>
 
     </footer>
+    <script src="{{ asset ('js/client/quantity.js') }}"></script>
     <script src="{{ asset ('js/client/no-reload.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
