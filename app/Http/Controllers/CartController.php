@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
-    public function viewCart(User $customer)
+    public function viewCart()
     {
         $customers = User::all();
         $sizes = Size::all();
@@ -54,6 +54,7 @@ class CartController extends Controller
                 'receipt_id' => $order_id['id'],
                 'size_name' => $details['size_id'],
                 'drink_name' => $details['drk_name'],
+                'drink_detail_id' => $details['drink_details'],
                 'quantity' => $details['quantity'],
                 'price' => $total_price,
             ]);
@@ -61,5 +62,8 @@ class CartController extends Controller
         Session::forget('cart');
 
         return redirect()->route('client.index');
+    }
+    public function updateCart(){
+
     }
 }

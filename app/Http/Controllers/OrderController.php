@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Drink;
+use App\Models\DrinkDetail;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Receipt;
 use App\Models\ReceiptDetail;
+use App\Models\Size;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -23,9 +26,11 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $sizes = Size::all();
         $receipts = Receipt::all();
         return view('admin/order/index', [
-            'receipts' => $receipts
+            'receipts' => $receipts,
+            'sizes' => $sizes,
         ]);
     }
 
@@ -95,12 +100,16 @@ class OrderController extends Controller
         //
     }
     public function detail(Receipt $receipt){
+        $drinks = Drink::all();
+        $sizes = Size::all();
         $receiptsDetails = ReceiptDetail::all()-> where('receipt_id', '=', $receipt -> id);
         $users = User::all() -> where('id', '=', $receipt -> user_id);
         return view('admin/order/order_details/detail',[
             'receipt' => $receipt,
             'users' => $users,
-            'receiptsDetails' => $receiptsDetails
+            'receiptsDetails' => $receiptsDetails,
+            'sizes' => $sizes,
+            'drinks' => $drinks,
         ]);
     }
     public function accept($id) {

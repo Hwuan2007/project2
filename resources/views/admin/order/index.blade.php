@@ -166,15 +166,18 @@
                                                                     <div class="tch-order-card__content">
                                                                         <div class="tch-order-card__content">
                                                                             <h5 class="tch-order-card__title mb-0"> {{ $receipt_detail -> quantity }} x {{ $receipt_detail -> drink_name }} </h5>
-
-                                                                            <p class="tch-order-card__description mb-0"> ({{ $receipt_detail -> size_name }})</p>
+                                                                            @foreach( $sizes as $size )
+                                                                                @if( $size -> id == $receipt_detail -> size_name)
+                                                                                    Size: <b>{{ $size -> size_name }}</b>
+                                                                                @endif
+                                                                            @endforeach
                                                                         </div>
                                                                     </div>
                                                                     @endforeach
                                                                 </td>
                                                                 <td>
                                                                     {{ number_format($receipt_detail -> price, 0, ',', '.') }} đ
-                                                                    
+
                                                                 </td>
                                                                 <td>
                                                                     <button class="detail-btn ">
@@ -192,7 +195,7 @@
                                                                         <a href="{{ route('order.cancelAccept', ['receipt' => $receipt->id]) }}">Hủy Duyệt </a>
                                                                     </button>
                                                                     @endif
-                                                                   
+
                                                                 </td>
                                                                 <td>
                                                                 @if ($receipt->receipt_status == 'Đang chờ')
@@ -218,7 +221,7 @@
                 </div>
             </div>
         </div>
-        
+
     </body>
-    
+
 </html>

@@ -32,23 +32,45 @@ class DrinkDetailController extends Controller
     }
     public function store(Request $request, Drink $drink): \Illuminate\Http\RedirectResponse
     {
+        if($request->size_id == null){
+            return redirect()->route('drink_detail.drinkDetail', $drink);
+        }
         DB::table('drink_detail') -> insert([
             'size_id' => $request -> size_id,
             'drk_id' => $drink -> id,
         ]);
-        $drink_details = DrinkDetail::join('size', 'size.id', '=', 'drink_detail.size_id')
-            ->select('drink_detail.*',
-                'size.*')
-            ->where('drk_id', $drink->id)
-            ->where('size_id', $request -> size_id)
+        $size_id = $request->input('size_id');
+        $drink_details = DB::table('drink_detail')
+            -> join('size', 'drink_detail.size_id', '=', 'size.id')
+            -> join('drink', 'drink_detail.drk_id', '=', 'drink.id')
+            -> where('drk_id', $drink -> id)
+            -> where('size_id', $size_id)
+            -> select( 'drink_detail.*','drink.*', 'size.*')
             ->first();
-
+        $drink_details_id = DB::table('drink_detail')
+            -> join('size', 'drink_detail.size_id', '=', 'size.id')
+            -> join('drink', 'drink_detail.drk_id', '=', 'drink.id')
+            -> where('drk_id', $drink -> id)
+            -> where('size_id', $size_id)
+            -> select( 'drink_detail.*')
+            ->first();
         $cart_id = $drink -> id;
-
         if (Session::exists('cart')){
             $cart = Session::get('cart');
-            if (isset($cart[$cart_id])){
+            if (isset($cart[$cart_id]) && $cart[$cart_id]['size_id'] === $request -> size_id){
                 $cart[$cart_id]['quantity']++;
+            }
+            elseif (isset($cart[$cart_id]) && $cart[$cart_id]['size_id'] !== $request -> size_id){
+                $cart = Arr::add($cart, $cart_id, [
+                    'id' => $cart_id,
+                    'drk_name' => $drink -> drk_name,
+                    'drk_price' => $drink -> drk_price,
+                    'size_price' => $drink_details -> size_price,
+                    'size_id' => $size_id,
+                    'drink_details' => $drink_details_id -> id,
+                    'quantity' => 1
+                ]);
+                Session::put(['cart' => $cart]);
             } else {
                 $cart = Arr::add($cart, $cart_id, [
                     'id' => $cart_id,
@@ -56,6 +78,7 @@ class DrinkDetailController extends Controller
                     'drk_price' => $drink -> drk_price,
                     'size_price' => $drink_details -> size_price,
                     'size_id' => $request -> size_id,
+                    'drink_details' => $drink_details_id -> id,
                     'quantity' => 1
                 ]);
             }
@@ -66,6 +89,8 @@ class DrinkDetailController extends Controller
                 'drk_name' => $drink -> drk_name,
                 'drk_price' => $drink -> drk_price,
                 'size_id' => $request -> size_id,
+                'size_price' => $drink_details -> size_price,
+                'drink_details' => $drink_details_id -> id,
                 'quantity' => 1
             ]);
         }
