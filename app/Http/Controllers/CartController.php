@@ -39,7 +39,7 @@ class CartController extends Controller
         $user_id = User::create($user);
         $price = 0;
         foreach ((array) session('cart') as $drink => $details){
-            $price += $details['quantity'] * $details['drk_price'];
+            $price +=$details['size_price'] + $details['quantity'] * $details['drk_price'];
         }
         $order_id = Receipt::create([
             'total_price' => $price,

@@ -177,7 +177,6 @@
                                                                 </td>
                                                                 <td>
                                                                     {{ number_format($receipt_detail -> price, 0, ',', '.') }} đ
-
                                                                 </td>
                                                                 <td>
                                                                     <button class="detail-btn ">
