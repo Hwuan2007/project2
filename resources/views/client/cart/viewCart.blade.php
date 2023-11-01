@@ -136,32 +136,29 @@
                                                                             <a href="" class="no-reload">Đơn hàng đã đặt </a>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="drinkincart">
+                                                                    <div class="container">
+                                                                        <div class="drinkincart">
                                                                         @if( session('cart') )
-                                                                            @foreach( session('cart') as $drk_id => $details )
+                                                                            @foreach( session('cart') as $drk_id => $drink )
                                                                                 <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
                                                                                     <div class="tch-order-card__left d-flex">
                                                                                         <span class="tch-order-card__icon d-flex align-items-center">
                                                                                             <a href="" id="edit"><i aria-hidden="true" class="fa fa-pen"></i></a>
                                                                                         </span>
                                                                                         <div class="tch-order-card__content">
-                                                                                            <h5 class="tch-order-card__title mb-0"> {{ $details['quantity'] }} x {{ $details['drk_name'] }}</h5>
-                                                                                            @foreach( $sizes as $size )
-                                                                                                @if( $size -> id == $details['size_id'] )
-                                                                                                    <p class="tch-order-card__description mb-0"> {{ $size -> size_name }}</p>
-                                                                                                @endif
-                                                                                            @endforeach
+                                                                                            <h5 class="tch-order-card__title mb-0"> {{ $drink['quantity'] }} x {{ $drink['drk_name'] }}</h5>
+                                                                                            <p class="tch-order-card__description mb-0"> {{ $drink['size_id'] }}</p>
                                                                                             <!---->
                                                                                             <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="tch-order-card__right">
-                                                                                        <h5 class="tch-order-card__title mb-0"> {{ number_format($details['drk_price'], 0, ',', '.') }} đ</h5>
-                                                                                        <p class="tch-order-card__price mb-3"> {{ number_format($details['size_price'], 0, ',', '.') }} đ</p>
-                                                                                        <br>
-                                                                                        <!---->
+                                                                                            <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }} đ</h5>
+                                                                                            <p class="tch-order-card__price mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }} đ</p>
+                                                                                            <br>
+                                                                                            <!---->
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
                                                                                 </div>
                                                                                 <div>
                                                                                     <input type="hidden" id="receipt_status" name="receipt_status" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="Đang chờ"/>
@@ -170,6 +167,10 @@
                                                                         @endif
 
                                                                     </div>
+                                                                    </div>
+
+                                                                    </div>
+
                                                                 </div>
                                                                 <br>
                                                                 <div>
@@ -186,7 +187,7 @@
                                                                         <div class="tch-order-card__right mb-0">
                                                                             @php $total = 0 @endphp
                                                                             @foreach((array) session('cart') as $drink => $details)
-                                                                                @php $total += $details['size_price'] + $details['drk_price'] * $details['quantity'] @endphp
+                                                                                @php $total += $details['drk_price'] * $details['quantity'] @endphp
                                                                             @endforeach
                                                                             <p class="tch-order-card__price mb-0">{{ number_format($total, 0, ',', '.') }} đ</p>
                                                                         </div>
