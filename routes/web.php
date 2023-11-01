@@ -23,7 +23,7 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::prefix('admin') ->group(function () {
+Route::middleware('AdminMiddleware')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
     // category
     Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
@@ -65,6 +65,7 @@ Route::prefix('client') ->group(function (){
     //cart
     Route::get('/drink_detail/cart/viewCart', [CartController::class, 'viewCart']) -> name('cart.viewCart');
     Route::get('/drink_detail/cart/deleteCart/{id}', [CartController::class, 'deleteCart']) -> name('cart.deleteCart');
+
     Route::post('/drink_detail/cart/storeCart', [CartController::class, 'storeCart']) -> name('cart.storeCart');
     Route::post('/drink_detail/cart/updateCart', [CartController::class, 'updateCart']) -> name('cart.updateCart');
 });

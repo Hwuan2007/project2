@@ -16,10 +16,10 @@ class LoginController extends Controller
     public function checkLogin(Request $request){
         $account = $request->only('email', 'password');
 
-        if (Auth::guard('user')->attempt($account)){
-            $employee = Auth::guard('user')->user();
-            Auth::guard('user')->login($employee);
-            Session::put('user', $employee);
+        if (Auth::guard('admin')->attempt($account)){
+            $employee = Auth::guard('admin')->user();
+            Auth::guard('admin')->login($employee);
+            Session::put('admin', $employee);
             if($employee->role_id == 1){
                 return redirect()->route('dashboard.index');
             }else{

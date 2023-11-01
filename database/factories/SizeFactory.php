@@ -13,13 +13,6 @@ class SizeFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'size_name' => 'Lớn',
-//            'size_name' => 'Vừa',
-//            'size_name' => 'Nhỏ',
-            'size_price' => '10000',
-//            'size_price' => '6000',
-//            'size_price' => '0000',
-        ];
+       
     }
 }
