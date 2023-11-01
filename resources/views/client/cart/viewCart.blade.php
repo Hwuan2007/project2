@@ -147,7 +147,12 @@
                                                                                         </span>
                                                                                         <div class="tch-order-card__content">
                                                                                             <h5 class="tch-order-card__title mb-0"> {{ $drink['quantity'] }} x {{ $drink['drk_name'] }}</h5>
-                                                                                            <p class="tch-order-card__description mb-0"> {{ $drink['size_id'] }}</p>
+                                                                                            @foreach( $sizes as $size )
+                                                                                                @if( $size -> id == $drink['size_id'])
+                                                                                                    <p class="tch-order-card__description mb-0"> {{ $size -> size_name }}</p>
+                                                                                                @endif
+                                                                                            @endforeach
+
                                                                                             <!---->
                                                                                             <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
                                                                                         </div>
