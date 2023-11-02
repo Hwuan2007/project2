@@ -10,6 +10,7 @@ class Receipt extends Model
     use HasFactory;
     protected $table = 'receipt';
     protected $fillable = ['total_price','user_id', 'note','shipping_id', 'receipt_status'];
+    private $timestamp = true;
     public function shipping_method()
     {
         return $this -> belongsTo(shipping_method::class);

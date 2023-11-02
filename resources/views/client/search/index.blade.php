@@ -12,46 +12,6 @@
           rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
           crossorigin="anonymous">
-    <style>
-.card {
-    border-radius: 6px;
-    box-shadow: 0 2px 2px rgba(204,197,185,.5);
-    background-color: #fff;
-    color: #252422;
-    position: relative;
-    z-index: 1;
-    width: 50% ;
-    margin: 30px auto;
-
-}
-.card .header {
-    padding: 20px 20px 0;
-}
-.card .title {
-    margin: 0;
-    color: #252422;
-    font-weight: 300;
-}
-.card .content {
-    padding: 15px 15px 10px;
-}
-        .table {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
-}
-table {
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-table {
-    background-color: transparent;
-}
-.table-full-width {
-    margin-left: -15px;
-    margin-right: -15px;
-}
-    </style>
 </head>
 <body>
     <header class="header">

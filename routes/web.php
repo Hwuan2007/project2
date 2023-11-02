@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\DrinkController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HomeController;
@@ -67,10 +68,18 @@ Route::prefix('client') ->group(function (){
     //cart
     Route::get('/drink_detail/cart/viewCart', [CartController::class, 'viewCart']) -> name('cart.viewCart');
     Route::get('/drink_detail/cart/deleteCart/{id}', [CartController::class, 'deleteCart']) -> name('cart.deleteCart');
-    Route::post('/drink_detail/cart/storeCart', [CartController::class, 'storeCart']) -> name('cart.storeCart');
+    // Route::post('/drink_detail/cart/storeCart', [CartController::class, 'storeCart']) -> name('cart.storeCart');
+    Route::put('/drink_detail/cart/updateCart',[CartController::class, 'updateCart']) -> name('cart.updatecart');
+    Route::get('/drink_detail/cart/checkOut',[CheckOutController::class, 'index']) -> name('cart.index');
+    Route::post('/drink_detail/cart/checkOutProcces',[CheckOutController::class, 'check']) -> name('cart.check');
+
+
+    
+
     //search
     Route::get('/search',[SearchController::class, 'index']) -> name('search.index');
     Route::put('/search',[SearchController::class, 'searchByUserPhoneNumber']) -> name('search.searchByUserPhoneNumber');
+    
 });
 // logins
 Route::get('/login', [LoginController::class, 'login'])->name('login.login');

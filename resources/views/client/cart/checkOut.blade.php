@@ -78,12 +78,14 @@
                 <div>
                     <div class="row">
                         <div class="col-lg-6 col-md-4 col-sm-12" >
-                            <!-- <div class="receipt-form">
+                            <div class="receipt-form">
                                 <div class="title">
                                     <a href="" class="no-reload">Giao Hàng</a>
                                 </div>
                                 <br>
                                 <br>
+                                <form action="{{route('cart.check')}}" method="post">
+                                    @csrf
                                 <div>
                                     <input type="text" id="address" name="user_address" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;" />
                                 </div>
@@ -117,25 +119,30 @@
                                     <input type="checkbox" name="checkbox" id="checkbox">
                                     <label for="checkbox" class="checkbox"> Đồng ý với các điều khoản và điều kiện mua hàng của The Coffee House</label>
                                 </div>
-                            </div> -->
+                                    <button type="submit">
+                                        xác nhận
+                                    </button>
+                               
+                                </form>
+                                
+                            </div>
                         </div>
                         <div class="col-lg-6 col-md-4 col-sm-12" >
+                            
                             <div class="receipt-main">
                                 <div class="content">
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="card">
-                                                    <form action="{{route('cart.updatecart')}}" method="post" id="updatecart" class="content table-responsive table-full-width">
-                                                        @csrf
-                                                        @method('PUT')
+                                                    <div class="content table-responsive table-full-width">
                                                         <table class="table">
                                                             <div>
                                                                 <div>
                                                                     <div>
                                                                         <div class="title">
                                                                             <a href="" class="no-reload">Đơn hàng đã đặt </a>
-                                                                            <button type="submit" id="updatebtn">okela</button>
+                                                                            
                                                                         </div>
                                                                     </div>
                                                                     <div class="container">
@@ -145,35 +152,28 @@
                                                                             @foreach( session('cart') as $drk_id => $drink )
                                                                                 <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
                                                                                     <div class="tch-order-card__left d-flex">
-                                                                                        <span class="tch-order-card__icon d-flex align-items-center">
-                                                                                            <a href="" id="edit"><i aria-hidden="true" class="fa fa-pen"></i></a>
-                                                                                        </span>
                                                                                         <div class="tch-order-card__content">
                                                                                             <h5 class="tch-order-card__title mb-0">
                                                                                                 {{ $drink['drk_name'] }}
                                                                                                     x 
-                                                                                                <input type="number" id="quantityInput" value="{{ $drink['quantity'] }}" min="1"
-                                                                                                name="quantity[{{$drk_id}}]" style="width: 30px; border: none; outline: none;">   
+                                                                                                {{ $drink['quantity'] }}
                                                                                             </h5>                                                                                            
                                                                                             @foreach( $sizes as $size )
                                                                                                 @if( $size -> id == $drink['size_id'])
                                                                                                     <p class="tch-order-card__description mb-0"> {{ $size -> size_name }}</p>
                                                                                                 @endif
                                                                                             @endforeach
-                                                                                            <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
                                                                                         </div>
                                                                                     </div>
-                                                                                            <!---->                                                                                        <div class="tch-order-card__right">
                                                                                             <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }} đ</h5>
                                                                                             <p class="tch-order-card__price mb-0"> {{ number_format($drink['size_price'], 0, ',', '.') }} đ</p>
                                                                                             <br>
-                                                                                            <!---->
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div>
+                                                                                    <!-- <div>
                                                                                         <input type="hidden" id="receipt_status" name="receipt_status" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="Đang chờ"/>
-                                                                                    </div>
+                                                                                    </div> -->
                                                                                 </div>
                                                                                 @endforeach
                                                                             @endif
@@ -197,7 +197,7 @@
                                                                     <div class="tch-order-card__right mb-0">
                                                                         @php $total = 0 @endphp
                                                                         @foreach((array) session('cart') as $drink => $details)
-                                                                            @php $total +=($details['size_price'] + $details['drk_price']) * $details['quantity'] @endphp
+                                                                            @php $total +=$details['size_price'] + $details['drk_price'] * $details['quantity'] @endphp
                                                                         @endforeach
                                                                         <p class="tch-order-card__price mb-0">{{ number_format($total, 0, ',', '.') }} đ</p>
                                                                     </div>
@@ -224,11 +224,6 @@
                                                                     <p class="tch-total-card__title mb-0"> Thành tiền</p>
                                                                     <p name="final-total" class="tch-total-card__description mb-0"><b>{{ number_format($finalTotal, 0, ',', '.') }} đ</b></p>
                                                                 </div>
-                                                                <div class="tch-total-card__right mb-0">
-                                                                    <button id="buy">
-                                                                        <a href="{{route('cart.index')}}">Đặt hàng</a>
-                                                                    </button>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -237,7 +232,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                 </form>
@@ -299,25 +294,6 @@
         </div>
 
     </footer>
-    <script>
-    var form = document.getElementById("storecart");
-    var form2 = document.getElementById("updatecart");
-    var updateButton = document.getElementById("updatebtn");
-    var orderButton = document.getElementById("buy");
-    updateButton.addEventListener("click", function () {
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-        })
-        form2.submit();
-    });
-    orderButton.addEventListener("click", function () {
-        form2.addEventListener("submit", function (e) {
-            e.preventDefault();
-        })
-        form.submit();
-    });
-</script>
-
     <script src="{{ asset ('js/client/no-reload.js') }}"></script>
     <script src="{{ asset ('js/client/quantity.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

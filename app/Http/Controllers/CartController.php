@@ -62,8 +62,13 @@ class CartController extends Controller
         Session::forget('cart');
         return redirect()->route('client.index');
     }
-    public function updateCart(){
-        $cart = session('cart');
-        dd($cart);
+    public function updateCart(Request $request){
+        $cart = Session::get('cart');
+        foreach($request -> input('quantity') as $cart_id => $quantity){
+            $cart[$cart_id]['quantity'] = $quantity;
+        
+        }
+        Session::put(['cart' => $cart]);
+        return Redirect::route('cart.viewCart');
     }
 }
