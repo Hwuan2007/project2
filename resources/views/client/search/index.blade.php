@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-    <link rel="stylesheet" type="text/css" href="../../../../public/css/Client/search.css">
+    <title>search</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/search.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
@@ -12,6 +12,46 @@
           rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
           crossorigin="anonymous">
+    <style>
+.card {
+    border-radius: 6px;
+    box-shadow: 0 2px 2px rgba(204,197,185,.5);
+    background-color: #fff;
+    color: #252422;
+    position: relative;
+    z-index: 1;
+    width: 50% ;
+    margin: 30px auto;
+    
+}
+.card .header {
+    padding: 20px 20px 0;
+}
+.card .title {
+    margin: 0;
+    color: #252422;
+    font-weight: 300;
+}
+.card .content {
+    padding: 15px 15px 10px;
+}
+        .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+table {
+    background-color: transparent;
+}
+.table-full-width {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+    </style>
 </head>
 <body>
     <header class="header">
@@ -67,23 +107,56 @@
         <div class="container-lg container-fluid">
             <div class="history-wrapper">
                 <h1 class="text-center tch-tracking-title mb-0">
-                    <span class="icon mr-3"><i class='bx bx-history'style="color: #E57905;"></i>
-                    </span>
+                    <span class="icon mr-3"><i class='bx bx-history' style="color: #E57905;"></i></span>
                     <span class="text-title">Tra cứu đơn hàng</span>
                 </h1> 
                 <div>
-                    <div class="searchform">
-                        <div class="card-product-note-item">
-                        <input type="text" placeholder="Tra cứu đơn hàng theo số điện thoaị" class="form-control" style="width: 450px;" required/>
-                           <button>
-                                <i class="fa fa-search card-product-note-icon"></i>
-                           </button> 
-                        </div> 
-                        <div class="card-history">
-                            <ul dclass="card-history-list"></ul>
+                    <div>
+                        <div class="searchform">
+                            <div class="card-product-note-item">
+                                <form action="{{route('search.searchByUserPhoneNumber')}}" method="post">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="form-group">
+                                        <input type="text" name="phone" placeholder="Tra cứu đơn hàng theo số điện thoại" class="form-control" 
+                                        style="width: 350px !important;" class="form-control" />
+                                        <button type="submit">
+                                            <i class="fa fa-search card-product-note-icon"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </div> 
-                </div> 
+                    </div>
+                    <div class="history" >
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="content table-responsive table-full-width">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sản Phẩm</th>
+                                                        <th>Tổng Tiền</th>
+                                                        <th>Tình trạng</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td> ??? </td>
+                                                        <td> ??? </td>
+                                                        <td> ??? </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>    
     </div>
