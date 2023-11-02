@@ -159,21 +159,22 @@
 
                                                                                             <!---->
                                                                                             <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
+
                                                                                         </div>
-                                                                                    </div>
-                                                                                    <div class="tch-order-card__right">
+                                                                                        <div class="tch-order-card__right">
                                                                                             <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }} đ</h5>
                                                                                             <p class="tch-order-card__price mb-0"> {{ number_format($drink['size_price'], 0, ',', '.') }} đ</p>
                                                                                             <br>
                                                                                             <!---->
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div>
-                                                                                    <input type="hidden" id="receipt_status" name="receipt_status" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="Đang chờ"/>
-                                                                                </div>
-                                                                            @endforeach
-                                                                        @endif
+
+                                                                                    <div>
+                                                                                        <input type="hidden" id="receipt_status" name="receipt_status" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="Đang chờ"/>
+                                                                                    </div>
+                                                                                @endforeach
+                                                                            @endif
+                                                                        </div>
                                                                     </div>
                                                                 </div>
 
