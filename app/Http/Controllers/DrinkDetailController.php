@@ -46,21 +46,22 @@ class DrinkDetailController extends Controller
             -> where('drk_id', $drink -> id)
             -> where('size_id', $size_id)
             -> select( 'drink_detail.*','drink.*', 'size.*')
-            ->first();
+            -> first();
         $drink_details_id = DB::table('drink_detail')
             -> join('size', 'drink_detail.size_id', '=', 'size.id')
             -> join('drink', 'drink_detail.drk_id', '=', 'drink.id')
             -> where('drk_id', $drink -> id)
             -> where('size_id', $size_id)
             -> select( 'drink_detail.*')
-            ->first();
+            -> first();
         $cart_id = $drink -> id;
         if (Session::exists('cart')){
             $cart = Session::get('cart');
-            if (isset($cart[$cart_id]) && $cart[$cart_id]['size_id'] === $request -> size_id){
+            if (isset($cart[$cart_id]) && $cart[$cart_id]['size_id'] === $size_id){
                 $cart[$cart_id]['quantity']++;
             }
-            elseif (isset($cart[$cart_id]) && $cart[$cart_id]['size_id'] !== $request -> size_id){
+            else if (isset($cart[$cart_id]) && $cart[$cart_id]['size_id'] !== $size_id){
+                $cart = array();
                 $cart = Arr::add($cart, $cart_id, [
                     'id' => $cart_id,
                     'drk_name' => $drink -> drk_name,
@@ -70,14 +71,14 @@ class DrinkDetailController extends Controller
                     'drink_details' => $drink_details_id -> id,
                     'quantity' => 1
                 ]);
-                Session::put(['cart' => $cart]);
             } else {
+                $cart = array();
                 $cart = Arr::add($cart, $cart_id, [
                     'id' => $cart_id,
                     'drk_name' => $drink -> drk_name,
                     'drk_price' => $drink -> drk_price,
                     'size_price' => $drink_details -> size_price,
-                    'size_id' => $request -> size_id,
+                    'size_id' => $size_id,
                     'drink_details' => $drink_details_id -> id,
                     'quantity' => 1
                 ]);
@@ -88,7 +89,7 @@ class DrinkDetailController extends Controller
                 'id' => $cart_id,
                 'drk_name' => $drink -> drk_name,
                 'drk_price' => $drink -> drk_price,
-                'size_id' => $request -> size_id,
+                'size_id' => $size_id,
                 'size_price' => $drink_details -> size_price,
                 'drink_details' => $drink_details_id -> id,
                 'quantity' => 1

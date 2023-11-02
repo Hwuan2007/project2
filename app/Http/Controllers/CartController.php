@@ -60,10 +60,10 @@ class CartController extends Controller
             ]);
         }
         Session::forget('cart');
-
         return redirect()->route('client.index');
     }
     public function updateCart(){
-
+        $cart = session('cart');
+        dd($cart);
     }
 }

@@ -9,7 +9,6 @@ class Receipt extends Model
 {
     use HasFactory;
     protected $table = 'receipt';
-    public $timestamps = false;
     protected $fillable = ['total_price','user_id', 'note','shipping_id', 'receipt_status'];
     public function shipping_method()
     {
