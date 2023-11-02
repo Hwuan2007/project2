@@ -57,22 +57,25 @@ class DrinkDetailController extends Controller
         $cart_id = $drink -> id;
         if (Session::exists('cart')){
             $cart = Session::get('cart');
-            if (isset($cart[$cart_id]) && $cart[$cart_id]['size_id'] === $size_id){
-                $cart[$cart_id]['quantity']++;
+            if (isset($cart[$cart_id]) ){
+                if ($cart[$cart_id]['size_id'] === $size_id){
+                    $cart[$cart_id]['quantity']++;
+                }
+                else if ($cart[$cart_id]['size_id'] !== $size_id){
+                    $cart = array();
+                    $cart = Arr::add($cart, $cart_id, [
+                        'id' => $cart_id,
+                        'drk_name' => $drink -> drk_name,
+                        'drk_price' => $drink -> drk_price,
+                        'size_price' => $drink_details -> size_price,
+                        'size_id' => $size_id,
+                        'drink_details' => $drink_details_id -> id,
+                        'quantity' => 1
+                    ]);
+                }
+
             }
-            else if (isset($cart[$cart_id]) && $cart[$cart_id]['size_id'] !== $size_id){
-                $cart = array();
-                $cart = Arr::add($cart, $cart_id, [
-                    'id' => $cart_id,
-                    'drk_name' => $drink -> drk_name,
-                    'drk_price' => $drink -> drk_price,
-                    'size_price' => $drink_details -> size_price,
-                    'size_id' => $size_id,
-                    'drink_details' => $drink_details_id -> id,
-                    'quantity' => 1
-                ]);
-            } else {
-                $cart = array();
+            else {
                 $cart = Arr::add($cart, $cart_id, [
                     'id' => $cart_id,
                     'drk_name' => $drink -> drk_name,
