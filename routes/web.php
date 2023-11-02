@@ -11,6 +11,7 @@ use App\Http\Controllers\DrinkDetailController;
 use App\Http\Controllers\DrinkMenuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::middleware('AdminMiddleware')->prefix('admin')->group(function () {
+Route::middleware('AdminMiddleware')->prefix('/admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
     // category
     Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
@@ -52,6 +53,7 @@ Route::middleware('AdminMiddleware')->prefix('admin')->group(function () {
     Route::get('/order/accept/{receipt}', [OrderController::class, 'accept'])->name('order.accept');
     Route::get('/order/cancel/{receipt}', [OrderController::class, 'cancel'])->name('order.cancel');
     Route::get('/order/cancelAccept/{receipt}', [OrderController::class, 'cancelAccept'])->name('order.cancelAccept');
+    
 
 });
 Route::prefix('client') ->group(function (){
@@ -65,11 +67,12 @@ Route::prefix('client') ->group(function (){
     //cart
     Route::get('/drink_detail/cart/viewCart', [CartController::class, 'viewCart']) -> name('cart.viewCart');
     Route::get('/drink_detail/cart/deleteCart/{id}', [CartController::class, 'deleteCart']) -> name('cart.deleteCart');
-
-    Route::post('/drink_detail/cart/storeCart', [CartController::class, 'storeCart']) -> name('cart.storeCart');
-    Route::post('/drink_detail/cart/updateCart', [CartController::class, 'updateCart']) -> name('cart.updateCart');
+    Route::post('/drink_detail/cart/storeCart', [CartController::class, 'storeCart']) -> name('cart.storeCart'); 
+    //search
+    Route::get('/search',[SearchController::class, 'index']) -> name('search.index');
+    Route::put('/search',[SearchController::class, 'searchByUserPhoneNumber']) -> name('search.searchByUserPhoneNumber');
 });
-// login
+// logins
 Route::get('/login', [LoginController::class, 'login'])->name('login.login');
 Route::post('/checkLogin', [LoginController::class, 'checkLogin'])->name('login.checkLogin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');

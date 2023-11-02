@@ -139,8 +139,7 @@
                                                     <br />
                                                     <br />
                                                 </div>
-                                                <div
-                                                    class="content table-responsive table-full-width"
+                                                <div class="content table-responsive table-full-width"
                                                 >
                                                     <table
                                                         class="table table-striped"

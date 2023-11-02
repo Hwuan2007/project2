@@ -51,6 +51,8 @@
                             <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
                             <div class="dropdown-content">
                                 <a href="{{route('login.logout')}}">Đăng xuất</a>
+                                <a href="{{ route('search.index') }}">Tìm kiếm</a>
+
                             </div>
                         </div>
                     </div>
