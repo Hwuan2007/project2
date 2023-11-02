@@ -71,4 +71,5 @@ class CartController extends Controller
         Session::put(['cart' => $cart]);
         return Redirect::route('cart.viewCart');
     }
+
 }

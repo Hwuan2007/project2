@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,8 +61,6 @@
             </div>
         </div>
     </header>
-
-
     <div class="container">
         <div class="receipt-info">
             <div class="tch-checkout-header">
@@ -319,7 +317,10 @@
 </script>
 
     <script src="{{ asset ('js/client/no-reload.js') }}"></script>
+
     <script src="{{ asset ('js/client/quantity.js') }}"></script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>

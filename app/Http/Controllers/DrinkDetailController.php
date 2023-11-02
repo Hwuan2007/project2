@@ -54,64 +54,14 @@ class DrinkDetailController extends Controller
             -> where('size_id', $size_id)
             -> select( 'drink_detail.*')
             -> first();
-        $cart_id = $drink -> id . '-' . $size_id;
-        // if (Session::exists('cart')){
-        //     $cart = Session::get('cart');
-        //     if (array_key_exists($cart_id, $cart )){
-        //         $cart[$cart_id]['quantity']++;
-        //     }
-            // else if (isset($cart[$cart_id]) && $cart[$cart_id]['size_id'] !== $size_id){
-            //     $cart = array();
-            //     $cart = Arr::add($cart, $cart_id, [
-            //         'id' => $cart_id,
-            //         'drk_name' => $drink -> drk_name,
-            //         'drk_price' => $drink -> drk_price,
-            //         'size_price' => $drink_details -> size_price,
-            //         'size_id' => $size_id,
-            //         'drink_details' => $drink_details_id -> id,
-            //         'quantity' => 1
-            //     ]);
-            // }
-            //  else {
-            //     $cart = array();
-            //     $cart[$cart_id] = [
-            //         'id' => $cart_id,
-            //         'drk_name' => $drink -> drk_name,
-            //         'drk_price' => $drink -> drk_price,
-            //         'size_price' => $drink_details -> size_price,
-            //         'size_id' => $size_id,
-            //         'drink_details' => $drink_details_id -> id,
-            //         'quantity' => 1
-            //     ]
-                // $cart = Arr::add($cart, $cart_id, [
-                //     'id' => $cart_id,
-                //     'drk_name' => $drink -> drk_name,
-                //     'drk_price' => $drink -> drk_price,
-                //     'size_price' => $drink_details -> size_price,
-                //     'size_id' => $size_id,
-                //     'drink_details' => $drink_details_id -> id,
-                //     'quantity' => 1
-                // ]
-        //     ;
-        //     }
-        // } else{
-        //     $cart = array();
-        //     $cart = Arr::add($cart, $cart_id, [
-        //         'id' => $cart_id,
-        //         'drk_name' => $drink -> drk_name,
-        //         'drk_price' => $drink -> drk_price,
-        //         'size_id' => $size_id,
-        //         'size_price' => $drink_details -> size_price,
-        //         'drink_details' => $drink_details_id -> id,
-        //         'quantity' => 1
-        //     ]);
-        // }
 
+        $cart_id = $drink -> id . '-' . $size_id;
         if(Session::has('cart')){
             $cart = Session::get('cart');        
         
         }
         else{
+
             $cart = array();
         }
         if(array_key_exists($cart_id, $cart )){
