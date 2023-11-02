@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Size;
 use Illuminate\Support\Facades\DB;
 use App\Models\Search;
 use App\Http\Requests\StoreSearchRequest;
 use App\Http\Requests\UpdateSearchRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class SearchController extends Controller
 {
@@ -14,12 +16,6 @@ class SearchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-       
-        return view('/client/search/index');
-
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -91,17 +87,21 @@ class SearchController extends Controller
     }
     public function searchByUserPhoneNumber(Request $request)
     {
+        $sizes = Size::all();
         $phone = $request->phone;
-        ;
         $receipts = DB::table('receipt')
         ->join('receipt_detail', 'receipt_detail.receipt_id', '=', 'receipt.id')
         ->join('user', 'user.id', '=', 'receipt.user_id')
-        ->select(
-            'receipt_detail.drink_name',
-            'receipt_detail.size_name',
-            'receipt.total_price'
-        )
+        ->select('receipt_detail.*', 'receipt.*')
         ->where('user.user_phonenumber', '=', $phone)
         ->get();
+        return view('/client/search/searchByUserPhoneNumber' ,[
+            'receipts' => $receipts,
+            'sizes' => $sizes,
+        ]);
+    }
+    public function index()
+    {
+        return view('/client/search/index');
     }
 }

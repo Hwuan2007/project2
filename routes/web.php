@@ -53,7 +53,7 @@ Route::middleware('AdminMiddleware')->prefix('/admin')->group(function () {
     Route::get('/order/accept/{receipt}', [OrderController::class, 'accept'])->name('order.accept');
     Route::get('/order/cancel/{receipt}', [OrderController::class, 'cancel'])->name('order.cancel');
     Route::get('/order/cancelAccept/{receipt}', [OrderController::class, 'cancelAccept'])->name('order.cancelAccept');
-    
+
 
 });
 Route::prefix('client') ->group(function (){
@@ -67,7 +67,7 @@ Route::prefix('client') ->group(function (){
     //cart
     Route::get('/drink_detail/cart/viewCart', [CartController::class, 'viewCart']) -> name('cart.viewCart');
     Route::get('/drink_detail/cart/deleteCart/{id}', [CartController::class, 'deleteCart']) -> name('cart.deleteCart');
-    Route::post('/drink_detail/cart/storeCart', [CartController::class, 'storeCart']) -> name('cart.storeCart'); 
+    Route::post('/drink_detail/cart/storeCart', [CartController::class, 'storeCart']) -> name('cart.storeCart');
     //search
     Route::get('/search',[SearchController::class, 'index']) -> name('search.index');
     Route::put('/search',[SearchController::class, 'searchByUserPhoneNumber']) -> name('search.searchByUserPhoneNumber');

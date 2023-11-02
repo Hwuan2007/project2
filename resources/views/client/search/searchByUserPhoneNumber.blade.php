@@ -144,9 +144,22 @@ table {
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>  </td>
-                                                        <td>  </td>
-                                                        <td>  </td>
+                                                        <td>
+                                                            @foreach($receipts as $receipt)
+                                                                <div class="tch-order-card__content">
+                                                                    <div class="tch-order-card__content">
+                                                                        <h5 class="tch-order-card__title mb-0"> {{ $receipt -> quantity }} x {{ $receipt -> drink_name }} </h5>
+                                                                        @foreach( $sizes as $size )
+                                                                            @if( $size -> id == $receipt -> size_name)
+                                                                                Size: <b>{{ $size -> size_name }}</b>
+                                                                            @endif
+                                                                        @endforeach
+                                                                    </div>
+                                                                </div>
+                                                            @endforeach
+                                                        </td>
+                                                        <td> {{ $receipt -> total_price }} </td>
+                                                        <td> {{ $receipt -> receipt_status }} </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
