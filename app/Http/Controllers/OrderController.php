@@ -106,6 +106,8 @@ class OrderController extends Controller
             -> where('receipt_id',$receipt -> id)
             -> get();
         $users = User::all() -> where('id', '=', $receipt -> user_id);
+        
+        
         return view('admin/order/order_details/detail',[
             'receipt' => $receipt,
             'users' => $users,

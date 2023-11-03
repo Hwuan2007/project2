@@ -149,9 +149,9 @@
                                                             <th>ID</th>
                                                             <th>Sản Phẩm</th>
                                                             <th>Tổng Tiền</th>
+                                                            <th>Thời gian</th>
                                                             <th>Action</th>
                                                             <th>Tình trạng</th>
-                                                            <th>Thời gian</th>
                                                         </tr>
                                                     </thead>
                                                         <tbody>
@@ -182,6 +182,9 @@
                                                                     {{ number_format($receipt_detail -> total_price, 0, ',', '.') }} đ
                                                                 </td>
                                                                 <td>
+                                                                    {{ $receipt -> created_at }}
+                                                                </td>
+                                                                <td>
                                                                     <button class="detail-btn ">
                                                                         <a href=" {{ route('order.detail' , $receipt -> id) }}"> chi tiết </a>
                                                                     </button>
@@ -208,9 +211,7 @@
                                                                     <span class="check" style="color: #eb5e28;"><b>{{ $receipt -> receipt_status }}</b></span>
                                                                 @endif
                                                                 </td>
-                                                                <td>
-                                                                    {{ $receipt -> created_at }}
-                                                                </td>
+                                                                
                                                             </tr>
                                                         @endforeach
                                                         </tbody>

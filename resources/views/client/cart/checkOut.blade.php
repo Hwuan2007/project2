@@ -179,14 +179,16 @@
                                                                                                 @endforeach
                                                                                             </div>
                                                                                         </div>
+                                                                                        <div class="tch-order-card__right d-flex">
+                                                                                            <div class="tch-order-card__content">
+                                                                                                <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }} đ</h5>
+                                                                                                <p class="tch-order-card__price mb-0"> +{{ number_format($drink['size_price'], 0, ',', '.') }} đ</p>
+                                                                                            </div>
+                                                                                        </div>
                                                                                     </div>
-                                                                                    <div>
-                                                                                        <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }} đ</h5>
-                                                                                        <p class="tch-order-card__price mb-0"> {{ number_format($drink['size_price'], 0, ',', '.') }} đ</p>
-                                                                                    </div>
-                                                                                </div>
                                                                                 @endforeach
                                                                             @endif
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>

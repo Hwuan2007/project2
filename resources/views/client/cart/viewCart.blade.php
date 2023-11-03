@@ -103,9 +103,6 @@
                                                                             @foreach( session('cart') as $drk_id => $drink )
                                                                                 <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
                                                                                     <div class="tch-order-card__left d-flex">
-                                                                                        <span class="tch-order-card__icon d-flex align-items-center">
-                                                                                            <a href="" id="edit"><i aria-hidden="true" class="fa fa-pen"></i></a>
-                                                                                        </span>
                                                                                         <div class="tch-order-card__content">
                                                                                             <h5 class="tch-order-card__title mb-0">
                                                                                                 {{ $drink['drk_name'] }}

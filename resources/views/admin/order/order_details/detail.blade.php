@@ -151,6 +151,7 @@
                                                             <p><b>Địa chỉ nhận hàng:</b>  {{ $user -> user_address }}</p>
                                                             <p><b>Ghi chú đơn hàng:</b>  {{ $receipt -> note }}</p>
                                                             <hr>
+                                                            <p><b>Ngày mua hàng:</b> </p>
                                                             <p><b>Trạng thái:</b>
                                                                 @if ($receipt->receipt_status == 'ĐANG CHỜ')
                                                                     <span class="check" style="color: #f3bb45;"><b>{{ $receipt -> receipt_status }}</b></span>
@@ -201,11 +202,10 @@
                                                                                                 <h5 class="tch-order-card__title mb-0">
                                                                                                     {{ $receiptsDetail -> drk_name }}
                                                                                                 </h5>
-                                                                                                <div class="container">
                                                                                                     <p class="tch-order-card__description mb-0">
                                                                                                         Size: <b>{{ $receiptsDetail -> size_name }}</b>
                                                                                                     </p>
-                                                                                                </div>
+                                                                                                
                                                                                             </div>
                                                                                         </div>
                                                                                     @endforeach
@@ -215,10 +215,10 @@
                                                                                         <div class="tch-order-card__content">
                                                                                             @foreach( $receiptsDetails as $receiptsDetail )
                                                                                                 <p class="tch-order-card__description mb-0" style="margin-left: 10px;">
-                                                                                                    {{ number_format($receiptsDetail -> drk_price, 0, ',', '.') }} đ
+                                                                                                {{number_format($receiptsDetail -> drk_price, 0, ',', '.') }} đ
                                                                                                 </p>
                                                                                                 <p class="tch-order-card__description mb-0">
-                                                                                                     + {{ number_format($receiptsDetail -> size_price, 0, ',', '.') }} đ
+                                                                                                      + {{ number_format($receiptsDetail -> size_price, 0, ',', '.') }} đ
                                                                                                 </p>
                                                                                             @endforeach
                                                                                         </div>
