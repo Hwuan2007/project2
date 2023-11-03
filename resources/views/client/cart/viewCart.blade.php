@@ -128,7 +128,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div>
-                                                                                    <input type="hidden" id="receipt_status" name="receipt_status" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="Đang chờ"/>
+                                                                                    <input type="hidden" id="receipt_status" name="receipt_status" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="ĐANG CHỜ"/>
                                                                                 </div>
                                                                                 @endforeach
                                                                             @endif

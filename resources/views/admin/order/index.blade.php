@@ -184,7 +184,7 @@
                                                                     <button class="detail-btn ">
                                                                         <a href=" {{ route('order.detail' , $receipt -> id) }}"> chi tiết </a>
                                                                     </button>
-                                                                    @if ($receipt->receipt_status == 'Đang chờ')
+                                                                    @if ($receipt->receipt_status == 'ĐANG CHỜ')
                                                                     <button class="accept-btn ">
                                                                         <a href=" {{ route('order.accept' , $receipt -> id) }}"> Duyệt đơn </a>
                                                                     </button>
@@ -199,7 +199,7 @@
 
                                                                 </td>
                                                                 <td>
-                                                                @if ($receipt->receipt_status == 'Đang chờ')
+                                                                @if ($receipt->receipt_status == 'ĐANG CHỜ')
                                                                     <span class="check" style="color: #f3bb45;"><b>{{ $receipt -> receipt_status }}</b></span>
                                                                 @elseif ($receipt->receipt_status == 'ĐÃ XÁC NHẬN')
                                                                     <span class="check" style="color:  #7ac29a;"><b>{{ $receipt -> receipt_status }}</b></span>

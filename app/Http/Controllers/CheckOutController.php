@@ -110,7 +110,7 @@ class CheckOutController extends Controller
             'note'=> $user['note'],
             'user_id' => $user_id -> id,
             'shipping_id' => $user['shipping_id'] ,
-            'receipt_status' => 'Đang chờ'
+            'receipt_status' => 'ĐANG CHỜ'
 
         ]);
         $cart=Session::get('cart');

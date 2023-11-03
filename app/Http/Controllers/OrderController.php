@@ -122,7 +122,7 @@ class OrderController extends Controller
 
     public function cancelAccept($id) {
         $receipt = Receipt::find($id);
-        $receipt->receipt_status = 'Đang chờ';
+        $receipt->receipt_status = 'ĐANG CHỜ';
         $receipt->save();
         return back();
     }

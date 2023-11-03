@@ -218,7 +218,7 @@
                                                                                                     {{ number_format($receiptsDetail -> drk_price, 0, ',', '.') }} đ
                                                                                                 </p>
                                                                                                 <p class="tch-order-card__description mb-0">
-                                                                                                    {{ number_format($receiptsDetail -> size_price, 0, ',', '.') }} đ
+                                                                                                     + {{ number_format($receiptsDetail -> size_price, 0, ',', '.') }} đ
                                                                                                 </p>
                                                                                             @endforeach
                                                                                         </div>

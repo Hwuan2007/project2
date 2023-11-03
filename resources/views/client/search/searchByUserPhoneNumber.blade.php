@@ -141,13 +141,12 @@ table {
                                                         <th>Sản Phẩm</th>
                                                         <th>Tổng Tiền</th>
                                                         <th>Tình trạng</th>
-                                                        <th>Ship</th>
                                                         <th>Thời gian</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                 @foreach($receipts as $receipt)
-                                                    @php $receipt_details = Illuminate\Support\Facades\DB::table('receipt_detail')
+                                                    <!-- @php $receipt_details = Illuminate\Support\Facades\DB::table('receipt_detail')
                                                         -> join('receipt','receipt.id' ,'=', 'receipt_detail.receipt_id')
                                                         -> join('drink_detail', 'receipt_detail.drink_detail_id', '=', 'drink_detail.id')
                                                         -> join('drink', 'drink_detail.drk_id', '=', 'drink.id')
@@ -157,21 +156,20 @@ table {
                                                         -> where('user.user_phonenumber', '=', $phone)
                                                         -> where('receipt_id',$receipt -> id)
                                                         -> get();
-                                                    @endphp
+                                                    @endphp -->
                                                     <tr>
                                                         <td>
                                                             @foreach($receipt_details as $receipt_detail)
                                                                 <div class="tch-order-card__content">
                                                                     <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> {{ $receipt_detail -> quantity }} x {{ $receipt_detail -> drk_name }} </h5>
-                                                                        Size: <b>{{ $receipt_detail -> size_name }}</b>
+                                                                        <h5 class="tch-order-card__title mb-0"> {{ $receipt_detail -> drk_name }} x {{ $receipt_detail -> quantity }} </h5>
+                                                                        Size: <b>{{ $receipt_detail-> size_name }}</b>
                                                                     </div>
                                                                 </div>
                                                             @endforeach
                                                         </td>
                                                         <td> {{ $receipt -> total_price }} </td>
                                                         <td> {{ $receipt -> receipt_status }} </td>
-                                                        <td> {{ $receipt -> shipping_name }} -> {{ $receipt -> shipping_status }} </td>
                                                         <td> {{ $receipt -> created_at }} </td>
                                                     </tr>
                                                 @endforeach
