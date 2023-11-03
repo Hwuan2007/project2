@@ -159,6 +159,7 @@
                                                                         <br>
                                                                         <img
                                                                             class=drk_img"
+                                                                            style="width: 300px"
                                                                             src="{{ asset(\Illuminate\Support\Facades\Storage::url('Admin/') . $drink -> drk_img) }}"
                                                                             alt="image"
                                                                         />

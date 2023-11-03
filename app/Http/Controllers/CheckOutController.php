@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CheckOutReceiptRequest;
 use App\Models\checkOut;
 use App\Http\Requests\StorecheckOutRequest;
 use App\Http\Requests\UpdatecheckOutRequest;
@@ -32,7 +33,7 @@ class CheckOutController extends Controller
             'receipts' => $receipts,
             'shipping_methods' => $shipping_methods
         ]);
-       
+
     }
 
     /**
@@ -100,7 +101,7 @@ class CheckOutController extends Controller
     {
         //
     }
-    public function check(Request $request){
+    public function check(CheckOutReceiptRequest $request){
         $user = $request->all();
         $user_id = User::create($user);
         $total=0;

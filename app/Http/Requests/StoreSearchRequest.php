@@ -13,7 +13,7 @@ class StoreSearchRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,25 @@ class StoreSearchRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'user_phonenumber' => 'required|numeric|exists:user,user_phonenumber',
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'required' => ':attribute đang trống',
+            'numeric' => ':attribute phải là số',
+            'exists' => ':attribute không tồn tại',
+            'image' => ':attribute phải là dạng ảnh và phải có đuôi là: jpg, jpeg, png, bmp, gif, svg, hoặc webp',
+        ];
+    }
+    public function attributes(): array
+    {
+        return [
+            'user_phonenumber' => 'Số điện thoại',
         ];
     }
 }

@@ -75,18 +75,23 @@
                     <div>
                         <div class="searchform">
                             <div class="card-product-note-item">
-                                <form action="{{route('search.searchByUserPhoneNumber')}}" method="post">
+                                <form action="{{ route('search.searchByUserPhoneNumber' )}}" method="post">
                                     @csrf
                                     @method('PUT')
+                                    @if( $errors -> has('user_phonenumber'))
+                                        <span style="color: red;">{{ $errors -> first('user_phonenumber') }}</span>
+                                    @endif
                                     <div class="form-group">
-                                        <input type="text" name="phone" placeholder="Tra cứu đơn hàng theo số điện thoại" class="form-control"
+                                        <input type="text" name="user_phonenumber" placeholder="Tra cứu đơn hàng theo số điện thoại" class="form-control"
                                         style="width: 350px !important;float: left;height:45px" class="form-control" />
+
                                         <button type="submit">
                                             <i class="fa fa-search card-product-note-icon"></i>
                                         </button>
                                     </div>
                                 </form>
                             </div>
+
                         </div>
                     </div>
                     <div class="history" >

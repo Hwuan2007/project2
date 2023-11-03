@@ -46,7 +46,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         User::create($request -> all());
-        return Redirect::route('user.index');
+        return Redirect::route('user.index') -> with('success', 'Thêm thành công!');
     }
 
     /**
@@ -85,7 +85,7 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         $user -> update($request -> all());
-        return Redirect::route('user.index');
+        return Redirect::route('user.index') -> with('success', 'Cập nhật thành công!');
     }
 
     /**
@@ -97,7 +97,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user -> delete();
-        return Redirect::route('user.index');
+        return Redirect::route('user.index') -> with('success', 'Xóa thành công!');
     }
     public function login(){
         return view('client/login/customer');

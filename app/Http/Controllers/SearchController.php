@@ -88,24 +88,12 @@ class SearchController extends Controller
 
     public function search(){
     }
+
     public function searchByUserPhoneNumber(Request $request)
     {      
         
-        
-        // $receipts = $request->receipts;
-        // $sizes = Size::all();
-        // $receipts = Receipt::all();
-        // $receipts = DB::table('receipt')
-        // ->join('receipt_detail', 'receipt_detail.receipt_id', '=', 'receipt.id')
 
-        // ->join('drink_detail', 'drink_detail.id', '=', 'receipt_detail.drink_detail_id')
-        // ->join('drink', 'drink_detail.drk_id', '=', 'drink.id')
-        // 
-        // ->join('user', 'user.id', '=', 'receipt.user_id')
-        // ->select('receipt_detail.*', 'receipt.*')
-        // ->select('receipt_detail.receipt_id', 'receipt_detail.quantity','drink.drk_name','receipt.total_price','size.*','receipt.receipt_status','receipt.created_at')
-        // ->where('user.user_phonenumber', '=', $phone)
-        // ->get();
+
         $phone = $request->phone;
         
         

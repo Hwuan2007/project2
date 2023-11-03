@@ -57,7 +57,7 @@ class DrinkController extends Controller
         $array = Arr::add($array, 'drk_description', $request -> drk_description);
         Drink::create($array);
 
-        return Redirect::route('drink.index');
+        return Redirect::route('drink.index') -> with('success', 'Thêm thành công!');
     }
 
     /**
@@ -109,7 +109,7 @@ class DrinkController extends Controller
         $array = Arr::add($array, 'categories_id', $request -> categories_id);
         $array = Arr::add($array, 'drk_description', $request -> drk_description);
         $drink -> update($array);
-        return Redirect::route('drink.index');
+        return Redirect::route('drink.index') -> with('success', 'Cập nhật thành công!');
     }
 
     /**
@@ -120,7 +120,7 @@ class DrinkController extends Controller
     public function destroy(Drink $drink)
     {
         $drink -> delete();
-        return Redirect::route('drink.index');
+        return Redirect::route('drink.index') -> with('success', 'Xóa thành công!');
     }
 
 }

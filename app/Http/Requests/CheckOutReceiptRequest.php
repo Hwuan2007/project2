@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateDrinkRequest extends FormRequest
+class CheckOutReceiptRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,11 @@ class UpdateDrinkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'drk_name' => 'required|max:50',
-            'drk_img' => 'image',
-            'drk_price' => 'required|numeric',
-            'drk_description' => 'required|max:255',
-            'categories_id' => 'required',
+            'username' => 'required|max:20',
+            'user_phonenumber' => 'required|numeric|unique:user,user_phonenumber',
+            'user_address' => 'required|max:20',
+            'note' => 'required|max:255',
+            'checkbox' => 'accepted',
         ];
     }
     public function messages(): array
@@ -37,17 +37,19 @@ class UpdateDrinkRequest extends FormRequest
             'required' => ':attribute đang trống',
             'max' => ':attribute không được quá :max ký tự',
             'numeric' => ':attribute phải là số',
-            'image' => ':attribute phải là dạng ảnh và phải có đuôi là: jpg, jpeg, png, bmp, gif, svg, hoặc webp',
+            'unique' => ':attribute đã trùng',
+            'confirmed' => ':attribute đã bị sai',
+            'accepted' => 'Bạn chưa đồng ý :attribute',
         ];
     }
     public function attributes(): array
     {
         return [
-            'drk_name' => 'Đồ uống',
-            'drk_img' => 'Ảnh',
-            'drk_price' => 'Giá tiền',
-            'categories_id' => 'Danh mục',
-            'drk_description' => 'Mô tả',
+            'username' => 'Tên người dùng',
+            'user_phonenumber' => 'Số điện thoại',
+            'user_address' => 'Địa chỉ',
+            'note' => 'Ghi chú',
+            'checkbox' => 'Điều khoản và Dịch vụ',
         ];
     }
 }

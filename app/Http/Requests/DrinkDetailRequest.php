@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreDrinkDetailRequest extends FormRequest
+class DrinkDetailRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,10 +21,22 @@ class StoreDrinkDetailRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'size_id' => 'required',
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'required' => ':attribute đang chưa được chọn',
+        ];
+    }
+    public function attributes(): array
+    {
+        return [
+            'size_id' => 'Size',
         ];
     }
 }

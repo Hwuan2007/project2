@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Receipt;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreReceiptRequest;
-use App\Http\Requests\UpdateReceiptRequest;
+use App\Http\Requests\CheckOutReceiptRequest;
 
 class ReceiptController extends Controller
 {
@@ -65,11 +65,11 @@ class ReceiptController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateReceiptRequest  $request
+     * @param  \App\Http\Requests\CheckOutReceiptRequest  $request
      * @param  \App\Models\Receipt  $receipt
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateReceiptRequest $request, Receipt $receipt)
+    public function update(CheckOutReceiptRequest $request, Receipt $receipt)
     {
         //
     }
