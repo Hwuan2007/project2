@@ -91,30 +91,7 @@
                     </div>
                     <div class="history" >
                         <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="card">
-                                        <div class="content table-responsive table-full-width">
-                                            <table class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Sản Phẩm</th>
-                                                        <th>Tổng Tiền</th>
-                                                        <th>Tình trạng</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>  </td>
-                                                        <td>  </td>
-                                                        <td>  </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

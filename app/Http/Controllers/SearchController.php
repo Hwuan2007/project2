@@ -8,7 +8,9 @@ use App\Models\Search;
 use App\Http\Requests\StoreSearchRequest;
 use App\Http\Requests\UpdateSearchRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\OrderLayout;
 use Illuminate\Support\Facades\Redirect;
+use ReceiptDetail;
 
 class SearchController extends Controller
 {
@@ -87,28 +89,64 @@ class SearchController extends Controller
     public function search(){
     }
     public function searchByUserPhoneNumber(Request $request)
-    {
+    {      
+        
+        
+        // $receipts = $request->receipts;
+        // $sizes = Size::all();
+        // $receipts = Receipt::all();
+        // $receipts = DB::table('receipt')
+        // ->join('receipt_detail', 'receipt_detail.receipt_id', '=', 'receipt.id')
+
+        // ->join('drink_detail', 'drink_detail.id', '=', 'receipt_detail.drink_detail_id')
+        // ->join('drink', 'drink_detail.drk_id', '=', 'drink.id')
+        // 
+        // ->join('user', 'user.id', '=', 'receipt.user_id')
+        // ->select('receipt_detail.*', 'receipt.*')
+        // ->select('receipt_detail.receipt_id', 'receipt_detail.quantity','drink.drk_name','receipt.total_price','size.*','receipt.receipt_status','receipt.created_at')
+        // ->where('user.user_phonenumber', '=', $phone)
+        // ->get();
         $phone = $request->phone;
+        
+        
+        
+        $receipts = DB::table('receipt')
+        ->join('user', 'user.id', '=', 'receipt.user_id')
+        ->select( 'receipt.*')
+        ->where('user.user_phonenumber', '=', $phone)
+        ->get();
+        
+        $arryReceipt_detail = array();
+        // $receipt_detail = DB::table('receipt_detail') ;
 
-       $receipts = DB::table('receipt')
-       ->join('receipt_detail', 'receipt_detail.receipt_id', '=', 'receipt.id')
-
-       ->join('drink_detail', 'drink_detail.id', '=', 'receipt_detail.drink_detail_id')
-       ->join('drink', 'drink_detail.drk_id', '=', 'drink.id')
-       ->join('size', 'size.id', '=', 'drink_detail.size_id')
-       ->join('user', 'user.id', '=', 'receipt.user_id')
-       ->select('receipt_detail.receipt_id', 'receipt_detail.quantity','drink.drk_name','receipt.total_price','size.*','receipt.receipt_status')
-       ->where('user.user_phonenumber', '=', $phone)
-       ->get();
-        $receipts = Receipt::all();
+        foreach ($receipts as $receipt){
+            
+            
+            $receipt_details = DB::table('receipt_detail')
+            ->join('drink_detail', 'drink_detail.id', '=', 'receipt_detail.drink_detail_id')
+            ->join('drink', 'drink_detail.drk_id', '=', 'drink.id')
+            ->join('size', 'drink_detail.size_id', '=', 'size.id')
+            ->select( 'receipt_detail.*','drink.*','drink_detail.*','size.*')
+            ->where('receipt_detail.receipt_id', '=', $receipt->id)
+            -> get();
+            foreach ($receipt_details as $item) {
+                $arryReceipt_detail[] = $item;
+            }
+           
+             
+        }
         return view('/client/search/searchByUserPhoneNumber' ,[
-            'receipts' => $receipts,
+            'receipt_details' => $receipt_details,
+            'receipts' => $receipts ,
             'phone' => $phone,
+            'arryReceipt_detail' => $arryReceipt_detail,
+            // 'sizes' => $sizes,
         ]);
+        
+        
     }
     public function index()
     {
         return view('/client/search/index');
     }
-
 }

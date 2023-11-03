@@ -147,21 +147,28 @@ table {
                                                 <tbody>
                                                 @foreach($receipts as $receipt)
                                                     <tr>
-                                                        <td>
-                                                            @foreach($receipt_details as $receipt_detail)
+                                                    
+                                                        <td> 
+                                                        @foreach($arryReceipt_detail as $receipt_detail)
+                                                        @if($receipt_detail -> receipt_id == $receipt -> id) 
+                                                            <div class="tch-order-card__content">
                                                                 <div class="tch-order-card__content">
-                                                                    <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> {{ $receipt_detail -> drk_name }} x {{ $receipt_detail -> quantity }} </h5>
-                                                                        Size: <b>{{ $receipt_detail-> size_name }}</b>
-                                                                    </div>
+                                                                    <h5 class="tch-order-card__title mb-0"> 
+                                                                        {{ $receipt_detail -> drk_name }} x {{ $receipt_detail -> quantity }} </h5>
+                                                                    Size: <b>{{ $receipt_detail-> size_name }}</b>
                                                                 </div>
-                                                            @endforeach
+                                                            </div>
+                                                            
+                                                             @endif
+                                                    @endforeach
                                                         </td>
+                                                        
                                                         <td> {{ $receipt -> total_price }} </td>
                                                         <td> {{ $receipt -> receipt_status }} </td>
                                                         <td> {{ $receipt -> created_at }} </td>
-
                                                     </tr>
+                                                   
+                                                        
                                                 @endforeach
                                                 </tbody>
                                             </table>
