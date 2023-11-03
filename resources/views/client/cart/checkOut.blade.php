@@ -86,49 +86,46 @@
                                 <br>
                                 <form action="{{route('cart.check')}}" method="post">
                                     @csrf
-                                <div>
-                                    <input type="text" id="address" name="user_address" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;" />
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="name" name="username" placeholder="Nhập tên người nhận" class="form-control" style="width: 450px;" />
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="phonenumber" name="user_phonenumber" placeholder="Nhập số điện thoại" class="form-control" style="width: 450px;" />
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="note" name="note" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" />
-                                </div>
-                                <br>
-                                <div>
-                                    <select name="shipping_id" class="form-control" >
-                                        @foreach( $shipping_methods as $shipping_method)
-                                            <option name="shipping_id" value="{{ $shipping_method -> id}}">
-                                                {{ $shipping_method -> shipping_name }}-{{ $shipping_method -> shipping_status }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div>
-                                    <input type="hidden" id="role" name="role_id" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="2"/>
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="checkbox" name="checkbox" id="checkbox">
-                                    <label for="checkbox" class="checkbox"> Đồng ý với các điều khoản và điều kiện mua hàng của The Coffee House</label>
-                                </div>
+                                    <div>
+                                        <input type="text" id="address" name="user_address" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;" />
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <input type="text" id="name" name="username" placeholder="Nhập tên người nhận" class="form-control" style="width: 450px;" />
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <input type="text" id="phonenumber" name="user_phonenumber" placeholder="Nhập số điện thoại" class="form-control" style="width: 450px;" />
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <input type="text" id="note" name="note" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" />
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <select name="shipping_id" class="form-control" >
+                                            @foreach( $shipping_methods as $shipping_method)
+                                                <option name="shipping_id" value="{{ $shipping_method -> id}}">
+                                                    {{ $shipping_method -> shipping_name }}-{{ $shipping_method -> shipping_status }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <input type="hidden" id="role" name="role_id" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="2"/>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <input type="checkbox" name="checkbox" id="checkbox">
+                                        <label for="checkbox" class="checkbox"> Đồng ý với các điều khoản và điều kiện mua hàng của The Coffee House</label>
+                                    </div>
                                     <button type="submit">
                                         xác nhận
                                     </button>
-                               
                                 </form>
-                                
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-4 col-sm-12" >
-                            
                             <div class="receipt-main">
                                 <div class="content">
                                     <div class="container-fluid">
@@ -142,44 +139,40 @@
                                                                     <div>
                                                                         <div class="title">
                                                                             <a href="" class="no-reload">Đơn hàng đã đặt </a>
-                                                                            
                                                                         </div>
                                                                     </div>
                                                                     <div class="container">
                                                                         <div class="drinkincart">
-
-                                                                        @if( session('cart') )
-                                                                            @foreach( session('cart') as $drk_id => $drink )
-                                                                                <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
-                                                                                    <div class="tch-order-card__left d-flex">
-                                                                                        <div class="tch-order-card__content">
-                                                                                            <h5 class="tch-order-card__title mb-0">
-                                                                                                {{ $drink['drk_name'] }}
-                                                                                                    x 
-                                                                                                {{ $drink['quantity'] }}
-                                                                                            </h5>                                                                                            
-                                                                                            @foreach( $sizes as $size )
-                                                                                                @if( $size -> id == $drink['size_id'])
-                                                                                                    <p class="tch-order-card__description mb-0"> {{ $size -> size_name }}</p>
-                                                                                                @endif
-                                                                                            @endforeach
+                                                                            @if( session('cart') )
+                                                                                @foreach( session('cart') as $drk_id => $drink )
+                                                                                    <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
+                                                                                        <div class="tch-order-card__left d-flex">
+                                                                                            <div class="tch-order-card__content">
+                                                                                                <h5 class="tch-order-card__title mb-0">
+                                                                                                    {{ $drink['drk_name'] }}
+                                                                                                        x
+                                                                                                    {{ $drink['quantity'] }}
+                                                                                                </h5>
+                                                                                                @foreach( $sizes as $size )
+                                                                                                    @if( $size -> id == $drink['size_id'])
+                                                                                                        <p class="tch-order-card__description mb-0"> {{ $size -> size_name }}</p>
+                                                                                                    @endif
+                                                                                                @endforeach
+                                                                                            </div>
                                                                                         </div>
-                                                                                    </div>
+                                                                                        <div class="tch-order-card__right">
                                                                                             <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }} đ</h5>
                                                                                             <p class="tch-order-card__price mb-0"> {{ number_format($drink['size_price'], 0, ',', '.') }} đ</p>
                                                                                             <br>
                                                                                         </div>
+                                                                                        <br>
                                                                                     </div>
-
-                                                                                    <!-- <div>
-                                                                                        <input type="hidden" id="receipt_status" name="receipt_status" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="Đang chờ"/>
-                                                                                    </div> -->
-                                                                                </div>
                                                                                 @endforeach
                                                                             @endif
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                            </div>
 
                                                             </div>
                                                             <br>
@@ -216,7 +209,7 @@
                                                                 </div>
                                                             </div>
                                                         </table>
-                                                    </form>
+
                                                     <div class="footer-receipt" >
                                                         <div class="container">
                                                             <div class="tch-checkout-box tch-checkout-box--list-submited d-flex justify-content-between w-100 position-static">
@@ -232,10 +225,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>

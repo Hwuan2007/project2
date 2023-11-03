@@ -57,11 +57,9 @@ class DrinkDetailController extends Controller
 
         $cart_id = $drink -> id . '-' . $size_id;
         if(Session::has('cart')){
-            $cart = Session::get('cart');        
-        
+            $cart = Session::get('cart');
         }
         else{
-
             $cart = array();
         }
         if(array_key_exists($cart_id, $cart )){

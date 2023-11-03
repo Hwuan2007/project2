@@ -76,46 +76,6 @@
                 <div>
                     <div class="row">
                         <div class="col-lg-6 col-md-4 col-sm-12" >
-                            <!-- <div class="receipt-form">
-                                <div class="title">
-                                    <a href="" class="no-reload">Giao Hàng</a>
-                                </div>
-                                <br>
-                                <br>
-                                <div>
-                                    <input type="text" id="address" name="user_address" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;" />
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="name" name="username" placeholder="Nhập tên người nhận" class="form-control" style="width: 450px;" />
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="phonenumber" name="user_phonenumber" placeholder="Nhập số điện thoại" class="form-control" style="width: 450px;" />
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="note" name="note" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" />
-                                </div>
-                                <br>
-                                <div>
-                                    <select name="shipping_id" class="form-control" >
-                                        @foreach( $shipping_methods as $shipping_method)
-                                            <option name="shipping_id" value="{{ $shipping_method -> id}}">
-                                                {{ $shipping_method -> shipping_name }}-{{ $shipping_method -> shipping_status }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div>
-                                    <input type="hidden" id="role" name="role_id" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="2"/>
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="checkbox" name="checkbox" id="checkbox">
-                                    <label for="checkbox" class="checkbox"> Đồng ý với các điều khoản và điều kiện mua hàng của The Coffee House</label>
-                                </div>
-                            </div> -->
                         </div>
                         <div class="col-lg-6 col-md-4 col-sm-12" >
                             <div class="receipt-main">
@@ -138,48 +98,44 @@
                                                                     </div>
                                                                     <div class="container">
                                                                         <div class="drinkincart">
-
-                                                                        @if( session('cart') )
-                                                                            @foreach( session('cart') as $drk_id => $drink )
-                                                                                <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
-                                                                                    <div class="tch-order-card__left d-flex">
-                                                                                        <span class="tch-order-card__icon d-flex align-items-center">
-                                                                                            <a href="" id="edit"><i aria-hidden="true" class="fa fa-pen"></i></a>
-                                                                                        </span>
-                                                                                        <div class="tch-order-card__content">
-                                                                                            <h5 class="tch-order-card__title mb-0">
-                                                                                                {{ $drink['drk_name'] }}
-                                                                                                    x 
-                                                                                                <input type="number" id="quantityInput" value="{{ $drink['quantity'] }}" min="1"
-                                                                                                name="quantity[{{$drk_id}}]" style="width: 30px; border: none; outline: none;">   
-                                                                                            </h5>                                                                                            
-                                                                                            @foreach( $sizes as $size )
-                                                                                                @if( $size -> id == $drink['size_id'])
-                                                                                                    <p class="tch-order-card__description mb-0"> {{ $size -> size_name }}</p>
-                                                                                                @endif
-                                                                                            @endforeach
-                                                                                            <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
+                                                                            @if( session('cart') )
+                                                                                @foreach( session('cart') as $drk_id => $drink )
+                                                                                    <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
+                                                                                        <div class="tch-order-card__left d-flex">
+                                                                                            <span class="tch-order-card__icon d-flex align-items-center">
+                                                                                                <a href="" id="edit"><i aria-hidden="true" class="fa fa-pen"></i></a>
+                                                                                            </span>
+                                                                                            <div class="tch-order-card__content">
+                                                                                                <h5 class="tch-order-card__title mb-0">
+                                                                                                    {{ $drink['drk_name'] }}
+                                                                                                        x
+                                                                                                    <input type="number" id="quantityInput" value="{{ $drink['quantity'] }}" min="1"
+                                                                                                    name="quantity[{{$drk_id}}]" style="width: 30px; border: none; outline: none;">
+                                                                                                </h5>
+                                                                                                @foreach( $sizes as $size )
+                                                                                                    @if( $size -> id == $drink['size_id'])
+                                                                                                        <p class="tch-order-card__description mb-0"> {{ $size -> size_name }}</p>
+                                                                                                    @endif
+                                                                                                @endforeach
+                                                                                                <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
+                                                                                            </div>
                                                                                         </div>
-                                                                                    </div>
-                                                                                            <!---->                                                                                        <div class="tch-order-card__right">
+                                                                                        <div class="tch-order-card__right">
                                                                                             <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }} đ</h5>
                                                                                             <p class="tch-order-card__price mb-0"> {{ number_format($drink['size_price'], 0, ',', '.') }} đ</p>
                                                                                             <br>
-                                                                                            <!---->
                                                                                         </div>
                                                                                     </div>
-
                                                                                     <div>
                                                                                         <input type="hidden" id="receipt_status" name="receipt_status" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="Đang chờ"/>
                                                                                     </div>
-                                                                                </div>
                                                                                 @endforeach
                                                                             @endif
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
                                                             </div>
+
                                                             <br>
                                                             <div>
                                                                 <div class="title">
@@ -202,14 +158,14 @@
                                                                 </div>
                                                                 <hr>
                                                                 <div class="tch-order-card tch-order-card--border d-flex align-items-center justify-content-between">
-                                                                    <div div class="tch-order-card__left d-flex">
+                                                                    <div class="tch-order-card__left d-flex">
                                                                         <p  class="tch-order-card__text mb-0">Phí giao hàng</p>
                                                                     </div>
                                                                     <div class="tch-order-card__right mb-0">
                                                                         @php $discount = 18000 @endphp
                                                                         @php $finalTotal = $total @endphp
                                                                         @php $finalTotal = $total + $discount @endphp
-                                                                        <p  class="tch-order-card__price mb-0">18.000 đ</p>
+                                                                        <p class="tch-order-card__price mb-0">18.000 đ</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -238,7 +194,7 @@
                             </div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -315,12 +271,8 @@
         form.submit();
     });
 </script>
-
     <script src="{{ asset ('js/client/no-reload.js') }}"></script>
-
     <script src="{{ asset ('js/client/quantity.js') }}"></script>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>
