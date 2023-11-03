@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/cart.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/client/car.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
@@ -52,7 +52,8 @@
                     <div class="col-lg-1 col-md-4 col-sm-12" >
                         <div class="dropdown">
                             <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content">  
+                                <a href="{{ route('search.index') }}">Tìm kiếm</a>
                                 <a href="{{route('login.logout')}}">Đăng xuất</a>
                             </div>
                         </div>
@@ -73,51 +74,9 @@
                 </h2>
             </div>
             <div class="receipt">
-                <div>
                     <div class="row">
-                        <div class="col-lg-6 col-md-4 col-sm-12" >
-                            <!-- <div class="receipt-form">
-                                <div class="title">
-                                    <a href="" class="no-reload">Giao Hàng</a>
-                                </div>
-                                <br>
-                                <br>
-                                <div>
-                                    <input type="text" id="address" name="user_address" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;" />
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="name" name="username" placeholder="Nhập tên người nhận" class="form-control" style="width: 450px;" />
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="phonenumber" name="user_phonenumber" placeholder="Nhập số điện thoại" class="form-control" style="width: 450px;" />
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="note" name="note" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" />
-                                </div>
-                                <br>
-                                <div>
-                                    <select name="shipping_id" class="form-control" >
-                                        @foreach( $shipping_methods as $shipping_method)
-                                            <option name="shipping_id" value="{{ $shipping_method -> id}}">
-                                                {{ $shipping_method -> shipping_name }}-{{ $shipping_method -> shipping_status }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div>
-                                    <input type="hidden" id="role" name="role_id" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="2"/>
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="checkbox" name="checkbox" id="checkbox">
-                                    <label for="checkbox" class="checkbox"> Đồng ý với các điều khoản và điều kiện mua hàng của The Coffee House</label>
-                                </div>
-                            </div> -->
-                        </div>
-                        <div class="col-lg-6 col-md-4 col-sm-12" >
+                        
+                        <div class="col-lg-12 col-md-12 col-sm-12" >
                             <div class="receipt-main">
                                 <div class="content">
                                     <div class="container-fluid">
@@ -131,14 +90,16 @@
                                                             <div>
                                                                 <div>
                                                                     <div>
-                                                                        <div class="title">
+                                                                        <div class="title d-flex justify-content-between">
                                                                             <a href="" class="no-reload">Đơn hàng đã đặt </a>
-                                                                            <button type="submit" id="updatebtn">okela</button>
-                                                                        </div>
+                                                                        <button type="submit" id="updatebtn" class="tch-total-card__right mb-0"
+                                                                        style="margin-right:15px ;">
+                                                                            Cập nhật
+                                                                        </button>
+                                                                        </div>                                     
                                                                     </div>
                                                                     <div class="container">
                                                                         <div class="drinkincart">
-
                                                                         @if( session('cart') )
                                                                             @foreach( session('cart') as $drk_id => $drink )
                                                                                 <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
@@ -161,25 +122,23 @@
                                                                                             <p class="tch-order-delete-item"><a href="{{ route('cart.deleteCart', $drk_id) }}" id="delete">Xóa</a></p>
                                                                                         </div>
                                                                                     </div>
-                                                                                            <!---->                                                                                        <div class="tch-order-card__right">
-                                                                                            <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }} đ</h5>
-                                                                                            <p class="tch-order-card__price mb-0"> {{ number_format($drink['size_price'], 0, ',', '.') }} đ</p>
-                                                                                            <br>
-                                                                                            <!---->
-                                                                                        </div>
+                                                                                    <div class="tch-order-card__right">
+                                                                                        <h5 class="tch-order-card__title mb-0"> {{ number_format($drink['drk_price'], 0, ',', '.') }} đ</h5>
+                                                                                        <p class="tch-order-card__price mb-0"> {{ number_format($drink['size_price'], 0, ',', '.') }} đ</p>
+                                                                                        <br>
                                                                                     </div>
-
-                                                                                    <div>
-                                                                                        <input type="hidden" id="receipt_status" name="receipt_status" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="Đang chờ"/>
-                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <input type="hidden" id="receipt_status" name="receipt_status" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="Đang chờ"/>
                                                                                 </div>
                                                                                 @endforeach
                                                                             @endif
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
                                                             </div>
+
+                                                            
                                                             <br>
                                                             <div>
                                                                 <div class="title">
@@ -220,7 +179,9 @@
                                                             <div class="tch-checkout-box tch-checkout-box--list-submited d-flex justify-content-between w-100 position-static">
                                                                 <div class="tch-tottal-card__content">
                                                                     <p class="tch-total-card__title mb-0"> Thành tiền</p>
-                                                                    <p name="final-total" class="tch-total-card__description mb-0"><b>{{ number_format($finalTotal, 0, ',', '.') }} đ</b></p>
+                                                                    <p name="final-total" class="tch-total-card__description mb-0">
+                                                                        <b>{{ number_format($finalTotal, 0, ',', '.') }} đ</b>
+                                                                    </p>
                                                                 </div>
                                                                 <div class="tch-total-card__right mb-0">
                                                                     <button id="buy">
@@ -238,7 +199,6 @@
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
         </div>
     </div>

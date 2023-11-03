@@ -162,7 +162,7 @@
                                                                 </td>
                                                                 <td>
                                                                     @foreach($receipt_details as $receipt_detail)
-                                                                    <div class="tch-order-card__content">
+                                                                    <div class="tch-order-card__content"> 
                                                                         <div class="tch-order-card__content">
                                                                             <h5 class="tch-order-card__title mb-0"> {{ $receipt_detail -> quantity }} x {{ $receipt_detail -> drink_name }} </h5>
                                                                             @foreach( $sizes as $size )

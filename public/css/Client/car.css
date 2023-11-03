@@ -167,7 +167,8 @@ label{
     position: relative;
     z-index: 1;
     margin-top: 20px;
-    width: 450px;
+    width: 70%;
+    margin: 20px auto;
     overflow: hidden;
     
 }
@@ -226,17 +227,44 @@ table {
     padding: 25px 10px;
     color: white;
 }
-#buy{
-    background-color: white;
-    color: #E57905;
+#updatebtn{
+    background-color: #E57905;
+    color: white;
     border-radius: 30px;
     border: none;
     height: 40px;
     width: 100px;
 }
+#updatebtn:hover{
+    background-color: #c46602;
+}
+
+#buy{
+    background-color: white;
+    border-radius: 30px;
+    border: none;
+    height: 40px;
+    width: 100px;
+}
+#buy a{
+    text-decoration: none;
+    color: #E57905;
+}
 #buy:hover{
     background-color: rgb(240, 240, 240);
 }
+#done{
+    background-color: #E57905;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    height: 40px;
+    width: 100px;
+}
+#done:hover{
+    background-color: #c46602;
+}
+
 
 
 footer{

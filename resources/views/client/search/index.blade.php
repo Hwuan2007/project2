@@ -53,6 +53,7 @@
                         <div class="dropdown">
                             <button class="dropbtn"><i class='bx bxs-user-circle'></i></button>
                             <div class="dropdown-content">
+                                <a href="{{ route('search.index') }}">Tìm kiếm</a>
                                 <a href="{{route('login.logout')}}">Đăng xuất</a>
                             </div>
                         </div>
@@ -79,7 +80,7 @@
                                     @method('PUT')
                                     <div class="form-group">
                                         <input type="text" name="phone" placeholder="Tra cứu đơn hàng theo số điện thoại" class="form-control"
-                                        style="width: 350px !important;" class="form-control" />
+                                        style="width: 350px !important;float: left;height:45px" class="form-control" />
                                         <button type="submit">
                                             <i class="fa fa-search card-product-note-icon"></i>
                                         </button>
