@@ -53,7 +53,6 @@
                                     </a>
                                 </li>
                                 <li>
-
                                     <a href="{{ route('drink.index') }}">
                                         <p>
                                             <i class="bx bxs-drink"></i> Đồ uống
@@ -94,7 +93,7 @@
                                     padding-bottom: 15px;
                                 "
                             >
-                                <a class="navbar-brand" href="#"><b>Danh mục</b></a>
+                                <a class="navbar-brand" href="#"><b>Danh Mục</b></a>
                                 <button
                                     class="navbar-toggler"
                                     type="button"

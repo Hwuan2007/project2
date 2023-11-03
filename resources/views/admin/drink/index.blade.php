@@ -31,7 +31,7 @@
                                 Management
                             </h4>
                         </div>
-                        <hr />
+                        <hr>
                         <div>
                             <ul class="choose">
 
@@ -78,11 +78,7 @@
                         </div>
                     </div>
                 </div>
-                @if( session('success') )
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
+
                 <div class="col-lg-10 col-md-4 col-sm-12">
                     <div class="main-panel">
                         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -130,6 +126,11 @@
                                 </div>
                             </div>
                         </nav>
+                        @if( session('success') )
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <div>
                             <div class="content">
                                 <div class="container-fluid">

@@ -11,7 +11,6 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
     use HasFactory;
     protected $table = 'user';
     protected $primaryKey = 'id';
-    public $timestamps = false;
 
     use Authenticatable;
     protected $fillable = ['email','password','username', 'user_phonenumber', 'user_address','role_id'];
