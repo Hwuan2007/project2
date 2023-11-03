@@ -146,7 +146,6 @@ table {
                                                 </thead>
                                                 <tbody>
                                                 @foreach($receipts as $receipt)
-<
                                                     <tr>
                                                         <td>
                                                             @foreach($receipt_details as $receipt_detail)
