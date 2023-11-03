@@ -208,7 +208,7 @@
                                                                     <div class="tch-order-card__right mb-0">
                                                                         @php $total = 0 @endphp
                                                                         @foreach((array) session('cart') as $drink => $details)
-                                                                            @php $total +=$details['size_price'] + $details['drk_price'] * $details['quantity'] @endphp
+                                                                            @php $total += ($details['size_price'] + $details['drk_price']) * $details['quantity'] @endphp
                                                                         @endforeach
                                                                         <p class="tch-order-card__price mb-0">{{ number_format($total, 0, ',', '.') }} đ</p>
                                                                     </div>
