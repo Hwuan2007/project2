@@ -89,21 +89,24 @@ class SearchController extends Controller
     public function searchByUserPhoneNumber(Request $request)
     {
         $phone = $request->phone;
-
-//        $receipts = DB::table('receipt')
-//        ->join('receipt_detail', 'receipt_detail.receipt_id', '=', 'receipt.id')
-//
-//        ->join('drink_detail', 'drink_detail.id', '=', 'receipt_detail.drink_detail_id')
-//        ->join('drink', 'drink_detail.drk_id', '=', 'drink.id')
-//        ->join('size', 'size.id', '=', 'drink_detail.size_id')
-//        ->join('user', 'user.id', '=', 'receipt.user_id')
-//        ->select('receipt_detail.receipt_id', 'receipt_detail.quantity','drink.drk_name','receipt.total_price','size.*','receipt.receipt_status')
-//        ->where('user.user_phonenumber', '=', $phone)
-//        ->get();
         $receipts = Receipt::all();
+        foreach ($receipts as $receipt){
+            $receipt_details = DB::table('receipt_detail')
+                -> join('receipt','receipt.id' ,'=', 'receipt_detail.receipt_id')
+                -> join('drink_detail', 'receipt_detail.drink_detail_id', '=', 'drink_detail.id')
+                -> join('drink', 'drink_detail.drk_id', '=', 'drink.id')
+                -> join('size', 'drink_detail.size_id', '=', 'size.id')
+                -> join('user', 'user.id', '=', 'receipt.user_id')
+                -> join('shipping_method', 'shipping_method.id', '=', 'receipt.shipping_id')
+                // K phải lỗi nhé chạy vẫn oke
+                -> where('user.user_phonenumber', '=', $phone)
+                -> where('receipt_id',$receipt -> id)
+                -> get();
+        }
+        dd($receipt_details);
         return view('/client/search/searchByUserPhoneNumber' ,[
             'receipts' => $receipts,
-            'phone' => $phone,
+            'receipt_details' => $receipt_details,
         ]);
     }
     public function index()

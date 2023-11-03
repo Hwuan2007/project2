@@ -147,17 +147,6 @@ table {
                                                 </thead>
                                                 <tbody>
                                                 @foreach($receipts as $receipt)
-                                                    @php $receipt_details = Illuminate\Support\Facades\DB::table('receipt_detail')
-                                                        -> join('receipt','receipt.id' ,'=', 'receipt_detail.receipt_id')
-                                                        -> join('drink_detail', 'receipt_detail.drink_detail_id', '=', 'drink_detail.id')
-                                                        -> join('drink', 'drink_detail.drk_id', '=', 'drink.id')
-                                                        -> join('size', 'drink_detail.size_id', '=', 'size.id')
-                                                        -> join('user', 'user.id', '=', 'receipt.user_id')
-                                                        // K phải lỗi nhé chạy vẫn oke
-                                                        -> where('user.user_phonenumber', '=', $phone)
-                                                        -> where('receipt_id',$receipt -> id)
-                                                        -> get();
-                                                    @endphp
                                                     <tr>
                                                         <td>
                                                             @foreach($receipt_details as $receipt_detail)
@@ -169,10 +158,10 @@ table {
                                                                 </div>
                                                             @endforeach
                                                         </td>
-                                                        <td> {{ $receipt -> total_price }} </td>
-                                                        <td> {{ $receipt -> receipt_status }} </td>
-                                                        <td> {{ $receipt -> shipping_name }} -> {{ $receipt -> shipping_status }} </td>
-                                                        <td> {{ $receipt -> created_at }} </td>
+                                                        <td> {{ $receipt_detail -> total_price }} </td>
+                                                        <td> {{ $receipt_detail -> receipt_status }} </td>
+                                                        <td> {{ $receipt_detail -> shipping_name }} -> {{ $receipt_detail -> shipping_status }} </td>
+                                                        <td> {{ $receipt_detail -> created_at }} </td>
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
