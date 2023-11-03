@@ -145,14 +145,15 @@
                                                         class="table table-striped"
                                                     >
                                                     <thead>
-                                                            <tr>
-                                                                <th>ID</th>
-                                                                <th>Sản Phẩm</th>
-                                                                <th>Tổng Tiền</th>
-                                                                <th>Action</th>
-                                                                <th>tình trạng</th>
-                                                            </tr>
-                                                        </thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Sản Phẩm</th>
+                                                            <th>Tổng Tiền</th>
+                                                            <th>Action</th>
+                                                            <th>Tình trạng</th>
+                                                            <th>Thời gian</th>
+                                                        </tr>
+                                                    </thead>
                                                         <tbody>
                                                         @foreach( $receipts as $receipt)
                                                             @php $receipt_details = Illuminate\Support\Facades\DB::table('receipt_detail')
@@ -206,6 +207,9 @@
                                                                 @elseif ($receipt->receipt_status == 'ĐÃ HỦY')
                                                                     <span class="check" style="color: #eb5e28;"><b>{{ $receipt -> receipt_status }}</b></span>
                                                                 @endif
+                                                                </td>
+                                                                <td>
+                                                                    {{ $receipt -> created_at }}
                                                                 </td>
                                                             </tr>
                                                         @endforeach
