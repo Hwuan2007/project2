@@ -21,7 +21,6 @@ class CreateUserTable extends Migration
             $table->string('user_phonenumber');
             $table->string('user_address');
             $table->foreignId('role_id')->constrained('role');
-            $table -> timestamps();
         });
     }
 
