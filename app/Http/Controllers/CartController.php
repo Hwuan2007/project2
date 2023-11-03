@@ -52,8 +52,6 @@ class CartController extends Controller
             $total_price = $price + 18000;
             DB::table('receipt_detail')->insert([
                 'receipt_id' => $order_id['id'],
-                'size_name' => $details['size_id'],
-                'drink_name' => $details['drk_name'],
                 'drink_detail_id' => $details['drink_details'],
                 'quantity' => $details['quantity'],
                 'price' => $total_price,
@@ -66,7 +64,7 @@ class CartController extends Controller
         $cart = Session::get('cart');
         foreach($request -> input('quantity') as $cart_id => $quantity){
             $cart[$cart_id]['quantity'] = $quantity;
-        
+
         }
         Session::put(['cart' => $cart]);
         return Redirect::route('cart.viewCart');

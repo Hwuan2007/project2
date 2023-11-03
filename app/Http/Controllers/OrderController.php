@@ -26,11 +26,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $sizes = Size::all();
         $receipts = Receipt::all();
         return view('admin/order/index', [
             'receipts' => $receipts,
-            'sizes' => $sizes,
         ]);
     }
 
@@ -100,16 +98,18 @@ class OrderController extends Controller
         //
     }
     public function detail(Receipt $receipt){
-        $drinks = Drink::all();
-        $sizes = Size::all();
-        $receiptsDetails = ReceiptDetail::all()-> where('receipt_id', '=', $receipt -> id);
+        $receiptsDetails = DB::table('receipt_detail')
+            -> join('receipt','receipt.id' ,'=', 'receipt_detail.receipt_id')
+            -> join('drink_detail', 'receipt_detail.drink_detail_id', '=', 'drink_detail.id')
+            -> join('drink', 'drink_detail.drk_id', '=', 'drink.id')
+            -> join('size', 'drink_detail.size_id', '=', 'size.id')
+            -> where('receipt_id',$receipt -> id)
+            -> get();
         $users = User::all() -> where('id', '=', $receipt -> user_id);
         return view('admin/order/order_details/detail',[
             'receipt' => $receipt,
             'users' => $users,
             'receiptsDetails' => $receiptsDetails,
-            'sizes' => $sizes,
-            'drinks' => $drinks,
         ]);
     }
     public function accept($id) {

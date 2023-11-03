@@ -12,6 +12,46 @@
           rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
           crossorigin="anonymous">
+    <style>
+.card {
+    border-radius: 6px;
+    box-shadow: 0 2px 2px rgba(204,197,185,.5);
+    background-color: #fff;
+    color: #252422;
+    position: relative;
+    z-index: 1;
+    width: 50% ;
+    margin: 30px auto;
+
+}
+.card .header {
+    padding: 20px 20px 0;
+}
+.card .title {
+    margin: 0;
+    color: #252422;
+    font-weight: 300;
+}
+.card .content {
+    padding: 15px 15px 10px;
+}
+        .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+table {
+    background-color: transparent;
+}
+.table-full-width {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+    </style>
 </head>
 <body>
     <header class="header">
@@ -101,27 +141,40 @@
                                                         <th>Sản Phẩm</th>
                                                         <th>Tổng Tiền</th>
                                                         <th>Tình trạng</th>
+                                                        <th>Ship</th>
+                                                        <th>Thời gian</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                @foreach($receipts as $receipt)
+                                                    @php $receipt_details = Illuminate\Support\Facades\DB::table('receipt_detail')
+                                                        -> join('receipt','receipt.id' ,'=', 'receipt_detail.receipt_id')
+                                                        -> join('drink_detail', 'receipt_detail.drink_detail_id', '=', 'drink_detail.id')
+                                                        -> join('drink', 'drink_detail.drk_id', '=', 'drink.id')
+                                                        -> join('size', 'drink_detail.size_id', '=', 'size.id')
+                                                        -> join('user', 'user.id', '=', 'receipt.user_id')
+                                                        // K phải lỗi nhé chạy vẫn oke
+                                                        -> where('user.user_phonenumber', '=', $phone)
+                                                        -> where('receipt_id',$receipt -> id)
+                                                        -> get();
+                                                    @endphp
                                                     <tr>
                                                         <td>
-                                                            @foreach($receipts as $receipt)
+                                                            @foreach($receipt_details as $receipt_detail)
                                                                 <div class="tch-order-card__content">
                                                                     <div class="tch-order-card__content">
-                                                                        <h5 class="tch-order-card__title mb-0"> {{ $receipt -> quantity }} x {{ $receipt -> drk_name }} </h5>
-                                                                        @foreach( $sizes as $size )
-                                                                            @if( $size -> id == $receipt -> size_name)
-                                                                                Size: <b>{{ $size -> size_name }}</b>
-                                                                            @endif
-                                                                        @endforeach
+                                                                        <h5 class="tch-order-card__title mb-0"> {{ $receipt_detail -> quantity }} x {{ $receipt_detail -> drk_name }} </h5>
+                                                                        Size: <b>{{ $receipt_detail -> size_name }}</b>
                                                                     </div>
                                                                 </div>
                                                             @endforeach
                                                         </td>
                                                         <td> {{ $receipt -> total_price }} </td>
                                                         <td> {{ $receipt -> receipt_status }} </td>
+                                                        <td> {{ $receipt -> shipping_name }} -> {{ $receipt -> shipping_status }} </td>
+                                                        <td> {{ $receipt -> created_at }} </td>
                                                     </tr>
+                                                @endforeach
                                                 </tbody>
                                             </table>
                                         </div>

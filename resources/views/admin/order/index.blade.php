@@ -155,38 +155,41 @@
                                                         </thead>
                                                         <tbody>
                                                         @foreach( $receipts as $receipt)
-                                                            @php $receipt_details = App\Models\ReceiptDetail::all()-> where('receipt_id', '=', $receipt -> id); @endphp
+                                                            @php $receipt_details = Illuminate\Support\Facades\DB::table('receipt_detail')
+                                                                -> join('receipt','receipt.id' ,'=', 'receipt_detail.receipt_id')
+                                                                -> join('drink_detail', 'receipt_detail.drink_detail_id', '=', 'drink_detail.id')
+                                                                -> join('drink', 'drink_detail.drk_id', '=', 'drink.id')
+                                                                -> join('size', 'drink_detail.size_id', '=', 'size.id')
+                                                                -> where('receipt_id',$receipt -> id)
+                                                                -> get();
+                                                            @endphp
                                                             <tr>
                                                                 <td>
                                                                    {{ $receipt -> id}}
                                                                 </td>
                                                                 <td>
                                                                     @foreach($receipt_details as $receipt_detail)
-                                                                    <div class="tch-order-card__content"> 
                                                                         <div class="tch-order-card__content">
-                                                                            <h5 class="tch-order-card__title mb-0"> {{ $receipt_detail -> quantity }} x {{ $receipt_detail -> drink_name }} </h5>
-                                                                            @foreach( $sizes as $size )
-                                                                                @if( $size -> id == $receipt_detail -> size_name)
-                                                                                    Size: <b>{{ $size -> size_name }}</b>
-                                                                                @endif
-                                                                            @endforeach
+                                                                            <div class="tch-order-card__content">
+                                                                                <h5 class="tch-order-card__title mb-0"> {{ $receipt_detail -> quantity }} x {{ $receipt_detail -> drk_name }} </h5>
+                                                                                Size: <b>{{ $receipt_detail -> size_name }}</b>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
                                                                     @endforeach
                                                                 </td>
                                                                 <td>
-                                                                    {{ number_format($receipt_detail -> price, 0, ',', '.') }} đ
+                                                                    {{ number_format($receipt_detail -> total_price, 0, ',', '.') }} đ
                                                                 </td>
                                                                 <td>
                                                                     <button class="detail-btn ">
-                                                                        <a href=" {{ route('order.detail' , $receipt_detail -> receipt_id) }}"> chi tiết </a>
+                                                                        <a href=" {{ route('order.detail' , $receipt -> id) }}"> chi tiết </a>
                                                                     </button>
                                                                     @if ($receipt->receipt_status == 'Đang chờ')
                                                                     <button class="accept-btn ">
-                                                                        <a href=" {{ route('order.accept' , $receipt_detail -> receipt_id) }}"> Duyệt đơn </a>
+                                                                        <a href=" {{ route('order.accept' , $receipt -> id) }}"> Duyệt đơn </a>
                                                                     </button>
                                                                     <button class="del-btn ">
-                                                                        <a href=" {{ route('order.cancel' , $receipt_detail -> receipt_id) }}"> Hủy </a>
+                                                                        <a href=" {{ route('order.cancel' , $receipt -> id) }}"> Hủy </a>
                                                                     </button>
                                                                     @elseif ($receipt->receipt_status == 'ĐÃ XÁC NHẬN')
                                                                     <button class="del-btn">

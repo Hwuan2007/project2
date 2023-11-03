@@ -16,8 +16,6 @@ class ReceiptDetail extends Migration
         Schema::create('receipt_detail', function (Blueprint $table) {
             $table->integer('quantity');
             $table->string('price');
-            $table->string('size_name');
-            $table->string('drink_name');
             $table->foreignId('receipt_id') ->constrained('receipt');
             $table->foreignId('drink_detail_id') ->constrained('drink_detail');
         });

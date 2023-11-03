@@ -74,8 +74,7 @@
                 </h2>
             </div>
             <div class="receipt">
-                    <div class="row">
-                        
+                    <div class="row">                  
                         <div class="col-lg-12 col-md-12 col-sm-12" >
                             <div class="receipt-main">
                                 <div class="content">
@@ -137,8 +136,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
-                                                            
                                                             <br>
                                                             <div>
                                                                 <div class="title">
@@ -161,14 +158,14 @@
                                                                 </div>
                                                                 <hr>
                                                                 <div class="tch-order-card tch-order-card--border d-flex align-items-center justify-content-between">
-                                                                    <div div class="tch-order-card__left d-flex">
+                                                                    <div class="tch-order-card__left d-flex">
                                                                         <p  class="tch-order-card__text mb-0">Phí giao hàng</p>
                                                                     </div>
                                                                     <div class="tch-order-card__right mb-0">
                                                                         @php $discount = 18000 @endphp
                                                                         @php $finalTotal = $total @endphp
                                                                         @php $finalTotal = $total + $discount @endphp
-                                                                        <p  class="tch-order-card__price mb-0">18.000 đ</p>
+                                                                        <p class="tch-order-card__price mb-0">18.000 đ</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -275,12 +272,8 @@
         form.submit();
     });
 </script>
-
     <script src="{{ asset ('js/client/no-reload.js') }}"></script>
-
     <script src="{{ asset ('js/client/quantity.js') }}"></script>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>

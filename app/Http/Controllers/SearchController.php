@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Receipt;
 use App\Models\Size;
 use Illuminate\Support\Facades\DB;
 use App\Models\Search;
@@ -87,22 +88,22 @@ class SearchController extends Controller
     }
     public function searchByUserPhoneNumber(Request $request)
     {
-        $sizes = Size::all();
         $phone = $request->phone;
-        
-        $receipts = DB::table('receipt')
-        ->join('receipt_detail', 'receipt_detail.receipt_id', '=', 'receipt.id')
-        
-        ->join('drink_detail', 'drink_detail.id', '=', 'receipt_detail.drink_detail_id')
-        ->join('drink', 'drink_detail.drk_id', '=', 'drink.id')
-        ->join('size', 'size.id', '=', 'drink_detail.size_id')
-        ->join('user', 'user.id', '=', 'receipt.user_id')
-        ->select('receipt_detail.receipt_id', 'receipt_detail.quantity','drink.drk_name','receipt.total_price','size.*','receipt.receipt_status')
-        ->where('user.user_phonenumber', '=', $phone)
-        ->get();
+
+//        $receipts = DB::table('receipt')
+//        ->join('receipt_detail', 'receipt_detail.receipt_id', '=', 'receipt.id')
+//
+//        ->join('drink_detail', 'drink_detail.id', '=', 'receipt_detail.drink_detail_id')
+//        ->join('drink', 'drink_detail.drk_id', '=', 'drink.id')
+//        ->join('size', 'size.id', '=', 'drink_detail.size_id')
+//        ->join('user', 'user.id', '=', 'receipt.user_id')
+//        ->select('receipt_detail.receipt_id', 'receipt_detail.quantity','drink.drk_name','receipt.total_price','size.*','receipt.receipt_status')
+//        ->where('user.user_phonenumber', '=', $phone)
+//        ->get();
+        $receipts = Receipt::all();
         return view('/client/search/searchByUserPhoneNumber' ,[
             'receipts' => $receipts,
-            'sizes' => $sizes,
+            'phone' => $phone,
         ]);
     }
     public function index()

@@ -195,18 +195,15 @@
                                                                             <tr>
                                                                                 <td>
                                                                                     @foreach( $receiptsDetails as $receiptsDetail )
+{{--                                                                                        @dd($receiptsDetails)--}}
                                                                                         <div class="tch-order-card__content">
                                                                                             <div class="tch-order-card__content">
                                                                                                 <h5 class="tch-order-card__title mb-0">
-                                                                                                    {{ $receiptsDetail -> drink_name }}
+                                                                                                    {{ $receiptsDetail -> drk_name }}
                                                                                                 </h5>
                                                                                                 <div class="container">
                                                                                                     <p class="tch-order-card__description mb-0">
-                                                                                                        @foreach( $sizes as $size )
-                                                                                                            @if( $size -> id == $receiptsDetail -> size_name)
-                                                                                                                Size: <b>{{ $size -> size_name }}</b>
-                                                                                                            @endif
-                                                                                                        @endforeach
+                                                                                                        Size: <b>{{ $receiptsDetail -> size_name }}</b>
                                                                                                     </p>
                                                                                                 </div>
                                                                                             </div>
@@ -218,21 +215,21 @@
                                                                                         <div class="tch-order-card__content">
                                                                                             @foreach( $receiptsDetails as $receiptsDetail )
                                                                                                 <p class="tch-order-card__description mb-0" style="margin-left: 10px;">
-                                                                                                    {{ number_format($receipt -> total_price, 0, ',', '.') }} đ
+                                                                                                    {{ number_format($receiptsDetail -> drk_price, 0, ',', '.') }} đ
                                                                                                 </p>
-                                                                                                @foreach( $sizes as $size )
-                                                                                                    @if( $size -> id == $receiptsDetail -> size_name)
-                                                                                                        <p class="tch-order-card__description mb-0">
-                                                                                                            {{ number_format($size -> size_price, 0, ',', '.') }} đ
-                                                                                                        </p>
-                                                                                                    @endif
-                                                                                                @endforeach
+                                                                                                <p class="tch-order-card__description mb-0">
+                                                                                                    {{ number_format($receiptsDetail -> size_price, 0, ',', '.') }} đ
+                                                                                                </p>
                                                                                             @endforeach
                                                                                         </div>
                                                                                     </div>
                                                                                 </td>
                                                                                 <td>
-                                                                                    {{$receiptsDetail -> quantity}}
+                                                                                    @foreach( $receiptsDetails as $receiptsDetail )
+                                                                                        {{$receiptsDetail -> quantity}}
+                                                                                        <br>
+                                                                                        <br>
+                                                                                    @endforeach
                                                                                 </td>
                                                                                 <td>
                                                                                     {{ number_format($receiptsDetail -> price, 0, ',', '.') }} đ

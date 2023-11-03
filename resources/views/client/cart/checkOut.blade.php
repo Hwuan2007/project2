@@ -126,14 +126,10 @@
                                         xác nhận
                                     </button>
                                 </div>
-                                    
-                               
                                 </form>
-                                
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-4 col-sm-12" >
-                            
                             <div class="receipt-main">
                                 <div class="content">
                                     <div class="container-fluid">
@@ -147,27 +143,26 @@
                                                                     <div>
                                                                         <div class="title">
                                                                             <a href="" class="no-reload">Đơn hàng đã đặt </a>
-                                                                            
                                                                         </div>
                                                                     </div>
                                                                     <div class="container">
                                                                         <div class="drinkincart">
-
-                                                                        @if( session('cart') )
-                                                                            @foreach( session('cart') as $drk_id => $drink )
-                                                                                <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
-                                                                                    <div class="tch-order-card__left d-flex">
-                                                                                        <div class="tch-order-card__content">
-                                                                                            <h5 class="tch-order-card__title mb-0">
-                                                                                                {{ $drink['drk_name'] }}
-                                                                                                    x 
-                                                                                                {{ $drink['quantity'] }}
-                                                                                            </h5>                                                                                            
-                                                                                            @foreach( $sizes as $size )
-                                                                                                @if( $size -> id == $drink['size_id'])
-                                                                                                    <p class="tch-order-card__description mb-0"> {{ $size -> size_name }}</p>
-                                                                                                @endif
-                                                                                            @endforeach
+                                                                            @if( session('cart') )
+                                                                                @foreach( session('cart') as $drk_id => $drink )
+                                                                                    <div data-toggle="modal" data-target="#cardModal" class="tch-order-card d-flex align-items-center justify-content-between">
+                                                                                        <div class="tch-order-card__left d-flex">
+                                                                                            <div class="tch-order-card__content">
+                                                                                                <h5 class="tch-order-card__title mb-0">
+                                                                                                    {{ $drink['drk_name'] }}
+                                                                                                        x
+                                                                                                    {{ $drink['quantity'] }}
+                                                                                                </h5>
+                                                                                                @foreach( $sizes as $size )
+                                                                                                    @if( $size -> id == $drink['size_id'])
+                                                                                                        <p class="tch-order-card__description mb-0"> {{ $size -> size_name }}</p>
+                                                                                                    @endif
+                                                                                                @endforeach
+                                                                                            </div>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div>
@@ -180,6 +175,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                            </div>
 
                                                             </div>
                                                             <br>
@@ -216,7 +212,7 @@
                                                                 </div>
                                                             </div>
                                                         </table>
-                                                    </form>
+
                                                     <div class="footer-receipt" >
                                                         <div class="container">
                                                             <div class="tch-checkout-box tch-checkout-box--list-submited d-flex justify-content-between w-100 position-static">
@@ -232,10 +228,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
