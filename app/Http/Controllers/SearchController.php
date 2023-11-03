@@ -98,12 +98,10 @@ class SearchController extends Controller
                 -> join('size', 'drink_detail.size_id', '=', 'size.id')
                 -> join('user', 'user.id', '=', 'receipt.user_id')
                 -> join('shipping_method', 'shipping_method.id', '=', 'receipt.shipping_id')
-                // K phải lỗi nhé chạy vẫn oke
                 -> where('user.user_phonenumber', '=', $phone)
                 -> where('receipt_id',$receipt -> id)
                 -> get();
         }
-        dd($receipt_details);
         return view('/client/search/searchByUserPhoneNumber' ,[
             'receipts' => $receipts,
             'receipt_details' => $receipt_details,
