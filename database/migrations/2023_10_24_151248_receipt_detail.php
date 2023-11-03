@@ -18,7 +18,6 @@ class ReceiptDetail extends Migration
             $table->string('price');
             $table->foreignId('receipt_id') ->constrained('receipt');
             $table->foreignId('drink_detail_id') ->constrained('drink_detail');
-            $table -> timestamps();
         });
     }
 
