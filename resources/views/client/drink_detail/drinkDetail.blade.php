@@ -125,6 +125,9 @@
                                             </label>
                                         @endforeach
                                     </div>
+                                    @if( $errors -> has('size_id'))
+                                        <span style="color: red;">{{ $errors -> first('size_id') }}</span>
+                                    @endif
                                     <br>
                                     <br>
                                     <button id="btn-order" class="save-btn"><i class='bx bx-cart-alt' style="font-size: 20px;"></i> <b> Giao Hàng Tận Nơi</b> </button>

@@ -78,6 +78,11 @@
                         </div>
                     </div>
                 </div>
+                @if( session('success') )
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="col-lg-10 col-md-4 col-sm-12">
                     <div class="main-panel">
                         <nav class="navbar navbar-expand-lg bg-body-tertiary">

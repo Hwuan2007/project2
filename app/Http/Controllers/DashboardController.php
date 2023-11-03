@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Drink;
+use App\Models\Order;
 use App\Models\Receipt;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -46,10 +47,12 @@ class DashboardController extends Controller
         $categories = Category::all() -> count();
         $drinks = Drink::all() -> count();
         $users = User::all() -> count();
+        $orders = Receipt::all() -> count();
         return view('admin/dashboard/index', [
             'categories' => $categories,
             'drinks' => $drinks,
             'users' => $users,
+            'orders' => $orders,
             'chartData' => $chartData,
         ]);
     }

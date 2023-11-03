@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Drink;
 use App\Models\DrinkDetail;
-use App\Http\Requests\StoreDrinkDetailRequest;
+use App\Http\Requests\DrinkDetailRequest;
 use App\Models\Size;
 use App\Models\topping;
 use Illuminate\Http\Request;
@@ -30,11 +30,8 @@ class DrinkDetailController extends Controller
         ]);
 
     }
-    public function store(Request $request, Drink $drink): \Illuminate\Http\RedirectResponse
+    public function store(DrinkDetailRequest $request, Drink $drink): \Illuminate\Http\RedirectResponse
     {
-        if($request->size_id == null){
-            return redirect()->route('drink_detail.drinkDetail', $drink);
-        }
         DB::table('drink_detail') -> insert([
             'size_id' => $request -> size_id,
             'drk_id' => $drink -> id,

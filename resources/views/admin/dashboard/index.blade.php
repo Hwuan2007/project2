@@ -127,6 +127,11 @@
                                 </div>
                             </div>
                         </nav>
+                        @if( session('success') )
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <div>
                             <div
                                 class="container-fluid"
@@ -259,7 +264,7 @@
                                                 <div class="footer">
                                                     <hr />
                                                     <div class="total">
-                                                        ... Đơn hàng
+                                                        {{ $orders }} Đơn hàng
                                                     </div>
                                                 </div>
                                             </div>

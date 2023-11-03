@@ -85,47 +85,62 @@
                                 </div>
                                 <br>
                                 <br>
-                                <form action="{{route('cart.check')}}" method="post">
+                                <form action="{{ route('cart.check') }}" method="post">
                                     @csrf
-                                <div>
-                                    <input type="text" id="address" name="user_address" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;"required />
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="name" name="username" placeholder="Nhập tên người nhận" class="form-control" style="width: 450px;"required />
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="phonenumber" name="user_phonenumber" placeholder="Nhập số điện thoại" class="form-control" style="width: 450px;"required />
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="text" id="note" name="note" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;"required />
-                                </div>
-                                <br>
-                                <div>
-                                    <select name="shipping_id" class="form-control" >
-                                        @foreach( $shipping_methods as $shipping_method)
-                                            <option name="shipping_id" value="{{ $shipping_method -> id}}">
-                                                {{ $shipping_method -> shipping_name }}-{{ $shipping_method -> shipping_status }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div>
-                                    <input type="hidden" id="role" name="role_id" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="2"/>
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="checkbox" name="checkbox" id="checkbox">
-                                    <label for="checkbox" class="checkbox"> Đồng ý với các điều khoản và điều kiện mua hàng của The Coffee House</label>
-                                </div>
-                                <br>
-                                <div>
-                                    <button type="submit" id="done">
-                                        xác nhận
-                                    </button>
-                                </div>
+                                    <div>
+                                        <input type="text" id="address" name="user_address" placeholder="Nhập địa chỉ" class="form-control" style="width: 450px;"/>
+                                    </div>
+                                    @if( $errors -> has('user_address'))
+                                        <span style="color: red;">{{ $errors -> first('user_address') }}</span>
+                                    @endif
+                                    <br>
+                                    <div>
+                                        <input type="text" id="name" name="username" placeholder="Nhập tên người nhận" class="form-control" style="width: 450px;"/>
+                                    </div>
+                                    @if( $errors -> has('username'))
+                                        <span style="color: red;">{{ $errors -> first('username') }}</span>
+                                    @endif
+                                    <br>
+                                    <div>
+                                        <input type="text" id="phonenumber" name="user_phonenumber" placeholder="Nhập số điện thoại" class="form-control" style="width: 450px;"/>
+                                    </div>
+                                    @if( $errors -> has('user_phonenumber'))
+                                        <span style="color: red;">{{ $errors -> first('user_phonenumber') }}</span>
+                                    @endif
+                                    <br>
+                                    <div>
+                                        <input type="text" id="note" name="note" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" />
+                                    </div>
+                                    @if( $errors -> has('note'))
+                                        <span style="color: red;">{{ $errors -> first('note') }}</span>
+                                    @endif
+                                    <br>
+                                    <div>
+                                        <select name="shipping_id" class="form-control" >
+                                            @foreach( $shipping_methods as $shipping_method)
+                                                <option name="shipping_id" value="{{ $shipping_method -> id}}">
+                                                    {{ $shipping_method -> shipping_name }}-{{ $shipping_method -> shipping_status }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <input type="hidden" id="role" name="role_id" placeholder="Thêm ghi chú" class="form-control" style="width: 450px;" value="2"/>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <input type="checkbox" name="checkbox" id="checkbox">
+                                        <label for="checkbox" class="checkbox"> Đồng ý với các điều khoản và điều kiện mua hàng của The Coffee House</label>
+                                    </div>
+                                    @if( $errors -> has('checkbox'))
+                                        <span style="color: red;">{{ $errors -> first('checkbox') }}</span>
+                                    @endif
+                                    <br>
+                                    <div>
+                                        <button type="submit" id="done">
+                                            Xác nhận
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

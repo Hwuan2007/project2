@@ -128,6 +128,11 @@
                                 </div>
                             </div>
                         </nav>
+                        @if( session('success') )
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <div>
                             <div class="content">
                                 <div class="container-fluid">

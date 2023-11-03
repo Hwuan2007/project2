@@ -86,7 +86,7 @@ class SearchController extends Controller
 
     public function search(){
     }
-    public function searchByUserPhoneNumber(Request $request)
+    public function searchByUserPhoneNumber(StoreSearchRequest $request)
     {
         $phone = $request->phone;
 

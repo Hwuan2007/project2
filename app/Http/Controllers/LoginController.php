@@ -21,12 +21,12 @@ class LoginController extends Controller
             Auth::guard('admin')->login($employee);
             Session::put('admin', $employee);
             if($employee->role_id == 1){
-                return redirect()->route('dashboard.index');
+                return redirect()->route('dashboard.index')-> with('success', 'Đăng nhập thành công!');
             }else{
-                return redirect()->route('client.index');
+                return redirect()->route('client.index')-> with('success', 'Đăng nhập thành công!');
             }
         }else{
-            return redirect()->route('login.login');
+            return redirect()->route('login.login')-> with('success', 'Đăng nhập thất bại!');
         }
     }
     public function logout(){
